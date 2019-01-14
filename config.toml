@@ -1,0 +1,25 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "KG – Hacks. Thoughts. Writings."
+author = "Kiran Gangadharan"
+theme = "black-and-light"
+
+pygmentsstyle       = "bw"
+pygmentscodefences = true
+
+[params]
+  sitename = "KG – Hacks. Thoughts. Writings."
+  disableWebFonts = false
+
+
+# Menu Configuration
+
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+[[menu.main]]
+    name = "Code"
+    url  = "https://github.com/kirang89"
+[[menu.main]]
+    name = "Resume"
+    url = "#"
