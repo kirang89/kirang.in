@@ -4,7 +4,7 @@ title = "KG – Hacks. Thoughts. Writings."
 author = "Kiran Gangadharan"
 theme = "black-and-light"
 
-pygmentsstyle       = "bw"
+pygmentsstyle = "pastie"
 pygmentscodefences = true
 
 [params]
