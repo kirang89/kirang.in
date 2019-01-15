@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentation on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://localhost:1313/tags/documentation/</link>
+    <link>https://kirang89.github.io/kirang.in/tags/documentation/</link>
     <description>Recent content in Documentation on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 May 2013 16:55:00 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Make your open source project documentation suck less</title>
-      <link>http://localhost:1313/post/make-your-open-source-project-documentation-suck-less/</link>
+      <link>https://kirang89.github.io/kirang.in/post/make-your-open-source-project-documentation-suck-less/</link>
       <pubDate>Tue, 07 May 2013 16:55:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/make-your-open-source-project-documentation-suck-less/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/make-your-open-source-project-documentation-suck-less/</guid>
       <description>I just stumbled into this talk about documentation by Jacob-Kaplan Moss and it was really an insightful look into how one must design the documentation for an open source project. Below is the gist of his talk:
 Documentation is communication This is the single most important point that you need to understand. Documentation is not just written as a guide, but as a means to communicate with various developers and users across the globe.</description>
     </item>

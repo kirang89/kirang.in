@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clojure on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://localhost:1313/tags/clojure/</link>
+    <link>https://kirang89.github.io/kirang.in/tags/clojure/</link>
     <description>Recent content in Clojure on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 Jan 2016 00:00:00 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rationals vs Decimals in Clojure</title>
-      <link>http://localhost:1313/post/rationals-vs-decimals-clojure/</link>
+      <link>https://kirang89.github.io/kirang.in/post/rationals-vs-decimals-clojure/</link>
       <pubDate>Sat, 30 Jan 2016 00:00:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/rationals-vs-decimals-clojure/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/rationals-vs-decimals-clojure/</guid>
       <description>Use rationals if accuracy is your main concern. For example, operations on decimals are not associative.  (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (+ (+ a b) c) (+ a (+ b c)))) ; =&amp;gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
  Rationals are slower in terms of operations on them when compared to decimals.</description>
     </item>
     
     <item>
       <title>Concurrent Prime Sieve in Clojure</title>
-      <link>http://localhost:1313/post/concurrent-prime-sieve-in-clojure/</link>
+      <link>https://kirang89.github.io/kirang.in/post/concurrent-prime-sieve-in-clojure/</link>
       <pubDate>Mon, 28 Dec 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/concurrent-prime-sieve-in-clojure/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/concurrent-prime-sieve-in-clojure/</guid>
       <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):
 (defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
@@ -34,10 +34,10 @@ Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2
     
     <item>
       <title>Different applications of reduce in Clojure</title>
-      <link>http://localhost:1313/post/different-applications-of-reduce-in-clojure/</link>
+      <link>https://kirang89.github.io/kirang.in/post/different-applications-of-reduce-in-clojure/</link>
       <pubDate>Sun, 15 Nov 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/different-applications-of-reduce-in-clojure/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/different-applications-of-reduce-in-clojure/</guid>
       <description>I&amp;rsquo;ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I&amp;rsquo;ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
 This post is an effort to document some snippets to demonstrate how useful reduce can be.
 Reverse a collection (defn myreverse [coll] (reduce conj &amp;#39;() coll)) (myreverse &amp;#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.</description>

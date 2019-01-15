@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Workshop on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://localhost:1313/tags/workshop/</link>
+    <link>https://kirang89.github.io/kirang.in/tags/workshop/</link>
     <description>Recent content in Workshop on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Oct 2013 18:51:00 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/workshop/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/workshop/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>An Eventful September</title>
-      <link>http://localhost:1313/post/an-eventful-september/</link>
+      <link>https://kirang89.github.io/kirang.in/post/an-eventful-september/</link>
       <pubDate>Thu, 03 Oct 2013 18:51:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/an-eventful-september/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/an-eventful-september/</guid>
       <description>&lt;p&gt;Looking back at September, it&amp;rsquo;s probably been one of the most happening
 months for me in this year. Well, at least technically. I will try and
 recollect some bits from the eventlog here.&lt;/p&gt;</description>

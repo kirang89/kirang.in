@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Osx on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://localhost:1313/tags/osx/</link>
+    <link>https://kirang89.github.io/kirang.in/tags/osx/</link>
     <description>Recent content in Osx on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Dec 2013 12:13:00 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/osx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing PIL on Mac OSX Mavericks</title>
-      <link>http://localhost:1313/post/installing-pil-on-mac-osx-mavericks/</link>
+      <link>https://kirang89.github.io/kirang.in/post/installing-pil-on-mac-osx-mavericks/</link>
       <pubDate>Mon, 09 Dec 2013 12:13:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/installing-pil-on-mac-osx-mavericks/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/installing-pil-on-mac-osx-mavericks/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ve probably tried installing &lt;a href=&#34;http://en.wikipedia.org/wiki/Python_Imaging_Library&#34;&gt;PIL(Python Imaging
 Library)&lt;/a&gt; on OSX
 Mavericks(version 10.9), you&amp;rsquo;re likely to have failed in doing so. After

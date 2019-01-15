@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bootstrapy on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://localhost:1313/tags/bootstrapy/</link>
+    <link>https://kirang89.github.io/kirang.in/tags/bootstrapy/</link>
     <description>Recent content in Bootstrapy on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Sep 2013 22:44:00 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/bootstrapy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/bootstrapy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Building an open-source Python application the right way</title>
-      <link>http://localhost:1313/post/building-an-open-source-python-application-the-right-way/</link>
+      <link>https://kirang89.github.io/kirang.in/post/building-an-open-source-python-application-the-right-way/</link>
       <pubDate>Mon, 09 Sep 2013 22:44:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/building-an-open-source-python-application-the-right-way/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/building-an-open-source-python-application-the-right-way/</guid>
       <description>&lt;p&gt;If you love Python and love open source like I do, you&amp;rsquo;d probably be
 open sourcing something new every day/week/month. Sure that there are
 quite a lot of articles online that tell you the best practices of

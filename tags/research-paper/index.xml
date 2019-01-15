@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research Paper on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://localhost:1313/tags/research-paper/</link>
+    <link>https://kirang89.github.io/kirang.in/tags/research-paper/</link>
     <description>Recent content in Research Paper on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0530</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/research-paper/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/research-paper/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CS Reading: Computer Programming as an Art</title>
-      <link>http://localhost:1313/post/cs-reading-computer-programming-as-an-art/</link>
+      <link>https://kirang89.github.io/kirang.in/post/cs-reading-computer-programming-as-an-art/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/cs-reading-computer-programming-as-an-art/</guid>
+      <guid>https://kirang89.github.io/kirang.in/post/cs-reading-computer-programming-as-an-art/</guid>
       <description>Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of &amp;ldquo;Art&amp;rdquo;. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.</description>
     </item>
     
