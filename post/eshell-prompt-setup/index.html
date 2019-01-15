@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+         My eshell prompt setup 
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/eshell-prompt-setup/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> My eshell prompt setup </h1>
+
+  
+    <div id=sub-header>
+      June 2016 · 2 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    <p>My setup is based on
+<a href="https://github.com/howardabrams/dot-files/blob/master/emacs-eshell.org#special-prompt">Howard Abrams&rsquo; setup</a>
+with some minor additions and is reproduced in its entirety here:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#369">defun</span> <span style="color:#369">curr-dir-git-branch-string</span> (<span style="color:#369">pwd</span>)
+  <span style="color:#d20;background-color:#fff0f0">&#34;Returns current git branch as a string, or the empty string if
+</span><span style="color:#d20;background-color:#fff0f0">PWD is not in a git repo (or the git command is not found).&#34;</span>
+  (<span style="color:#369">interactive</span>)
+  (<span style="color:#369">when</span> (<span style="color:#369">and</span> (<span style="color:#369">eshell-search-path</span> <span style="color:#d20;background-color:#fff0f0">&#34;git&#34;</span>)
+             (<span style="color:#369">locate-dominating-file</span> <span style="color:#369">pwd</span> <span style="color:#d20;background-color:#fff0f0">&#34;.git&#34;</span>))
+    (<span style="color:#369">let</span> ((<span style="color:#369">git-output</span> (<span style="color:#369">shell-command-to-string</span> (<span style="color:#369">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34;cd &#34;</span> <span style="color:#369">pwd</span> <span style="color:#d20;background-color:#fff0f0">&#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;</span>))))
+      (<span style="color:#369">if</span> (<span style="color:#369">&gt;</span> (<span style="color:#369">length</span> <span style="color:#369">git-output</span>) <span style="color:#00d;font-weight:bold">0</span>)
+          (<span style="color:#369">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34; :&#34;</span> (<span style="color:#369">substring</span> <span style="color:#369">git-output</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#00d;font-weight:bold">-1</span>))
+        <span style="color:#d20;background-color:#fff0f0">&#34;(no branch)&#34;</span>))))
+
+(<span style="color:#369">defun</span> <span style="color:#369">pwd-replace-home</span> (<span style="color:#369">pwd</span>)
+  <span style="color:#d20;background-color:#fff0f0">&#34;Replace home in PWD with tilde (~) character.&#34;</span>
+  (<span style="color:#369">interactive</span>)
+  (<span style="color:#369">let*</span> ((<span style="color:#369">home</span> (<span style="color:#369">expand-file-name</span> (<span style="color:#369">getenv</span> <span style="color:#d20;background-color:#fff0f0">&#34;HOME&#34;</span>)))
+         (<span style="color:#369">home-len</span> (<span style="color:#369">length</span> <span style="color:#369">home</span>)))
+    (<span style="color:#369">if</span> (<span style="color:#369">and</span>
+         (<span style="color:#369">&gt;=</span> (<span style="color:#369">length</span> <span style="color:#369">pwd</span>) <span style="color:#369">home-len</span>)
+         (<span style="color:#369">equal</span> <span style="color:#369">home</span> (<span style="color:#369">substring</span> <span style="color:#369">pwd</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#369">home-len</span>)))
+        (<span style="color:#369">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34;~&#34;</span> (<span style="color:#369">substring</span> <span style="color:#369">pwd</span> <span style="color:#369">home-len</span>))
+      <span style="color:#369">pwd</span>)))
+
+(<span style="color:#369">defun</span> <span style="color:#369">pwd-shorten-dirs</span> (<span style="color:#369">pwd</span>)
+  <span style="color:#d20;background-color:#fff0f0">&#34;Shorten all directory names in PWD except the last two.&#34;</span>
+  (<span style="color:#369">let</span> ((<span style="color:#369">p-lst</span> (<span style="color:#369">split-string</span> <span style="color:#369">pwd</span> <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>)))
+    (<span style="color:#369">if</span> (<span style="color:#369">&gt;</span> (<span style="color:#369">length</span> <span style="color:#369">p-lst</span>) <span style="color:#00d;font-weight:bold">2</span>)
+        (<span style="color:#369">concat</span>
+         (<span style="color:#369">mapconcat</span> (<span style="color:#369">lambda</span> (<span style="color:#369">elm</span>) (<span style="color:#369">if</span> (<span style="color:#369">zerop</span> (<span style="color:#369">length</span> <span style="color:#369">elm</span>)) <span style="color:#d20;background-color:#fff0f0">&#34;&#34;</span>
+                               (<span style="color:#369">substring</span> <span style="color:#369">elm</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#00d;font-weight:bold">1</span>)))
+                    (<span style="color:#369">butlast</span> <span style="color:#369">p-lst</span> <span style="color:#00d;font-weight:bold">2</span>)
+                    <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>)
+         <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>
+         (<span style="color:#369">mapconcat</span> (<span style="color:#369">lambda</span> (<span style="color:#369">elm</span>) <span style="color:#369">elm</span>)
+                    (<span style="color:#369">last</span> <span style="color:#369">p-lst</span> <span style="color:#00d;font-weight:bold">2</span>)
+                    <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>))
+      <span style="color:#369">pwd</span>  <span style="color:#888">;; Otherwise, we just return the PWD</span>
+      )))
+
+(<span style="color:#369">defun</span> <span style="color:#369">split-directory-prompt</span> (<span style="color:#369">directory</span>)
+  <span style="color:#d20;background-color:#fff0f0">&#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34;</span>
+  (<span style="color:#369">if</span> (<span style="color:#369">string-match-p</span> <span style="color:#d20;background-color:#fff0f0">&#34;.*/.*&#34;</span> <span style="color:#369">directory</span>)
+      (<span style="color:#369">list</span> (<span style="color:#369">file-name-directory</span> <span style="color:#369">directory</span>) (<span style="color:#369">file-name-base</span> <span style="color:#369">directory</span>))
+    (<span style="color:#369">list</span> <span style="color:#d20;background-color:#fff0f0">&#34;&#34;</span> <span style="color:#369">directory</span>)))
+
+<span style="color:#888">;; Create a custom prompt using the functions above</span>
+(<span style="color:#369">setq</span> <span style="color:#369">eshell-prompt-function</span>
+      (<span style="color:#369">lambda</span> ()
+        (<span style="color:#369">let*</span> ((<span style="color:#369">directory</span> (<span style="color:#369">split-directory-prompt</span> (<span style="color:#369">pwd-shorten-dirs</span> (<span style="color:#369">pwd-replace-home</span> (<span style="color:#369">eshell/pwd</span>)))))
+               (<span style="color:#369">parent</span> (<span style="color:#369">car</span> <span style="color:#369">directory</span>))
+               (<span style="color:#369">name</span> (<span style="color:#369">cadr</span> <span style="color:#369">directory</span>))
+               (<span style="color:#369">branch</span> (<span style="color:#369">or</span> (<span style="color:#369">curr-dir-git-branch-string</span> (<span style="color:#369">eshell/pwd</span>)) <span style="color:#d20;background-color:#fff0f0">&#34;&#34;</span>)))
+
+          (<span style="color:#369">if</span> (<span style="color:#369">eq</span> <span style="color:#a60;background-color:#fff0f0">&#39;dark</span> (<span style="color:#369">frame-parameter</span> <span style="color:#036;font-weight:bold">nil</span> <span style="color:#a60;background-color:#fff0f0">&#39;background-mode</span>))
+              (<span style="color:#369">concat</span>   <span style="color:#888">;; Prompt for Dark Themes</span>
+               (<span style="color:#369">propertize</span> <span style="color:#369">parent</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;#8888FF&#34;</span>))
+               (<span style="color:#369">propertize</span> <span style="color:#369">name</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;#8888FF&#34;</span> <span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>))
+               (<span style="color:#369">propertize</span> <span style="color:#369">branch</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;green&#34;</span>))
+               (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; λ&#34;</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">ultra-bold</span>))
+               (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; &#34;</span>    <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>)))
+
+            (<span style="color:#369">concat</span>    <span style="color:#888">;; Prompt for Light Themes</span>
+             (<span style="color:#369">propertize</span> <span style="color:#369">parent</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;blue&#34;</span>))
+             (<span style="color:#369">propertize</span> <span style="color:#369">name</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;blue&#34;</span> <span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>))
+             (<span style="color:#369">propertize</span> <span style="color:#369">branch</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;dark green&#34;</span>))
+             (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; λ&#34;</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">ultra-bold</span>))
+             (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; &#34;</span>    <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>)))))))
+
+<span style="color:#888">;; Set this to match eshell-prompt-function</span>
+(<span style="color:#369">setq</span> <span style="color:#369">eshell-prompt-regexp</span> <span style="color:#d20;background-color:#fff0f0">&#34; λ &#34;</span>)
+
+<span style="color:#888">;; Make C-a go to beginning of command instead of line</span>
+(<span style="color:#369">add-hook</span> <span style="color:#a60;background-color:#fff0f0">&#39;eshell-mode-hook</span> &#39;(<span style="color:#369">lambda</span> ()
+                               (<span style="color:#369">local-set-key</span> (<span style="color:#369">kbd</span> <span style="color:#d20;background-color:#fff0f0">&#34;C-a&#34;</span>)
+                                              &#39;(<span style="color:#369">lambda</span> ()
+                                                 (<span style="color:#369">interactive</span>)
+                                                 (<span style="color:#369">beginning-of-line</span>)
+                                                 (<span style="color:#369">search-forward-regexp</span> <span style="color:#369">eshell-prompt-regexp</span>)))))
+
+<span style="color:#888">;; Turn off the default prompt.</span>
+(<span style="color:#369">setq</span> <span style="color:#369">eshell-highlight-prompt</span> <span style="color:#036;font-weight:bold">nil</span>)</code></pre></div>
+<p>You should now be able to see a nice and clean prompt like this:</p>
+
+<p><img src="/images/eshell_screenshot.png" alt="Screenshot" /></p>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/rationals-vs-decimals-clojure/">&laquo; Rationals vs Decimals in Clojure</a>
+    
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

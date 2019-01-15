@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+         Building an open-source Python application the right way 
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/building-an-open-source-python-application-the-right-way/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Building an open-source Python application the right way </h1>
+
+  
+    <div id=sub-header>
+      September 2013 · 4 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    <p>If you love Python and love open source like I do, you&rsquo;d probably be
+open sourcing something new every day/week/month. Sure that there are
+quite a lot of articles online that tell you the best practices of
+writing Python code, testing, packaging, distributing etc, I haven&rsquo;t
+really found a good article that highlights what are the best
+practices/conventions to be followed while building a full fledged and
+open source Python application. So I decided to write one.</p>
+
+<p>While I know that this was a good idea, I also wanted some sort of
+template code that I could reuse in every project. Hence, I decided to
+write one. Meet <a href="https://github.com/kirang89/bootstrapy">bootstrapy</a>, a
+bootstrap python application that takes the pain out of setting up a
+sample application and lets you focus on writing code and tests for
+them. As a follow up of the application, I&rsquo;ll try and explain the
+purpose of various files in as simple manner as possible.</p>
+
+<p>First, let&rsquo;s take a look at the directory structure of bootstrapy:</p>
+
+<p><a href="http://kirang89.webfactional.com/wp-content/uploads/2013/09/bootstrapy-screenshot.png"><img src="http://kirang89.webfactional.com/wp-content/uploads/2013/09/bootstrapy-screenshot.png" alt="bootstrapy-screenshot" /></a>
+<strong>Files</strong></p>
+
+<ul>
+<li><em>AUTHORS.rst</em> - This is where you would add yourself as well as the
+names of other contributors to your project</li>
+<li><em>CHANGELOG</em> - Contains the list of changes in your application for
+each release you do. This serves as a quick overview of what has
+changed in your application/project for both developers/users. This
+file may be optional or mandatory, depending on the license you
+choose.</li>
+<li><em>CONTRIBUTING.rst</em> - Contains the instructions to be followed that
+instructs developers on how they can help out with your project.</li>
+<li><em>MANIFEST.in</em> - While this is not mandatory, it is fairly common to
+list the contents of your distribution in this file. This file
+indicates what files are needed to be included in the source
+distribution but does directly affect what files are installed. In
+short words, the packages that need to be installed, should be
+mentioned in <span
+class="lang:default decode:true crayon-inline">setup.py</span>  and
+the extras needed in the final binary of your application, should be
+mentioned in the MANIFEST file.</li>
+<li><em>Makefile</em> - Makefiles are generally used to organise code
+compilation. But we can abuse it a bit and use it to do various
+other things like setting up an environment, installing
+dependencies, cleaning up……you get the picture.</li>
+<li><em>requirements.txt</em> - This is where you put all the
+dependencies/packages needed by your project/application. Doing so,
+you can install them using <span
+class="lang:default decode:true crayon-inline">make
+deps</span>  which internally runs <span
+class="lang:default decode:true crayon-inline">pip install -r
+requirements.txt</span></li>
+<li><em>setup.py</em> - Tells you that the package/module that you&rsquo;re about to
+install have been packaged and distributed using Distutils, which is
+the standard for distributing Python modules. This allows for easy
+installation of Python projects by just running  <span
+class="lang:default decode:true crayon-inline crayon-selected">python
+setup.py install</span></li>
+</ul>
+
+<p>You can do other things like create your own package, zip it and even
+upload it to <a href="https://pypi.python.org/">PyPi</a>. For more details, refer
+<a href="http://docs.python.org/2/install/index.html">Installing Python Modules</a>
+and <a href="http://pythonhosted.org/an_example_pypi_project/setuptools.html">Getting started with setuptools and
+setup.py</a>.</p>
+
+<p><strong>Directories</strong></p>
+
+<ul>
+<li><em>docs</em> - This is the directory to be created to store all the
+documentation to be used by Sphinx. You should basically store the
+documentation files in <strong>.rst</strong>(reStructured Text)  format.</li>
+<li><em>mypackage</em> - This is the main package of your project. This is
+where your project/application code goes into. You can see some
+sample, useless code in <span
+class="lang:default decode:true crayon-inline">myapp.py</span> .</li>
+<li><em>tests</em> - This is where all your tests go into. Add all your test
+cases/suites in this directory and execute them by calling<span
+class="lang:default decode:true crayon-inline">make test</span> . I
+have currently configured the project to run tests using
+<a href="http://nose.readthedocs.org/en/latest/">Nose</a>. It automagically
+detects where all your tests are located and then runs them. It is
+recommended that you follow the pattern
+&lsquo;test_&lt;feature-to-be-tested&gt;.py&rsquo; while naming files containing
+test cases for &lt;feature-to-be-tested&gt;.</li>
+</ul>
+
+<p> </p>
+
+<p>So now whenever I need to work on a Python application, all I need to do
+is to clone the bootstrapy repo, and voila ! I can start writing code.
+Sweet, isn&rsquo;t it ?</p>
+
+<p>This is the project structure that I would recommend, but there may be
+different opinions about the same. If you have a suggestion, feel free
+to raise an <a href="https://github.com/kirang89/bootstrapy/issues">issue on
+github</a>. If you have a
+question/feedback instead, ping me directly <a href="mailto:%20kiran.daredevil@gmail.com">via
+email</a>.</p>
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/familiarising-yourself-with-a-large-codebase/">&laquo; Familiarising yourself with a large codebase</a>
+    
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/an-eventful-september/">An Eventful September &raquo;</a>
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

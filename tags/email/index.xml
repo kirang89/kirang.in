@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Email on KG – Hacks. Thoughts. Writings.</title>
+    <link>http://localhost:1313/tags/email/</link>
+    <description>Recent content in Email on KG – Hacks. Thoughts. Writings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Nov 2014 02:06:44 +0530</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/email/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacs as email client with offlineimap and mu4e on OS X</title>
+      <link>http://localhost:1313/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
+      <pubDate>Thu, 13 Nov 2014 02:06:44 +0530</pubDate>
+      
+      <guid>http://localhost:1313/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
+      <description>Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I&amp;rsquo;ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven&amp;rsquo;t found myself entirely comfortable using any of these. What I&amp;rsquo;m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.</description>
+    </item>
+    
+  </channel>
+</rss>

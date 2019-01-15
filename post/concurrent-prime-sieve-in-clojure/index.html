@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+         Concurrent Prime Sieve in Clojure 
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/concurrent-prime-sieve-in-clojure/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Concurrent Prime Sieve in Clojure </h1>
+
+  
+    <div id=sub-header>
+      December 2015 · 3 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    <p>While watching the
+<a href="https://www.youtube.com/watch?v=f6kdp27TYZs">Go Concurrency Patterns talk</a> by
+Rob Pike, I came across a
+<a href="http://tinyurl.com/gosieve">Concurrent Prime Sieve implementation in Go</a> which
+Rob had claimed to be beautiful concurrent code. Curious enough, I checked out
+the example and decided on implementing it in Clojure.</p>
+
+<p>Let&rsquo;s begin by creating an infinite sequence generator(starting from 2):</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">num-generator</span> [<span style="color:#369">out</span>]
+  (<span style="color:#369">go</span>
+    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">n</span> <span style="color:#00d;font-weight:bold">2</span>]
+      (<span style="color:#369">&gt;!!</span> <span style="color:#369">out</span> <span style="color:#369">n</span>)
+      (<span style="color:#369">recur</span> (<span style="color:#038">inc </span><span style="color:#369">n</span>)))))</code></pre></div>
+<p>The <code>go</code> block ensures that the body is run on a seperate thread. I used the
+blocking put instead of the parking one to only generate a number when required
+by the program. Had I used the parking put <code>&gt;!</code> instead, we would&rsquo;ve encountered
+the <code>OutOfMemory</code> exception while executing the function.</p>
+
+<p>Let&rsquo;s test this generator:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">def </span><span style="color:#369">ichan</span> (<span style="color:#369">chan</span>))
+<span style="color:#888">; Blocks at the put statement, waiting for a read</span>
+(<span style="color:#369">num-generator</span> <span style="color:#369">ichan</span>)
+
+(<span style="color:#369">&lt;!!</span> <span style="color:#369">ichan</span>)  <span style="color:#888">; =&gt; 2</span>
+(<span style="color:#369">&lt;!!</span> <span style="color:#369">ichan</span>)  <span style="color:#888">; =&gt; 3</span>
+(<span style="color:#369">&lt;!!</span> <span style="color:#369">ichan</span>)  <span style="color:#888">; =&gt; 4</span></code></pre></div>
+<p>Not the best way to test of course, but it seems to work as expected.</p>
+
+<p>Next, let&rsquo;s write a filter function that takes an input channel, an output
+channel and a value, and filters out the non-prime numbers from the input
+channel before sending them to the output channel. This is what the &ldquo;<strong>prime
+sieve</strong>&rdquo; refers to.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">filter-prime</span> [<span style="color:#369">in</span> <span style="color:#369">out</span> <span style="color:#369">val</span>]
+  (<span style="color:#369">go</span>
+    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">n</span> <span style="color:#00d;font-weight:bold">0</span>]
+      (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">i</span> (<span style="color:#369">&lt;!!</span> <span style="color:#369">in</span>)]
+        (<span style="color:#038">when </span>(<span style="color:#038">not </span>(<span style="color:#038">= </span>(<span style="color:#369">mod</span> <span style="color:#369">i</span> <span style="color:#369">val</span>) <span style="color:#00d;font-weight:bold">0</span>))
+          (<span style="color:#369">&gt;!!</span> <span style="color:#369">out</span> <span style="color:#369">i</span>)))
+      (<span style="color:#369">recur</span> (<span style="color:#038">inc </span><span style="color:#369">n</span>)))))</code></pre></div>
+<p>Before testing <code>filter-prime</code>, let&rsquo;s tie the above two functions together
+with the user input using <code>fetch-prime</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">fetch-prime</span> [<span style="color:#369">count</span>]
+  (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">ch</span> (<span style="color:#369">chan</span>)]
+    (<span style="color:#369">num-generator</span> <span style="color:#369">ch</span>)
+    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">n</span> <span style="color:#369">count</span>
+           <span style="color:#369">c</span> <span style="color:#369">ch</span>]
+      (<span style="color:#038">when </span>(<span style="color:#038">&gt; </span><span style="color:#369">n</span> <span style="color:#00d;font-weight:bold">0</span>)
+        (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">p</span> (<span style="color:#369">&lt;!!</span> <span style="color:#369">c</span>)
+              <span style="color:#369">ch1</span> (<span style="color:#369">chan</span>)]
+          <span style="color:#888">;; Just printing the prime nos for now</span>
+          (<span style="color:#038">println </span><span style="color:#d20;background-color:#fff0f0">&#34;Prime =&gt; &#34;</span> <span style="color:#369">p</span>)
+          (<span style="color:#369">filter-prime</span> <span style="color:#369">c</span> <span style="color:#369">ch1</span> <span style="color:#369">p</span>)
+          (<span style="color:#369">recur</span> (<span style="color:#038">dec </span><span style="color:#369">n</span>) <span style="color:#369">ch1</span>))))
+    (<span style="color:#369">close!</span> <span style="color:#369">ch</span>)))</code></pre></div>
+<p>And, finally test to see if it works:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#369">fetch-prime</span> <span style="color:#00d;font-weight:bold">6</span>)
+<span style="color:#888">; Prime =&gt; 2</span>
+<span style="color:#888">; Prime =&gt; 3</span>
+<span style="color:#888">; Prime =&gt; 5</span>
+<span style="color:#888">; Prime =&gt; 7</span>
+<span style="color:#888">; Prime =&gt; 11</span>
+<span style="color:#888">; Prime =&gt; 13</span></code></pre></div>
+<p>The whole process can be visualised as a bunch of sieves lined up on top of each
+other vertically with the numbers from the generator passing through
+them. Essentially, each sieve is a <code>filter-prime</code> with the last prime
+<code>val</code> passed as it&rsquo;s parameter. At any pass, if the modulus value is zero,
+the number (retrieved from the generator) in that pass is discarded.</p>
+
+<p>Though this took me a bit of head banging, in the end, I got a much better
+picture of the concurreny model using go blocks in Clojure. The way in which
+different threads communicate with each other as a Daisy Chain filter to remove
+the non-primes makes this a neat example for demonstrating concurrency.</p>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">&laquo; Fetching data with a raw SQL query in SQLAlchemy</a>
+    
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/books_read_2015/">Books I read in 2015 &raquo;</a>
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+         Setting up Jenkins as a watchdog for your Python application 
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Setting up Jenkins as a watchdog for your Python application </h1>
+
+  
+    <div id=sub-header>
+      November 2013 · 3 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    <p>In order to facilitate  an efficient collaboration amongst developer
+teams, it is very important to keep the development workflow as simple
+and straightforward as possible. Version Control is one tool that helps
+with this. Continuous Integration is another one. Below, I&rsquo;ll illustrate
+the steps needed to configure a basic Python application with
+<a href="http://jenkins-ci.org">Jenkins</a>, a CI server that automates a lot of
+the repetitive stuff, so that you can focus on writing code. Well, let&rsquo;s
+get started then.</p>
+
+<div class="note">
+Before we move ahead, make sure that you have Jenkins installed on
+your system. The installations binaries and guides are available in
+the official site. The CI dashboard should be visible at
+http://localhost:8080, if your installation was successful.
+</div>
+
+<p>Create a new project, and fill in the *GitHub project *option with the
+path to your local git repository.</p>
+
+<p><a href="http://kirang.in/wp-content/uploads/2013/11/local-git-repo-config.jpg"><img src="http://kirang.in/wp-content/uploads/2013/11/local-git-repo-config.jpg" alt="local-git-repo-config" /></a></p>
+
+<p> </p>
+
+<p>Next, install the following plugins:</p>
+
+<ul>
+<li>Git Plugin</li>
+<li>Cobertura Plugin (for coverage reports)</li>
+<li>Violations Plugin (for pylint violation reports)</li>
+</ul>
+
+<p>After installing the above, restart Jenkins and move on to the next
+step.</p>
+
+<p>Once you&rsquo;re done restarting, open <em>Jenkins Dashboard &gt; Manage
+Jenkins &gt; Configure System</em>. Set your <a href="http://github.com">GitHub</a>
+username and email under the <em>Git Plugin</em> option</p>
+
+<p>Now, go back to your projet configuration and set the following
+properties:</p>
+
+<ul>
+<li>Select <em>Git</em> under <em>Source Code Management</em> and add your project
+details. Remember to set the project <em>branch</em> accordingly.</li>
+<li>Select <em>Poll SCM</em> under <em>Build Triggers</em> and set it to an
+appropriate value, based on how often you want Jenkins to look into
+your project for changes.</li>
+<li>Add a new build step under the <em>Build</em> option and select <em>Execute
+Shell</em>. This allows you to specify the instructions to build your
+project. I&rsquo;ve used the following snippet, but feel free to modify it
+in accordance to your liking.</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#888"># Adding virtualenv to PATH</span>
+<span style="color:#369">PATH</span>=/usr/local/bin:<span style="color:#369">$PATH</span>
+<span style="color:#038">cd</span> <span style="color:#369">$WORKSPACE</span>/
+
+virtualenv --no-site-packages ve
+. ve/bin/activate
+
+<span style="color:#888"># Installing necessary packages and project dependencies</span>
+pip install -r requirements.txt --download-cache=/tmp/<span style="color:#369">$JOB_NAME</span>
+pip install nose
+pip install coverage
+pip install pylint
+
+<span style="color:#888"># Running Tests</span>
+nosetests --with-xunit --all-modules --traverse-namespace --with-coverage --cover-package=bootstrapy --cover-inclusive
+
+<span style="color:#888"># Generating code coverage</span>
+coverage xml
+
+<span style="color:#888"># Checking for pylint violations</span>
+pylint -f parseable -d I0011,R0801 mypackage | tee pylint.out</code></pre></div>
+<ul>
+<li> Add <em>Publish Cobertura Coverage Report</em> and *Publish Junit test
+result report* to Post Build Actions and set them to <span
+class="lang:default decode:true crayon-inline">coverage.xml</span> and <span
+class="lang:default decode:true crayon-inline">nosetests.xml</span> :</li>
+</ul>
+
+<p><a href="http://kirang.in/wp-content/uploads/2013/11/coverage-and-test-config.jpg"><img src="http://kirang.in/wp-content/uploads/2013/11/coverage-and-test-config.jpg" alt="coverage-and-test-config" /></a></p>
+
+<ul>
+<li>Lastly, add <em>Report Violations</em> to *Post Build Actions* and then set
+the XML filename pattern for pylint as <code>**/pylint.out</code></li>
+</ul>
+
+<p><a href="http://kirang.in/wp-content/uploads/2013/11/pylint-config.jpg"><img src="http://kirang.in/wp-content/uploads/2013/11/pylint-config.jpg" alt="pylint-config" /></a></p>
+
+<p> </p>
+
+<p>That&rsquo;s it ! Now build your project and you should be able to get test,
+coverage and pylint violation reports right on the project dashboard.
+The best part is the fact that this is just the tip of the iceberg in
+terms of what Jenkins is capable of. There are lot more cooler things
+that you can do. So, have fun exploring !</p>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/a-guide-to-visual-design/">&laquo; A guide to Visual Design</a>
+    
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/installing-pil-on-mac-osx-mavericks/">Installing PIL on Mac OSX Mavericks &raquo;</a>
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

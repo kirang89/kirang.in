@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+         Setting up ACL in Mosquitto using Postgres 
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/setting-up-acl-in-mosquitto-using-postgres/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Setting up ACL in Mosquitto using Postgres </h1>
+
+  
+    <div id=sub-header>
+      May 2015 · 3 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    
+
+<p>Lately, I&rsquo;ve been playing around with Mosquitto and MQTT in
+general. &ldquo;Kiran Gangadharan&rdquo; that is essential to prevent unauthorized access to
+topics is some sort of an access control mechanism. In this post, I&rsquo;ll
+illustrate the necessary steps for setting up an ACL(Access Control
+List) using Postgres and <a href="https://github.com/jpmens/mosquitto-auth-plug.git">mosquitto-auth-plugin</a>.</p>
+
+<h2 id="install-dependencies-a-id-sec-1-name-sec-1-a">Install Dependencies<a id="sec-1" name="sec-1"></a></h2>
+
+<pre><code>sudo apt-get install libc-ares-dev libcurl4-openssl-dev uuid-dev postgresql libpq-dev git
+</code></pre>
+
+<h2 id="install-mosquitto-a-id-sec-2-name-sec-2-a">Install Mosquitto<a id="sec-2" name="sec-2"></a></h2>
+
+<p>Download Mosquitto from source:</p>
+
+<pre><code>wget http://mosquitto.org/files/source/mosquitto-1.4.1.tar.gz
+</code></pre>
+
+<p>Build it from source:</p>
+
+<pre><code>tar xvzf mosquitto-1.4.1.tar.gz
+cd mosquitto-1.4.1
+</code></pre>
+
+<p>Set <code>WITH_SRV:=NO</code> in config.mk to deal with
+<a href="https://github.com/jpmens/mosquitto-auth-plug/issues/33">this</a>.</p>
+
+<p>Now we&rsquo;re all set to build Mosquitto:</p>
+
+<pre><code>make mosquitto
+sudo make install
+</code></pre>
+
+<h2 id="setup-the-authentication-plugin-a-id-sec-3-name-sec-3-a">Setup the Authentication plugin<a id="sec-3" name="sec-3"></a></h2>
+
+<pre><code>git clone https://github.com/jpmens/mosquitto-auth-plug.git
+cd mosquitto-auth-plug
+cp config.mk.in config.mk
+</code></pre>
+
+<p>Edit the configuration file to match the following:</p>
+
+<pre><code># Select your backends from this list
+BACKEND_CDB ?= no
+BACKEND_MYSQL ?= no
+BACKEND_SQLITE ?= no
+BACKEND_REDIS ?= no
+BACKEND_POSTGRES ?= yes
+BACKEND_LDAP ?= no
+BACKEND_HTTP ?= no
+BACKEND_MONGO ?= no
+
+# Specify the path to the Mosquitto sources here
+MOSQUITTO_SRC = /path/to/mosquitto-1.4.1
+
+# Specify the path the OpenSSL here
+OPENSSLDIR = /usr
+</code></pre>
+
+<p>Build the plugin:</p>
+
+<pre><code>make
+</code></pre>
+
+<p>Finally, move the generated plugin file to the root directory of Mosquitto:</p>
+
+<pre><code>mv auth-plug.so /etc/mosquitto/
+</code></pre>
+
+<h2 id="setup-mosquitto-with-the-plugin-a-id-sec-4-name-sec-4-a">Setup Mosquitto with the plugin<a id="sec-4" name="sec-4"></a></h2>
+
+<p>Add the following lines to <code>mosquitto.conf</code>:</p>
+
+<pre><code>auth_opt_backends postgres
+auth_plugin /etc/mosquitto/auth-plug.so
+auth_opt_host &lt;host&gt;
+auth_opt_port &lt;port&gt;
+auth_opt_dbname &lt;dbname&gt;
+auth_opt_userquery SELECT password FROM account WHERE username = $1 limit 1
+auth_opt_superquery SELECT COALESCE(COUNT(*),0) FROM account WHERE username = $1 AND super = 1
+auth_opt_aclquery SELECT topic FROM acls WHERE (username = $1) AND (rw &gt;= $2)
+</code></pre>
+
+<p>See the <a href="https://github.com/jpmens/mosquitto-auth-plug#postgresql">plugin documentation</a> for more options.</p>
+
+<p>Next, create the necessary tables:</p>
+
+<pre><code>create table account(
+id SERIAL,
+username TEXT NOT NULL,
+password TEXT,
+super smallint DEFAULT 0 NOT NULL,
+PRIMARY KEY (id)
+);
+
+CREATE INDEX account_username ON account (username);
+
+CREATE TABLE acls (
+id SERIAL,
+username TEXT NOT NULL,
+topic TEXT NOT NULL,
+rw INTEGER NOT NULL DEFAULT 0,
+PRIMARY KEY (id)
+);
+
+CREATE UNIQUE INDEX acls_user_topic ON acls (username, topic);
+</code></pre>
+
+<p><em>Note: The password will stored as a PBKDF2 hash. There are a few
+<a href="https://github.com/jpmens/mosquitto-auth-plug/tree/master/contrib">tools</a> to help you generate the required hash.</em></p>
+
+<h2 id="testing-broker-with-the-new-configuration-a-id-sec-5-name-sec-5-a">Testing broker with the new configuration<a id="sec-5" name="sec-5"></a></h2>
+
+<p>Once you&rsquo;ve completed adding the necessary configuration and tables,
+it&rsquo;s time to finally test them out! To do so, start Mosquitto with the
+configuration file:</p>
+
+<pre><code>/usr/local/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+</code></pre>
+
+<p>If everything goes well, you should see the following output from the
+broker:</p>
+
+<pre><code>1432149665: |-- *** auth-plug: startup
+1432149665: |-- ** Configured order: postgres
+
+1432149665: |-- }}}} POSTGRES
+1432149665: |-- HERE: SELECT COALESCE(COUNT(*),0) FROM account WHERE username = $1 AND super = 1
+1432149665: |-- HERE: SELECT topic FROM acls WHERE (username = $1) AND (rw &gt;= $2)
+</code></pre>
+
+<p>You should now be able to connect to this broker by setting the
+username and password fields of your mqtt client. Even though the
+PBKDF2 hash of the password is stored in the database, you can provide
+the raw password while connecting.</p>
+
+<p>Hope this helps.</p>
+
+<div class="note">
+UPDATE: Added minor changes to deal with errors when starting Mosquitto
+</div>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/">&laquo; Emacs as email client with offlineimap and mu4e on OS X</a>
+    
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/cs-reading-computer-programming-as-an-art/">CS Reading: Computer Programming as an Art &raquo;</a>
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

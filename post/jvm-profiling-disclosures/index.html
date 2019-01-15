@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+         JVM Profiling Disclosures 
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/jvm-profiling-disclosures/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> JVM Profiling Disclosures </h1>
+
+  
+    <div id=sub-header>
+      May 2013 · 4 minute read
+    </div>
+  
+
+  <div class="entry-content">
+    
+
+<p>Well, I’ve never actually given importance to the term ”profiling” till
+a few days ago. The real deal was that I was just too lazy to actually
+run a profiler and then to try interpret the stats and hopefully find
+the bottleneck in the code. So to avoid all this hassle, I tried to be
+careful while writing code to make sure I don’t leave any open doors for
+memory leaks or poor CPU utilization.</p>
+
+<p>But a few days back, I stumbled into a performance issue in my code at
+work, leaving both me and my project lead puzzled about the culprit.
+Atlast desperation lead us to setup YourKit profiling in our server to
+have a peak under the hood of the JVM. And in the process, we happened
+to learn some new terms and functionalities of the profiler and I must
+say that I’m slowly beginning to like the idea of profiling code. I was
+really surprised at what we could learn about our code just by looking
+at the profiler stats. So here below, I’ve merged in some of our
+learnings along the whole process.</p>
+
+<h3 id="jvm-memory-structure">JVM Memory Structure</h3>
+
+<p>It’s important to first understand the structure of the JVM memory
+itself. Simply put:</p>
+
+<pre><code>JVM Memory = Heap Memory + Non-Heap Memory + Other
+
+Other: (JVM code itself, JVM internal structures, loaded profiler agent code and data, etc.)
+</code></pre>
+
+<h3 id="profiling-terms">Profiling Terms</h3>
+
+<p>Next, lets look at a few terms you need to know in order to make some
+sense out of all those weird graphs.</p>
+
+<ul>
+<li><em>Heap Memory</em> - Stores Java objects</li>
+<li><em>Non-Heap memory</em> - Stores per-class structures and other meta-data</li>
+<li><em>Stack Memory</em> - Java only stores primitives on the stack. Stack
+values only exist within the scope in which they were created. Java
+objects are created on the heap, and only references (which in turn
+are primitives) are passed around on the stack.</li>
+<li><em>Allocated Memory</em> - All memory that is allocated by the JVM</li>
+<li><em>Used Memory</em> - Amount of memory that is actually in use</li>
+<li><em>Eden</em> - Objects that are newly created reside here</li>
+<li><em>S1(Survivor Space 1) or S2</em> - All objects that survive a GC cycle
+go here</li>
+<li><em>Young Generation</em> - Eden + S1 + S2 section of Heap memory</li>
+<li><em>Old Gen Space</em> - Objects that survive a fixed number of GC cycles
+go here</li>
+<li><em>Shallow Size(object)</em> - Amount of allocated memory to store the
+object</li>
+<li><em>Retained Size(object)</em> - Shallow size of object under
+consideration + Shallow size of other objects that can be directly
+or indirectly accessed from this object</li>
+</ul>
+
+<h3 id="things-to-watch-out-for-while-profiling">Things to watch out for while profiling</h3>
+
+<ul>
+<li>In a typical application there will be less variation inside the Old
+Gen space.</li>
+<li>If the Old Gen space grows linearly with time even after the GC
+cycle, it would lead to a <code>OutOfMemoryError</code>. This occurs mainly due
+to JVM memory space depletion (Java Heap, Native Heap, etc.). This
+might be a indication of a memory leak inside the code.</li>
+<li>The <code>OutOfMemoryError</code> mainly occurs due to the following:
+
+<ul>
+<li>Lack of understanding of current JVM utilization</li>
+<li>Inappropriate JVM GC policy used. (Monitor JVM GC closely.
+Enable verbose GC option and analyse the data)
+Lack of performance and load testing</li>
+</ul></li>
+</ul>
+
+<p>From the above, you probably should understand most of the important
+stats, when you look into your profiler output next time. Now comes the
+important question:</p>
+
+<h3 id="how-do-i-generally-find-prevent-bottlenecks-in-my-code">How do I generally find/prevent bottlenecks in my code</h3>
+
+<p>I’ve tried to provide a few ideas below:</p>
+
+<ul>
+<li>Understand your application’s memory footprint</li>
+<li>Provide Connection Timeouts for any sort of communication API that
+you use.</li>
+<li>Cache data wherever possible to avoid more I/O operations on disk</li>
+<li>Monitor your threads closely to make sure there aren’t any
+bottlenecks or, well Deadlocks (gulp)</li>
+<li>Monitor Network Latencies. They are the hidden culprits of many
+performance problems.</li>
+<li>Implement application logging. This will help you to internally
+monitor the performance issues and hotspots in your code.</li>
+<li>Use Client JVM for development and Server JVM in production. Most
+people ignore this change. Even I did so. That was mainly because I
+never knew the difference between the JVM’s. The Server JVM does
+heavy optimization to your code to increase performance and reduce
+memory and CPU footprints, in production.</li>
+<li>Increase JVM Heap by specifying <code>-Xms</code> and <code>-Xmx</code> while running your
+application</li>
+<li>Analyse what’s happening under the hood in the heap, using <code>jmap</code>
+and <code>jhat</code> (Haven’t really tried this out)</li>
+</ul>
+
+<p>This should help out.</p>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/installing-pylibmc-in-ubuntu/">&laquo; Installing pylibmc in ubuntu</a>
+    
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/">Deploying a Django application on Elastic Beanstalk using S3 &raquo;</a>
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

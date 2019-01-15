@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sqlalchemy on KG – Hacks. Thoughts. Writings.</title>
+    <link>http://localhost:1313/tags/sqlalchemy/</link>
+    <description>Recent content in Sqlalchemy on KG – Hacks. Thoughts. Writings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fetching data with a raw SQL query in SQLAlchemy</title>
+      <link>http://localhost:1313/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
+      <pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate>
+      
+      <guid>http://localhost:1313/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
+      <description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
+query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.</description>
+    </item>
+    
+    <item>
+      <title>Creating a Mutable Array data type in sqlalchemy</title>
+      <link>http://localhost:1313/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
+      <pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate>
+      
+      <guid>http://localhost:1313/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
+      <description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
+from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.</description>
+    </item>
+    
+  </channel>
+</rss>

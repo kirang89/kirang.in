@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+
+    
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+    
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+
+    <title>
+      
+      
+          
+      
+    </title>
+    <link rel="canonical" href="http://localhost:1313/post/stuff_2016/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:110%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: #333332;
+    text-decoration-skip: ink;
+    ext-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+  }
+
+  body {
+    font-family:'PT Sans';
+    font-weight: 500;
+    line-height:160%;
+    color:#333332;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .entry-content a {
+    font-size: 100%;
+    text-decoration: none;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em white, inset 0 -0.2em #000000b3;
+    display: inline;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .left-justify {
+    float: left;
+  }
+
+  .right-justify {
+    float:right;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 80%;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 72%;
+    line-height: 1.4;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family: 'Fira Mono', monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Passion One";
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 100%;
+    letter-spacing: -.003em;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+    margin-top: -15px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+    margin-left: 30px;
+    font-size: 100%;
+    margin-bottom: 14px;
+  }
+
+  ul li:before {
+    content: '\2022';
+    padding-right: 15px;
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content .entry-content {
+    margin-top:30px;
+    font-size: 135%;
+    line-height: 158%;
+    font-weight: 400;
+    font-family: 'Cardo', Palatino;
+  }
+
+  #content h1 {
+    line-height: 95%;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size:52px;
+    font-family: 'Passion One';
+    color: black;
+  }
+
+  .entry-content h2 {
+    font-size: 45px;
+  }
+
+  .entry-content h3 {
+    font-size: 35px;
+  }
+
+  .entry-content h4 {
+    font-size: 25px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+    border: 1px solid #0000001a;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 0px 15px;
+    line-height: 90%;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  .posts_listing h2 {
+    font-size: 28px;
+    line-height: 95%;
+  }
+
+  .posts_listing #date {
+    margin-top: 0px;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+    background: #404040;
+    font-weight: 900;
+    font-family: 'Passion One', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  #date {
+    margin-top: -5px;
+  }
+
+  .note {
+    background-color: #F0F7FB;
+    padding: 0.5em;
+    border-left: 2px solid #3498DB;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:45px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:35px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">KG – Hacks. Thoughts. Writings.</a></h1>
+      <ul>
+        
+          <li><a href="/about">About</a></li>
+        
+          <li><a href="https://github.com/kirang89">Code</a></li>
+        
+          <li><a href="#">Resume</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1>  </h1>
+
+  
+
+  <div class="entry-content">
+    
+
+<p>Title: Stuff I did in 2016
+Date: 2016-12-31
+Category: Programming, Reading
+Tags: programming, reading</p>
+
+<h2 id="books">Books</h2>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/12609433-the-power-of-habit?ac=1&amp;from_search=true">The Power of Habit</a></li>
+</ul>
+
+<p><em>Quite an eye opener. Looking forward to re-reading this sometime soon.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/32475.Dreaming_in_Code?ac=1&amp;from_search=true">Dreaming in Code</a></li>
+</ul>
+
+<p><em>Highly recommended read for any software developer.</em></p>
+
+<ul>
+<li><p><a href="https://www.goodreads.com/book/show/20873338-clojure-for-the-brave-and-true?ac=1&amp;from_search=true">Clojure for the Brave and True</a></p></li>
+
+<li><p><a href="https://www.goodreads.com/book/show/8129142-the-joy-of-clojure?ac=1&amp;from_search=true">The Joy of Clojure</a></p></li>
+</ul>
+
+<p><em>My love for Clojure has grown substantially, thanks to this read.</em></p>
+
+<ul>
+<li><p><a href="https://www.goodreads.com/book/show/5107.The_Catcher_in_the_Rye?ac=1&amp;from_search=true">The Catcher in the Rye</a></p></li>
+
+<li><p><a href="https://www.goodreads.com/book/show/25614298-in-other-words?ac=1&amp;from_search=true">In Other Words</a></p></li>
+</ul>
+
+<p><em>Jhumpa Lahiri talks about the difficulties of learning a new language(Italian) completely different from English. She documents all the frustating moments that she went through in the process. I could relate so much to her in terms of learning a new programming paradigm completely different from what I&rsquo;m comfortable in.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/5439.Interpreter_of_Maladies?ac=1&amp;from_search=true">Interpreter of the Maladies</a></li>
+</ul>
+
+<p><em>A set of emotional and touching short stories set in India by Jhumpa Lahiri.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/12169041-an-introduction-to-functional-programming-through-lambda-calculus">An Introduction to Functional Programming using Lambda Calculus</a></li>
+</ul>
+
+<p><em>Fantastic book to read if you’re a complete beginner to FP and Lambda Calculus. My favorite technical book of the year.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/567610.How_to_Read_a_Book?ac=1&amp;from_search=true">How to Read a book: The Classic Guide to Intelligent Reading</a></li>
+</ul>
+
+<p><em>The title, literally. Good thought provoking advice on reading all kinds of books.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/1611810.The_Blue_Umbrella">The Blue Umbrella</a></li>
+</ul>
+
+<p><em>A short and sweet novel by Ruskin Bond.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/17571564-hyperbole-and-a-half">Hyperbole and a Half</a></li>
+</ul>
+
+<p><em>This book is soo good and so damn hilarious. Highly recommend.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/7237456-packing-for-mars">Packing for Mars</a></li>
+</ul>
+
+<p><em>Mary Roach does a good job at illustrating why being an astronaut is harder than you thought. If you want to learn the difficulties of space travel and the mundane(read unconventional) things that astronauts have to deal with, give this one a read.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/10258481-a-geek-in-japan">A Geek in Japan</a></li>
+</ul>
+
+<p><em>Japan and it&rsquo;s culture has been a fascination for a while now. I&rsquo;ve learned a lot more interesting(or absurd) stuff thanks to this book.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/175626.The_Narrow_Road_to_the_Deep_North_and_Other_Travel_Sketches">The Narrow Road to the Deep North and Other Travel Sketches</a></li>
+</ul>
+
+<p><em>My first experience reading Haikus. The book contains lots of simple and beautiful, yet deep haikus that illustrate the experiences and express the emotions of Basho as he travels around Japan on foot.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/157993.The_Little_Prince">The Little Prince</a></li>
+</ul>
+
+<p><em>A short and sweet read with a very important lesson.</em></p>
+
+<ul>
+<li>The Little Brother Series (<a href="https://www.goodreads.com/book/show/954674.Little_Brother">Little Brother</a>, <a href="https://www.goodreads.com/book/show/12917338-homeland">Homeland)</a></li>
+</ul>
+
+<p><em>I picked up this two book series by Cory Doctorow after seeing a copy of Homeland in Snowden&rsquo;s room in the documentary Citizen Four. I got hooked immediately. Recommended if you like a young adult, cyber-security, surveillance and hacking related novel.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/5470.1984">1984</a></li>
+</ul>
+
+<p><em>The classic. I finally got to read it and I enjoyed it (in a nightmarish way) as much as I thought I would.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/18652140-distributed-systems-for-fun-and-profit">Distributed Systems for fun and profit</a></li>
+</ul>
+
+<p><em>A short read to brush up your knowledge on the fundamental concepts and problems of Distributed Systems.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/29746976-make-your-own-neural-network">Make your own Neural Network</a></li>
+</ul>
+
+<p><em>A easy and wonderful read on the fundamental concepts behind Neural Networks.</em></p>
+
+<ul>
+<li><p><a href="https://www.goodreads.com/book/show/6392569-natural-language-processing-with-python">Natural Language Processing in Python</a></p></li>
+
+<li><p><a href="https://www.goodreads.com/book/show/49552.The_Stranger">The Stranger</a></p></li>
+</ul>
+
+<p><em>A thought provoking read. A must-read for everyone.</em></p>
+
+<ul>
+<li><a href="https://www.goodreads.com/book/show/28721136-the-girl-in-the-ice">The Girl in the Ice</a></li>
+</ul>
+
+<p><em>An enjoyable murder mystery.</em></p>
+
+<h2 id="papers">Papers</h2>
+
+<ul>
+<li>Why Functional Programming Matters</li>
+<li>The Humble Programmer</li>
+<li>Scheme: An Interpreter for Lambda Calculus</li>
+<li>Out of the Tar Pit</li>
+<li>Twitter User Gender Inference Using Combined Analysis of Text and Image Processing</li>
+<li>Combining Image and Text Features: A Hybrid Approach to Mobile Book Spine Recognition</li>
+<li>Kafka: A distributed messaging system for log processing</li>
+<li>Efficient Multi-label Classification with Many Labels</li>
+<li>Time, Clocks and Ordering of Events in a Distributed System</li>
+<li>Fallacies of Distributed Computing Explained (Technically not a paper)</li>
+</ul>
+
+<h2 id="programming-languages">Programming Languages</h2>
+
+<ul>
+<li><p>Clojure</p></li>
+
+<li><p>Swift</p></li>
+
+<li><p>Prolog</p></li>
+</ul>
+
+<p><em>Just the fundamentals. I plan on doing more this year.</em></p>
+
+<ul>
+<li>Standard ML</li>
+</ul>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/">&laquo; </a>
+    
+    
+      <a class="basic-alignment left" href="http://localhost:1313/post/spell_corrector_clojure/"> &raquo;</a>
+    
+  </div>
+</section>
+
+  
+</body>
+</html>
+
+
+

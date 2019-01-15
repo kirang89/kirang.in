@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Performance on KG – Hacks. Thoughts. Writings.</title>
+    <link>http://localhost:1313/tags/performance/</link>
+    <description>Recent content in Performance on KG – Hacks. Thoughts. Writings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 May 2013 02:55:00 +0530</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JVM Profiling Disclosures</title>
+      <link>http://localhost:1313/post/jvm-profiling-disclosures/</link>
+      <pubDate>Wed, 22 May 2013 02:55:00 +0530</pubDate>
+      
+      <guid>http://localhost:1313/post/jvm-profiling-disclosures/</guid>
+      <description>Well, I’ve never actually given importance to the term ”profiling” till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don’t leave any open doors for memory leaks or poor CPU utilization.</description>
+    </item>
+    
+  </channel>
+</rss>
