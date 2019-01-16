@@ -1,9 +1,11 @@
-Title: What makes a great API ?
-Date: 2013-11-07 22:59
-Author: kirang89
-Category: Design, Programming, Thoughts, Web
-Tags: API, business, design, open source, web
-Slug: what-makes-a-great-api
+---
+title: "What makes a great API?"
+date: 2013-11-07T22:59:00+05:30
+author: "Kiran Gangadharan"
+categories: ["design", "programming"]
+tags: ["api", "design", "web"]
+slug: what-makes-a-great-api
+---
 
 We are slowly moving towards a completely api-fied world. All the common
 services that we used to find so hard to deal with a few years back,
@@ -14,8 +16,11 @@ important to understand the principles behind designing good APIs. In
 this post, I'll highlight a few practices/tips that I've learnt,
 designing a few and using different API's.
 
+<br/>
 
-> ### *So, what makes an API great ?*
+**So, what makes an API great?**
+
+<br/>
 
 ## Valuable Service
 
@@ -56,7 +61,7 @@ design choices that you need to make would include:
 -   Protocol(s) to support
 -   Data Format
 -   Security
--   Open Source ?
+-   Open Source?
 -   Design Patterns to use
 -   Conventions and best practices to follow
 -   Versioning
@@ -94,7 +99,7 @@ for different functionalities in your API. This may not be so commonly
 used, but when required it saves a lot of time by avoiding the
 user/developer from writing extra code for doing the same. And
 developers sure do appreciate that. After all, we're a lazy bunch of
-people :P
+people.
 
 ## Developer Support
 
@@ -110,6 +115,6 @@ what makes us stick with a product/business. So make sure that you
 provide the best possible experience to your customers to make them come
 back for more.
 
-I hope this would serve as a decent checklist for whenever you design an
-API for yourself or your business. It definitely would, for me.
-
+<br/>
+I hope this will serve as a decent checklist for whenever you design an
+API for yourself or your business. It definitely will, for me.

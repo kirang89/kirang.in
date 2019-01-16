@@ -1,9 +1,11 @@
-Title: Type and Object in Python
-Date: 2013-05-22 01:59
-Author: admin
-Category: Programming, Python
-Tags: object, programming, python, type
-Slug: type-and-object-in-python
+---
+title: "Type and Object in Python"
+date: 2013-05-22T01:59:00+05:30
+author: "Kiran Gangadharan"
+categories: ["programming"]
+tags: ["programming", "python"]
+slug: type-and-object-in-python
+---
 
 Recently I stumbled across an article talking about the importance of
 understanding type and object in Python, so thought of writing a small
@@ -21,7 +23,8 @@ chicked-egg problem, but I’ll give an overall view of this.
 
 So in a way, you have only two objects in Python, types and non-types.
 
-**Note**: `type` can also be called `class` from Python \>= 2.3
+<div class="note">
+Note: `type` can also be called `class` from Python \>= 2.3
+</div>
 
 Well there you go. It wasn’t confusing now, was it ? :)
-

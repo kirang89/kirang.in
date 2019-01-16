@@ -1,9 +1,11 @@
-Title: Web Typography checklist
-Date: 2013-08-14 12:06
-Author: kirang89
-Category: typography, Web
-Tags: typography, web
-Slug: web-typography-checklist
+---
+title: "Web Typography checklist"
+date: 2013-08-14T12:06:00+05:30
+author: "Kiran Gangadharan"
+categories: ["design"]
+tags: ["design", "typography", "web"]
+slug: web-typography-checklist
+---
 
 The following is a note-to-self checklist for web typography:
 
@@ -18,4 +20,3 @@ The following is a note-to-self checklist for web typography:
 -   Resolve conflicts of contrast
 -   Use tools like [typetester](http://typetester.org) and
     [cssfontstack](http://cssfontstack.com) as aids
-

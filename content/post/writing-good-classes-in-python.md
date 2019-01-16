@@ -1,9 +1,11 @@
-Title: Writing good Classes in Python
-Date: 2013-12-02 08:38
-Author: kirang89
-Category: Python
-Tags: best practices, classes, pragmatic, python
-Slug: writing-good-classes-in-python
+---
+title: "Writing good Classes in Python"
+date: 2013-12-02T08:38:00+05:30
+author: "Kiran Gangadharan"
+categories: ["programming"]
+tags: ["python"]
+slug: writing-good-classes-in-python
+---
 
 This post is the highlight of Raymond Hettinger's talk "[Python's Class
 Development
@@ -77,4 +79,3 @@ class GoodCircle(object):
 ```
 
  
-

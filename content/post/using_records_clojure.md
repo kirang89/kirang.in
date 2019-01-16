@@ -1,14 +1,17 @@
-Title: Using records in Clojure
-Date: 2016-02-24
-Category: Programming, Clojure
-Tags: clojure
+---
+title: "Using records in Clojure"
+date: 2016-02-24T00:00:00+05:30
+categories: ["programming"]
+tags: ["clojure"]
+slug: using-records-in-clojure
+---
 
-###When to use:
+### When to use:
 
 - Fixed set of keys in multiple map instances
 - Defer until you have protocols
 
-###Pros
+### Pros
 
 - Created quickly
 - Less memory overhead
@@ -16,7 +19,7 @@ Tags: clojure
 - Can implement protocols
 - Generated class has a type that can be used to dispatch methods using multimethod
 
-###Cons
+### Cons
 
 - Cannot be used as a function like hash-maps can
 - Cannot be compared to an equivalent hash-map in terms of identity

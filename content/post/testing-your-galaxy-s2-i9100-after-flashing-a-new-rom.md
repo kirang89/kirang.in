@@ -1,9 +1,11 @@
-Title: Testing your Galaxy S2 i9100 after flashing a new ROM
-Date: 2014-02-23 19:22
-Author: kirang89
-Category: Android
-Tags: android, cyanogenmod, i9100, rooting, samsung galaxy s2
-Slug: testing-your-galaxy-s2-i9100-after-flashing-a-new-rom
+---
+title: "Testing your Galaxy S2 i9100 after flashing a new ROM"
+date: 2014-02-23T19:22:00+05:30
+author: "Kiran Gangadharan"
+categories: ["android"]
+tags: ["android", "cyanogenmod", "samsung galaxy s2"]
+slug: testing-your-galaxy-s2-i9100-after-flashing-a-new-rom
+---
 
 After a bit of boredom and a morbid desire to play with KitKat ROM's for
 my Galaxy S2, here I was, pulling through the day without realising how
@@ -43,19 +45,19 @@ more out of your device. Start with the following:
     approx 7 times until you get the notification about the developer
     settings being activated. Now when you head back to Settings, you
     should see both *Developer options* and *Performance* under System.
-2.  Open *Performance \> Processor,* set CPU governor to ONDEMAND and
+2.  Open *Performance \> Processor,* set CPU governor to ONDEMAND and
     check the Set on Boot option.
 3.  Open *Performance \> I/O Scheduler* and set it to CFQ or Noop and
     once again check the Boot option.
 4.  Open *Performance \> Memory Management* and check the purging assets
     option.
 5.  Under Developer Options, set the Window and Transition animation and
-    Animator duration scale to 0.5x.
+    Animator duration scale to `0.5x`.
 
 The above should give you a little more performance and juice. For
 adding the icing to the cake, do the following tweak as well: Using the
 Root Explorer, head to the android home directory (**/) **and look for a
-file called **build.prop.** Select the file and choose to open it in a
+file called `build.prop`. Select the file and choose to open it in a
 text editor. Now, append the following settings to it:
 
 ```
@@ -80,4 +82,3 @@ find all of these settings and more, with their explanations.
 
 Well, that's all I did, and my phone seems to be pretty smooth with
 decent battery life. Now to take a break and enjoy the KitKat ;)
-

@@ -1,7 +1,10 @@
-Title: Useful AWK one-liners
-Date: 2015-12-15
-Category: Programming
-Tags: awk
+---
+title: "Useful AWK one-liners"
+date: 2015-12-15T00:00:00+05:30
+categories: ["programming", "productivity"]
+tags: ["awk", "productivity"]
+slug: useful-awk-one-liners
+---
 
 While reading
 [Masterminds of Programming](http://shop.oreilly.com/product/9780596515171.do) I

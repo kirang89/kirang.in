@@ -1,7 +1,10 @@
-Title: Setting up Org-mode to run Clojure code
-Date: 2016-07-18
-Category: Emacs
-Tags: emacs, clojure
+---
+title: "Setting up Org-mode to run Clojure code"
+date: 2016-07-18T00:00:00+05:30
+categories: ["productivity", "emacs"]
+tags: ["org-mode", "emacs", "clojure"]
+slug: setting-up-org-mode-to-run-clojure-code
+---
 
 I wanted to be able to store interesting clojure snippets in an org file and
 then execute and play with them without leaving the
@@ -15,14 +18,14 @@ ob-clojure
 ```
 
 or simply do so with `use-package`:
-```lisp
+```elisp
 (use-package ob-clojure)
 ```
 
 Now we need to let org-mode know to use a cider repl to execute the snippets in
 our file:
 
-```lisp
+```elisp
 (require 'cider)
 (setq org-babel-clojure-backend 'cider)
 ```

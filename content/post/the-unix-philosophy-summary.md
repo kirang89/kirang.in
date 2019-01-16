@@ -1,9 +1,11 @@
-Title: The Unix Philosophy - Summary
-Date: 2013-12-12 20:45
-Author: kirang89
-Category: Design, Programming
-Tags: API, design, software, unix
-Slug: the-unix-philosophy-summary
+---
+title: "The Unix Philosophy - A Summary"
+date: 2013-12-12T20:45:00+05:30
+author: "Kiran Gangadharan"
+categories: ["programming"]
+tags: ["api", "design", "programming", "unix"]
+slug: the-unix-philosophy-summary
+---
 
 -   **Rule of Modularity**: Write simple parts connected by clean
     interfaces.
@@ -22,7 +24,7 @@ Slug: the-unix-philosophy-summary
     simplicity.
 -   **Rule of Representation**: Fold knowledge into data so program
     logic can be stupid and robust.<span
-    style="text-decoration: underline;">  
+    style="text-decoration: underline;">
    </span>
 -   **Rule of Least Surprise**: In interface design, always do the least
     surprising thing.
@@ -39,4 +41,3 @@ Slug: the-unix-philosophy-summary
 -   **Rule of Diversity**: Distrust all claims for "one true way".
 -   **Rule of Extensibility**: Design for the future, because it will be
     here sooner than you think.
-

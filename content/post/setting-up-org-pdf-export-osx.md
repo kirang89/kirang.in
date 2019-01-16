@@ -1,7 +1,10 @@
-Title: Setting up org-mode pdf export in OS X ElCapitan
-Date: 2015-11-30
-Category: Emacs
-Tags: org-mode, emacs, osx
+---
+title: "Setting up org-mode pdf export in OS X ElCapitan"
+date: 2015-11-30T00:00:00+05:30
+categories: ["productivity", "emacs"]
+tags: ["org-mode", "emacs", "osx"]
+slug: setting-up-org-mode-pdf-export-in-osx-elcapitan
+---
 
 ## Basic TeX ##
 

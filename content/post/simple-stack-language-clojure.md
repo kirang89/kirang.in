@@ -1,7 +1,10 @@
-Title: Creating a simple stack-based language in Clojure
-Date: 2016-04-04
-Category: Programming, Clojure
-Tags: Clojure
+---
+title: "Creating a simple stack-based language in Clojure"
+date: 2016-04-04T00:00:00+05:30
+categories: ["programming"]
+tags: ["clojure"]
+slug: creating-a-simple-stack-based-language-in-clojure
+---
 
 Let's look at how to build a simple stack-based language in Clojure. First, this
 is how the input would look like:

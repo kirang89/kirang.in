@@ -1,7 +1,10 @@
-Title: Implementing Norvig's Spelling Corrector in Clojure
-Date: 2016-02-03
-Category: Programming, Clojure
-Tags: clojure
+---
+title: "Implementing Norvig's Spelling Corrector in Clojure"
+date: 2016-02-03T00:00:00+05:30
+categories: ["programming"]
+tags: ["clojure"]
+slug: implementing-norvigs-spelling-corrector-in-clojure
+---
 
 I wanted to try something small in Clojure as an exercise, and so I decided to
 implement [Norvig's spelling corrector](http://norvig.com/spell-correct.html)

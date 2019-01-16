@@ -1,9 +1,11 @@
-Title: What is Python Month ?
-Date: 2013-07-23 17:02
-Author: kirang89
-Category: Python
-Tags: pyconindia, python, pythonmonth
-Slug: what-is-python-month
+---
+title: "What is Python Month?"
+date: 2013-07-23T17:02:00+05:30
+author: "Kiran Gangadharan"
+categories: ["programming"]
+tags: ["python", "python-month"]
+slug: what-is-python-month
+---
 
 **[PyCon India](http://in.pycon.org),** the premier conference in India
 on using and developing the Python programming language is conducted
@@ -26,10 +28,10 @@ to handle and therefore requires lot of volunteer support.
 
 Here is how you can help:
 
-1\. If you are a Python programmer and please give a talk/workshop at a
-college in your city.  
+1. If you are a Python programmer and please give a talk/workshop at a
+college in your city.
 2. If you are a professor or student, please facilitate the a workshop
-in your college.  
+in your college.
 3. Help us in coordinating Python Month by talking to colleges to
 arrange workshops.
 
@@ -41,4 +43,3 @@ in.pycon.org](mailto:pythonmonth@in.pycon.org)
 Website :<http://in.pycon.org/2013/python-month>
 
  
-
