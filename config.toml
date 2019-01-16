@@ -4,13 +4,13 @@ title = "KG – Hacks. Thoughts. Writings."
 author = "Kiran Gangadharan"
 theme = "black-and-light"
 
+disqusShortname = "kirang89"
 pygmentsstyle = "pastie"
 pygmentscodefences = true
 
 [params]
   sitename = "KG – Hacks. Thoughts. Writings."
   disableWebFonts = false
-
 
 # Menu Configuration
 
