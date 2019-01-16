@@ -25,10 +25,10 @@
     <title>
       
       
-          
+         Setting up Org-mode to run Clojure code 
       
     </title>
-    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/sicp-notes-chapter-1/">
+    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/">
 
     <style>
   * {
@@ -470,111 +470,73 @@
 
 
 <section id=content>
-  <h1>  </h1>
+  <h1> Setting up Org-mode to run Clojure code </h1>
 
+  
+    <div id=sub-header>
+      July 2016 · 1 minute read
+    </div>
   
 
   <div class="entry-content">
-    
+    <p>I wanted to be able to store interesting clojure snippets in an org file and
+then execute and play with them without leaving the
+file. In this post, I&rsquo;ll illustrate the steps needed to achieve the same. I am
+assuming that you&rsquo;ve already setup Emacs with org-mode and cider.</p>
 
-<p>Title: SICP Notes - Chapter 1
-Date: 2013-11-16 07:39
-Author: kirang89
-Category: Programming
-Tags: programming, SICP, software development
-Slug: sicp-notes-chapter-1</p>
+<p>First, start by installing the <code>ob-clojure</code> package:</p>
 
-<p>After quite a long time, I finally managed to take the time out of my
-busy schedule of being jobless and start reading one of the best
-classics in the field of Computer Science - the <strong>Structure and
-Interpretation of Computer Programs</strong>. It&rsquo;s taken a while but I&rsquo;ve
-managed to complete the first chapter, and I&rsquo;m really excited about the
-easter eggs that await in the forthcoming chapters. As a result, I&rsquo;ve
-decided to keep notes of all the small lessons or tips that I would
-gather while reading each chapter, for ease of reference in the future.
-Below are my notes for chapter one:</p>
+<pre><code>M-x package-install
+ob-clojure
+</code></pre>
 
-<p>There are basically two models of program evaluation:</p>
+<p>or simply do so with <code>use-package</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#038">use-package</span> <span style="color:#369">ob-clojure</span>)</code></pre></div>
+<p>Now we need to let org-mode know to use a cider repl to execute the snippets in
+our file:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#038">require</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)
+(<span style="color:#038">setq</span> <span style="color:#369">org-babel-clojure-backend</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)</code></pre></div>
+<p>We&rsquo;re done with the setup. Start a new cider repl connection by running:</p>
 
-<ul>
-<li><p>Application-Order evaluation - Based on substitution model
-(subsitute first and then evaluate)</p></li>
+<pre><code>M-x cider-jack-in
+</code></pre>
 
-<li><p>Normal-Order evaluation - Expansion first and then reduction. The
-expression is evaluated only when the result is needed by a
-primitive operation.</p></li>
-</ul>
+<p>Once the repl has successfully launched, create a new org file and add the
+following code block:</p>
 
-<p> </p>
+<pre><code>#+BEGIN_SRC clojure
+(+ 1 2 3 4)
+#+END_SRC
+</code></pre>
 
-<p>Good Programming can be compared to the game of <strong>Chess</strong>. It&rsquo;s not
-sufficient to just know the various pieces and their roles. It is also
-very important to know about typical openings (patterns) and strategies
-(architecture).</p>
+<p>Hit <code>C-c</code> from within a code block to evaluate it. You should now see the result
+displayed like so:</p>
 
-<p> </p>
+<pre><code>#+RESULTS:
+: 10
+</code></pre>
 
-<h4 id="recursive-procedure-vs-process">Recursive Procedure vs Process</h4>
+<p>If you don&rsquo;t want the results to be displayed in the file itself, add <code>:results
+silent</code> after the begin header:</p>
 
-<p>While a recursive procedure basically means a procedure referring to
-itself, a recursive process refers to a process containing several
-deferred operations.</p>
+<pre><code>#+BEGIN_SRC clojure :results silent
+(+ 1 2 3 4)
+#+END_SRC
+</code></pre>
 
-<p> </p>
+<p>You should now be able to see the result displayed in the minibuffer
+instead.</p>
 
-<h4 id="recursive-vs-iterative-process">Recursive vs Iterative Process</h4>
-
-<p>In a recursive process, the description of the state of a process is
-based on the number of calls to a particular procedure. In an iterative
-one, the description of the state of a process is obtained from the
-variables used in that process.</p>
-
-<p> </p>
-
-<h4 id="recursion-strategies">Recursion Strategies:</h4>
-
-<ul>
-<li>Linear Recursion</li>
-<li>Tree Recursion</li>
-</ul>
-
-<p> </p>
-
-<p>Tail Recursion - A technique for running iterative processes using a
-constant space (O(1))</p>
-
-<p> </p>
-
-<p>Probabilistic Algorithms - Algorithms that do not necessarily guarantee
-a result but instead relies on tests to prove that the chances of errors
-are very small or negligible (Example: Finding a prime number using
-Fermat&rsquo;s Theorem)</p>
-
-<p> </p>
-
-<p>Learn to think about an algorithm in both recursive as well as an
-iterative way.</p>
-
-<p> </p>
-
-<p>Lots of small optimisations can be done to convert a O(n) algorithm to
-an O(logn) one. Sometimes the simplest of the changes can make a huge
-difference.</p>
-
-<p> </p>
-
-<p>That&rsquo;s all I&rsquo;ve got for chapter one. Oh, and I&rsquo;ve pushed up solutions to
-most exercises, on <a href="https://github.com/kirang89/SICP">GitHub</a>. I will
-keep adding posts for other chapters as and when I complete them.</p>
+<p>That&rsquo;s all there is to it. Have fun with literate programming :)</p>
 
   </div>
 
   <div id=links>
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/simple-stack-language-clojure/">&laquo; </a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/eshell-prompt-setup/">&laquo; My eshell prompt setup</a>
     
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/setting_up_org_mode_to_run_clojure_code/"> &raquo;</a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/stuff-i-did-in-2016/">Stuff I did in 2016 &raquo;</a>
     
   </div>
 </section>

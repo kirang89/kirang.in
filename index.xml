@@ -6,10 +6,40 @@
     <description>Recent content on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jun 2016 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 31 Dec 2016 00:00:00 +0530</lastBuildDate>
     
 	<atom:link href="https://kirang89.github.io/kirang.in/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Stuff I did in 2016</title>
+      <link>https://kirang89.github.io/kirang.in/post/stuff-i-did-in-2016/</link>
+      <pubDate>Sat, 31 Dec 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/stuff-i-did-in-2016/</guid>
+      <description>Books The Power of Habit
+Quite an eye opener. Looking forward to re-reading this sometime soon.
+Dreaming in Code
+Highly recommended read for any software developer.
+Clojure for the Brave and True
+The Joy of Clojure
+My love for Clojure has grown substantially, thanks to this read.
+The Catcher in the Rye
+In Other Words
+Jhumpa Lahiri talks about the difficulties of learning a new language(Italian) completely different from English.</description>
+    </item>
+    
+    <item>
+      <title>Setting up Org-mode to run Clojure code</title>
+      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
+      <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
+      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.
+First, start by installing the ob-clojure package:
+M-x package-install ob-clojure  or simply do so with use-package:
+(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
+    </item>
     
     <item>
       <title>My eshell prompt setup</title>
@@ -19,6 +49,37 @@
       <guid>https://kirang89.github.io/kirang.in/post/eshell-prompt-setup/</guid>
       <description>My setup is based on Howard Abrams&amp;rsquo; setup with some minor additions and is reproduced in its entirety here:
 (defun curr-dir-git-branch-string (pwd) &amp;#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&amp;#34; (interactive) (when (and (eshell-search-path &amp;#34;git&amp;#34;) (locate-dominating-file pwd &amp;#34;.git&amp;#34;)) (let ((git-output (shell-command-to-string (concat &amp;#34;cd &amp;#34; pwd &amp;#34; &amp;amp;&amp;amp; git branch | grep &amp;#39;\\*&amp;#39; | sed -e &amp;#39;s/^\\* //&amp;#39;&amp;#34;)))) (if (&amp;gt; (length git-output) 0) (concat &amp;#34; :&amp;#34; (substring git-output 0 -1)) &amp;#34;(no branch)&amp;#34;)))) (defun pwd-replace-home (pwd) &amp;#34;Replace home in PWD with tilde (~) character.</description>
+    </item>
+    
+    <item>
+      <title>Creating a simple stack-based language in Clojure</title>
+      <link>https://kirang89.github.io/kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</guid>
+      <description>Let&amp;rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
+push 8 push 4 + push 3 *  This would be equivalent to (in infix notation):
+(8 + 4) * 3  Here is a simple parser-cum-evaluator for the above input:
+(defn parse-eval [string stack] &amp;#34;Parse and Evaluate the line sent and push result to stack if necessary.&amp;#34; (let [cmd (clojure.</description>
+    </item>
+    
+    <item>
+      <title>Using records in Clojure</title>
+      <link>https://kirang89.github.io/kirang.in/post/using-records-in-clojure/</link>
+      <pubDate>Wed, 24 Feb 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/using-records-in-clojure/</guid>
+      <description>When to use:  Fixed set of keys in multiple map instances Defer until you have protocols  Pros  Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod  Cons  Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity  Example:</description>
+    </item>
+    
+    <item>
+      <title>Implementing Norvig&#39;s Spelling Corrector in Clojure</title>
+      <link>https://kirang89.github.io/kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</link>
+      <pubDate>Wed, 03 Feb 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</guid>
+      <description>I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&amp;rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&amp;rsquo;ve managed a decent implementation. It was fun! :)
+(def alphabets &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) (defn words [text] (re-seq #&amp;#34;[a-zA-Z]+&amp;#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.</description>
     </item>
     
     <item>
@@ -51,6 +112,28 @@
       <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):
 (defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
+    </item>
+    
+    <item>
+      <title>Useful AWK one-liners</title>
+      <link>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</guid>
+      <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
+ If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
+    </item>
+    
+    <item>
+      <title>Setting up org-mode pdf export in OS X ElCapitan</title>
+      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <description>Basic TeX Download and install Basic TeX package from here.
+Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
+export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
+Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
     </item>
     
     <item>
@@ -151,6 +234,20 @@ information in no time.&lt;/p&gt;</description>
     </item>
     
     <item>
+      <title>Testing your Galaxy S2 i9100 after flashing a new ROM</title>
+      <link>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
+      <pubDate>Sun, 23 Feb 2014 19:22:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
+      <description>&lt;p&gt;After a bit of boredom and a morbid desire to play with KitKat ROM&amp;rsquo;s for
+my Galaxy S2, here I was, pulling through the day without realising how
+much time I poured into getting the latest Cyanogenmod 11 nightly
+working on my phone. It took patience, some restarts, some flashings,
+some more restarts, and a plethora of network bandwith wastefulness, to
+finally get my phone setup with everything that I needed.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Documentaries I&#39;ve watched</title>
       <link>https://kirang89.github.io/kirang.in/post/documentaries-ive-watched/</link>
       <pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate>
@@ -188,6 +285,21 @@ Upload photo tagged #flickrd on Instagram to Flickr - https://ifttt.com/recipes
     </item>
     
     <item>
+      <title>The Unix Philosophy - A Summary</title>
+      <link>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</link>
+      <pubDate>Thu, 12 Dec 2013 20:45:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rule of Modularity&lt;/strong&gt;: Write simple parts connected by clean
+interfaces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rule of Clarity&lt;/strong&gt;: Clarity is better than cleverness.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rule of Composition&lt;/strong&gt;: Design programs to be connected to other
+programs.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Installing PIL on Mac OSX Mavericks</title>
       <link>https://kirang89.github.io/kirang.in/post/installing-pil-on-mac-osx-mavericks/</link>
       <pubDate>Mon, 09 Dec 2013 12:13:00 +0530</pubDate>
@@ -200,12 +312,32 @@ searching for a while, I found the solution that worked for me.&lt;/p&gt;</descr
     </item>
     
     <item>
+      <title>Writing good Classes in Python</title>
+      <link>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</link>
+      <pubDate>Mon, 02 Dec 2013 08:38:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</guid>
+      <description>This post is the highlight of Raymond Hettinger&amp;rsquo;s talk &amp;ldquo;Python&amp;rsquo;s Class Development Toolkit&amp;ldquo; at PyCon US 2013.
+Things to keep in mind while writing Classes:
+ Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.</description>
+    </item>
+    
+    <item>
       <title>Setting up Jenkins as a watchdog for your Python application</title>
       <link>https://kirang89.github.io/kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
       <pubDate>Thu, 28 Nov 2013 20:19:00 +0530</pubDate>
       
       <guid>https://kirang89.github.io/kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
       <description>In order to facilitate an efficient collaboration amongst developer teams, it is very important to keep the development workflow as simple and straightforward as possible. Version Control is one tool that helps with this. Continuous Integration is another one. Below, I&amp;rsquo;ll illustrate the steps needed to configure a basic Python application with Jenkins, a CI server that automates a lot of the repetitive stuff, so that you can focus on writing code.</description>
+    </item>
+    
+    <item>
+      <title>What makes a great API?</title>
+      <link>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</link>
+      <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</guid>
+      <description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs.</description>
     </item>
     
     <item>
@@ -267,6 +399,29 @@ First, create a sample Django project and a AWS Elastic Beanstalk environment f
     </item>
     
     <item>
+      <title>Web Typography checklist</title>
+      <link>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</link>
+      <pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</guid>
+      <description>The following is a note-to-self checklist for web typography:
+ Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids  </description>
+    </item>
+    
+    <item>
+      <title>What is Python Month?</title>
+      <link>https://kirang89.github.io/kirang.in/post/what-is-python-month/</link>
+      <pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/what-is-python-month/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India
+on using and developing the Python programming language is conducted
+annually by the Python developer community, and represented by the
+Python Software Society of India. The conference attracts the best
+Python programmers across the country and abroad.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>JVM Profiling Disclosures</title>
       <link>https://kirang89.github.io/kirang.in/post/jvm-profiling-disclosures/</link>
       <pubDate>Wed, 22 May 2013 02:55:00 +0530</pubDate>
@@ -286,6 +441,17 @@ Install python-dev
 sudo apt-get install python-dev Install libmemcached
 sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip
 sudo pip install pylibmc</description>
+    </item>
+    
+    <item>
+      <title>Type and Object in Python</title>
+      <link>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</link>
+      <pubDate>Wed, 22 May 2013 01:59:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</guid>
+      <description>&lt;p&gt;Recently I stumbled across an article talking about the importance of
+understanding type and object in Python, so thought of writing a small
+post on it.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -327,216 +493,6 @@ Documentation is communication This is the single most important point that you 
 I’m a software designer and developer who likes to think of himself as someone who has a sense of good design. I emphasize simplicity over functionality.
 I currently work at nilenso as a polyglot programmer learning new things.
 If I had to describe myself in a single word, I’d use “Curious“. This curiousity is what fuels my love for reading. If you’d like to get to know me as a fellow book lover, you might want to follow me on Goodreads.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-pdf-export-osx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-pdf-export-osx/</guid>
-      <description>Title: Setting up org-mode pdf export in OS X ElCapitan Date: 2015-11-30 Category: Emacs Tags: org-mode, emacs, osx
-Basic TeX Download and install Basic TeX package from here.
-Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
-Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/setting_up_org_mode_to_run_clojure_code/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/setting_up_org_mode_to_run_clojure_code/</guid>
-      <description>Title: Setting up Org-mode to run Clojure code Date: 2016-07-18 Category: Emacs Tags: emacs, clojure
-I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.
-First, start by installing the ob-clojure package:</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/sicp-notes-chapter-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/sicp-notes-chapter-1/</guid>
-      <description>Title: SICP Notes - Chapter 1 Date: 2013-11-16 07:39 Author: kirang89 Category: Programming Tags: programming, SICP, software development Slug: sicp-notes-chapter-1
-After quite a long time, I finally managed to take the time out of my busy schedule of being jobless and start reading one of the best classics in the field of Computer Science - the Structure and Interpretation of Computer Programs. It&amp;rsquo;s taken a while but I&amp;rsquo;ve managed to complete the first chapter, and I&amp;rsquo;m really excited about the easter eggs that await in the forthcoming chapters.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/simple-stack-language-clojure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/simple-stack-language-clojure/</guid>
-      <description>Title: Creating a simple stack-based language in Clojure Date: 2016-04-04 Category: Programming, Clojure Tags: Clojure
-Let&amp;rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
-push 8 push 4 + push 3 *  This would be equivalent to (in infix notation):
-(8 + 4) * 3  Here is a simple parser-cum-evaluator for the above input:
-(defn parse-eval [string stack] &amp;#34;Parse and Evaluate the line sent and push result to stack if necessary.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/spell_corrector_clojure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/spell_corrector_clojure/</guid>
-      <description>Title: Implementing Norvig&amp;rsquo;s Spelling Corrector in Clojure Date: 2016-02-03 Category: Programming, Clojure Tags: clojure
-I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&amp;rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&amp;rsquo;ve managed a decent implementation. It was fun! :)
-(def alphabets &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) (defn words [text] (re-seq #&amp;#34;[a-zA-Z]+&amp;#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/stuff_2016/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/stuff_2016/</guid>
-      <description>Title: Stuff I did in 2016 Date: 2016-12-31 Category: Programming, Reading Tags: programming, reading
-Books  The Power of Habit  Quite an eye opener. Looking forward to re-reading this sometime soon.
- Dreaming in Code  Highly recommended read for any software developer.
- Clojure for the Brave and True
- The Joy of Clojure
-  My love for Clojure has grown substantially, thanks to this read.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
-      <description>&lt;p&gt;Title: Testing your Galaxy S2 i9100 after flashing a new ROM
-Date: 2014-02-23 19:22
-Author: kirang89
-Category: Android
-Tags: android, cyanogenmod, i9100, rooting, samsung galaxy s2
-Slug: testing-your-galaxy-s2-i9100-after-flashing-a-new-rom&lt;/p&gt;
-
-&lt;p&gt;After a bit of boredom and a morbid desire to play with KitKat ROM&amp;rsquo;s for
-my Galaxy S2, here I was, pulling through the day without realising how
-much time I poured into getting the latest Cyanogenmod 11 nightly
-working on my phone. It took patience, some restarts, some flashings,
-some more restarts, and a plethora of network bandwith wastefulness, to
-finally get my phone setup with everything that I needed.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</guid>
-      <description>&lt;p&gt;Title: The Unix Philosophy - Summary
-Date: 2013-12-12 20:45
-Author: kirang89
-Category: Design, Programming
-Tags: API, design, software, unix
-Slug: the-unix-philosophy-summary&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Rule of Modularity&lt;/strong&gt;: Write simple parts connected by clean
-interfaces.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Rule of Clarity&lt;/strong&gt;: Clarity is better than cleverness.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Rule of Composition&lt;/strong&gt;: Design programs to be connected to other
-programs.&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</guid>
-      <description>&lt;p&gt;Title: Type and Object in Python
-Date: 2013-05-22 01:59
-Author: admin
-Category: Programming, Python
-Tags: object, programming, python, type
-Slug: type-and-object-in-python&lt;/p&gt;
-
-&lt;p&gt;Recently I stumbled across an article talking about the importance of
-understanding type and object in Python, so thought of writing a small
-post on it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/useful_awk_snippets/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/useful_awk_snippets/</guid>
-      <description>Title: Useful AWK one-liners Date: 2015-12-15 Category: Programming Tags: awk
-While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
- If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/using_records_clojure/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/using_records_clojure/</guid>
-      <description>Title: Using records in Clojure Date: 2016-02-24 Category: Programming, Clojure Tags: clojure
-###When to use:
- Fixed set of keys in multiple map instances Defer until you have protocols  ###Pros
- Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod  ###Cons
- Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity  Example:</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</guid>
-      <description>Title: Web Typography checklist Date: 2013-08-14 12:06 Author: kirang89 Category: typography, Web Tags: typography, web Slug: web-typography-checklist
-The following is a note-to-self checklist for web typography:
- Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/what-is-python-month/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/what-is-python-month/</guid>
-      <description>&lt;p&gt;Title: What is Python Month ?
-Date: 2013-07-23 17:02
-Author: kirang89
-Category: Python
-Tags: pyconindia, python, pythonmonth
-Slug: what-is-python-month&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India
-on using and developing the Python programming language is conducted
-annually by the Python developer community, and represented by the
-Python Software Society of India. The conference attracts the best
-Python programmers across the country and abroad.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</guid>
-      <description>Title: What makes a great API ? Date: 2013-11-07 22:59 Author: kirang89 Category: Design, Programming, Thoughts, Web Tags: API, business, design, open source, web Slug: what-makes-a-great-api
-We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love).</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</guid>
-      <description>Title: Writing good Classes in Python Date: 2013-12-02 08:38 Author: kirang89 Category: Python Tags: best practices, classes, pragmatic, python Slug: writing-good-classes-in-python
-This post is the highlight of Raymond Hettinger&amp;rsquo;s talk &amp;ldquo;Python&amp;rsquo;s Class Development Toolkit&amp;ldquo; at PyCon US 2013.
-Things to keep in mind while writing Classes:
- Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors.</description>
     </item>
     
   </channel>

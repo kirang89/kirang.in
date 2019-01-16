@@ -6,10 +6,22 @@
     <description>Recent content in Osx on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Dec 2013 12:13:00 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2015 00:00:00 +0530</lastBuildDate>
     
 	<atom:link href="https://kirang89.github.io/kirang.in/tags/osx/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting up org-mode pdf export in OS X ElCapitan</title>
+      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <description>Basic TeX Download and install Basic TeX package from here.
+Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
+export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
+Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
+    </item>
     
     <item>
       <title>Installing PIL on Mac OSX Mavericks</title>

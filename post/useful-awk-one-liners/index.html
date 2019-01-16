@@ -25,10 +25,10 @@
     <title>
       
       
-          
+         Useful AWK one-liners 
       
     </title>
-    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/stuff_2016/">
+    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/">
 
     <style>
   * {
@@ -470,179 +470,67 @@
 
 
 <section id=content>
-  <h1>  </h1>
+  <h1> Useful AWK one-liners </h1>
 
+  
+    <div id=sub-header>
+      December 2015 · 2 minute read
+    </div>
   
 
   <div class="entry-content">
     
 
-<p>Title: Stuff I did in 2016
-Date: 2016-12-31
-Category: Programming, Reading
-Tags: programming, reading</p>
+<p>While reading
+<a href="http://shop.oreilly.com/product/9780596515171.do">Masterminds of Programming</a> I
+came across the interview with <a href="https://en.wikipedia.org/wiki/Alfred_Aho">Alfred Aho</a> and his thoughts about the design of
+the AWK programming language. I&rsquo;ve always known about the existence of awk, but
+have never really felt the urge to dive in. Then I came across this sentence:</p>
 
-<h2 id="books">Books</h2>
+<blockquote>
+<p>If I had to choose a word to describe our centering forces in language design,
+I&rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of
+implementation; and I, utility. I think AWK has all three of these properties.</p>
+</blockquote>
 
-<ul>
-<li><a href="https://www.goodreads.com/book/show/12609433-the-power-of-habit?ac=1&amp;from_search=true">The Power of Habit</a></li>
-</ul>
+<p>This got me curious enough to put down the book and start looking through a few
+AWK tutorials. After mucking around with it for a day or two, I am really glad
+that I did so. AWK is a simple yet powerful language to do some quick data
+processing for which languages like Python or Ruby may be an overkill.</p>
 
-<p><em>Quite an eye opener. Looking forward to re-reading this sometime soon.</em></p>
+<p>While learning, I&rsquo;ve collected a few one-liners together, as a cheatsheat for
+myself.</p>
 
-<ul>
-<li><a href="https://www.goodreads.com/book/show/32475.Dreaming_in_Code?ac=1&amp;from_search=true">Dreaming in Code</a></li>
-</ul>
+<h3 id="remove-duplicate-lines-from-a-file">Remove duplicate lines from a file</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;!a[$0]++&#39;</span> data.txt</code></pre></div>
+<h3 id="print-account-name-and-role-from-etc-passwd">Print account name and role from /etc/passwd</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk -F : <span style="color:#d20;background-color:#fff0f0">&#39;/^[^(#|_)]/ {print $1, &#34;=&gt;&#34;, $5}&#39;</span> /etc/passwd</code></pre></div>
+<h3 id="prefixing-line-with-increasing-number">Prefixing line with increasing number</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;{print FNR &#34;. &#34; $0}&#39;</span> data1.txt</code></pre></div>
+<h3 id="find-sum-of-columns-for-each-row">Find sum of columns for each row</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;{s=0; for (i=1; i&lt;=NF; i++) s=s+$i; print s}&#39;</span> data1.txt</code></pre></div>
+<h3 id="find-the-line-containing-largest-value-in-the-first-column">Find the line containing largest value in the first column</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;$1 &gt; max {max=$1; maxline=$0}; END{ print maxline}&#39;</span> data1.txt</code></pre></div>
+<h3 id="find-and-replace-in-file">Find and replace in file</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#888"># Replace only first instance in line</span>
+awk <span style="color:#d20;background-color:#fff0f0">&#39;{sub(/HTML/, &#34;html&#34;)}; 1&#39;</span> data1.txt &gt; data2.txt
 
-<p><em>Highly recommended read for any software developer.</em></p>
-
-<ul>
-<li><p><a href="https://www.goodreads.com/book/show/20873338-clojure-for-the-brave-and-true?ac=1&amp;from_search=true">Clojure for the Brave and True</a></p></li>
-
-<li><p><a href="https://www.goodreads.com/book/show/8129142-the-joy-of-clojure?ac=1&amp;from_search=true">The Joy of Clojure</a></p></li>
-</ul>
-
-<p><em>My love for Clojure has grown substantially, thanks to this read.</em></p>
-
-<ul>
-<li><p><a href="https://www.goodreads.com/book/show/5107.The_Catcher_in_the_Rye?ac=1&amp;from_search=true">The Catcher in the Rye</a></p></li>
-
-<li><p><a href="https://www.goodreads.com/book/show/25614298-in-other-words?ac=1&amp;from_search=true">In Other Words</a></p></li>
-</ul>
-
-<p><em>Jhumpa Lahiri talks about the difficulties of learning a new language(Italian) completely different from English. She documents all the frustating moments that she went through in the process. I could relate so much to her in terms of learning a new programming paradigm completely different from what I&rsquo;m comfortable in.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/5439.Interpreter_of_Maladies?ac=1&amp;from_search=true">Interpreter of the Maladies</a></li>
-</ul>
-
-<p><em>A set of emotional and touching short stories set in India by Jhumpa Lahiri.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/12169041-an-introduction-to-functional-programming-through-lambda-calculus">An Introduction to Functional Programming using Lambda Calculus</a></li>
-</ul>
-
-<p><em>Fantastic book to read if you’re a complete beginner to FP and Lambda Calculus. My favorite technical book of the year.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/567610.How_to_Read_a_Book?ac=1&amp;from_search=true">How to Read a book: The Classic Guide to Intelligent Reading</a></li>
-</ul>
-
-<p><em>The title, literally. Good thought provoking advice on reading all kinds of books.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/1611810.The_Blue_Umbrella">The Blue Umbrella</a></li>
-</ul>
-
-<p><em>A short and sweet novel by Ruskin Bond.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/17571564-hyperbole-and-a-half">Hyperbole and a Half</a></li>
-</ul>
-
-<p><em>This book is soo good and so damn hilarious. Highly recommend.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/7237456-packing-for-mars">Packing for Mars</a></li>
-</ul>
-
-<p><em>Mary Roach does a good job at illustrating why being an astronaut is harder than you thought. If you want to learn the difficulties of space travel and the mundane(read unconventional) things that astronauts have to deal with, give this one a read.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/10258481-a-geek-in-japan">A Geek in Japan</a></li>
-</ul>
-
-<p><em>Japan and it&rsquo;s culture has been a fascination for a while now. I&rsquo;ve learned a lot more interesting(or absurd) stuff thanks to this book.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/175626.The_Narrow_Road_to_the_Deep_North_and_Other_Travel_Sketches">The Narrow Road to the Deep North and Other Travel Sketches</a></li>
-</ul>
-
-<p><em>My first experience reading Haikus. The book contains lots of simple and beautiful, yet deep haikus that illustrate the experiences and express the emotions of Basho as he travels around Japan on foot.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/157993.The_Little_Prince">The Little Prince</a></li>
-</ul>
-
-<p><em>A short and sweet read with a very important lesson.</em></p>
-
-<ul>
-<li>The Little Brother Series (<a href="https://www.goodreads.com/book/show/954674.Little_Brother">Little Brother</a>, <a href="https://www.goodreads.com/book/show/12917338-homeland">Homeland)</a></li>
-</ul>
-
-<p><em>I picked up this two book series by Cory Doctorow after seeing a copy of Homeland in Snowden&rsquo;s room in the documentary Citizen Four. I got hooked immediately. Recommended if you like a young adult, cyber-security, surveillance and hacking related novel.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/5470.1984">1984</a></li>
-</ul>
-
-<p><em>The classic. I finally got to read it and I enjoyed it (in a nightmarish way) as much as I thought I would.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/18652140-distributed-systems-for-fun-and-profit">Distributed Systems for fun and profit</a></li>
-</ul>
-
-<p><em>A short read to brush up your knowledge on the fundamental concepts and problems of Distributed Systems.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/29746976-make-your-own-neural-network">Make your own Neural Network</a></li>
-</ul>
-
-<p><em>A easy and wonderful read on the fundamental concepts behind Neural Networks.</em></p>
-
-<ul>
-<li><p><a href="https://www.goodreads.com/book/show/6392569-natural-language-processing-with-python">Natural Language Processing in Python</a></p></li>
-
-<li><p><a href="https://www.goodreads.com/book/show/49552.The_Stranger">The Stranger</a></p></li>
-</ul>
-
-<p><em>A thought provoking read. A must-read for everyone.</em></p>
-
-<ul>
-<li><a href="https://www.goodreads.com/book/show/28721136-the-girl-in-the-ice">The Girl in the Ice</a></li>
-</ul>
-
-<p><em>An enjoyable murder mystery.</em></p>
-
-<h2 id="papers">Papers</h2>
-
-<ul>
-<li>Why Functional Programming Matters</li>
-<li>The Humble Programmer</li>
-<li>Scheme: An Interpreter for Lambda Calculus</li>
-<li>Out of the Tar Pit</li>
-<li>Twitter User Gender Inference Using Combined Analysis of Text and Image Processing</li>
-<li>Combining Image and Text Features: A Hybrid Approach to Mobile Book Spine Recognition</li>
-<li>Kafka: A distributed messaging system for log processing</li>
-<li>Efficient Multi-label Classification with Many Labels</li>
-<li>Time, Clocks and Ordering of Events in a Distributed System</li>
-<li>Fallacies of Distributed Computing Explained (Technically not a paper)</li>
-</ul>
-
-<h2 id="programming-languages">Programming Languages</h2>
-
-<ul>
-<li><p>Clojure</p></li>
-
-<li><p>Swift</p></li>
-
-<li><p>Prolog</p></li>
-</ul>
-
-<p><em>Just the fundamentals. I plan on doing more this year.</em></p>
-
-<ul>
-<li>Standard ML</li>
-</ul>
-
+<span style="color:#888"># Replace all instances in line</span>
+awk <span style="color:#d20;background-color:#fff0f0">&#39;{gsub(/HTML/, &#34;html&#34;)}; 1&#39;</span> data1.txt &gt; data2.txt</code></pre></div>
+<h3 id="swap-first-two-columns-of-every-line">Swap first two columns of every line</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;{temp=$1; $1=$2; $2=temp} 1&#39;</span> data2.txt</code></pre></div>
+<h3 id="delete-second-column-from-every-line">Delete second column from every line</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;{ $2 = &#34;&#34;; print }&#39;</span> data2.txt</code></pre></div>
+<h3 id="perform-search-similar-to-sql-where">Perform search similar to SQL &lsquo;where&rsquo;</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">awk <span style="color:#d20;background-color:#fff0f0">&#39;$2 == &#34;hello&#34;&#39;</span> data2.txt</code></pre></div>
   </div>
 
   <div id=links>
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/">&laquo; </a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/">&laquo; Setting up org-mode pdf export in OS X ElCapitan</a>
     
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/spell_corrector_clojure/"> &raquo;</a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/concurrent-prime-sieve-in-clojure/">Concurrent Prime Sieve in Clojure &raquo;</a>
     
   </div>
 </section>

@@ -54,6 +54,17 @@ searching for a while, I found the solution that worked for me.&lt;/p&gt;</descr
     </item>
     
     <item>
+      <title>Writing good Classes in Python</title>
+      <link>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</link>
+      <pubDate>Mon, 02 Dec 2013 08:38:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</guid>
+      <description>This post is the highlight of Raymond Hettinger&amp;rsquo;s talk &amp;ldquo;Python&amp;rsquo;s Class Development Toolkit&amp;ldquo; at PyCon US 2013.
+Things to keep in mind while writing Classes:
+ Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.</description>
+    </item>
+    
+    <item>
       <title>Setting up Jenkins as a watchdog for your Python application</title>
       <link>https://kirang89.github.io/kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
       <pubDate>Thu, 28 Nov 2013 20:19:00 +0530</pubDate>
@@ -99,6 +110,19 @@ First, create a sample Django project and a AWS Elastic Beanstalk environment f
     </item>
     
     <item>
+      <title>What is Python Month?</title>
+      <link>https://kirang89.github.io/kirang.in/post/what-is-python-month/</link>
+      <pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/what-is-python-month/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India
+on using and developing the Python programming language is conducted
+annually by the Python developer community, and represented by the
+Python Software Society of India. The conference attracts the best
+Python programmers across the country and abroad.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Installing pylibmc in ubuntu</title>
       <link>https://kirang89.github.io/kirang.in/post/installing-pylibmc-in-ubuntu/</link>
       <pubDate>Wed, 22 May 2013 02:16:00 +0530</pubDate>
@@ -109,6 +133,17 @@ Install python-dev
 sudo apt-get install python-dev Install libmemcached
 sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip
 sudo pip install pylibmc</description>
+    </item>
+    
+    <item>
+      <title>Type and Object in Python</title>
+      <link>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</link>
+      <pubDate>Wed, 22 May 2013 01:59:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</guid>
+      <description>&lt;p&gt;Recently I stumbled across an article talking about the importance of
+understanding type and object in Python, so thought of writing a small
+post on it.&lt;/p&gt;</description>
     </item>
     
   </channel>

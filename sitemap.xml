@@ -3,8 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/post/stuff-i-did-in-2016/</loc>
+    <lastmod>2016-12-31T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</loc>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/post/eshell-prompt-setup/</loc>
     <lastmod>2016-06-20T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</loc>
+    <lastmod>2016-04-04T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/using-records-in-clojure/</loc>
+    <lastmod>2016-02-24T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</loc>
+    <lastmod>2016-02-03T00:00:00+05:30</lastmod>
   </url>
   
   <url>
@@ -20,6 +45,16 @@
   <url>
     <loc>https://kirang89.github.io/kirang.in/post/concurrent-prime-sieve-in-clojure/</loc>
     <lastmod>2015-12-28T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</loc>
+    <lastmod>2015-12-15T00:00:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</loc>
+    <lastmod>2015-11-30T00:00:00+05:30</lastmod>
   </url>
   
   <url>
@@ -68,6 +103,11 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</loc>
+    <lastmod>2014-02-23T19:22:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/post/documentaries-ive-watched/</loc>
     <lastmod>2014-02-20T19:23:00+05:30</lastmod>
   </url>
@@ -83,13 +123,28 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</loc>
+    <lastmod>2013-12-12T20:45:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/post/installing-pil-on-mac-osx-mavericks/</loc>
     <lastmod>2013-12-09T12:13:00+05:30</lastmod>
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</loc>
+    <lastmod>2013-12-02T08:38:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</loc>
     <lastmod>2013-11-28T20:19:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</loc>
+    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
   </url>
   
   <url>
@@ -118,6 +173,16 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</loc>
+    <lastmod>2013-08-14T12:06:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/what-is-python-month/</loc>
+    <lastmod>2013-07-23T17:02:00+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/post/jvm-profiling-disclosures/</loc>
     <lastmod>2013-05-22T02:55:00+05:30</lastmod>
   </url>
@@ -125,6 +190,11 @@
   <url>
     <loc>https://kirang89.github.io/kirang.in/post/installing-pylibmc-in-ubuntu/</loc>
     <lastmod>2013-05-22T02:16:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</loc>
+    <lastmod>2013-05-22T01:59:00+05:30</lastmod>
   </url>
   
   <url>
@@ -147,68 +217,32 @@
   </url>
   
   <url>
-    <loc>https://kirang89.github.io/kirang.in/post/setting-up-org-pdf-export-osx/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/setting_up_org_mode_to_run_clojure_code/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/sicp-notes-chapter-1/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/simple-stack-language-clojure/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/spell_corrector_clojure/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/stuff_2016/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/useful_awk_snippets/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/using_records_clojure/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/what-is-python-month/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</loc>
-  </url>
-  
-  <url>
-    <loc>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</loc>
-  </url>
-  
-  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/2014/</loc>
     <lastmod>2014-01-16T00:28:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/android/</loc>
+    <lastmod>2014-02-23T19:22:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/categories/android/</loc>
+    <lastmod>2014-02-23T19:22:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/api/</loc>
+    <lastmod>2013-12-12T20:45:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/awk/</loc>
+    <lastmod>2015-12-15T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -244,6 +278,7 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/categories/</loc>
+    <lastmod>2014-02-23T19:22:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -255,7 +290,7 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/tags/clojure/</loc>
-    <lastmod>2016-01-30T00:00:00+05:30</lastmod>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -272,6 +307,12 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/cyanogenmod/</loc>
+    <lastmod>2014-02-23T19:22:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/deployment/</loc>
     <lastmod>2013-08-20T06:20:00+05:30</lastmod>
     <priority>0</priority>
@@ -279,13 +320,13 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/tags/design/</loc>
-    <lastmod>2013-10-30T11:44:00+05:30</lastmod>
+    <lastmod>2013-12-12T20:45:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/categories/design/</loc>
-    <lastmod>2013-10-30T11:44:00+05:30</lastmod>
+    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -315,13 +356,13 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/tags/emacs/</loc>
-    <lastmod>2016-06-20T00:00:00+05:30</lastmod>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/categories/emacs/</loc>
-    <lastmod>2016-06-20T00:00:00+05:30</lastmod>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -369,7 +410,7 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/</loc>
-    <lastmod>2016-06-20T00:00:00+05:30</lastmod>
+    <lastmod>2016-12-31T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -410,8 +451,14 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/org-mode/</loc>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/osx/</loc>
-    <lastmod>2013-12-09T12:13:00+05:30</lastmod>
+    <lastmod>2015-11-30T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -429,13 +476,19 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/post/</loc>
-    <lastmod>2016-06-20T00:00:00+05:30</lastmod>
+    <lastmod>2016-12-31T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/tags/productivity/</loc>
-    <lastmod>2014-11-13T02:06:44+05:30</lastmod>
+    <lastmod>2015-12-15T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kirang89.github.io/kirang.in/categories/productivity/</loc>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -447,7 +500,7 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/categories/programming/</loc>
-    <lastmod>2016-01-30T00:00:00+05:30</lastmod>
+    <lastmod>2016-04-04T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -482,14 +535,20 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/python-month/</loc>
+    <lastmod>2013-07-23T17:02:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/reading/</loc>
-    <lastmod>2015-12-29T00:00:00+05:30</lastmod>
+    <lastmod>2016-12-31T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/categories/reading/</loc>
-    <lastmod>2015-12-29T00:00:00+05:30</lastmod>
+    <lastmod>2016-12-31T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -512,6 +571,12 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/samsung-galaxy-s2/</loc>
+    <lastmod>2014-02-23T19:22:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/short-story/</loc>
     <lastmod>2014-01-16T00:28:00+05:30</lastmod>
     <priority>0</priority>
@@ -530,6 +595,12 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/typography/</loc>
+    <lastmod>2013-08-14T12:06:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/ubuntu/</loc>
     <lastmod>2013-05-22T02:16:00+05:30</lastmod>
     <priority>0</priority>
@@ -542,6 +613,12 @@
   </url>
   
   <url>
+    <loc>https://kirang89.github.io/kirang.in/tags/unix/</loc>
+    <lastmod>2013-12-12T20:45:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://kirang89.github.io/kirang.in/tags/visual/</loc>
     <lastmod>2013-10-30T11:44:00+05:30</lastmod>
     <priority>0</priority>
@@ -549,7 +626,7 @@
   
   <url>
     <loc>https://kirang89.github.io/kirang.in/tags/web/</loc>
-    <lastmod>2013-10-30T11:44:00+05:30</lastmod>
+    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   

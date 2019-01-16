@@ -25,10 +25,10 @@
     <title>
       
       
-          
+         Using records in Clojure 
       
     </title>
-    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/simple-stack-language-clojure/">
+    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/using-records-in-clojure/">
 
     <style>
   * {
@@ -470,65 +470,60 @@
 
 
 <section id=content>
-  <h1>  </h1>
+  <h1> Using records in Clojure </h1>
 
+  
+    <div id=sub-header>
+      February 2016 · 1 minute read
+    </div>
   
 
   <div class="entry-content">
-    <p>Title: Creating a simple stack-based language in Clojure
-Date: 2016-04-04
-Category: Programming, Clojure
-Tags: Clojure</p>
+    
 
-<p>Let&rsquo;s look at how to build a simple stack-based language in Clojure. First, this
-is how the input would look like:</p>
+<h3 id="when-to-use">When to use:</h3>
 
-<pre><code>push 8
-push 4
-+
-push 3
-*
-</code></pre>
+<ul>
+<li>Fixed set of keys in multiple map instances</li>
+<li>Defer until you have protocols</li>
+</ul>
 
-<p>This would be equivalent to (in infix notation):</p>
+<h3 id="pros">Pros</h3>
 
-<pre><code>(8 + 4) * 3
-</code></pre>
+<ul>
+<li>Created quickly</li>
+<li>Less memory overhead</li>
+<li>Key lookup performance same/faster when compared to equivalent hash-maps</li>
+<li>Can implement protocols</li>
+<li>Generated class has a type that can be used to dispatch methods using multimethod</li>
+</ul>
 
-<p>Here is a simple parser-cum-evaluator for the above input:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">parse-eval</span> [<span style="color:#369">string</span> <span style="color:#369">stack</span>]
-  <span style="color:#d20;background-color:#fff0f0">&#34;Parse and Evaluate the line sent and push result to stack if necessary.&#34;</span>
-  (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">cmd</span> (<span style="color:#369">clojure.string/split</span> <span style="color:#369">string</span> #<span style="color:#d20;background-color:#fff0f0">&#34; &#34;</span>)
-        <span style="color:#369">fname</span> (<span style="color:#038">first </span><span style="color:#369">cmd</span>)
-        <span style="color:#369">arg</span> (<span style="color:#038">second </span><span style="color:#369">cmd</span>)
-        <span style="color:#369">digit?</span> #(<span style="color:#369">Character/isDigit</span> (<span style="color:#038">first </span><span style="color:#369">%</span>))
-        <span style="color:#369">op?</span> #(<span style="color:#038">some </span>(<span style="color:#080;font-weight:bold">fn </span>[<span style="color:#369">x</span>] (<span style="color:#038">= </span><span style="color:#369">x</span> <span style="color:#369">%</span>)) [<span style="color:#d20;background-color:#fff0f0">&#34;+&#34;</span> <span style="color:#d20;background-color:#fff0f0">&#34;-&#34;</span> <span style="color:#d20;background-color:#fff0f0">&#34;*&#34;</span> <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>])
-        <span style="color:#369">make-fn</span> #(<span style="color:#038">resolve </span>(<span style="color:#038">symbol </span><span style="color:#369">%</span>))]
-    (<span style="color:#080;font-weight:bold">if </span>(<span style="color:#038">and </span>(<span style="color:#038">nil? </span><span style="color:#369">arg</span>) (<span style="color:#369">op?</span> <span style="color:#369">fname</span>))
-      <span style="color:#888">;; If operator, apply it to arguments in stack</span>
-      (<span style="color:#038">conj </span>(<span style="color:#038">drop </span><span style="color:#00d;font-weight:bold">2</span> <span style="color:#369">stack</span>) (<span style="color:#038">apply </span>(<span style="color:#369">make-fn</span> <span style="color:#369">fname</span>) (<span style="color:#038">take </span><span style="color:#00d;font-weight:bold">2</span> <span style="color:#369">stack</span>)))
-      (<span style="color:#080;font-weight:bold">if </span>(<span style="color:#038">and </span>(<span style="color:#038">= </span>(<span style="color:#038">keyword </span><span style="color:#369">fname</span>) <span style="color:#a60;background-color:#fff0f0">:push</span>) (<span style="color:#369">digit?</span> <span style="color:#369">arg</span>))
-        <span style="color:#888">;; If push command, add value to stack</span>
-        (<span style="color:#038">conj </span><span style="color:#369">stack</span> (<span style="color:#369">Integer/parseInt</span> <span style="color:#369">arg</span>))
-        (<span style="color:#369">throw</span> (<span style="color:#369">Exception.</span> <span style="color:#d20;background-color:#fff0f0">&#34;Error while parsing&#34;</span>))))))</code></pre></div>
-<p>Now we need to read the program mentioned above from a file and send it to the above
-function:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">read-prog</span> [<span style="color:#369">filename</span>]
-  (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">data</span> (<span style="color:#038">slurp </span><span style="color:#369">filename</span>)]
-    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">lines</span> (<span style="color:#369">clojure.string/split-lines</span> <span style="color:#369">data</span>) <span style="color:#369">stack</span> []]
-      (<span style="color:#080;font-weight:bold">if </span>(<span style="color:#369">empty?</span> <span style="color:#369">lines</span>)
-        <span style="color:#369">stack</span>
-        (<span style="color:#369">recur</span> (<span style="color:#038">rest </span><span style="color:#369">lines</span>) (<span style="color:#369">reader</span> (<span style="color:#038">first </span><span style="color:#369">lines</span>) <span style="color:#369">stack</span>))))))</code></pre></div>
-<p>This returns the stack containing the result of the expression.</p>
+<h3 id="cons">Cons</h3>
+
+<ul>
+<li>Cannot be used as a function like hash-maps can</li>
+<li>Cannot be compared to an equivalent hash-map in terms of identity</li>
+</ul>
+
+<p>Example:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defrecord </span><span style="color:#369">TreeNode</span> [<span style="color:#369">value</span> <span style="color:#038">left </span><span style="color:#369">right</span>])
+
+(<span style="color:#038">= </span>(<span style="color:#369">TreeNode.</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#369">nil</span> <span style="color:#369">nil</span>) {<span style="color:#a60;background-color:#fff0f0">:val</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#a60;background-color:#fff0f0">:left</span> <span style="color:#369">nil</span> <span style="color:#a60;background-color:#fff0f0">:right</span> <span style="color:#369">nil</span>}) <span style="color:#888">;; =&gt; false</span></code></pre></div>
+<ul>
+<li>No structural sharing when changing(redefining) a record</li>
+</ul>
+
+<p><br/><br/>
+<strong>tl;dr</strong> <em>Stick to hash-maps until you have a specific requirement to use Records.</em></p>
 
   </div>
 
   <div id=links>
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/spell_corrector_clojure/">&laquo; </a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/">&laquo; Implementing Norvig&#39;s Spelling Corrector in Clojure</a>
     
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/sicp-notes-chapter-1/"> &raquo;</a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/creating-a-simple-stack-based-language-in-clojure/">Creating a simple stack-based language in Clojure &raquo;</a>
     
   </div>
 </section>

@@ -6,10 +6,20 @@
     <description>Recent content in Productivity on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Nov 2014 02:06:44 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 15 Dec 2015 00:00:00 +0530</lastBuildDate>
     
 	<atom:link href="https://kirang89.github.io/kirang.in/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Useful AWK one-liners</title>
+      <link>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</guid>
+      <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
+ If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
+    </item>
     
     <item>
       <title>Emacs as email client with offlineimap and mu4e on OS X</title>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Typography on KG – Hacks. Thoughts. Writings.</title>
+    <link>https://kirang89.github.io/kirang.in/tags/typography/</link>
+    <description>Recent content in Typography on KG – Hacks. Thoughts. Writings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Aug 2013 12:06:00 +0530</lastBuildDate>
+    
+	<atom:link href="https://kirang89.github.io/kirang.in/tags/typography/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web Typography checklist</title>
+      <link>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</link>
+      <pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</guid>
+      <description>The following is a note-to-self checklist for web typography:
+ Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids  </description>
+    </item>
+    
+  </channel>
+</rss>

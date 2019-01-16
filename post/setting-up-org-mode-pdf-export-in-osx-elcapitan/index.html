@@ -25,10 +25,10 @@
     <title>
       
       
-          
+         Setting up org-mode pdf export in OS X ElCapitan 
       
     </title>
-    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/setting_up_org_mode_to_run_clojure_code/">
+    <link rel="canonical" href="https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/">
 
     <style>
   * {
@@ -470,74 +470,45 @@
 
 
 <section id=content>
-  <h1>  </h1>
+  <h1> Setting up org-mode pdf export in OS X ElCapitan </h1>
 
+  
+    <div id=sub-header>
+      November 2015 · 1 minute read
+    </div>
   
 
   <div class="entry-content">
-    <p>Title: Setting up Org-mode to run Clojure code
-Date: 2016-07-18
-Category: Emacs
-Tags: emacs, clojure</p>
+    
 
-<p>I wanted to be able to store interesting clojure snippets in an org file and
-then execute and play with them without leaving the
-file. In this post, I&rsquo;ll illustrate the steps needed to achieve the same. I am
-assuming that you&rsquo;ve already setup Emacs with org-mode and cider.</p>
+<h2 id="basic-tex">Basic TeX</h2>
 
-<p>First, start by installing the <code>ob-clojure</code> package:</p>
+<p>Download and install Basic TeX package from <a href="https://www.tug.org/mactex/morepackages.html">here</a>.</p>
 
-<pre><code>M-x package-install
-ob-clojure
-</code></pre>
+<h2 id="set-system-path">Set System Path</h2>
 
-<p>or simply do so with <code>use-package</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#369">use-package</span> <span style="color:#369">ob-clojure</span>)</code></pre></div>
-<p>Now we need to let org-mode know to use a cider repl to execute the snippets in
-our file:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#369">require</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)
-(<span style="color:#369">setq</span> <span style="color:#369">org-babel-clojure-backend</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)</code></pre></div>
-<p>We&rsquo;re done with the setup. Start a new cider repl connection by running:</p>
+<p>The package will be installed at <code>/Library/TeX/texbin/</code>, so it
+must be added to your PATH like so:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#038">export</span> <span style="color:#369">PATH</span>=<span style="color:#369">$PATH</span>:/Library/TeX/texbin</code></pre></div>
+<p>Run <code>which latex</code> to ensure that the path has been set correctly.</p>
 
-<pre><code>M-x cider-jack-in
-</code></pre>
+<h2 id="install-dependencies">Install Dependencies</h2>
 
-<p>Once the repl has successfully launched, create a new org file and add the
-following code block:</p>
-
-<pre><code>#+BEGIN_SRC clojure
-(+ 1 2 3 4)
-#+END_SRC
-</code></pre>
-
-<p>Hit <code>C-c</code> from within a code block to evaluate it. You should now see the result
-displayed like so:</p>
-
-<pre><code>#+RESULTS:
-: 10
-</code></pre>
-
-<p>If you don&rsquo;t want the results to be displayed in the file itself, add <code>:results
-silent</code> after the begin header:</p>
-
-<pre><code>#+BEGIN_SRC clojure :results silent
-(+ 1 2 3 4)
-#+END_SRC
-</code></pre>
-
-<p>You should now be able to see the result displayed in the minibuffer
-instead.</p>
-
-<p>That&rsquo;s all there is to it. Have fun with literate programming :)</p>
+<p>You&rsquo;re not ready yet. There are a few more packages that need to be installed
+in order to render the pdf from the tex file. Install them like so:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo tlmgr install wrapfig
+sudo tlmgr install marvosym
+sudo tlmgr install wasysym</code></pre></div>
+<p>You should now be able to export to pdf using <code>C-c C-e l p</code>.</p>
 
   </div>
 
   <div id=links>
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/sicp-notes-chapter-1/">&laquo; </a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">&laquo; Fetching data with a raw SQL query in SQLAlchemy</a>
     
     
-      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/setting-up-org-pdf-export-osx/"> &raquo;</a>
+      <a class="basic-alignment left" href="https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/">Useful AWK one-liners &raquo;</a>
     
   </div>
 </section>

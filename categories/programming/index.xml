@@ -6,10 +6,41 @@
     <description>Recent content in Programming on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jan 2016 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0530</lastBuildDate>
     
 	<atom:link href="https://kirang89.github.io/kirang.in/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating a simple stack-based language in Clojure</title>
+      <link>https://kirang89.github.io/kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</guid>
+      <description>Let&amp;rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
+push 8 push 4 + push 3 *  This would be equivalent to (in infix notation):
+(8 + 4) * 3  Here is a simple parser-cum-evaluator for the above input:
+(defn parse-eval [string stack] &amp;#34;Parse and Evaluate the line sent and push result to stack if necessary.&amp;#34; (let [cmd (clojure.</description>
+    </item>
+    
+    <item>
+      <title>Using records in Clojure</title>
+      <link>https://kirang89.github.io/kirang.in/post/using-records-in-clojure/</link>
+      <pubDate>Wed, 24 Feb 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/using-records-in-clojure/</guid>
+      <description>When to use:  Fixed set of keys in multiple map instances Defer until you have protocols  Pros  Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod  Cons  Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity  Example:</description>
+    </item>
+    
+    <item>
+      <title>Implementing Norvig&#39;s Spelling Corrector in Clojure</title>
+      <link>https://kirang89.github.io/kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</link>
+      <pubDate>Wed, 03 Feb 2016 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</guid>
+      <description>I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&amp;rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&amp;rsquo;ve managed a decent implementation. It was fun! :)
+(def alphabets &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) (defn words [text] (re-seq #&amp;#34;[a-zA-Z]+&amp;#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.</description>
+    </item>
     
     <item>
       <title>Rationals vs Decimals in Clojure</title>
@@ -30,6 +61,16 @@
       <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):
 (defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
+    </item>
+    
+    <item>
+      <title>Useful AWK one-liners</title>
+      <link>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</guid>
+      <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
+ If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
     </item>
     
     <item>
@@ -75,12 +116,47 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
     </item>
     
     <item>
+      <title>The Unix Philosophy - A Summary</title>
+      <link>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</link>
+      <pubDate>Thu, 12 Dec 2013 20:45:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/the-unix-philosophy-summary/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rule of Modularity&lt;/strong&gt;: Write simple parts connected by clean
+interfaces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rule of Clarity&lt;/strong&gt;: Clarity is better than cleverness.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rule of Composition&lt;/strong&gt;: Design programs to be connected to other
+programs.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Writing good Classes in Python</title>
+      <link>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</link>
+      <pubDate>Mon, 02 Dec 2013 08:38:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/writing-good-classes-in-python/</guid>
+      <description>This post is the highlight of Raymond Hettinger&amp;rsquo;s talk &amp;ldquo;Python&amp;rsquo;s Class Development Toolkit&amp;ldquo; at PyCon US 2013.
+Things to keep in mind while writing Classes:
+ Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.</description>
+    </item>
+    
+    <item>
       <title>Setting up Jenkins as a watchdog for your Python application</title>
       <link>https://kirang89.github.io/kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
       <pubDate>Thu, 28 Nov 2013 20:19:00 +0530</pubDate>
       
       <guid>https://kirang89.github.io/kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
       <description>In order to facilitate an efficient collaboration amongst developer teams, it is very important to keep the development workflow as simple and straightforward as possible. Version Control is one tool that helps with this. Continuous Integration is another one. Below, I&amp;rsquo;ll illustrate the steps needed to configure a basic Python application with Jenkins, a CI server that automates a lot of the repetitive stuff, so that you can focus on writing code.</description>
+    </item>
+    
+    <item>
+      <title>What makes a great API?</title>
+      <link>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</link>
+      <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</guid>
+      <description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs.</description>
     </item>
     
     <item>
@@ -109,12 +185,36 @@ open source Python application. So I decided to write one.&lt;/p&gt;</descriptio
     </item>
     
     <item>
+      <title>What is Python Month?</title>
+      <link>https://kirang89.github.io/kirang.in/post/what-is-python-month/</link>
+      <pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/what-is-python-month/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India
+on using and developing the Python programming language is conducted
+annually by the Python developer community, and represented by the
+Python Software Society of India. The conference attracts the best
+Python programmers across the country and abroad.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>JVM Profiling Disclosures</title>
       <link>https://kirang89.github.io/kirang.in/post/jvm-profiling-disclosures/</link>
       <pubDate>Wed, 22 May 2013 02:55:00 +0530</pubDate>
       
       <guid>https://kirang89.github.io/kirang.in/post/jvm-profiling-disclosures/</guid>
       <description>Well, I’ve never actually given importance to the term ”profiling” till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don’t leave any open doors for memory leaks or poor CPU utilization.</description>
+    </item>
+    
+    <item>
+      <title>Type and Object in Python</title>
+      <link>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</link>
+      <pubDate>Wed, 22 May 2013 01:59:00 +0530</pubDate>
+      
+      <guid>https://kirang89.github.io/kirang.in/post/type-and-object-in-python/</guid>
+      <description>&lt;p&gt;Recently I stumbled across an article talking about the importance of
+understanding type and object in Python, so thought of writing a small
+post on it.&lt;/p&gt;</description>
     </item>
     
     <item>
