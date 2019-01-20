@@ -1,4 +1,8 @@
-Hello There! I’m **Kiran Gangadharan**.
+---
+disableComments: true
+---
+
+Hello There! I’m <strong style="background: black; color: white;padding: 0.2em;">Kiran Gangadharan</strong>.
 
 I’m a software designer and developer who likes to think of himself as someone who has a sense of good design. I emphasize simplicity over functionality.
 
