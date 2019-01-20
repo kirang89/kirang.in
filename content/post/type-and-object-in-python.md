@@ -13,7 +13,7 @@ post on it.
 
 <!--more-->
 
-Looking indepth, one may get the impression that this is more of a
+Looking in-depth, one may get the impression that this is more of a
 chicked-egg problem, but I’ll give an overall view of this.
 
 -   An `object` is basically an instance of `type`
@@ -24,7 +24,8 @@ chicked-egg problem, but I’ll give an overall view of this.
 So in a way, you have only two objects in Python, types and non-types.
 
 <div class="note">
-Note: `type` can also be called `class` from Python \>= 2.3
+<label>Note:</label>
+<div><code>type</code>can also be called <code>class</code> from Python >= 2.3</div>
 </div>
 
 Well there you go. It wasn’t confusing now, was it ? :)

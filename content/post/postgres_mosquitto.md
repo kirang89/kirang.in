@@ -8,7 +8,7 @@ slug: setting-up-acl-in-mosquitto-using-postgres
 ---
 
 Lately, I've been playing around with Mosquitto and MQTT in
-general. "Kiran Gangadharan" that is essential to prevent unauthorized access to
+general. Something that is essential to prevent unauthorized access to
 topics is some sort of an access control mechanism. In this post, I'll
 illustrate the necessary steps for setting up an ACL(Access Control
 List) using Postgres and [mosquitto-auth-plugin](https://github.com/jpmens/mosquitto-auth-plug.git).
@@ -134,6 +134,4 @@ the raw password while connecting.
 Hope this helps.
 
 
-<div class="note">
-UPDATE: Added minor changes to deal with errors when starting Mosquitto
-</div>
+**UPDATE**: Added minor changes to deal with errors when starting Mosquitto
