@@ -2,120 +2,120 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/categories/</link>
+    <link>http://kirang.in/categories/</link>
     <description>Recent content in Categories on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Feb 2014 19:22:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android</title>
-      <link>https://kirang89.github.io/kirang.in/categories/android/</link>
+      <link>http://kirang.in/categories/android/</link>
       <pubDate>Sun, 23 Feb 2014 19:22:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/android/</guid>
+      <guid>http://kirang.in/categories/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Clojure</title>
-      <link>https://kirang89.github.io/kirang.in/categories/clojure/</link>
+      <link>http://kirang.in/categories/clojure/</link>
       <pubDate>Mon, 28 Dec 2015 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/clojure/</guid>
+      <guid>http://kirang.in/categories/clojure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design</title>
-      <link>https://kirang89.github.io/kirang.in/categories/design/</link>
+      <link>http://kirang.in/categories/design/</link>
       <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/design/</guid>
+      <guid>http://kirang.in/categories/design/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Emacs</title>
-      <link>https://kirang89.github.io/kirang.in/categories/emacs/</link>
+      <link>http://kirang.in/categories/emacs/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/emacs/</guid>
+      <guid>http://kirang.in/categories/emacs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Miscellaneous</title>
-      <link>https://kirang89.github.io/kirang.in/categories/miscellaneous/</link>
+      <link>http://kirang.in/categories/miscellaneous/</link>
       <pubDate>Mon, 03 Mar 2014 13:19:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/miscellaneous/</guid>
+      <guid>http://kirang.in/categories/miscellaneous/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Open Source</title>
-      <link>https://kirang89.github.io/kirang.in/categories/open-source/</link>
+      <link>http://kirang.in/categories/open-source/</link>
       <pubDate>Mon, 09 Sep 2013 22:44:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/open-source/</guid>
+      <guid>http://kirang.in/categories/open-source/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Productivity</title>
-      <link>https://kirang89.github.io/kirang.in/categories/productivity/</link>
+      <link>http://kirang.in/categories/productivity/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/productivity/</guid>
+      <guid>http://kirang.in/categories/productivity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
-      <link>https://kirang89.github.io/kirang.in/categories/programming/</link>
+      <link>http://kirang.in/categories/programming/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/programming/</guid>
+      <guid>http://kirang.in/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://kirang89.github.io/kirang.in/categories/python/</link>
+      <link>http://kirang.in/categories/python/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/python/</guid>
+      <guid>http://kirang.in/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reading</title>
-      <link>https://kirang89.github.io/kirang.in/categories/reading/</link>
+      <link>http://kirang.in/categories/reading/</link>
       <pubDate>Sat, 31 Dec 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/reading/</guid>
+      <guid>http://kirang.in/categories/reading/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uncategorized</title>
-      <link>https://kirang89.github.io/kirang.in/categories/uncategorized/</link>
+      <link>http://kirang.in/categories/uncategorized/</link>
       <pubDate>Thu, 16 Jan 2014 00:28:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/uncategorized/</guid>
+      <guid>http://kirang.in/categories/uncategorized/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://kirang89.github.io/kirang.in/categories/web/</link>
+      <link>http://kirang.in/categories/web/</link>
       <pubDate>Wed, 30 Oct 2013 11:44:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/categories/web/</guid>
+      <guid>http://kirang.in/categories/web/</guid>
       <description></description>
     </item>
     

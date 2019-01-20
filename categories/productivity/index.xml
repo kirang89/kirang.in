@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Productivity on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/categories/productivity/</link>
+    <link>http://kirang.in/categories/productivity/</link>
     <description>Recent content in Productivity on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Jul 2016 00:00:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting up Org-mode to run Clojure code</title>
-      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
+      <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
+      <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
       <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.
 First, start by installing the ob-clojure package:
 M-x package-install ob-clojure  or simply do so with use-package:
@@ -25,20 +25,20 @@ M-x package-install ob-clojure  or simply do so with use-package:
     
     <item>
       <title>Useful AWK one-liners</title>
-      <link>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</link>
+      <link>http://kirang.in/post/useful-awk-one-liners/</link>
       <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</guid>
+      <guid>http://kirang.in/post/useful-awk-one-liners/</guid>
       <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
  If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
     </item>
     
     <item>
       <title>Setting up org-mode pdf export in OS X ElCapitan</title>
-      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
       <description>Basic TeX Download and install Basic TeX package from here.
 Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.

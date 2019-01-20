@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cyanogenmod on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/tags/cyanogenmod/</link>
+    <link>http://kirang.in/tags/cyanogenmod/</link>
     <description>Recent content in Cyanogenmod on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Feb 2014 19:22:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/tags/cyanogenmod/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/tags/cyanogenmod/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testing your Galaxy S2 i9100 after flashing a new ROM</title>
-      <link>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
+      <link>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
       <pubDate>Sun, 23 Feb 2014 19:22:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
+      <guid>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
       <description>&lt;p&gt;After a bit of boredom and a morbid desire to play with KitKat ROM&amp;rsquo;s for
 my Galaxy S2, here I was, pulling through the day without realising how
 much time I poured into getting the latest Cyanogenmod 11 nightly

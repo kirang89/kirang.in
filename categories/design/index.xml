@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/categories/design/</link>
+    <link>http://kirang.in/categories/design/</link>
     <description>Recent content in Design on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Nov 2013 22:59:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/categories/design/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/categories/design/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What makes a great API?</title>
-      <link>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</link>
+      <link>http://kirang.in/post/what-makes-a-great-api/</link>
       <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/what-makes-a-great-api/</guid>
+      <guid>http://kirang.in/post/what-makes-a-great-api/</guid>
       <description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs.</description>
     </item>
     
     <item>
       <title>A guide to Visual Design</title>
-      <link>https://kirang89.github.io/kirang.in/post/a-guide-to-visual-design/</link>
+      <link>http://kirang.in/post/a-guide-to-visual-design/</link>
       <pubDate>Wed, 30 Oct 2013 11:44:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/a-guide-to-visual-design/</guid>
+      <guid>http://kirang.in/post/a-guide-to-visual-design/</guid>
       <description>&lt;p&gt;Making something complex so simple is really hard. And this holds true
 even for visual design. It&amp;rsquo;s easier to screw up visual design and create
 a mess, than you think. That being said, I&amp;rsquo;ll highlight a few points
@@ -34,10 +34,10 @@ about good visual design practices that I&amp;rsquo;ve learnt below:&lt;/p&gt;</
     
     <item>
       <title>Web Typography checklist</title>
-      <link>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</link>
+      <link>http://kirang.in/post/web-typography-checklist/</link>
       <pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/web-typography-checklist/</guid>
+      <guid>http://kirang.in/post/web-typography-checklist/</guid>
       <description>The following is a note-to-self checklist for web typography:
  Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids  </description>
     </item>

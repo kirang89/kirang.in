@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Emacs on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/categories/emacs/</link>
+    <link>http://kirang.in/categories/emacs/</link>
     <description>Recent content in Emacs on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Jul 2016 00:00:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting up Org-mode to run Clojure code</title>
-      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
+      <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
+      <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
       <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.
 First, start by installing the ob-clojure package:
 M-x package-install ob-clojure  or simply do so with use-package:
@@ -25,20 +25,20 @@ M-x package-install ob-clojure  or simply do so with use-package:
     
     <item>
       <title>My eshell prompt setup</title>
-      <link>https://kirang89.github.io/kirang.in/post/eshell-prompt-setup/</link>
+      <link>http://kirang.in/post/eshell-prompt-setup/</link>
       <pubDate>Mon, 20 Jun 2016 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/eshell-prompt-setup/</guid>
+      <guid>http://kirang.in/post/eshell-prompt-setup/</guid>
       <description>My setup is based on Howard Abrams&amp;rsquo; setup with some minor additions and is reproduced in its entirety here:
 (defun curr-dir-git-branch-string (pwd) &amp;#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&amp;#34; (interactive) (when (and (eshell-search-path &amp;#34;git&amp;#34;) (locate-dominating-file pwd &amp;#34;.git&amp;#34;)) (let ((git-output (shell-command-to-string (concat &amp;#34;cd &amp;#34; pwd &amp;#34; &amp;amp;&amp;amp; git branch | grep &amp;#39;\\*&amp;#39; | sed -e &amp;#39;s/^\\* //&amp;#39;&amp;#34;)))) (if (&amp;gt; (length git-output) 0) (concat &amp;#34; :&amp;#34; (substring git-output 0 -1)) &amp;#34;(no branch)&amp;#34;)))) (defun pwd-replace-home (pwd) &amp;#34;Replace home in PWD with tilde (~) character.</description>
     </item>
     
     <item>
       <title>Setting up org-mode pdf export in OS X ElCapitan</title>
-      <link>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
       <description>Basic TeX Download and install Basic TeX package from here.
 Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
@@ -47,10 +47,10 @@ Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packag
     
     <item>
       <title>Emacs as email client with offlineimap and mu4e on OS X</title>
-      <link>https://kirang89.github.io/kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
+      <link>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
       <pubDate>Thu, 13 Nov 2014 02:06:44 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
+      <guid>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
       <description>Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I&amp;rsquo;ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven&amp;rsquo;t found myself entirely comfortable using any of these. What I&amp;rsquo;m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.</description>
     </item>
     

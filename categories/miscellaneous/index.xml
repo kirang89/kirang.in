@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Miscellaneous on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/categories/miscellaneous/</link>
+    <link>http://kirang.in/categories/miscellaneous/</link>
     <description>Recent content in Miscellaneous on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Mar 2014 13:19:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Brain and Memory</title>
-      <link>https://kirang89.github.io/kirang.in/post/brain-and-memory/</link>
+      <link>http://kirang.in/post/brain-and-memory/</link>
       <pubDate>Mon, 03 Mar 2014 13:19:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/brain-and-memory/</guid>
+      <guid>http://kirang.in/post/brain-and-memory/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Brain&lt;/strong&gt; is one of the most complex organ in our body; and by complex I
 don&amp;rsquo;t mean it&amp;rsquo;s ability in controlling various functions of our body,
 rather it&amp;rsquo;s ability to randomly store and retrieve humongous amounts of
@@ -25,10 +25,10 @@ information in no time.&lt;/p&gt;</description>
     
     <item>
       <title>Documentaries I&#39;ve watched</title>
-      <link>https://kirang89.github.io/kirang.in/post/documentaries-ive-watched/</link>
+      <link>http://kirang.in/post/documentaries-ive-watched/</link>
       <pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/documentaries-ive-watched/</guid>
+      <guid>http://kirang.in/post/documentaries-ive-watched/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Revolution OS&lt;/li&gt;
 &lt;li&gt;Pirates of the Silicon Valley&lt;/li&gt;
@@ -38,10 +38,10 @@ information in no time.&lt;/p&gt;</description>
     
     <item>
       <title>Hello World!</title>
-      <link>https://kirang89.github.io/kirang.in/post/hello-world/</link>
+      <link>http://kirang.in/post/hello-world/</link>
       <pubDate>Fri, 03 May 2013 14:38:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/hello-world/</guid>
+      <guid>http://kirang.in/post/hello-world/</guid>
       <description>Hello World!</description>
     </item>
     

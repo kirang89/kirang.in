@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Productivity on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/tags/productivity/</link>
+    <link>http://kirang.in/tags/productivity/</link>
     <description>Recent content in Productivity on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Dec 2015 00:00:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Useful AWK one-liners</title>
-      <link>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</link>
+      <link>http://kirang.in/post/useful-awk-one-liners/</link>
       <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/useful-awk-one-liners/</guid>
+      <guid>http://kirang.in/post/useful-awk-one-liners/</guid>
       <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
  If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
     </item>
     
     <item>
       <title>Emacs as email client with offlineimap and mu4e on OS X</title>
-      <link>https://kirang89.github.io/kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
+      <link>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
       <pubDate>Thu, 13 Nov 2014 02:06:44 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
+      <guid>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
       <description>Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I&amp;rsquo;ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven&amp;rsquo;t found myself entirely comfortable using any of these. What I&amp;rsquo;m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.</description>
     </item>
     
     <item>
       <title>My Automation Recipes</title>
-      <link>https://kirang89.github.io/kirang.in/post/my-automations-recipes/</link>
+      <link>http://kirang.in/post/my-automations-recipes/</link>
       <pubDate>Wed, 29 Jan 2014 19:13:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/my-automations-recipes/</guid>
+      <guid>http://kirang.in/post/my-automations-recipes/</guid>
       <description>Send text files from Dropbox to Evernote http://zpr.io/gwfA
 Create a Wordpress Draft Post from Evernote - http://zpr.io/gwfu
 Send link of a newly created Gist to Evernote - http://zpr.io/gwfb
@@ -47,10 +47,10 @@ Upload photo tagged #flickrd on Instagram to Flickr - https://ifttt.com/recipes
     
     <item>
       <title>My Sublime workflow</title>
-      <link>https://kirang89.github.io/kirang.in/post/my-sublime-workflow/</link>
+      <link>http://kirang.in/post/my-sublime-workflow/</link>
       <pubDate>Sat, 04 May 2013 13:44:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/my-sublime-workflow/</guid>
+      <guid>http://kirang.in/post/my-sublime-workflow/</guid>
       <description> The settings I use for Sublime Text 2:
 { &amp;#34;color_scheme&amp;#34;: &amp;#34;Packages/User/Tomorrow-Night.tmTheme&amp;#34;, &amp;#34;detect_slow_plugins&amp;#34;: false, &amp;#34;draw_white_space&amp;#34;: &amp;#34;all&amp;#34;, &amp;#34;find_selected_text&amp;#34;: true, &amp;#34;fold_buttons&amp;#34;: false, &amp;#34;folder_exclude_patterns&amp;#34;: [ &amp;#34;.svn&amp;#34;, &amp;#34;.git&amp;#34;, &amp;#34;.hg&amp;#34;, &amp;#34;CVS&amp;#34;, &amp;#34;_build&amp;#34;, &amp;#34;dist&amp;#34;, &amp;#34;build&amp;#34;, &amp;#34;site&amp;#34; ], &amp;#34;font_face&amp;#34;: &amp;#34;Ubuntu Mono&amp;#34;, &amp;#34;font_options&amp;#34;: [ &amp;#34;subpixel_antialias&amp;#34; ], &amp;#34;font_size&amp;#34;: 13, &amp;#34;highlight_line&amp;#34;: true, &amp;#34;ignored_packages&amp;#34;: [ &amp;#34;Vintage&amp;#34; ], &amp;#34;rulers&amp;#34;: [ 80, 100 ], &amp;#34;soda_classic_tabs&amp;#34;: true, &amp;#34;theme&amp;#34;: &amp;#34;Soda Dark.sublime-theme&amp;#34;, &amp;#34;translate_tabs_to_spaces&amp;#34;: true, &amp;#34;trim_trailing_white_space_on_save&amp;#34;: true }  Plugins  Emmet-Sublime SublimeLinter SublimeREPL SideBarEnhancements Markdown Preview Git  Others  Tomorrow-Night color scheme Soda Dark theme  </description>
     </item>

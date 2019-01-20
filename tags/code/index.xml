@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/tags/code/</link>
+    <link>http://kirang.in/tags/code/</link>
     <description>Recent content in Code on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Sep 2013 02:56:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/tags/code/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/tags/code/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Familiarising yourself with a large codebase</title>
-      <link>https://kirang89.github.io/kirang.in/post/familiarising-yourself-with-a-large-codebase/</link>
+      <link>http://kirang.in/post/familiarising-yourself-with-a-large-codebase/</link>
       <pubDate>Fri, 06 Sep 2013 02:56:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/familiarising-yourself-with-a-large-codebase/</guid>
+      <guid>http://kirang.in/post/familiarising-yourself-with-a-large-codebase/</guid>
       <description>I&amp;rsquo;m sure that a lot of developers find it harder to read existing code and understand the ideals behind it, rather than writing it from scratch, themselves. I too have this same problem, and so started looking around online as to how people have dealt with it. I&amp;rsquo;ve compiled some good answers from various sources, below:
  Try and understand at a high level, what the purpose of the code is, and then identify the key elements/functions that help achieve this purpose Try to read as much design and documentation about the project before diving in Try and figure out the relations between various components and then draw/visualise an architecture diagram Talk to authors and clarify things with them beforehand Go through unit tests to get a high level overview Start with the entry point in the program.</description>
     </item>

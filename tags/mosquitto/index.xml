@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mosquitto on KG – Hacks. Thoughts. Writings.</title>
-    <link>https://kirang89.github.io/kirang.in/tags/mosquitto/</link>
+    <link>http://kirang.in/tags/mosquitto/</link>
     <description>Recent content in Mosquitto on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 23 May 2015 00:00:00 +0530</lastBuildDate>
     
-	<atom:link href="https://kirang89.github.io/kirang.in/tags/mosquitto/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kirang.in/tags/mosquitto/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting up ACL in Mosquitto using Postgres</title>
-      <link>https://kirang89.github.io/kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</link>
+      <link>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</link>
       <pubDate>Sat, 23 May 2015 00:00:00 +0530</pubDate>
       
-      <guid>https://kirang89.github.io/kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</guid>
-      <description>Lately, I&amp;rsquo;ve been playing around with Mosquitto and MQTT in general. &amp;ldquo;Kiran Gangadharan&amp;rdquo; that is essential to prevent unauthorized access to topics is some sort of an access control mechanism. In this post, I&amp;rsquo;ll illustrate the necessary steps for setting up an ACL(Access Control List) using Postgres and mosquitto-auth-plugin.
+      <guid>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</guid>
+      <description>Lately, I&amp;rsquo;ve been playing around with Mosquitto and MQTT in general. Something that is essential to prevent unauthorized access to topics is some sort of an access control mechanism. In this post, I&amp;rsquo;ll illustrate the necessary steps for setting up an ACL(Access Control List) using Postgres and mosquitto-auth-plugin.
 Install Dependencies sudo apt-get install libc-ares-dev libcurl4-openssl-dev uuid-dev postgresql libpq-dev git  Install Mosquitto Download Mosquitto from source:
 wget http://mosquitto.org/files/source/mosquitto-1.4.1.tar.gz  Build it from source:</description>
     </item>
