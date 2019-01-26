@@ -223,13 +223,13 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/android/</loc>
+    <loc>http://kirang.in/categories/android/</loc>
     <lastmod>2014-02-23T19:22:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/android/</loc>
+    <loc>http://kirang.in/tags/android/</loc>
     <lastmod>2014-02-23T19:22:00+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/clojure/</loc>
-    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
+    <loc>http://kirang.in/categories/clojure/</loc>
+    <lastmod>2015-12-28T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/clojure/</loc>
-    <lastmod>2015-12-28T00:00:00+05:30</lastmod>
+    <loc>http://kirang.in/tags/clojure/</loc>
+    <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -319,14 +319,14 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/design/</loc>
-    <lastmod>2013-12-12T20:45:00+05:30</lastmod>
+    <loc>http://kirang.in/categories/design/</loc>
+    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/design/</loc>
-    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
+    <loc>http://kirang.in/tags/design/</loc>
+    <lastmod>2013-12-12T20:45:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -355,13 +355,13 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/emacs/</loc>
+    <loc>http://kirang.in/categories/emacs/</loc>
     <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/emacs/</loc>
+    <loc>http://kirang.in/tags/emacs/</loc>
     <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -439,14 +439,14 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/open-source/</loc>
-    <lastmod>2013-10-03T18:51:00+05:30</lastmod>
+    <loc>http://kirang.in/categories/open-source/</loc>
+    <lastmod>2013-09-09T22:44:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/open-source/</loc>
-    <lastmod>2013-09-09T22:44:00+05:30</lastmod>
+    <loc>http://kirang.in/tags/open-source/</loc>
+    <lastmod>2013-10-03T18:51:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -481,26 +481,26 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/productivity/</loc>
-    <lastmod>2015-12-15T00:00:00+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://kirang.in/categories/productivity/</loc>
     <lastmod>2016-07-18T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/programming/</loc>
-    <lastmod>2015-12-28T00:00:00+05:30</lastmod>
+    <loc>http://kirang.in/tags/productivity/</loc>
+    <lastmod>2015-12-15T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://kirang.in/categories/programming/</loc>
     <lastmod>2016-04-04T00:00:00+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://kirang.in/tags/programming/</loc>
+    <lastmod>2015-12-28T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -523,14 +523,14 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/python/</loc>
-    <lastmod>2015-11-22T00:00:00+05:30</lastmod>
+    <loc>http://kirang.in/categories/python/</loc>
+    <lastmod>2014-08-09T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/python/</loc>
-    <lastmod>2014-08-09T00:00:00+05:30</lastmod>
+    <loc>http://kirang.in/tags/python/</loc>
+    <lastmod>2015-11-22T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -541,13 +541,13 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/reading/</loc>
+    <loc>http://kirang.in/categories/reading/</loc>
     <lastmod>2016-12-31T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/reading/</loc>
+    <loc>http://kirang.in/tags/reading/</loc>
     <lastmod>2016-12-31T00:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -625,14 +625,14 @@
   </url>
   
   <url>
-    <loc>http://kirang.in/tags/web/</loc>
-    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
+    <loc>http://kirang.in/categories/web/</loc>
+    <lastmod>2013-10-30T11:44:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://kirang.in/categories/web/</loc>
-    <lastmod>2013-10-30T11:44:00+05:30</lastmod>
+    <loc>http://kirang.in/tags/web/</loc>
+    <lastmod>2013-11-07T22:59:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
