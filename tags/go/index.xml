@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on KG – Hacks. Thoughts. Writings.</title>
+    <link>http://kirang.in/tags/go/</link>
+    <description>Recent content in Go on KG – Hacks. Thoughts. Writings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Oct 2018 00:00:00 +0530</lastBuildDate>
+    
+	<atom:link href="http://kirang.in/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What I Love About Go/Baduk</title>
+      <link>http://kirang.in/post/what-i-love-about-baduk/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0530</pubDate>
+      
+      <guid>http://kirang.in/post/what-i-love-about-baduk/</guid>
+      <description>I hadn’t thought about Go or even played it until recently, when a colleague of mine who worked at nilenso raved about the elegance of the game. He mentioned Cho Chikun’s book to be an excellent introduction when I enquired further. Given that we had the book in our library, I decided to give it a read. By the end of it, I was fascinated not just by the beauty and elegance of the game, but also the history and culture.</description>
+    </item>
+    
+  </channel>
+</rss>
