@@ -4,10 +4,8 @@ disableComments: true
 
 Hello There! I’m <strong style="background: black; color: white;padding: 0.2em;">Kiran Gangadharan</strong>.
 
-I’m a software designer and developer who likes to think of himself as someone who has a sense of good design. I emphasize simplicity over functionality.
+I currently work at [nilenso](https://nilenso.com/) as a polyglot programmer exploring new challenges.
 
-I currently work at [nilenso](https://nilenso.com/) as a polyglot programmer learning new things.
+When I'm not writing code, I usually read books or play/read/watch Go.
 
-If I had to describe myself in a single word, I’d use *“Curious“*. This curiousity is what fuels my love for reading. If you’d like to get to know me as a fellow book lover, you might want to follow me on [Goodreads](https://www.goodreads.com/user/show/24562454-kiran-gangadharan).
-
-You can find me on [Twitter](https://twitter.com/kirang89) or peruse my projects on [GitHub](https://github.com/kirang89).
+You can find me on [Twitter](https://twitter.com/kirang89), peruse my projects on [GitHub](https://github.com/kirang89), see my reading list on [Goodreads](https://www.goodreads.com/user/show/24562454-kiran-gangadharan), and watch/review my games on [OGS](https://online-go.com/player/501498/).
