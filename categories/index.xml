@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>Elixir</title>
+      <link>http://kirang.in/categories/elixir/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
+      
+      <guid>http://kirang.in/categories/elixir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Emacs</title>
       <link>http://kirang.in/categories/emacs/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
@@ -86,7 +95,7 @@
     <item>
       <title>Programming</title>
       <link>http://kirang.in/categories/programming/</link>
-      <pubDate>Mon, 04 Apr 2016 00:00:00 +0530</pubDate>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
       
       <guid>http://kirang.in/categories/programming/</guid>
       <description></description>
@@ -107,6 +116,15 @@
       <pubDate>Sat, 31 Dec 2016 00:00:00 +0530</pubDate>
       
       <guid>http://kirang.in/categories/reading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>http://kirang.in/categories/talks/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
+      
+      <guid>http://kirang.in/categories/talks/</guid>
       <description></description>
     </item>
     

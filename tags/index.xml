@@ -156,6 +156,15 @@
     </item>
     
     <item>
+      <title>Distributed Systems</title>
+      <link>http://kirang.in/tags/distributed-systems/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
+      
+      <guid>http://kirang.in/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Django</title>
       <link>http://kirang.in/tags/django/</link>
       <pubDate>Tue, 20 Aug 2013 06:20:00 +0530</pubDate>
@@ -188,6 +197,15 @@
       <pubDate>Tue, 20 Aug 2013 06:20:00 +0530</pubDate>
       
       <guid>http://kirang.in/tags/elasticbeanstalk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elixir</title>
+      <link>http://kirang.in/tags/elixir/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
+      
+      <guid>http://kirang.in/tags/elixir/</guid>
       <description></description>
     </item>
     
@@ -467,6 +485,15 @@
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate>
       
       <guid>http://kirang.in/tags/sqlalchemy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>http://kirang.in/tags/talks/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
+      
+      <guid>http://kirang.in/tags/talks/</guid>
       <description></description>
     </item>
     

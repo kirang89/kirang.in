@@ -23,10 +23,10 @@
     <title>
       
       
-         What I Love About Go/Baduk 
+         The Road to a Masterless Multinode Distributed System in Elixir 
       
     </title>
-    <link rel="canonical" href="http://kirang.in/post/what-i-love-about-baduk/">
+    <link rel="canonical" href="http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/">
 
     <style>
   * {
@@ -490,101 +490,29 @@
 
 
 <section id=content>
-  <h1> What I Love About Go/Baduk </h1>
+  <h1> The Road to a Masterless Multinode Distributed System in Elixir </h1>
 
   
     <div id=sub-header>
-      October 2018 · 4 minute read
+      December 2018 · 1 minute read
     </div>
   
 
   <div class="entry-content">
-    
+    <p>My first conference talk presented at <a href="https://functionalconf.com/">Functional Conf 2018</a>! Yay!</p>
 
-<p>I hadn’t thought about Go or even played it until recently, when a colleague of mine who worked at <a href="https://nilenso.com/">nilenso</a> raved about the elegance of the game. He mentioned <a href="https://www.amazon.com/Go-Complete-Introduction-Beginner-Elementary/dp/4906574505">Cho Chikun’s book</a>  to be an excellent introduction when I enquired further. Given that we  had the book in our library, I decided to give it a read. By the end of  it, I was fascinated not just by the beauty and elegance of the game,  but also the history and culture.</p>
+<p>I co-presented this with my colleague <a href="https://twitter.com/yudistrange">Udit</a>. This talk is about our journey building a masterless multi-node distributed system in Elixir. It covers the problems we faced, how we dealt with them and the lessons learnt in the process.</p>
 
-<p>Based  on a lot of games I’ve played over the last couple of months, I thought  it’d be nice to list down the reasons why I love Go to the extent that I  do, and perhaps, make you curious enough to play the game :)</p>
+<iframe id="talk_frame_481688" src="//speakerdeck.com/player/603eb606e5cd438b892a5b5609e586c3" width="710" height="532" style="border:0; padding:0; margin:0; background:transparent;" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-<h3 id="simple-and-elegant-with-fascinating-depth">Simple and Elegant with fascinating depth</h3>
-
-<p>Learning how to play Go would just take you a few minutes. Don’t believe me? Check out <a href="https://f001.backblazeb2.com/file/KG-Misc/060a9d48-d4df-41ab-883d-c0074f1d7106-dd05c8e1.pdf">this pamphlet</a>.  With just this, you might think that the game would be quite simple to  play, but you would be so wrong. Once you start playing on a board  bigger than a 9x9 one, you’ll quickly begin to see the depth and  strategy involved.</p>
-
-<h3 id="so-many-variations-exist-that-it-s-impossible-to-ever-play-the-same-game-twice-in-a-lifetime">So many variations exist, that it’s impossible to ever play the same game twice in a lifetime</h3>
-
-<p>The <a href="https://en.wikipedia.org/wiki/Go_and_mathematics">number of variations on a Go board</a> (~ 10⁷⁰⁰) exceeds the <a href="https://en.wikipedia.org/wiki/Observable_universe#Matter_content_%E2%80%93_number_of_atoms">number of atoms in the observable universe</a> (~ 10⁸⁰).</p>
-
-<p>Take a moment to absorb this fully.</p>
-
-<h3 id="short-term-tactics-and-long-term-strategy">Short-Term Tactics and Long-Term Strategy</h3>
-
-<p>Playing  Go effectively is being able to figure out tactics for the immediate  set of moves that will be played and strategy for how they fit with the  rest of your stones on the board.</p>
-
-<h3 id="playing-a-good-game-is-immensely-satisfying">Playing a good game is immensely satisfying</h3>
-
-<p>Playing  a game with well thought out moves flowing beautifully on the board  against a worthy opponent is immensely gratifying, regardless of the  result.</p>
-
-<h3 id="easy-to-ramp-up-beginners-with-9x9-games">Easy to ramp up beginners with 9x9 games</h3>
-
-<p>Playing  on a 19x19 board can feel daunting for beginners who are just learning  the game. The smaller board size also allows for quick and simple games,  which are ideal for beginners.</p>
-
-<h3 id="can-play-on-equal-footing-with-beginners-pros">Can play on equal footing with beginners/pros</h3>
-
-<p>When playing against stronger opponents, a <em>handicap</em>  is usually provided to compensate for the difference in strength,  giving both players an equal chance to win. This difference is  calculated using the <a href="https://senseis.xmp.net/?PointsRatingSystem">Points Rating System</a>. The handicap is provided either in terms of stones or as extra points (<em>komi</em>).</p>
-
-<h3 id="aesthetics">Aesthetics</h3>
-
-<p>Everything  from the board, to the stones, to the bowls that hold the stones, there  exists a sense of minimalism and beauty. Here’s an image to illustrate  this:</p>
-
-<p><img src="/go.jpeg" alt="image of a go set" /></p>
-
-<p><center style="font-size: 15px; color: grey; font-family: 'PT Sans'; margin-top: -20px;">Photo by Joe Woods on Unsplash</center></p>
-
-<p>The precision and care that go into the design are mind-blowing. The video below offers a sneak peek into the process of crafting some of the highest quality <em>kaya</em> boards:</p>
-
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/gY2tPz9aRuw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-
-<p>Here’s another video of the process involved in making stones from clamshells:</p>
-
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="//www.youtube.com/embed/JghjOqvV0_o" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-
-
-<h3 id="learn-to-get-used-to-failures-and-to-let-go-of-pride-ego-to-improve">Learn to get used to failures and to let go of pride/ego to improve</h3>
-
-<p>One  way to get better at Go, in the beginning, is by playing a lot of games  to get used to the rules, and understand various  patterns/tactics/strategies. You need to explore different moves or  variations to get a good feel for the game. This also means that you’ll  probably end up losing a lot of games, which can be quite frustrating.  To get better, it is essential to treat each failure as a learning  experience and review and reflect rather than letting your pride or ego  get in the way.</p>
-
-<hr/>
-
-<p>If  I’ve managed to pique your interest, here are some excellent resources  to get started, after learning the basic rules and playing a few games:</p>
-
-<ul>
-<li><a href="https://senseis.xmp.net/?StartingPoints">Starting Point at Sensei’s Library</a></li>
-</ul>
-
-<p><em>Sensei’s Library is the Wikipedia of the Go world. Lots of helpful and interesting information there.</em></p>
-
-<ul>
-<li><a href="https://www.youtube.com/user/nicksibicky/playlists">Nick Sibicky’s Go Lectures</a></li>
-</ul>
-
-<p><em>Nick’s lectures are great. Highly recommended.</em></p>
-
-<p>If you’re looking to play online, I’d recommend <a href="https://online-go.com/">OGS</a>. And hey, feel free to <a href="https://online-go.com/player/501498/">send me a challenge</a>, if you’re looking for someone to play with :)</p>
+<p>I&rsquo;m grateful to <a href="https://nilenso.com/">nilenso</a> for providing me with the opportunity to work on this project and give this talk. If this type of work sounds interesting to you, <a href="https://nilenso.com/careers.html">talk to us</a>!</p>
 
   </div>
 
   <div id=links>
     
-      <a class="basic-alignment left" href="http://kirang.in/post/stuff-i-did-in-2016/">&laquo; Stuff I did in 2016</a>
+      <a class="basic-alignment left" href="http://kirang.in/post/what-i-love-about-baduk/">&laquo; What I Love About Go/Baduk</a>
     
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/">The Road to a Masterless Multinode Distributed System in Elixir &raquo;</a>
     
   </div>
 </section>
