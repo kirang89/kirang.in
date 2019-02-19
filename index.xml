@@ -6,10 +6,21 @@
     <description>Recent content on KG – Hacks. Thoughts. Writings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Dec 2018 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 20 Feb 2019 00:51:50 +0530</lastBuildDate>
     
 	<atom:link href="http://kirang.in/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring gokibitz for embedding Go games</title>
+      <link>http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/</link>
+      <pubDate>Wed, 20 Feb 2019 00:51:50 +0530</pubDate>
+      
+      <guid>http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/</guid>
+      <description>I&amp;rsquo;m experimenting with embedding kifus of my games using gokibitz. It also shows you the comments, if any, that people have made per move. For example, here&amp;rsquo;s the kifu of a game I lost (pretty badly IMO).
+ 
+I failed to balance territory with influence, which my opponent took advantage of, as you may have noticed.</description>
+    </item>
     
     <item>
       <title>The Road to a Masterless Multinode Distributed System in Elixir</title>
