@@ -8,6 +8,8 @@ disqusShortname = "kirangin"
 pygmentsstyle = "pastie"
 pygmentscodefences = true
 
+enableRobotsTXT = true
+
 [params]
   sitename = "KG – Hacks. Thoughts. Writings."
   disableWebFonts = false
