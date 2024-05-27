@@ -1,53 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reading on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/tags/reading/</link>
-    <description>Recent content in Reading on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Reading on Kiran Gangadharan</title>
+    <link>https://example.org/tags/reading/</link>
+    <description>Recent content in Reading on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 Dec 2016 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/tags/reading/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/tags/reading/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stuff I did in 2016</title>
-      <link>http://kirang.in/post/stuff-i-did-in-2016/</link>
+      <link>https://example.org/post/stuff-i-did-in-2016/</link>
       <pubDate>Sat, 31 Dec 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/stuff-i-did-in-2016/</guid>
-      <description>Books The Power of Habit
-Quite an eye opener. Looking forward to re-reading this sometime soon.
-Dreaming in Code
-Highly recommended read for any software developer.
-Clojure for the Brave and True
-The Joy of Clojure
-My love for Clojure has grown substantially, thanks to this read.
-The Catcher in the Rye
-In Other Words
-Jhumpa Lahiri talks about the difficulties of learning a new language(Italian) completely different from English.</description>
+      <guid>https://example.org/post/stuff-i-did-in-2016/</guid>
+      <description>Books The Power of Habit&#xA;Quite an eye opener. Looking forward to re-reading this sometime soon.&#xA;Dreaming in Code&#xA;Highly recommended read for any software developer.&#xA;Clojure for the Brave and True&#xA;The Joy of Clojure&#xA;My love for Clojure has grown substantially, thanks to this read.&#xA;The Catcher in the Rye&#xA;In Other Words&#xA;Jhumpa Lahiri talks about the difficulties of learning a new language(Italian) completely different from English. She documents all the frustating moments that she went through in the process.</description>
     </item>
-    
     <item>
       <title>Books I read in 2015</title>
-      <link>http://kirang.in/post/books_read_2015/</link>
+      <link>https://example.org/post/books_read_2015/</link>
       <pubDate>Tue, 29 Dec 2015 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/books_read_2015/</guid>
-      <description>Zen Pencils: Cartoon Quotes from Inspirational Folks  Recommended for: Everyone. This should definitely be on everyone&amp;rsquo;s reading list. No excuses.
- The Age of Reason  Recommended for: folks who&amp;rsquo;ve never put serious thought into the writings in religious scriptures. This book teaches you the need for thinking for yourself.
- The Cuckoo&amp;rsquo;s Egg: Tracking a Spy Through the Maze of Computer Espionage  Recommended for: fans of Hacker Fiction.</description>
+      <guid>https://example.org/post/books_read_2015/</guid>
+      <description>Zen Pencils: Cartoon Quotes from Inspirational Folks Recommended for: Everyone. This should definitely be on everyone&amp;rsquo;s reading list. No excuses.&#xA;The Age of Reason Recommended for: folks who&amp;rsquo;ve never put serious thought into the writings in religious scriptures. This book teaches you the need for thinking for yourself.&#xA;The Cuckoo&amp;rsquo;s Egg: Tracking a Spy Through the Maze of Computer Espionage Recommended for: fans of Hacker Fiction. Though the writing is writing plain, the inner geek in me was excited throughout the book.</description>
     </item>
-    
     <item>
       <title>CS Reading: Computer Programming as an Art</title>
-      <link>http://kirang.in/post/cs-reading-computer-programming-as-an-art/</link>
+      <link>https://example.org/post/cs-reading-computer-programming-as-an-art/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/cs-reading-computer-programming-as-an-art/</guid>
+      <guid>https://example.org/post/cs-reading-computer-programming-as-an-art/</guid>
       <description>Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of &amp;ldquo;Art&amp;rdquo;. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.</description>
     </item>
-    
   </channel>
 </rss>

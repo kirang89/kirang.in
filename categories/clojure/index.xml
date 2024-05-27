@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Clojure on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/categories/clojure/</link>
-    <description>Recent content in Clojure on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Clojure on Kiran Gangadharan</title>
+    <link>https://example.org/categories/clojure/</link>
+    <description>Recent content in Clojure on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 Dec 2015 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/categories/clojure/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/categories/clojure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Concurrent Prime Sieve in Clojure</title>
-      <link>http://kirang.in/post/concurrent-prime-sieve-in-clojure/</link>
+      <link>https://example.org/post/concurrent-prime-sieve-in-clojure/</link>
       <pubDate>Mon, 28 Dec 2015 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/concurrent-prime-sieve-in-clojure/</guid>
-      <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
-Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):
-(defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
+      <guid>https://example.org/post/concurrent-prime-sieve-in-clojure/</guid>
+      <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.&#xA;Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):&#xA;(defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
     </item>
-    
   </channel>
 </rss>

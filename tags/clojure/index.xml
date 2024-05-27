@@ -1,90 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Clojure on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/tags/clojure/</link>
-    <description>Recent content in Clojure on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Clojure on Kiran Gangadharan</title>
+    <link>https://example.org/tags/clojure/</link>
+    <description>Recent content in Clojure on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Jul 2016 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up Org-mode to run Clojure code</title>
-      <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
+      <link>https://example.org/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
-      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.
-First, start by installing the ob-clojure package:
-M-x package-install ob-clojure  or simply do so with use-package:
-(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
+      <guid>https://example.org/post/setting-up-org-mode-to-run-clojure-code/</guid>
+      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
     </item>
-    
     <item>
       <title>Creating a simple stack-based language in Clojure</title>
-      <link>http://kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</link>
+      <link>https://example.org/post/creating-a-simple-stack-based-language-in-clojure/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</guid>
-      <description>Let&amp;rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
-push 8 push 4 + push 3 *  This would be equivalent to (in infix notation):
-(8 + 4) * 3  Here is a simple parser-cum-evaluator for the above input:
-(defn parse-eval [string stack] &amp;#34;Parse and Evaluate the line sent and push result to stack if necessary.&amp;#34; (let [cmd (clojure.</description>
+      <guid>https://example.org/post/creating-a-simple-stack-based-language-in-clojure/</guid>
+      <description>Let&amp;rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:&#xA;push 8 push 4 + push 3 * This would be equivalent to (in infix notation):&#xA;(8 + 4) * 3 Here is a simple parser-cum-evaluator for the above input:&#xA;(defn parse-eval [string stack] &amp;#34;Parse and Evaluate the line sent and push result to stack if necessary.&amp;#34; (let [cmd (clojure.</description>
     </item>
-    
     <item>
       <title>Using records in Clojure</title>
-      <link>http://kirang.in/post/using-records-in-clojure/</link>
+      <link>https://example.org/post/using-records-in-clojure/</link>
       <pubDate>Wed, 24 Feb 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/using-records-in-clojure/</guid>
-      <description>When to use:  Fixed set of keys in multiple map instances Defer until you have protocols  Pros  Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod  Cons  Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity  Example:</description>
+      <guid>https://example.org/post/using-records-in-clojure/</guid>
+      <description>When to use: Fixed set of keys in multiple map instances Defer until you have protocols Pros Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod Cons Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity Example:</description>
     </item>
-    
     <item>
       <title>Implementing Norvig&#39;s Spelling Corrector in Clojure</title>
-      <link>http://kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</link>
+      <link>https://example.org/post/implementing-norvigs-spelling-corrector-in-clojure/</link>
       <pubDate>Wed, 03 Feb 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</guid>
-      <description>I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&amp;rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&amp;rsquo;ve managed a decent implementation. It was fun! :)
-(def alphabets &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) (defn words [text] (re-seq #&amp;#34;[a-zA-Z]+&amp;#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.</description>
+      <guid>https://example.org/post/implementing-norvigs-spelling-corrector-in-clojure/</guid>
+      <description>I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&amp;rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&amp;rsquo;ve managed a decent implementation. It was fun! :)&#xA;(def alphabets &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) (defn words [text] (re-seq #&amp;#34;[a-zA-Z]+&amp;#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.</description>
     </item>
-    
     <item>
       <title>Rationals vs Decimals in Clojure</title>
-      <link>http://kirang.in/post/rationals-vs-decimals-clojure/</link>
+      <link>https://example.org/post/rationals-vs-decimals-clojure/</link>
       <pubDate>Sat, 30 Jan 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/rationals-vs-decimals-clojure/</guid>
-      <description>Use rationals if accuracy is your main concern. For example, operations on decimals are not associative.  (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (+ (+ a b) c) (+ a (+ b c)))) ; =&amp;gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
- Rationals are slower in terms of operations on them when compared to decimals.</description>
+      <guid>https://example.org/post/rationals-vs-decimals-clojure/</guid>
+      <description>Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (+ (+ a b) c) (+ a (+ b c)))) ; =&amp;gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.&#xA;Rationals are slower in terms of operations on them when compared to decimals.</description>
     </item>
-    
     <item>
       <title>Concurrent Prime Sieve in Clojure</title>
-      <link>http://kirang.in/post/concurrent-prime-sieve-in-clojure/</link>
+      <link>https://example.org/post/concurrent-prime-sieve-in-clojure/</link>
       <pubDate>Mon, 28 Dec 2015 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/concurrent-prime-sieve-in-clojure/</guid>
-      <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
-Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):
-(defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
+      <guid>https://example.org/post/concurrent-prime-sieve-in-clojure/</guid>
+      <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.&#xA;Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):&#xA;(defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
     </item>
-    
     <item>
       <title>Different applications of reduce in Clojure</title>
-      <link>http://kirang.in/post/different-applications-of-reduce-in-clojure/</link>
+      <link>https://example.org/post/different-applications-of-reduce-in-clojure/</link>
       <pubDate>Sun, 15 Nov 2015 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/different-applications-of-reduce-in-clojure/</guid>
-      <description>I&amp;rsquo;ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I&amp;rsquo;ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
-This post is an effort to document some snippets to demonstrate how useful reduce can be.
-Reverse a collection (defn myreverse [coll] (reduce conj &amp;#39;() coll)) (myreverse &amp;#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.</description>
+      <guid>https://example.org/post/different-applications-of-reduce-in-clojure/</guid>
+      <description>I&amp;rsquo;ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I&amp;rsquo;ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.&#xA;This post is an effort to document some snippets to demonstrate how useful reduce can be.&#xA;Reverse a collection (defn myreverse [coll] (reduce conj &amp;#39;() coll)) (myreverse &amp;#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.</description>
     </item>
-    
   </channel>
 </rss>

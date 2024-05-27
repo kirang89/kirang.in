@@ -1,572 +1,421 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="google-site-verification" content="G_45CPokMqh_LLvc0RdyiWWVQq9G0nvUhl53pa2ra-g" />
-    
-
-    
-    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poly:400,400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    
-
-    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
-
-    <title>
-      
-      
-         Creating a Mutable Array data type in sqlalchemy 
-      
-    </title>
-    <link rel="canonical" href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
-
-    <style>
-  * {
-    border:0;
-    font:inherit;
-    font-size:110%;
-    vertical-align:baseline;
-    margin:0;
-    padding:0;
-    color: #333332;
-    text-decoration-skip: ink;
-    ext-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
-  }
-
-  body {
-    font-family:'PT Sans';
-    font-weight: 500;
-    line-height:160%;
-    color:#333332;
-    max-width:700px;
-    margin:auto;
-  }
-
-  p {
-    margin: 25px 0;
-    letter-spacing: -.003em;
-  }
-
-  .entry-content a {
-    font-size: 100%;
-    text-decoration: none;
-    border-bottom: 1px solid black;
-     
-     
-     
-  }
-
-  a img {
-    border:none;
-  }
-
-  img {
-    margin: 10px auto 10px auto;
-    max-width: 100%;
-    display: block;
-  }
-
-  .left-justify {
-    float: left;
-  }
-
-  .right-justify {
-    float:right;
-  }
-
-  pre, code {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: #f7f7f7;
-  }
-
-  code {
-    font-size: 80%;
-    padding: 4px;
-  }
-
-  pre {
-    margin-top: 0;
-    word-wrap: normal;
-    padding: 16px;
-    overflow: auto;
-    line-height: 165%;
-  }
-
-  pre>code {
-    padding: 0;
-    margin: 0;
-    font-size: 115%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
-
-  pre code {
-    display: inline;
-    max-width: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-  }
-
-  pre code::before,
-  pre code::after {
-    content: normal;
-  }
-
-  em,q,em,dfn {
-    font-style:italic;
-    font-size: 100%;
-  }
-
-  .sans,html .gist .gist-file .gist-meta {
-    font-family:"Fira Mono", monospace;
-  }
-
-  .mono,pre,code,tt,p code,li code {
-    font-family: 'Fira Mono', monospace;
-  }
-
-  .heading,.serif,h1,h2,h3,h4 {
-    font-family:"Passion One";
-  }
-
-  strong {
-    font-weight: 700;
-    font-size: 100%;
-    letter-spacing: -.003em;
-  }
-
-  q:before {
-    content:"\201C";
-  }
-
-  q:after {
-    content:"\201D";
-  }
-
-  del,s {
-    text-decoration:line-through;
-  }
-
-  blockquote {
-    font-family: 'Poly', Palatino, serif;
-    text-align:center;
-    padding:50px;
-  }
-
-  blockquote p {
-    display:inline-block;
-    font-style:italic;
-  }
-
-  blockquote:before,blockquote:after {
-    font-family: 'Poly', Palatino, serif;
-    content:'\201C';
-    font-size:35px;
-    color:#403c3b;
-  }
-
-  blockquote:after {
-    content:'\201D';
-  }
-
-  hr {
-    width:40%;
-    height: 1px;
-    background:#403c3b;
-    margin: 25px auto;
-  }
-
-  h1 {
-    font-size:35px;
-  }
-
-  h2 {
-    font-size:28px;
-  }
-
-  h3 {
-    font-size:28px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  h1 a,h2 a,h3 a {
-    text-decoration:none;
-  }
-
-  h1,h2 {
-    margin-top:28px;
-  }
-
-  #sub-header, time {
-    color:#403c3b;
-    font-size:13px;
-  }
-
-  #sub-header {
-    margin: 0 4px;
-    margin-top: -15px;
-  }
-
-  #nav h1 a {
-    font-size:35px;
-    color:#1d1313;
-    line-height:120%;
-  }
-
-  .posts_listing a,#nav a {
-    text-decoration: none;
-  }
-
-  .entry-content ul {
-    text-indent: -1em;
-  }
-
-  li {
-    margin-left: 20px;
-  }
-
-  ul li {
-    list-style-type: none;
-    margin-left: 10%;
-    font-size: 100%;
-    margin-bottom: 14px;
-  }
-
-  ul li:before {
-    content: '\2022';
-    padding-right: 15px;
-  }
-
-  #nav ul li:before, .posts_listing li:before {
-    content:'';
-    margin-right:0;
-  }
-
-  ol {
-    font-size: 100%;
-    margin-left: 30px;
-  }
-
-  ol li {
-    margin-bottom: 14px;
-  }
-
-  #content {
-    text-align:left;
-    width:100%;
-    font-size:15px;
-    padding:60px 0 80px;
-  }
-
-  #content h1 {
-    margin-bottom: 10px;
-  }
-
-  #content .entry-content {
-    margin-top:30px;
-    font-size: 120%;
-    line-height: 158%;
-    font-weight: 400;
-    font-family: 'Poly', Palatino, serif;
-  }
-
-  #content h1 {
-    line-height: 95%;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size:52px;
-    font-family: 'Passion One';
-    color: black;
-  }
-
-  .entry-content h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
-  }
-
-  .entry-content h3 {
-    font-size: 35px;
-  }
-
-  .entry-content h4 {
-    font-size: 25px;
-  }
-
-  .highlight {
-    margin: 10px 0;
-    border: 1px solid #0000001a;
-  }
-
-  .posts_listing {
-    margin:0 0 50px;
-  }
-
-  .posts_listing li {
-    margin:0 0 0px 15px;
-    line-height: 45%;
-  }
-
-  .posts_listing li a:hover,#nav a:hover {
-    text-decoration: underline;
-  }
-
-  .posts_listing h2 {
-    font-size: 28px;
-    line-height: 95%;
-  }
-
-  .posts_listing #date {
-    margin-top: 7px;
-  }
-
-  #nav {
-    text-align:center;
-    position:static;
-    margin-top:60px;
-  }
-
-  #nav ul {
-    display: table;
-    margin: 8px auto 0 auto;
-    background: black;
-    font-weight: 900;
-    font-family: 'Passion One', sans-serif;
-    letter-spacing: 0.03em;
-  }
-
-  #nav li {
-    list-style-type:none;
-    display:table-cell;
-    font-size:15px;
-    padding: 0 20px;
-  }
-
-  #nav ul li a {
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  #links {
-    margin: 50px 0 0 0;
-  }
-
-  #links :nth-child(2) {
-    float:right;
-  }
-
-  #not-found {
-    text-align: center;
-  }
-
-  #not-found a {
-    font-family: 'Poly', Palatino, serif;
-    font-size: 200px;
-    text-decoration: none;
-    display: inline-block;
-    padding-top: 225px;
-  }
-
-  #date {
-    margin-top: -5px;
-  }
-
-  .note {
-    background-color: #F0F7FB;
-    padding: 1em;
-    border-left: 4px solid #3498DB;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 90%;
-  }
-
-  .note label {
-    font-weight: 700;
-  }
-
-  @media (max-width: 750px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:28px;
-    }
-
-    #nav li {
-      font-size:13px;
-      padding: 0 15px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:50px;
-      font-size:14px;
-    }
-
-    #content h1 {
-      font-size:45px;
-    }
-
-    #content h2 {
-      font-size:22px;
-    }
-
-    .posts_listing li div {
-      font-size:12px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:22px;
-    }
-
-    #nav li {
-      font-size:12px;
-      padding: 0 10px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:20px;
-      font-size:12px;
-    }
-
-    #content h1 {
-      font-size:35px;
-    }
-
-    #content h2 {
-      font-size:18px;
-    }
-
-    .posts_listing li div{
-      font-size:12px;
-    }
-  }
-</style>
-
-
-    
-  </head>
-
-  <body>
-    <section id=nav>
-      <h1><a href="http://kirang.in">KG – Hacks. Thoughts. Writings.</a></h1>
-      <ul>
-        
-          <li><a href="/about">About</a></li>
-        
-          <li><a href="https://github.com/kirang89">Code</a></li>
-        
-          <li><a href="#">Resume</a></li>
-        
-      </ul>
-    </section>
-
-
-<section id=content>
-  <h1> Creating a Mutable Array data type in sqlalchemy </h1>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
 
   
-    <div id=sub-header>
-      August 2014 · 1 minute read
+  <title>Creating a Mutable Array data type in sqlalchemy - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it&rsquo;s immutable. This means it isn&rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
+from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://example.org/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://example.org/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Creating a Mutable Array data type in sqlalchemy">
+  <meta itemprop="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
+from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.">
+  <meta itemprop="datePublished" content="2014-08-09T00:00:00+05:30">
+  <meta itemprop="dateModified" content="2014-08-09T00:00:00+05:30">
+  <meta itemprop="wordCount" content="140">
+  <meta itemprop="keywords" content="Python,Sqlalchemy">
+  
+  <meta property="og:url" content="https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="Creating a Mutable Array data type in sqlalchemy">
+  <meta property="og:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
+from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2014-08-09T00:00:00+05:30">
+    <meta property="article:modified_time" content="2014-08-09T00:00:00+05:30">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Sqlalchemy">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creating a Mutable Array data type in sqlalchemy">
+  <meta name="twitter:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
+from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.">
+
+  
+  
+  
+  <link rel="canonical" href="https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://example.org/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://example.org/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Creating a Mutable Array data type in sqlalchemy</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 9, 2014</time>
+      
+      
+      
+      
     </div>
-  
+    
+  </header>
 
-  <div class="entry-content">
-    <p>The problem with using the ARRAY datatype in sqlalchemy is that it&rsquo;s
+  <section><p>The problem with using the ARRAY datatype in sqlalchemy is that it&rsquo;s
 immutable. This means it isn&rsquo;t possible to add new data into array once
 it has been initialised. Unfortunately, I couldn&rsquo;t find any
 good solution to create mutable arrays until I came across this snippet
 by Michael Bayer, the author of sqlalchemy himself:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.ext.mutable</span> <span style="color:#080;font-weight:bold">import</span> Mutable
-<span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.dialects.postgresql</span> <span style="color:#080;font-weight:bold">import</span> ARRAY
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">MutableList</span>(Mutable, <span style="color:#038">list</span>):
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">append</span>(self, value):
-        <span style="color:#038">list</span>.append(self, value)
-        self.changed()
-
-    <span style="color:#555">@classmethod</span>
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">coerce</span>(cls, key, value):
-        <span style="color:#080;font-weight:bold">if</span> <span style="color:#080">not</span> <span style="color:#038">isinstance</span>(value, MutableList):
-            <span style="color:#080;font-weight:bold">if</span> <span style="color:#038">isinstance</span>(value, <span style="color:#038">list</span>):
-                <span style="color:#080;font-weight:bold">return</span> MutableList(value)
-            <span style="color:#080;font-weight:bold">return</span> Mutable.<span style="color:#038">coerce</span>(key, value)
-        <span style="color:#080;font-weight:bold">else</span>:
-            <span style="color:#080;font-weight:bold">return</span> value</code></pre></div>
-<p>What this snippet allows you to do is to extend a list to add mutability
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.ext.mutable <span style="color:#f92672">import</span> Mutable
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.dialects.postgresql <span style="color:#f92672">import</span> ARRAY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MutableList</span>(Mutable, list):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">append</span>(self, value):
+</span></span><span style="display:flex;"><span>        list<span style="color:#f92672">.</span>append(self, value)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>changed()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">coerce</span>(cls, key, value):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(value, MutableList):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> isinstance(value, list):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> MutableList(value)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Mutable<span style="color:#f92672">.</span>coerce(key, value)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> value
+</span></span></code></pre></div><p>What this snippet allows you to do is to extend a list to add mutability
 to it. So, now you can use the class above to create a mutable array
 type like so:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.dialects.postgresql</span> <span style="color:#080;font-weight:bold">import</span> ARRAY
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.dialects.postgresql <span style="color:#f92672">import</span> ARRAY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Something</span>(Base):
+</span></span><span style="display:flex;"><span>    __tablename__ <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;yaddayadda&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    id <span style="color:#f92672">=</span> Column(Integer, primary_key<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> Column(MutableList<span style="color:#f92672">.</span>as_mutable(ARRAY(String(<span style="color:#ae81ff">100</span>))))
+</span></span></code></pre></div></section>
 
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Something</span>(Base):
-    __tablename__ = <span style="color:#d20;background-color:#fff0f0">&#39;yaddayadda&#39;</span>
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/python"
+      >python</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/sqlalchemy"
+      >sqlalchemy</a
+    >
+    
+  </footer>
+  
 
-    <span style="color:#038">id</span> = Column(Integer, primary_key=True)
-    data = Column(MutableList.as_mutable(ARRAY(String(<span style="color:#00d;font-weight:bold">100</span>))))</code></pre></div>
-  </div>
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/integrating-mogenerator-in-your-xcode-project/"
+      ><span class="mr-1.5">←</span><span>Integrating mogenerator in your XCode project</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/dealing-with-iso-8601-dates-in-python/"
+      ><span>Dealing with ISO 8601 dates in Python</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
 
-  <div id=links>
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/">&laquo; Dealing with ISO 8601 dates in Python</a>
-    
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/">Integrating mogenerator in your XCode project &raquo;</a>
-    
-  </div>
-</section>
+  
+  
 
+  
+  
 
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kirangin" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
 
 
   
-</body>
-</html>
+</article>
 
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

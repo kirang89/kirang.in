@@ -1,39 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Org Mode on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/tags/org-mode/</link>
-    <description>Recent content in Org Mode on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Org-Mode on Kiran Gangadharan</title>
+    <link>https://example.org/tags/org-mode/</link>
+    <description>Recent content in Org-Mode on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Jul 2016 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up Org-mode to run Clojure code</title>
-      <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
+      <link>https://example.org/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
-      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.
-First, start by installing the ob-clojure package:
-M-x package-install ob-clojure  or simply do so with use-package:
-(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
+      <guid>https://example.org/post/setting-up-org-mode-to-run-clojure-code/</guid>
+      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
     </item>
-    
     <item>
       <title>Setting up org-mode pdf export in OS X ElCapitan</title>
-      <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <link>https://example.org/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
-      <description>Basic TeX Download and install Basic TeX package from here.
-Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
-Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
+      <guid>https://example.org/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
     </item>
-    
   </channel>
 </rss>

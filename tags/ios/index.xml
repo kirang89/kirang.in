@@ -1,30 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ios on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/tags/ios/</link>
-    <description>Recent content in Ios on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Ios on Kiran Gangadharan</title>
+    <link>https://example.org/tags/ios/</link>
+    <description>Recent content in Ios on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 27 Aug 2014 14:53:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/tags/ios/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Integrating mogenerator in your XCode project</title>
-      <link>http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/</link>
+      <link>https://example.org/post/integrating-mogenerator-in-your-xcode-project/</link>
       <pubDate>Wed, 27 Aug 2014 14:53:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/</guid>
-      <description>&lt;p&gt;Every iOS app you build would require some sort of storage functionality
-within the device itself, especially if it caches data fetched from the
-network. &lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html&#34;&gt;Core
-Data&lt;/a&gt;,
-an object graph management framework developed by Apple will mostly
-likely be your choice in this regard. In that case, a tool like
-mogenerator is indispensable.&lt;/p&gt;</description>
+      <guid>https://example.org/post/integrating-mogenerator-in-your-xcode-project/</guid>
+      <description>&lt;p&gt;Every iOS app you build would require some sort of storage functionality&#xA;within the device itself, especially if it caches data fetched from the&#xA;network. &lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html&#34;&gt;Core&#xA;Data&lt;/a&gt;,&#xA;an object graph management framework developed by Apple will mostly&#xA;likely be your choice in this regard. In that case, a tool like&#xA;mogenerator is indispensable.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

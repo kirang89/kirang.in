@@ -1,613 +1,456 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="google-site-verification" content="G_45CPokMqh_LLvc0RdyiWWVQq9G0nvUhl53pa2ra-g" />
-    
-
-    
-    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poly:400,400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    
-
-    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
-
-    <title>
-      
-      
-         Different applications of reduce in Clojure 
-      
-    </title>
-    <link rel="canonical" href="http://kirang.in/post/different-applications-of-reduce-in-clojure/">
-
-    <style>
-  * {
-    border:0;
-    font:inherit;
-    font-size:110%;
-    vertical-align:baseline;
-    margin:0;
-    padding:0;
-    color: #333332;
-    text-decoration-skip: ink;
-    ext-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
-  }
-
-  body {
-    font-family:'PT Sans';
-    font-weight: 500;
-    line-height:160%;
-    color:#333332;
-    max-width:700px;
-    margin:auto;
-  }
-
-  p {
-    margin: 25px 0;
-    letter-spacing: -.003em;
-  }
-
-  .entry-content a {
-    font-size: 100%;
-    text-decoration: none;
-    border-bottom: 1px solid black;
-     
-     
-     
-  }
-
-  a img {
-    border:none;
-  }
-
-  img {
-    margin: 10px auto 10px auto;
-    max-width: 100%;
-    display: block;
-  }
-
-  .left-justify {
-    float: left;
-  }
-
-  .right-justify {
-    float:right;
-  }
-
-  pre, code {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: #f7f7f7;
-  }
-
-  code {
-    font-size: 80%;
-    padding: 4px;
-  }
-
-  pre {
-    margin-top: 0;
-    word-wrap: normal;
-    padding: 16px;
-    overflow: auto;
-    line-height: 165%;
-  }
-
-  pre>code {
-    padding: 0;
-    margin: 0;
-    font-size: 115%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
-
-  pre code {
-    display: inline;
-    max-width: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-  }
-
-  pre code::before,
-  pre code::after {
-    content: normal;
-  }
-
-  em,q,em,dfn {
-    font-style:italic;
-    font-size: 100%;
-  }
-
-  .sans,html .gist .gist-file .gist-meta {
-    font-family:"Fira Mono", monospace;
-  }
-
-  .mono,pre,code,tt,p code,li code {
-    font-family: 'Fira Mono', monospace;
-  }
-
-  .heading,.serif,h1,h2,h3,h4 {
-    font-family:"Passion One";
-  }
-
-  strong {
-    font-weight: 700;
-    font-size: 100%;
-    letter-spacing: -.003em;
-  }
-
-  q:before {
-    content:"\201C";
-  }
-
-  q:after {
-    content:"\201D";
-  }
-
-  del,s {
-    text-decoration:line-through;
-  }
-
-  blockquote {
-    font-family: 'Poly', Palatino, serif;
-    text-align:center;
-    padding:50px;
-  }
-
-  blockquote p {
-    display:inline-block;
-    font-style:italic;
-  }
-
-  blockquote:before,blockquote:after {
-    font-family: 'Poly', Palatino, serif;
-    content:'\201C';
-    font-size:35px;
-    color:#403c3b;
-  }
-
-  blockquote:after {
-    content:'\201D';
-  }
-
-  hr {
-    width:40%;
-    height: 1px;
-    background:#403c3b;
-    margin: 25px auto;
-  }
-
-  h1 {
-    font-size:35px;
-  }
-
-  h2 {
-    font-size:28px;
-  }
-
-  h3 {
-    font-size:28px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  h1 a,h2 a,h3 a {
-    text-decoration:none;
-  }
-
-  h1,h2 {
-    margin-top:28px;
-  }
-
-  #sub-header, time {
-    color:#403c3b;
-    font-size:13px;
-  }
-
-  #sub-header {
-    margin: 0 4px;
-    margin-top: -15px;
-  }
-
-  #nav h1 a {
-    font-size:35px;
-    color:#1d1313;
-    line-height:120%;
-  }
-
-  .posts_listing a,#nav a {
-    text-decoration: none;
-  }
-
-  .entry-content ul {
-    text-indent: -1em;
-  }
-
-  li {
-    margin-left: 20px;
-  }
-
-  ul li {
-    list-style-type: none;
-    margin-left: 10%;
-    font-size: 100%;
-    margin-bottom: 14px;
-  }
-
-  ul li:before {
-    content: '\2022';
-    padding-right: 15px;
-  }
-
-  #nav ul li:before, .posts_listing li:before {
-    content:'';
-    margin-right:0;
-  }
-
-  ol {
-    font-size: 100%;
-    margin-left: 30px;
-  }
-
-  ol li {
-    margin-bottom: 14px;
-  }
-
-  #content {
-    text-align:left;
-    width:100%;
-    font-size:15px;
-    padding:60px 0 80px;
-  }
-
-  #content h1 {
-    margin-bottom: 10px;
-  }
-
-  #content .entry-content {
-    margin-top:30px;
-    font-size: 120%;
-    line-height: 158%;
-    font-weight: 400;
-    font-family: 'Poly', Palatino, serif;
-  }
-
-  #content h1 {
-    line-height: 95%;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size:52px;
-    font-family: 'Passion One';
-    color: black;
-  }
-
-  .entry-content h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
-  }
-
-  .entry-content h3 {
-    font-size: 35px;
-  }
-
-  .entry-content h4 {
-    font-size: 25px;
-  }
-
-  .highlight {
-    margin: 10px 0;
-    border: 1px solid #0000001a;
-  }
-
-  .posts_listing {
-    margin:0 0 50px;
-  }
-
-  .posts_listing li {
-    margin:0 0 0px 15px;
-    line-height: 45%;
-  }
-
-  .posts_listing li a:hover,#nav a:hover {
-    text-decoration: underline;
-  }
-
-  .posts_listing h2 {
-    font-size: 28px;
-    line-height: 95%;
-  }
-
-  .posts_listing #date {
-    margin-top: 7px;
-  }
-
-  #nav {
-    text-align:center;
-    position:static;
-    margin-top:60px;
-  }
-
-  #nav ul {
-    display: table;
-    margin: 8px auto 0 auto;
-    background: black;
-    font-weight: 900;
-    font-family: 'Passion One', sans-serif;
-    letter-spacing: 0.03em;
-  }
-
-  #nav li {
-    list-style-type:none;
-    display:table-cell;
-    font-size:15px;
-    padding: 0 20px;
-  }
-
-  #nav ul li a {
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  #links {
-    margin: 50px 0 0 0;
-  }
-
-  #links :nth-child(2) {
-    float:right;
-  }
-
-  #not-found {
-    text-align: center;
-  }
-
-  #not-found a {
-    font-family: 'Poly', Palatino, serif;
-    font-size: 200px;
-    text-decoration: none;
-    display: inline-block;
-    padding-top: 225px;
-  }
-
-  #date {
-    margin-top: -5px;
-  }
-
-  .note {
-    background-color: #F0F7FB;
-    padding: 1em;
-    border-left: 4px solid #3498DB;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 90%;
-  }
-
-  .note label {
-    font-weight: 700;
-  }
-
-  @media (max-width: 750px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:28px;
-    }
-
-    #nav li {
-      font-size:13px;
-      padding: 0 15px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:50px;
-      font-size:14px;
-    }
-
-    #content h1 {
-      font-size:45px;
-    }
-
-    #content h2 {
-      font-size:22px;
-    }
-
-    .posts_listing li div {
-      font-size:12px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:22px;
-    }
-
-    #nav li {
-      font-size:12px;
-      padding: 0 10px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:20px;
-      font-size:12px;
-    }
-
-    #content h1 {
-      font-size:35px;
-    }
-
-    #content h2 {
-      font-size:18px;
-    }
-
-    .posts_listing li div{
-      font-size:12px;
-    }
-  }
-</style>
-
-
-    
-  </head>
-
-  <body>
-    <section id=nav>
-      <h1><a href="http://kirang.in">KG – Hacks. Thoughts. Writings.</a></h1>
-      <ul>
-        
-          <li><a href="/about">About</a></li>
-        
-          <li><a href="https://github.com/kirang89">Code</a></li>
-        
-          <li><a href="#">Resume</a></li>
-        
-      </ul>
-    </section>
-
-
-<section id=content>
-  <h1> Different applications of reduce in Clojure </h1>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
 
   
-    <div id=sub-header>
-      November 2015 · 2 minute read
+  <title>Different applications of reduce in Clojure - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="I&rsquo;ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I&rsquo;ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
+This post is an effort to document some snippets to demonstrate how useful reduce can be.
+Reverse a collection (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://example.org/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://example.org/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Different applications of reduce in Clojure">
+  <meta itemprop="description" content="I’ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I’ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
+This post is an effort to document some snippets to demonstrate how useful reduce can be.
+Reverse a collection (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.">
+  <meta itemprop="datePublished" content="2015-11-15T00:00:00+05:30">
+  <meta itemprop="dateModified" content="2015-11-15T00:00:00+05:30">
+  <meta itemprop="wordCount" content="327">
+  <meta itemprop="keywords" content="Clojure">
+  
+  <meta property="og:url" content="https://example.org/post/different-applications-of-reduce-in-clojure/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="Different applications of reduce in Clojure">
+  <meta property="og:description" content="I’ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I’ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
+This post is an effort to document some snippets to demonstrate how useful reduce can be.
+Reverse a collection (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2015-11-15T00:00:00+05:30">
+    <meta property="article:modified_time" content="2015-11-15T00:00:00+05:30">
+    <meta property="article:tag" content="Clojure">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Different applications of reduce in Clojure">
+  <meta name="twitter:description" content="I’ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I’ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
+This post is an effort to document some snippets to demonstrate how useful reduce can be.
+Reverse a collection (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.">
+
+  
+  
+  
+  <link rel="canonical" href="https://example.org/post/different-applications-of-reduce-in-clojure/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://example.org/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://example.org/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Different applications of reduce in Clojure</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Nov 15, 2015</time>
+      
+      
+      
+      
     </div>
-  
-
-  <div class="entry-content">
     
+  </header>
 
-<p>I&rsquo;ve just started learning Clojure using
+  <section><p>I&rsquo;ve just started learning Clojure using
 <a href="http://www.braveclojure.com/">Clojure for the Brave and True</a> and solving
 problems on <a href="https://www.4clojure.com/">4Clojure</a>. While doing so, I&rsquo;ve noticed
 that a lot of problems that seem tricky can be quickly solved using <code>clojure.core/reduce</code>.</p>
-
 <p>This post is an effort to document some snippets to demonstrate how useful <code>reduce</code> can be.</p>
+<h3 id="reverse-a-collectiona-idsec-1-namesec-1a">Reverse a collection<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#66d9ef">defn </span>myreverse [coll]
+</span></span><span style="display:flex;"><span>  (reduce conj <span style="color:#f92672">&#39;</span>() coll))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">myreverse</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (4 3 2 1)</span>
+</span></span></code></pre></div><h3 id="find-frequency-of-words-in-a-stringa-idsec-2-namesec-2a">Find frequency of words in a string<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#66d9ef">defn </span>freq [str]
+</span></span><span style="display:flex;"><span>  (reduce <span style="color:#f92672">#</span>(assoc %1 %2 (inc (<span style="color:#a6e22e">%1</span> %2 <span style="color:#ae81ff">0</span>)))
+</span></span><span style="display:flex;"><span>          {}
+</span></span><span style="display:flex;"><span>          (<span style="color:#a6e22e">clojure.string/split</span> str <span style="color:#f92672">#</span><span style="color:#e6db74">&#34;\s&#34;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">freq</span> <span style="color:#e6db74">&#34;Hey there! I am the hey man! I like to hey the people&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; {&#34;like&#34; 1, &#34;people&#34; 1, &#34;man!&#34; 1, &#34;am&#34; 1, &#34;Hey&#34; 1,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;  &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2}</span>
+</span></span></code></pre></div><h3 id="transform-all-values-in-a-mapa-idsec-3-namesec-3a">Transform all values in a map<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(reduce (<span style="color:#66d9ef">fn </span>[new-map [key val]]
+</span></span><span style="display:flex;"><span>          (assoc new-map key (inc val)))
+</span></span><span style="display:flex;"><span>        {}
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:lat</span> <span style="color:#ae81ff">50.23</span> <span style="color:#e6db74">:lng</span> <span style="color:#ae81ff">24.21</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; {:lat 51.23, :lng 25.21}</span>
+</span></span></code></pre></div><h3 id="using-reduce-to-filter-out-values-in-mapa-idsec-4-namesec-4a">Using reduce to filter out values in map<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(reduce (<span style="color:#66d9ef">fn </span>[new-map [key val]]
+</span></span><span style="display:flex;"><span>          (<span style="color:#66d9ef">if </span>(&gt; val <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>            (assoc new-map key val)
+</span></span><span style="display:flex;"><span>            new-map))
+</span></span><span style="display:flex;"><span>        {}
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">:a</span> <span style="color:#ae81ff">2</span> <span style="color:#e6db74">:b</span> <span style="color:#ae81ff">4</span> <span style="color:#e6db74">:c</span> <span style="color:#ae81ff">3</span> <span style="color:#e6db74">:d</span> <span style="color:#ae81ff">-1</span> <span style="color:#e6db74">:e</span> <span style="color:#ae81ff">9</span> <span style="color:#e6db74">:f</span> <span style="color:#ae81ff">23</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; {:b 4, :e 9, :f 23}</span>
+</span></span></code></pre></div><h3 id="implementing-a-mapping-functiona-idsec-5-namesec-5a">Implementing a mapping function<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#66d9ef">defn </span>mapr [f coll]
+</span></span><span style="display:flex;"><span>  (reverse (reduce (<span style="color:#66d9ef">fn </span>[new-seq elem]
+</span></span><span style="display:flex;"><span>            (conj new-seq (<span style="color:#a6e22e">f</span> elem)))
+</span></span><span style="display:flex;"><span>          (<span style="color:#a6e22e">list</span>) coll)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">mapr</span> (<span style="color:#66d9ef">fn </span>[x] (* x <span style="color:#ae81ff">2</span>)) [<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (2 4 6 8)</span>
+</span></span></code></pre></div><h3 id="sort-list-of-list-based-on-sum-of-elementsa-idsec-6-namesec-6a">Sort list of list based on sum of elements<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(sort-by <span style="color:#f92672">#</span>(reduce + %) [<span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">8</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">7</span>) <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">6</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">7</span>)])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; ((1 2 3) (6 5 7) (8 8 7))</span>
+</span></span></code></pre></div><h3 id="generate-fibonacci-seriesa-idsec-7-namesec-7a">Generate Fibonacci series<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Generate first 10 fibonacci numbers</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">reduce</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">fn </span>[a b]
+</span></span><span style="display:flex;"><span>    (conj a (+ (last a) (last (butlast a)))))
+</span></span><span style="display:flex;"><span>  [<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>  (range <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; [0 1 1 2 3 5 8 13 21]</span>
+</span></span></code></pre></div><h3 id="finding-factorial">Finding factorial</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#66d9ef">defn </span>factorial [n]
+</span></span><span style="display:flex;"><span>  (reduce * (range <span style="color:#ae81ff">1</span> (inc n))))
+</span></span></code></pre></div><h3 id="implementing-comp">Implementing comp</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#66d9ef">fn </span>[<span style="color:#f92672">&amp;</span> fs]
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">fn </span>[<span style="color:#f92672">&amp;</span> xs]
+</span></span><span style="display:flex;"><span>    (first (reduce <span style="color:#f92672">#</span>(vector (apply %2 %1)) xs (reverse fs)))))
+</span></span></code></pre></div></section>
 
-<h3 id="reverse-a-collection-a-id-sec-1-name-sec-1-a">Reverse a collection<a id="sec-1" name="sec-1"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">myreverse</span> [<span style="color:#369">coll</span>]
-  (<span style="color:#038">reduce conj </span>&#39;() <span style="color:#369">coll</span>))
-
-(<span style="color:#369">myreverse</span> &#39;(<span style="color:#00d;font-weight:bold">1</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#00d;font-weight:bold">3</span> <span style="color:#00d;font-weight:bold">4</span>))
-
-<span style="color:#888">;; (4 3 2 1)</span></code></pre></div>
-<h3 id="find-frequency-of-words-in-a-string-a-id-sec-2-name-sec-2-a">Find frequency of words in a string<a id="sec-2" name="sec-2"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">freq</span> [<span style="color:#369">str</span>]
-  (<span style="color:#038">reduce </span>#(<span style="color:#038">assoc </span><span style="color:#369">%1</span> <span style="color:#369">%2</span> (<span style="color:#038">inc </span>(<span style="color:#369">%1</span> <span style="color:#369">%2</span> <span style="color:#00d;font-weight:bold">0</span>)))
-          {}
-          (<span style="color:#369">clojure.string/split</span> <span style="color:#038">str </span>#<span style="color:#d20;background-color:#fff0f0">&#34;\s&#34;</span>)))
-
-(<span style="color:#369">freq</span> <span style="color:#d20;background-color:#fff0f0">&#34;Hey there! I am the hey man! I like to hey the people&#34;</span>)
-
-<span style="color:#888">;; {&#34;like&#34; 1, &#34;people&#34; 1, &#34;man!&#34; 1, &#34;am&#34; 1, &#34;Hey&#34; 1,</span>
-<span style="color:#888">;;  &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2}</span></code></pre></div>
-<h3 id="transform-all-values-in-a-map-a-id-sec-3-name-sec-3-a">Transform all values in a map<a id="sec-3" name="sec-3"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#038">reduce </span>(<span style="color:#080;font-weight:bold">fn </span>[<span style="color:#369">new-map</span> [<span style="color:#038">key </span><span style="color:#369">val</span>]]
-          (<span style="color:#038">assoc </span><span style="color:#369">new-map</span> <span style="color:#038">key </span>(<span style="color:#038">inc </span><span style="color:#369">val</span>)))
-        {}
-        {<span style="color:#a60;background-color:#fff0f0">:lat</span> <span style="color:#00d;font-weight:bold">50.23</span> <span style="color:#a60;background-color:#fff0f0">:lng</span> <span style="color:#00d;font-weight:bold">24.21</span>})
-
-<span style="color:#888">;; {:lat 51.23, :lng 25.21}</span></code></pre></div>
-<h3 id="using-reduce-to-filter-out-values-in-map-a-id-sec-4-name-sec-4-a">Using reduce to filter out values in map<a id="sec-4" name="sec-4"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#038">reduce </span>(<span style="color:#080;font-weight:bold">fn </span>[<span style="color:#369">new-map</span> [<span style="color:#038">key </span><span style="color:#369">val</span>]]
-          (<span style="color:#080;font-weight:bold">if </span>(<span style="color:#038">&gt; val </span><span style="color:#00d;font-weight:bold">3</span>)
-            (<span style="color:#038">assoc </span><span style="color:#369">new-map</span> <span style="color:#038">key </span><span style="color:#369">val</span>)
-            <span style="color:#369">new-map</span>))
-        {}
-        {<span style="color:#a60;background-color:#fff0f0">:a</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#a60;background-color:#fff0f0">:b</span> <span style="color:#00d;font-weight:bold">4</span> <span style="color:#a60;background-color:#fff0f0">:c</span> <span style="color:#00d;font-weight:bold">3</span> <span style="color:#a60;background-color:#fff0f0">:d</span> <span style="color:#00d;font-weight:bold">-1</span> <span style="color:#a60;background-color:#fff0f0">:e</span> <span style="color:#00d;font-weight:bold">9</span> <span style="color:#a60;background-color:#fff0f0">:f</span> <span style="color:#00d;font-weight:bold">23</span>})
-
-<span style="color:#888">;; {:b 4, :e 9, :f 23}</span></code></pre></div>
-<h3 id="implementing-a-mapping-function-a-id-sec-5-name-sec-5-a">Implementing a mapping function<a id="sec-5" name="sec-5"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">mapr</span> [<span style="color:#369">f</span> <span style="color:#369">coll</span>]
-  (<span style="color:#038">reverse </span>(<span style="color:#038">reduce </span>(<span style="color:#080;font-weight:bold">fn </span>[<span style="color:#369">new-seq</span> <span style="color:#369">elem</span>]
-            (<span style="color:#038">conj </span><span style="color:#369">new-seq</span> (<span style="color:#369">f</span> <span style="color:#369">elem</span>)))
-          (<span style="color:#369">list</span>) <span style="color:#369">coll</span>)))
-
-(<span style="color:#369">mapr</span> (<span style="color:#080;font-weight:bold">fn </span>[<span style="color:#369">x</span>] (<span style="color:#038">* </span><span style="color:#369">x</span> <span style="color:#00d;font-weight:bold">2</span>)) [<span style="color:#00d;font-weight:bold">1</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#00d;font-weight:bold">3</span> <span style="color:#00d;font-weight:bold">4</span>])
-
-<span style="color:#888">;; (2 4 6 8)</span></code></pre></div>
-<h3 id="sort-list-of-list-based-on-sum-of-elements-a-id-sec-6-name-sec-6-a">Sort list of list based on sum of elements<a id="sec-6" name="sec-6"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#038">sort-by </span>#(<span style="color:#038">reduce + </span><span style="color:#369">%</span>) [&#39;(<span style="color:#00d;font-weight:bold">8</span> <span style="color:#00d;font-weight:bold">8</span> <span style="color:#00d;font-weight:bold">7</span>) &#39;(<span style="color:#00d;font-weight:bold">1</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#00d;font-weight:bold">3</span>) &#39;(<span style="color:#00d;font-weight:bold">6</span> <span style="color:#00d;font-weight:bold">5</span> <span style="color:#00d;font-weight:bold">7</span>)])
-
-<span style="color:#888">;; ((1 2 3) (6 5 7) (8 8 7))</span></code></pre></div>
-<h3 id="generate-fibonacci-series-a-id-sec-7-name-sec-7-a">Generate Fibonacci series<a id="sec-7" name="sec-7"></a></h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure"><span style="color:#888">;; Generate first 10 fibonacci numbers</span>
-
-(<span style="color:#369">reduce</span>
-  (<span style="color:#080;font-weight:bold">fn </span>[<span style="color:#369">a</span> <span style="color:#369">b</span>]
-    (<span style="color:#038">conj </span><span style="color:#369">a</span> (<span style="color:#038">+ </span>(<span style="color:#038">last </span><span style="color:#369">a</span>) (<span style="color:#038">last </span>(<span style="color:#038">butlast </span><span style="color:#369">a</span>)))))
-  [<span style="color:#00d;font-weight:bold">0</span> <span style="color:#00d;font-weight:bold">1</span>]
-  (<span style="color:#038">range </span><span style="color:#00d;font-weight:bold">8</span>))
-
-<span style="color:#888">;; [0 1 1 2 3 5 8 13 21]</span></code></pre></div>
-<h3 id="finding-factorial">Finding factorial</h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">factorial</span> [<span style="color:#369">n</span>]
-  (<span style="color:#038">reduce * </span>(<span style="color:#038">range </span><span style="color:#00d;font-weight:bold">1</span> (<span style="color:#038">inc </span><span style="color:#369">n</span>))))</code></pre></div>
-<h3 id="implementing-comp">Implementing comp</h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-clojure" data-lang="clojure">(<span style="color:#080;font-weight:bold">fn </span>[&amp; <span style="color:#369">fs</span>]
-  (<span style="color:#080;font-weight:bold">fn </span>[&amp; <span style="color:#369">xs</span>]
-    (<span style="color:#038">first </span>(<span style="color:#038">reduce </span>#(<span style="color:#038">vector </span>(<span style="color:#038">apply </span><span style="color:#369">%2</span> <span style="color:#369">%1</span>)) <span style="color:#369">xs</span> (<span style="color:#038">reverse </span><span style="color:#369">fs</span>)))))</code></pre></div>
-  </div>
-
-  <div id=links>
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/clojure"
+      >clojure</a
+    >
     
-      <a class="basic-alignment left" href="http://kirang.in/post/cs-reading-computer-programming-as-an-art/">&laquo; CS Reading: Computer Programming as an Art</a>
-    
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">Fetching data with a raw SQL query in SQLAlchemy &raquo;</a>
-    
-  </div>
-</section>
+  </footer>
+  
 
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/fetching-data-with-raw-sql-query-in-sqlalchemy/"
+      ><span class="mr-1.5">←</span><span>Fetching data with a raw SQL query in SQLAlchemy</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/cs-reading-computer-programming-as-an-art/"
+      ><span>CS Reading: Computer Programming as an Art</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
 
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kirangin" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  
+
+  
+  
+
+  
 
 
   
-</body>
-</html>
+</article>
 
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

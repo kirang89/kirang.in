@@ -1,518 +1,320 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="google-site-verification" content="G_45CPokMqh_LLvc0RdyiWWVQq9G0nvUhl53pa2ra-g" />
-    
-
-    
-    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poly:400,400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    
-
-    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
-
-    <title>
-      
-      
-         CS Reading: Computer Programming as an Art 
-      
-    </title>
-    <link rel="canonical" href="http://kirang.in/post/cs-reading-computer-programming-as-an-art/">
-
-    <style>
-  * {
-    border:0;
-    font:inherit;
-    font-size:110%;
-    vertical-align:baseline;
-    margin:0;
-    padding:0;
-    color: #333332;
-    text-decoration-skip: ink;
-    ext-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
-  }
-
-  body {
-    font-family:'PT Sans';
-    font-weight: 500;
-    line-height:160%;
-    color:#333332;
-    max-width:700px;
-    margin:auto;
-  }
-
-  p {
-    margin: 25px 0;
-    letter-spacing: -.003em;
-  }
-
-  .entry-content a {
-    font-size: 100%;
-    text-decoration: none;
-    border-bottom: 1px solid black;
-     
-     
-     
-  }
-
-  a img {
-    border:none;
-  }
-
-  img {
-    margin: 10px auto 10px auto;
-    max-width: 100%;
-    display: block;
-  }
-
-  .left-justify {
-    float: left;
-  }
-
-  .right-justify {
-    float:right;
-  }
-
-  pre, code {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: #f7f7f7;
-  }
-
-  code {
-    font-size: 80%;
-    padding: 4px;
-  }
-
-  pre {
-    margin-top: 0;
-    word-wrap: normal;
-    padding: 16px;
-    overflow: auto;
-    line-height: 165%;
-  }
-
-  pre>code {
-    padding: 0;
-    margin: 0;
-    font-size: 115%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
-
-  pre code {
-    display: inline;
-    max-width: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-  }
-
-  pre code::before,
-  pre code::after {
-    content: normal;
-  }
-
-  em,q,em,dfn {
-    font-style:italic;
-    font-size: 100%;
-  }
-
-  .sans,html .gist .gist-file .gist-meta {
-    font-family:"Fira Mono", monospace;
-  }
-
-  .mono,pre,code,tt,p code,li code {
-    font-family: 'Fira Mono', monospace;
-  }
-
-  .heading,.serif,h1,h2,h3,h4 {
-    font-family:"Passion One";
-  }
-
-  strong {
-    font-weight: 700;
-    font-size: 100%;
-    letter-spacing: -.003em;
-  }
-
-  q:before {
-    content:"\201C";
-  }
-
-  q:after {
-    content:"\201D";
-  }
-
-  del,s {
-    text-decoration:line-through;
-  }
-
-  blockquote {
-    font-family: 'Poly', Palatino, serif;
-    text-align:center;
-    padding:50px;
-  }
-
-  blockquote p {
-    display:inline-block;
-    font-style:italic;
-  }
-
-  blockquote:before,blockquote:after {
-    font-family: 'Poly', Palatino, serif;
-    content:'\201C';
-    font-size:35px;
-    color:#403c3b;
-  }
-
-  blockquote:after {
-    content:'\201D';
-  }
-
-  hr {
-    width:40%;
-    height: 1px;
-    background:#403c3b;
-    margin: 25px auto;
-  }
-
-  h1 {
-    font-size:35px;
-  }
-
-  h2 {
-    font-size:28px;
-  }
-
-  h3 {
-    font-size:28px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  h1 a,h2 a,h3 a {
-    text-decoration:none;
-  }
-
-  h1,h2 {
-    margin-top:28px;
-  }
-
-  #sub-header, time {
-    color:#403c3b;
-    font-size:13px;
-  }
-
-  #sub-header {
-    margin: 0 4px;
-    margin-top: -15px;
-  }
-
-  #nav h1 a {
-    font-size:35px;
-    color:#1d1313;
-    line-height:120%;
-  }
-
-  .posts_listing a,#nav a {
-    text-decoration: none;
-  }
-
-  .entry-content ul {
-    text-indent: -1em;
-  }
-
-  li {
-    margin-left: 20px;
-  }
-
-  ul li {
-    list-style-type: none;
-    margin-left: 10%;
-    font-size: 100%;
-    margin-bottom: 14px;
-  }
-
-  ul li:before {
-    content: '\2022';
-    padding-right: 15px;
-  }
-
-  #nav ul li:before, .posts_listing li:before {
-    content:'';
-    margin-right:0;
-  }
-
-  ol {
-    font-size: 100%;
-    margin-left: 30px;
-  }
-
-  ol li {
-    margin-bottom: 14px;
-  }
-
-  #content {
-    text-align:left;
-    width:100%;
-    font-size:15px;
-    padding:60px 0 80px;
-  }
-
-  #content h1 {
-    margin-bottom: 10px;
-  }
-
-  #content .entry-content {
-    margin-top:30px;
-    font-size: 120%;
-    line-height: 158%;
-    font-weight: 400;
-    font-family: 'Poly', Palatino, serif;
-  }
-
-  #content h1 {
-    line-height: 95%;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size:52px;
-    font-family: 'Passion One';
-    color: black;
-  }
-
-  .entry-content h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
-  }
-
-  .entry-content h3 {
-    font-size: 35px;
-  }
-
-  .entry-content h4 {
-    font-size: 25px;
-  }
-
-  .highlight {
-    margin: 10px 0;
-    border: 1px solid #0000001a;
-  }
-
-  .posts_listing {
-    margin:0 0 50px;
-  }
-
-  .posts_listing li {
-    margin:0 0 0px 15px;
-    line-height: 45%;
-  }
-
-  .posts_listing li a:hover,#nav a:hover {
-    text-decoration: underline;
-  }
-
-  .posts_listing h2 {
-    font-size: 28px;
-    line-height: 95%;
-  }
-
-  .posts_listing #date {
-    margin-top: 7px;
-  }
-
-  #nav {
-    text-align:center;
-    position:static;
-    margin-top:60px;
-  }
-
-  #nav ul {
-    display: table;
-    margin: 8px auto 0 auto;
-    background: black;
-    font-weight: 900;
-    font-family: 'Passion One', sans-serif;
-    letter-spacing: 0.03em;
-  }
-
-  #nav li {
-    list-style-type:none;
-    display:table-cell;
-    font-size:15px;
-    padding: 0 20px;
-  }
-
-  #nav ul li a {
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  #links {
-    margin: 50px 0 0 0;
-  }
-
-  #links :nth-child(2) {
-    float:right;
-  }
-
-  #not-found {
-    text-align: center;
-  }
-
-  #not-found a {
-    font-family: 'Poly', Palatino, serif;
-    font-size: 200px;
-    text-decoration: none;
-    display: inline-block;
-    padding-top: 225px;
-  }
-
-  #date {
-    margin-top: -5px;
-  }
-
-  .note {
-    background-color: #F0F7FB;
-    padding: 1em;
-    border-left: 4px solid #3498DB;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 90%;
-  }
-
-  .note label {
-    font-weight: 700;
-  }
-
-  @media (max-width: 750px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:28px;
-    }
-
-    #nav li {
-      font-size:13px;
-      padding: 0 15px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:50px;
-      font-size:14px;
-    }
-
-    #content h1 {
-      font-size:45px;
-    }
-
-    #content h2 {
-      font-size:22px;
-    }
-
-    .posts_listing li div {
-      font-size:12px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:22px;
-    }
-
-    #nav li {
-      font-size:12px;
-      padding: 0 10px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:20px;
-      font-size:12px;
-    }
-
-    #content h1 {
-      font-size:35px;
-    }
-
-    #content h2 {
-      font-size:18px;
-    }
-
-    .posts_listing li div{
-      font-size:12px;
-    }
-  }
-</style>
-
-
-    
-  </head>
-
-  <body>
-    <section id=nav>
-      <h1><a href="http://kirang.in">KG – Hacks. Thoughts. Writings.</a></h1>
-      <ul>
-        
-          <li><a href="/about">About</a></li>
-        
-          <li><a href="https://github.com/kirang89">Code</a></li>
-        
-          <li><a href="#">Resume</a></li>
-        
-      </ul>
-    </section>
-
-
-<section id=content>
-  <h1> CS Reading: Computer Programming as an Art </h1>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
 
   
-    <div id=sub-header>
-      July 2015 · 2 minute read
+  <title>CS Reading: Computer Programming as an Art - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of &ldquo;Art&rdquo;. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://example.org/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://example.org/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="CS Reading: Computer Programming as an Art">
+  <meta itemprop="description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.">
+  <meta itemprop="datePublished" content="2015-07-31T00:00:00+05:30">
+  <meta itemprop="dateModified" content="2015-07-31T00:00:00+05:30">
+  <meta itemprop="wordCount" content="264">
+  <meta itemprop="keywords" content="Reading,Research-Paper">
+  
+  <meta property="og:url" content="https://example.org/post/cs-reading-computer-programming-as-an-art/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="CS Reading: Computer Programming as an Art">
+  <meta property="og:description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2015-07-31T00:00:00+05:30">
+    <meta property="article:modified_time" content="2015-07-31T00:00:00+05:30">
+    <meta property="article:tag" content="Reading">
+    <meta property="article:tag" content="Research-Paper">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CS Reading: Computer Programming as an Art">
+  <meta name="twitter:description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.">
+
+  
+  
+  
+  <link rel="canonical" href="https://example.org/post/cs-reading-computer-programming-as-an-art/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://example.org/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://example.org/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">CS Reading: Computer Programming as an Art</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Jul 31, 2015</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Kiran Gangadharan</span>
+      
     </div>
-  
-
-  <div class="entry-content">
     
+  </header>
 
-<h3 id="paper-computer-programming-as-an-art">Paper: Computer Programming as an Art</h3>
-
-<h3 id="author-donald-e-knuth">Author: Donald E.Knuth</h3>
-
+  <section><h3 id="paper-computer-programming-as-an-art">Paper: Computer Programming as an Art</h3>
+<h3 id="author-donald-eknuth">Author: Donald E.Knuth</h3>
 <p>In this paper, Prof Knuth tries to highlight what Art and Science
 mean, and how history has often failed to understand it. He talks
 about the etymology of &ldquo;Art&rdquo;. He mentions how we used science and art
 in the same sense in the earlier times, and how the differences slowly
 started evolving to the way in which we now distinguish science and
 engineering.</p>
-
 <p>He then goes on to talk about how Programming is both an art as well
 as a science. Prof Knuth feels that writing a program can be like
 composing poetry or music — it can provide us with intellectual as
@@ -520,7 +322,6 @@ well as emotional satisfaction because it is a real achievement to
 master complexity and build a system of consistent rules. He feels
 that reading programs written by other people and recognizing works of
 art amongst them provides the same satisfaction as well.</p>
-
 <p>He highlights that programmers attain even more pleasure when they
 accomplish something with limited tools. Though it does not seem to be
 the case now(thanks to Moore&rsquo;s law), he feels that there is still
@@ -528,48 +329,87 @@ plenty of room for artistry. He encourages writing occasional &ldquo;toy&rdquo;
 programs under simulated restrictions, in order to test our abilities
 to the limit. He feels that doing so prevents lethargy and taking
 trivial things for granted.</p>
-
 <p>He concludes by requesting hardware designers and system programmers
 to provide everyone beautiful programs to work with especially for
 routine tasks, so that we become encouraged to write better programs
 and derive a greater sense of pleasure while doing so.</p>
-
-  </div>
-
-  <div id=links>
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/">&laquo; Setting up ACL in Mosquitto using Postgres</a>
-    
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/different-applications-of-reduce-in-clojure/">Different applications of reduce in Clojure &raquo;</a>
-    
-  </div>
 </section>
 
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/reading"
+      >reading</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/research-paper"
+      >research-paper</a
+    >
+    
+  </footer>
+  
 
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/different-applications-of-reduce-in-clojure/"
+      ><span class="mr-1.5">←</span><span>Different applications of reduce in Clojure</span></a
+    >
     
     
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/setting-up-acl-in-mosquitto-using-postgres/"
+      ><span>Setting up ACL in Mosquitto using Postgres</span><span class="ml-1.5">→</span></a
+    >
     
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kirangin" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
   
-</body>
-</html>
+</article>
 
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

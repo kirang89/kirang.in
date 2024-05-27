@@ -1,509 +1,314 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <meta name="google-site-verification" content="G_45CPokMqh_LLvc0RdyiWWVQq9G0nvUhl53pa2ra-g" />
-    
-
-    
-    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poly:400,400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-    
-
-    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
-
-    <title>
-      
-      
-         Emacs as email client with offlineimap and mu4e on OS X 
-      
-    </title>
-    <link rel="canonical" href="http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/">
-
-    <style>
-  * {
-    border:0;
-    font:inherit;
-    font-size:110%;
-    vertical-align:baseline;
-    margin:0;
-    padding:0;
-    color: #333332;
-    text-decoration-skip: ink;
-    ext-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
-  }
-
-  body {
-    font-family:'PT Sans';
-    font-weight: 500;
-    line-height:160%;
-    color:#333332;
-    max-width:700px;
-    margin:auto;
-  }
-
-  p {
-    margin: 25px 0;
-    letter-spacing: -.003em;
-  }
-
-  .entry-content a {
-    font-size: 100%;
-    text-decoration: none;
-    border-bottom: 1px solid black;
-     
-     
-     
-  }
-
-  a img {
-    border:none;
-  }
-
-  img {
-    margin: 10px auto 10px auto;
-    max-width: 100%;
-    display: block;
-  }
-
-  .left-justify {
-    float: left;
-  }
-
-  .right-justify {
-    float:right;
-  }
-
-  pre, code {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    background-color: #f7f7f7;
-  }
-
-  code {
-    font-size: 80%;
-    padding: 4px;
-  }
-
-  pre {
-    margin-top: 0;
-    word-wrap: normal;
-    padding: 16px;
-    overflow: auto;
-    line-height: 165%;
-  }
-
-  pre>code {
-    padding: 0;
-    margin: 0;
-    font-size: 115%;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0;
-  }
-
-  pre code {
-    display: inline;
-    max-width: auto;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-    line-height: inherit;
-    word-wrap: normal;
-    background-color: transparent;
-    border: 0;
-  }
-
-  pre code::before,
-  pre code::after {
-    content: normal;
-  }
-
-  em,q,em,dfn {
-    font-style:italic;
-    font-size: 100%;
-  }
-
-  .sans,html .gist .gist-file .gist-meta {
-    font-family:"Fira Mono", monospace;
-  }
-
-  .mono,pre,code,tt,p code,li code {
-    font-family: 'Fira Mono', monospace;
-  }
-
-  .heading,.serif,h1,h2,h3,h4 {
-    font-family:"Passion One";
-  }
-
-  strong {
-    font-weight: 700;
-    font-size: 100%;
-    letter-spacing: -.003em;
-  }
-
-  q:before {
-    content:"\201C";
-  }
-
-  q:after {
-    content:"\201D";
-  }
-
-  del,s {
-    text-decoration:line-through;
-  }
-
-  blockquote {
-    font-family: 'Poly', Palatino, serif;
-    text-align:center;
-    padding:50px;
-  }
-
-  blockquote p {
-    display:inline-block;
-    font-style:italic;
-  }
-
-  blockquote:before,blockquote:after {
-    font-family: 'Poly', Palatino, serif;
-    content:'\201C';
-    font-size:35px;
-    color:#403c3b;
-  }
-
-  blockquote:after {
-    content:'\201D';
-  }
-
-  hr {
-    width:40%;
-    height: 1px;
-    background:#403c3b;
-    margin: 25px auto;
-  }
-
-  h1 {
-    font-size:35px;
-  }
-
-  h2 {
-    font-size:28px;
-  }
-
-  h3 {
-    font-size:28px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  h1 a,h2 a,h3 a {
-    text-decoration:none;
-  }
-
-  h1,h2 {
-    margin-top:28px;
-  }
-
-  #sub-header, time {
-    color:#403c3b;
-    font-size:13px;
-  }
-
-  #sub-header {
-    margin: 0 4px;
-    margin-top: -15px;
-  }
-
-  #nav h1 a {
-    font-size:35px;
-    color:#1d1313;
-    line-height:120%;
-  }
-
-  .posts_listing a,#nav a {
-    text-decoration: none;
-  }
-
-  .entry-content ul {
-    text-indent: -1em;
-  }
-
-  li {
-    margin-left: 20px;
-  }
-
-  ul li {
-    list-style-type: none;
-    margin-left: 10%;
-    font-size: 100%;
-    margin-bottom: 14px;
-  }
-
-  ul li:before {
-    content: '\2022';
-    padding-right: 15px;
-  }
-
-  #nav ul li:before, .posts_listing li:before {
-    content:'';
-    margin-right:0;
-  }
-
-  ol {
-    font-size: 100%;
-    margin-left: 30px;
-  }
-
-  ol li {
-    margin-bottom: 14px;
-  }
-
-  #content {
-    text-align:left;
-    width:100%;
-    font-size:15px;
-    padding:60px 0 80px;
-  }
-
-  #content h1 {
-    margin-bottom: 10px;
-  }
-
-  #content .entry-content {
-    margin-top:30px;
-    font-size: 120%;
-    line-height: 158%;
-    font-weight: 400;
-    font-family: 'Poly', Palatino, serif;
-  }
-
-  #content h1 {
-    line-height: 95%;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size:52px;
-    font-family: 'Passion One';
-    color: black;
-  }
-
-  .entry-content h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
-  }
-
-  .entry-content h3 {
-    font-size: 35px;
-  }
-
-  .entry-content h4 {
-    font-size: 25px;
-  }
-
-  .highlight {
-    margin: 10px 0;
-    border: 1px solid #0000001a;
-  }
-
-  .posts_listing {
-    margin:0 0 50px;
-  }
-
-  .posts_listing li {
-    margin:0 0 0px 15px;
-    line-height: 45%;
-  }
-
-  .posts_listing li a:hover,#nav a:hover {
-    text-decoration: underline;
-  }
-
-  .posts_listing h2 {
-    font-size: 28px;
-    line-height: 95%;
-  }
-
-  .posts_listing #date {
-    margin-top: 7px;
-  }
-
-  #nav {
-    text-align:center;
-    position:static;
-    margin-top:60px;
-  }
-
-  #nav ul {
-    display: table;
-    margin: 8px auto 0 auto;
-    background: black;
-    font-weight: 900;
-    font-family: 'Passion One', sans-serif;
-    letter-spacing: 0.03em;
-  }
-
-  #nav li {
-    list-style-type:none;
-    display:table-cell;
-    font-size:15px;
-    padding: 0 20px;
-  }
-
-  #nav ul li a {
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  #links {
-    margin: 50px 0 0 0;
-  }
-
-  #links :nth-child(2) {
-    float:right;
-  }
-
-  #not-found {
-    text-align: center;
-  }
-
-  #not-found a {
-    font-family: 'Poly', Palatino, serif;
-    font-size: 200px;
-    text-decoration: none;
-    display: inline-block;
-    padding-top: 225px;
-  }
-
-  #date {
-    margin-top: -5px;
-  }
-
-  .note {
-    background-color: #F0F7FB;
-    padding: 1em;
-    border-left: 4px solid #3498DB;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 90%;
-  }
-
-  .note label {
-    font-weight: 700;
-  }
-
-  @media (max-width: 750px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:28px;
-    }
-
-    #nav li {
-      font-size:13px;
-      padding: 0 15px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:50px;
-      font-size:14px;
-    }
-
-    #content h1 {
-      font-size:45px;
-    }
-
-    #content h2 {
-      font-size:22px;
-    }
-
-    .posts_listing li div {
-      font-size:12px;
-    }
-  }
-
-  @media (max-width: 400px) {
-    body {
-      padding-left:20px;
-      padding-right:20px;
-    }
-
-    #nav h1 a {
-      font-size:22px;
-    }
-
-    #nav li {
-      font-size:12px;
-      padding: 0 10px;
-    }
-
-    #content {
-      margin-top:0;
-      padding-top:20px;
-      font-size:12px;
-    }
-
-    #content h1 {
-      font-size:35px;
-    }
-
-    #content h2 {
-      font-size:18px;
-    }
-
-    .posts_listing li div{
-      font-size:12px;
-    }
-  }
-</style>
-
-
-    
-  </head>
-
-  <body>
-    <section id=nav>
-      <h1><a href="http://kirang.in">KG – Hacks. Thoughts. Writings.</a></h1>
-      <ul>
-        
-          <li><a href="/about">About</a></li>
-        
-          <li><a href="https://github.com/kirang89">Code</a></li>
-        
-          <li><a href="#">Resume</a></li>
-        
-      </ul>
-    </section>
-
-
-<section id=content>
-  <h1> Emacs as email client with offlineimap and mu4e on OS X </h1>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
 
   
-    <div id=sub-header>
-      November 2014 · 6 minute read
+  <title>Emacs as email client with offlineimap and mu4e on OS X - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I&rsquo;ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven&rsquo;t found myself entirely comfortable using any of these. What I&rsquo;m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://example.org/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://example.org/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Emacs as email client with offlineimap and mu4e on OS X">
+  <meta itemprop="description" content="Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I’ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven’t found myself entirely comfortable using any of these. What I’m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.">
+  <meta itemprop="datePublished" content="2014-11-13T02:06:44+05:30">
+  <meta itemprop="dateModified" content="2014-11-13T02:06:44+05:30">
+  <meta itemprop="wordCount" content="1226">
+  <meta itemprop="keywords" content="Emacs,Email,Productivity">
+  
+  <meta property="og:url" content="https://example.org/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="Emacs as email client with offlineimap and mu4e on OS X">
+  <meta property="og:description" content="Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I’ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven’t found myself entirely comfortable using any of these. What I’m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2014-11-13T02:06:44+05:30">
+    <meta property="article:modified_time" content="2014-11-13T02:06:44+05:30">
+    <meta property="article:tag" content="Emacs">
+    <meta property="article:tag" content="Email">
+    <meta property="article:tag" content="Productivity">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emacs as email client with offlineimap and mu4e on OS X">
+  <meta name="twitter:description" content="Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I’ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven’t found myself entirely comfortable using any of these. What I’m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.">
+
+  
+  
+  
+  <link rel="canonical" href="https://example.org/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://example.org/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://example.org/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Emacs as email client with offlineimap and mu4e on OS X</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Nov 13, 2014</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Kiran Gangadharan</span>
+      
     </div>
-  
-
-  <div class="entry-content">
     
+  </header>
 
-<h2 id="introduction-a-id-sec-1-name-sec-1-a">Introduction<a id="sec-1" name="sec-1"></a></h2>
-
+  <section><h2 id="introductiona-idsec-1-namesec-1a">Introduction<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <p>For something as trivial and important as email, it annoys me that I
 feel uncomfortable with any client I use. I&rsquo;ve tried the Gmail
 interface, Mail.app, Airmail and Mailbox, but somehow I haven&rsquo;t found
@@ -513,28 +318,21 @@ and can entirely depend on keyboard shortcuts alone. In short email on
 the terminal. Although I&rsquo;ve been hearing good reviews about Mutt for a
 while now, I wanted to use Emacs for all the editing. So I finally
 decided to give mu4e a shot.</p>
-
 <p>Here within, I&rsquo;ve described the setup I&rsquo;ve used(rather flicked) for
 setting up mu4e on OSX.</p>
-
-<h3 id="offlineimap-a-id-sec-1-1-name-sec-1-1-a">OfflineIMAP<a id="sec-1-1" name="sec-1-1"></a></h3>
-
+<h3 id="offlineimapa-idsec-1-1-namesec-1-1a">OfflineIMAP<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <p>OfflineIMAP is one of the key components here. In essence, OfflineIMAP
 allows you to download all your emails from an IMAP account into a
 directory in your local machine and keep both the local and remote
 repositories in sync. Think of it as &lsquo;git&rsquo; cloning a remote
 repository(IMAP) into your local machine and then syncing future
 changes by pulling from remote and/or pushing local changes to it.</p>
-
-<h4 id="installation-a-id-sec-1-1-1-name-sec-1-1-1-a">Installation<a id="sec-1-1-1" name="sec-1-1-1"></a></h4>
-
+<h4 id="installationa-idsec-1-1-1-namesec-1-1-1a">Installation<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>You can install offlineimap on OSX using homebrew like so:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install offline-imap</code></pre></div>
-<h4 id="configuration-a-id-sec-1-1-2-name-sec-1-1-2-a">Configuration<a id="sec-1-1-2" name="sec-1-1-2"></a></h4>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install offline-imap
+</span></span></code></pre></div><h4 id="configurationa-idsec-1-1-2-namesec-1-1-2a">Configuration<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Once offlineimap has been installed, create a <code>~/.offlineimaprc</code>
 file. Add the following configuration into it:</p>
-
 <pre><code>[general]
 ui=TTYUI
 accounts = Gmail
@@ -562,7 +360,6 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/All Mail',
                                              ]
 </code></pre>
-
 <p>The <code>folderfilter</code> option in the above configuration allows you to
 sync only selected folders from your remote repository(Gmail). In this
 case, I&rsquo;ve used a lambda expression to blacklist the folders that I do
@@ -570,68 +367,48 @@ not want to sync. If you were wondering where the lambda came from,
 offlinemaprc allows you to specify valid <a href="http://offlineimap.org/examples.html#id13">python expressions and even
 functions</a> based on the requirements of the
 configuration. Pretty cool eh?</p>
-
 <p>Also, if you don&rsquo;t want to use the <code>fingerprint</code> for your server, you
 can instead add <code>sslcacertfile</code> and point it to your CA certificate.</p>
-
 <p>For more options and their explanations, check out the the
 <a href="https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf">configuration file</a> from the offlinemap source on GitHub.</p>
-
-<h4 id="running-a-id-sec-1-1-3-name-sec-1-1-3-a">Running<a id="sec-1-1-3" name="sec-1-1-3"></a></h4>
-
+<h4 id="runninga-idsec-1-1-3-namesec-1-1-3a">Running<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Once you&rsquo;ve setup your configuration, open up a terminal and run:</p>
-
 <pre><code>offlineimap
 </code></pre>
-
 <p>If you&rsquo;ve configured everything correctly, offlineimap will start
 pulling down all the email(with attachments) into <code>localfolders</code>. This
 may take quite a bit of time depending on the number of emails.</p>
-
 <p>In the future you can use <code>offlineimap -q</code> to run in &ldquo;quick
 mode&rdquo;. This will perform lesser checks and in turn tends to be faster.</p>
-
-<h3 id="mu-a-id-sec-1-2-name-sec-1-2-a">Mu<a id="sec-1-2" name="sec-1-2"></a></h3>
-
+<h3 id="mua-idsec-1-2-namesec-1-2a">Mu<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <p>The emails that you pulled in the above step are stored in <code>Maildir</code>
 format in your machine. Mu is designed to index messages stored in
 this format. This allows you to do powerful and fast searches on your
 emails. In addition, it allows you to view messages and even extract
 attachments. The <a href="http://www.djcbsoftware.nl/code/mu/cheatsheet.html">Mu cheatsheet</a> can tell you all about it. So what is
 Mu4e then ?</p>
-
-<h4 id="mu4e-a-id-sec-1-2-1-name-sec-1-2-1-a">Mu4e<a id="sec-1-2-1" name="sec-1-2-1"></a></h4>
-
+<h4 id="mu4ea-idsec-1-2-1-namesec-1-2-1a">Mu4e<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p><a href="http://www.djcbsoftware.nl/code/mu/mu4e/">Mu4e</a> is an Emacs frontend for Mu. In other words Mu for Emacs. It
 allows you directly handle all your emails right from Emacs
 itself. Remember that, since mu4e is a just an interface, it can
 neither pull messages from nor push messages to, the server. Refer the
 <a href="http://www.djcbsoftware.nl/code/mu/mu4e/index.html">user manual</a> to learn more about what mu4e can and cannot do.</p>
-
-<h4 id="installation-a-id-sec-1-2-2-name-sec-1-2-2-a">Installation<a id="sec-1-2-2" name="sec-1-2-2"></a></h4>
-
+<h4 id="installationa-idsec-1-2-2-namesec-1-2-2a">Installation<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Installing mu is as simple as running:</p>
-
 <pre><code>brew install mu
 </code></pre>
-
 <p>If only it were that simple. Mu4e is a part of mu itself, and it
 requires a recent version of Emacs(&gt;=22). Since the emacs that comes
 bundled with OSX(<code>/usr/bin/emacs</code>) satisfies this criteria, you could simply do:</p>
-
 <pre><code>brew install mu --with-emacs --HEAD
 </code></pre>
-
 <p>and be done with it. But what if you&rsquo;re using the GUI Emacs from
 <a href="http://emacsformacosx.com/">emacsformacosx</a> or using a client installed via Homebrew? Thanks to
 this <a href="https://github.com/Homebrew/homebrew/issues/16504#issuecomment-11394215">github issue</a>, you can do:</p>
-
 <pre><code>EMACS=$(which emacs) brew install mu --with-emacs --HEAD
 </code></pre>
-
 <p>in which case, you could simply create an alias for emacs that points
 to your client. Ahh, all is well. Not.</p>
-
 <p>Apparently, no matter what <code>$(which emacs)</code> points to, the above
 command seems to consider <code>/usr/bin/emacs</code> (<a href="https://github.com/Homebrew/homebrew/pull/16733">this</a> seems
 to be a workaround, but haven&rsquo;t got it to work yet). In any case, you
@@ -639,159 +416,187 @@ could solve this by setting <code>/usr/bin/emacs</code> as an alias to your
 client (in my case
 <code>/usr/local/Cellar/emacs-mac/emacs-24.3-mac-4.8/bin/emacs</code>). But
 before you do, move the old emacs elsewhere like so:</p>
-
 <pre><code>mv /usr/bin/emacs /usr/bin/emacs-bk
 sudo ln -s /usr/local/Cellar/emacs-mac/emacs-24.3-mac-4.8/bin/emacs /usr/bin/emacs
 </code></pre>
-
 <p>Now run the command again:</p>
-
 <pre><code>EMACS=$(which emacs) brew install mu --with-emacs --HEAD
 </code></pre>
-
 <p>and everything should work just fine.</p>
-
-<h4 id="running-a-id-sec-1-2-3-name-sec-1-2-3-a">Running<a id="sec-1-2-3" name="sec-1-2-3"></a></h4>
-
+<h4 id="runninga-idsec-1-2-3-namesec-1-2-3a">Running<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Once the installation has been completed, run mu to start indexing
 your emails:</p>
-
 <pre><code>mu index --maildir=~/.Mail
 </code></pre>
-
 <p>This should just be a matter of few minutes. In the meantime, let us
 configure mu4e to work with Emacs.</p>
-
-<h4 id="configuring-mu4e-in-emacs-a-id-sec-1-2-4-name-sec-1-2-4-a">Configuring Mu4e in Emacs<a id="sec-1-2-4" name="sec-1-2-4"></a></h4>
-
+<h4 id="configuring-mu4e-in-emacsa-idsec-1-2-4-namesec-1-2-4a">Configuring Mu4e in Emacs<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>As the last step, we now need to setup Emacs to be able to send and
 receive emails using it&rsquo;s interface.</p>
-
 <p>Add the configuration below into you <code>~/.emacs</code> file:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp">(<span style="color:#038">require</span> <span style="color:#a60;background-color:#fff0f0">&#39;mu4e</span>)
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-maildir</span> <span style="color:#d20;background-color:#fff0f0">&#34;~/.Mail&#34;</span>)
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-drafts-folder</span> <span style="color:#d20;background-color:#fff0f0">&#34;/[Gmail].Drafts&#34;</span>)
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-sent-folder</span>   <span style="color:#d20;background-color:#fff0f0">&#34;/[Gmail].Sent Mail&#34;</span>)
-<span style="color:#888">;; don&#39;t save message to Sent Messages, Gmail/IMAP takes care of this</span>
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-sent-messages-behavior</span> <span style="color:#a60;background-color:#fff0f0">&#39;delete</span>)
-<span style="color:#888">;; allow for updating mail using &#39;U&#39; in the main view:</span>
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-get-mail-command</span> <span style="color:#d20;background-color:#fff0f0">&#34;offlineimap&#34;</span>)
-
-<span style="color:#888">;; shortcuts</span>
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-maildir-shortcuts</span>
-    &#39;( (<span style="color:#d20;background-color:#fff0f0">&#34;/INBOX&#34;</span>               . <span style="color:#d20;background-color:#fff0f0">?i</span>)
-       (<span style="color:#d20;background-color:#fff0f0">&#34;/[Gmail].Sent Mail&#34;</span>   . <span style="color:#d20;background-color:#fff0f0">?s</span>)))
-
-<span style="color:#888">;; something about ourselves</span>
-(<span style="color:#038">setq</span>
-   <span style="color:#369">user-mail-address</span> <span style="color:#d20;background-color:#fff0f0">&#34;blah@gmail.com&#34;</span>
-   <span style="color:#06b;font-weight:bold">user-full-name</span>  <span style="color:#d20;background-color:#fff0f0">&#34;Blah Man&#34;</span>
-   <span style="color:#369">mu4e-compose-signature</span>
-    (<span style="color:#06b;font-weight:bold">concat</span>
-      <span style="color:#d20;background-color:#fff0f0">&#34;Cheers,\n&#34;</span>
-      <span style="color:#d20;background-color:#fff0f0">&#34;Blah Man\n&#34;</span>))
-
-<span style="color:#888">;; show images</span>
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-show-images</span> <span style="color:#036;font-weight:bold">t</span>)
-
-<span style="color:#888">;; use imagemagick, if available</span>
-(<span style="color:#038">when</span> (<span style="color:#06b;font-weight:bold">fboundp</span> <span style="color:#a60;background-color:#fff0f0">&#39;imagemagick-register-types</span>)
-  (<span style="color:#369">imagemagick-register-types</span>))
-
-<span style="color:#888">;; convert html emails properly</span>
-<span style="color:#888">;; Possible options:</span>
-<span style="color:#888">;;   - html2text -utf8 -width 72</span>
-<span style="color:#888">;;   - textutil -stdin -format html -convert txt -stdout</span>
-<span style="color:#888">;;   - html2markdown | grep -v &#39;&amp;nbsp_place_holder;&#39; (Requires html2text pypi)</span>
-<span style="color:#888">;;   - w3m -dump -cols 80 -T text/html</span>
-<span style="color:#888">;;   - view in browser (provided below)</span>
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-html2text-command</span> <span style="color:#d20;background-color:#fff0f0">&#34;textutil -stdin -format html -convert txt -stdout&#34;</span>)
-
-<span style="color:#888">;; spell check</span>
-(<span style="color:#369">add-hook</span> <span style="color:#a60;background-color:#fff0f0">&#39;mu4e-compose-mode-hook</span>
-        (<span style="color:#038">defun</span> <span style="color:#369">my-do-compose-stuff</span> ()
-           <span style="color:#d20;background-color:#fff0f0">&#34;My settings for message composition.&#34;</span>
-           (<span style="color:#369">set-fill-column</span> <span style="color:#00d;font-weight:bold">72</span>)
-           (<span style="color:#369">flyspell-mode</span>)))
-
-<span style="color:#888">;; add option to view html message in a browser</span>
-<span style="color:#888">;; `aV` in view to activate</span>
-(<span style="color:#369">add-to-list</span> <span style="color:#a60;background-color:#fff0f0">&#39;mu4e-view-actions</span>
-  &#39;(<span style="color:#d20;background-color:#fff0f0">&#34;ViewInBrowser&#34;</span> . <span style="color:#369">mu4e-action-view-in-browser</span>) <span style="color:#036;font-weight:bold">t</span>)
-
-<span style="color:#888">;; fetch mail every 10 mins</span>
-(<span style="color:#038">setq</span> <span style="color:#369">mu4e-update-interval</span> <span style="color:#00d;font-weight:bold">600</span>)</code></pre></div>
-<p>Since mu4e cannot help in sending emails, we need to use <a href="http://www.emacswiki.org/emacs/SendingMail">smtpmail</a> for the same:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#888">;; configuration for sending mail</span>
-(<span style="color:#038">setq</span> <span style="color:#369">message-send-mail-function</span> <span style="color:#a60;background-color:#fff0f0">&#39;smtpmail-send-it</span>
-      <span style="color:#369">smtpmail-stream-type</span> <span style="color:#a60;background-color:#fff0f0">&#39;starttls</span>
-      <span style="color:#369">smtpmail-default-smtp-server</span> <span style="color:#d20;background-color:#fff0f0">&#34;smtp.gmail.com&#34;</span>
-      <span style="color:#369">smtpmail-smtp-server</span> <span style="color:#d20;background-color:#fff0f0">&#34;smtp.gmail.com&#34;</span>
-      <span style="color:#369">smtpmail-smtp-service</span> <span style="color:#00d;font-weight:bold">587</span>)</code></pre></div>
-<p>Save the file and close Emacs. In order to allow Emacs to connect with
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;mu4e</span>)
+</span></span><span style="display:flex;"><span>(setq mu4e-maildir <span style="color:#e6db74">&#34;~/.Mail&#34;</span>)
+</span></span><span style="display:flex;"><span>(setq mu4e-drafts-folder <span style="color:#e6db74">&#34;/[Gmail].Drafts&#34;</span>)
+</span></span><span style="display:flex;"><span>(setq mu4e-sent-folder   <span style="color:#e6db74">&#34;/[Gmail].Sent Mail&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; don&#39;t save message to Sent Messages, Gmail/IMAP takes care of this</span>
+</span></span><span style="display:flex;"><span>(setq mu4e-sent-messages-behavior <span style="color:#e6db74">&#39;delete</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; allow for updating mail using &#39;U&#39; in the main view:</span>
+</span></span><span style="display:flex;"><span>(setq mu4e-get-mail-command <span style="color:#e6db74">&#34;offlineimap&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; shortcuts</span>
+</span></span><span style="display:flex;"><span>(setq mu4e-maildir-shortcuts
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#39;</span>( (<span style="color:#e6db74">&#34;/INBOX&#34;</span>               <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
+</span></span><span style="display:flex;"><span>       (<span style="color:#e6db74">&#34;/[Gmail].Sent Mail&#34;</span>   <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; something about ourselves</span>
+</span></span><span style="display:flex;"><span>(setq
+</span></span><span style="display:flex;"><span>   user-mail-address <span style="color:#e6db74">&#34;blah@gmail.com&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">user-full-name</span>  <span style="color:#e6db74">&#34;Blah Man&#34;</span>
+</span></span><span style="display:flex;"><span>   mu4e-compose-signature
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">concat</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Cheers,\n&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Blah Man\n&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; show images</span>
+</span></span><span style="display:flex;"><span>(setq mu4e-show-images <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; use imagemagick, if available</span>
+</span></span><span style="display:flex;"><span>(when (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;imagemagick-register-types</span>)
+</span></span><span style="display:flex;"><span>  (imagemagick-register-types))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; convert html emails properly</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Possible options:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;   - html2text -utf8 -width 72</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;   - textutil -stdin -format html -convert txt -stdout</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;   - html2markdown | grep -v &#39;&amp;nbsp_place_holder;&#39; (Requires html2text pypi)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;   - w3m -dump -cols 80 -T text/html</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;   - view in browser (provided below)</span>
+</span></span><span style="display:flex;"><span>(setq mu4e-html2text-command <span style="color:#e6db74">&#34;textutil -stdin -format html -convert txt -stdout&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; spell check</span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;mu4e-compose-mode-hook</span>
+</span></span><span style="display:flex;"><span>        (defun my-do-compose-stuff ()
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;My settings for message composition.&#34;</span>
+</span></span><span style="display:flex;"><span>           (set-fill-column <span style="color:#ae81ff">72</span>)
+</span></span><span style="display:flex;"><span>           (flyspell-mode)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; add option to view html message in a browser</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; `aV` in view to activate</span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;mu4e-view-actions</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;ViewInBrowser&#34;</span> <span style="color:#f92672">.</span> mu4e-action-view-in-browser) <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; fetch mail every 10 mins</span>
+</span></span><span style="display:flex;"><span>(setq mu4e-update-interval <span style="color:#ae81ff">600</span>)
+</span></span></code></pre></div><p>Since mu4e cannot help in sending emails, we need to use <a href="http://www.emacswiki.org/emacs/SendingMail">smtpmail</a> for the same:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#75715e">;; configuration for sending mail</span>
+</span></span><span style="display:flex;"><span>(setq message-send-mail-function <span style="color:#e6db74">&#39;smtpmail-send-it</span>
+</span></span><span style="display:flex;"><span>      smtpmail-stream-type <span style="color:#e6db74">&#39;starttls</span>
+</span></span><span style="display:flex;"><span>      smtpmail-default-smtp-server <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>
+</span></span><span style="display:flex;"><span>      smtpmail-smtp-server <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>
+</span></span><span style="display:flex;"><span>      smtpmail-smtp-service <span style="color:#ae81ff">587</span>)
+</span></span></code></pre></div><p>Save the file and close Emacs. In order to allow Emacs to connect with
 the gmail smtp server, you need to install <a href="http://www.gnutls.org/">gnutls</a>. Homebrew comes to
 the rescue yet again:</p>
-
 <pre><code>brew install gnutls
 </code></pre>
-
 <p>Now, create a <code>~/.authinfo</code> file and add the following into it:</p>
-
 <pre><code>machine smtp.gmail.com login &lt;gmail username&gt; password &lt;gmail password&gt;
 </code></pre>
-
 <p>You can also encrypt the above file by running:</p>
-
 <pre><code>gpg --output ~/.authinfo.gpg --symmetric ~/.authinfo
 </code></pre>
-
 <p>That&rsquo;s all there is to it :) Now open Emacs, hit <code>M-x mu4e RET</code> and
 you should be all set! You can also extend your <code>~/.offlineimaprc</code> to
 include more email accounts accordingly.</p>
-
 <p>It&rsquo;s not perfect yet, but I&rsquo;m starting to like this setup. Although it
 irks me to open an html email due to rendering issues and the time
 taken to convert it to plain-text, I&rsquo;m hoping to take care of that
 soon enough. Until then, I think I can live with this.</p>
-
 <p>Suggestions, queries and improvements are welcome.</p>
-
-  </div>
-
-  <div id=links>
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/">&laquo; Integrating mogenerator in your XCode project</a>
-    
-    
-      <a class="basic-alignment left" href="http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/">Setting up ACL in Mosquitto using Postgres &raquo;</a>
-    
-  </div>
 </section>
 
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/emacs"
+      >emacs</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/email"
+      >email</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://example.org/tags/productivity"
+      >productivity</a
+    >
+    
+  </footer>
+  
 
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/setting-up-acl-in-mosquitto-using-postgres/"
+      ><span class="mr-1.5">←</span><span>Setting up ACL in Mosquitto using Postgres</span></a
+    >
     
     
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://example.org/post/integrating-mogenerator-in-your-xcode-project/"
+      ><span>Integrating mogenerator in your XCode project</span><span class="ml-1.5">→</span></a
+    >
     
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kirangin" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
   
-</body>
-</html>
+</article>
 
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

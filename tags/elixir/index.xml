@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Elixir on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/tags/elixir/</link>
-    <description>Recent content in Elixir on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Elixir on Kiran Gangadharan</title>
+    <link>https://example.org/tags/elixir/</link>
+    <description>Recent content in Elixir on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Dec 2018 00:00:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/tags/elixir/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Road to a Masterless Multinode Distributed System in Elixir</title>
-      <link>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</link>
+      <link>https://example.org/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</guid>
-      <description>My first conference talk presented at Functional Conf 2018! Yay!
-I co-presented this with my colleague Udit. This talk is about our journey building a masterless multi-node distributed system in Elixir. It covers the problems we faced, how we dealt with them and the lessons learnt in the process.
- I&amp;rsquo;m grateful to nilenso for providing me with the opportunity to work on this project and give this talk. If this type of work sounds interesting to you, talk to us!</description>
+      <guid>https://example.org/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</guid>
+      <description>My first conference talk presented at Functional Conf 2018! Yay!&#xA;I co-presented this with my colleague Udit. This talk is about our journey building a masterless multi-node distributed system in Elixir. It covers the problems we faced, how we dealt with them and the lessons learnt in the process.&#xA;I&amp;rsquo;m grateful to nilenso for providing me with the opportunity to work on this project and give this talk. If this type of work sounds interesting to you, talk to us!</description>
     </item>
-    
   </channel>
 </rss>

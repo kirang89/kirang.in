@@ -1,25 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Documentation on KG – Hacks. Thoughts. Writings.</title>
-    <link>http://kirang.in/tags/documentation/</link>
-    <description>Recent content in Documentation on KG – Hacks. Thoughts. Writings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Documentation on Kiran Gangadharan</title>
+    <link>https://example.org/tags/documentation/</link>
+    <description>Recent content in Documentation on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 May 2013 16:55:00 +0530</lastBuildDate>
-    
-	<atom:link href="http://kirang.in/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://example.org/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Make your open source project documentation suck less</title>
-      <link>http://kirang.in/post/make-your-open-source-project-documentation-suck-less/</link>
+      <link>https://example.org/post/make-your-open-source-project-documentation-suck-less/</link>
       <pubDate>Tue, 07 May 2013 16:55:00 +0530</pubDate>
-      
-      <guid>http://kirang.in/post/make-your-open-source-project-documentation-suck-less/</guid>
-      <description>I just stumbled into this talk about documentation by Jacob-Kaplan Moss and it was really an insightful look into how one must design the documentation for an open source project. Below is the gist of his talk:
-Documentation is communication This is the single most important point that you need to understand. Documentation is not just written as a guide, but as a means to communicate with various developers and users across the globe.</description>
+      <guid>https://example.org/post/make-your-open-source-project-documentation-suck-less/</guid>
+      <description>I just stumbled into this talk about documentation by Jacob-Kaplan Moss and it was really an insightful look into how one must design the documentation for an open source project. Below is the gist of his talk:&#xA;Documentation is communication This is the single most important point that you need to understand. Documentation is not just written as a guide, but as a means to communicate with various developers and users across the globe.</description>
     </item>
-    
   </channel>
 </rss>
