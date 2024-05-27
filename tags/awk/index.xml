@@ -1,19 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Awk on Kiran Gangadharan</title>
-    <link>http://kirang.in/tags/awk/</link>
-    <description>Recent content in Awk on Kiran Gangadharan</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 15 Dec 2015 00:00:00 +0530</lastBuildDate>
-    <atom:link href="http://kirang.in/tags/awk/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Useful AWK one-liners</title>
-      <link>http://kirang.in/post/useful-awk-one-liners/</link>
-      <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
-      <guid>http://kirang.in/post/useful-awk-one-liners/</guid>
-      <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:&#xA;If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Awk on Kiran Gangadharan</title><link>http://kirang.in/tags/awk/</link><description>Recent content in Awk on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 15 Dec 2015 00:00:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/awk/index.xml" rel="self" type="application/rss+xml"/><item><title>Useful AWK one-liners</title><link>http://kirang.in/post/useful-awk-one-liners/</link><pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate><guid>http://kirang.in/post/useful-awk-one-liners/</guid><description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:
+If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description></item></channel></rss>

@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Unix on Kiran Gangadharan</title>
-    <link>http://kirang.in/tags/unix/</link>
-    <description>Recent content in Unix on Kiran Gangadharan</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 12 Dec 2013 20:45:00 +0530</lastBuildDate>
-    <atom:link href="http://kirang.in/tags/unix/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Unix Philosophy - A Summary</title>
-      <link>http://kirang.in/post/the-unix-philosophy-summary/</link>
-      <pubDate>Thu, 12 Dec 2013 20:45:00 +0530</pubDate>
-      <guid>http://kirang.in/post/the-unix-philosophy-summary/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rule of Modularity&lt;/strong&gt;: Write simple parts connected by clean&#xA;interfaces.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rule of Clarity&lt;/strong&gt;: Clarity is better than cleverness.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rule of Composition&lt;/strong&gt;: Design programs to be connected to other&#xA;programs.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unix on Kiran Gangadharan</title><link>http://kirang.in/tags/unix/</link><description>Recent content in Unix on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 12 Dec 2013 20:45:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/unix/index.xml" rel="self" type="application/rss+xml"/><item><title>The Unix Philosophy - A Summary</title><link>http://kirang.in/post/the-unix-philosophy-summary/</link><pubDate>Thu, 12 Dec 2013 20:45:00 +0530</pubDate><guid>http://kirang.in/post/the-unix-philosophy-summary/</guid><description>&lt;ul>
+&lt;li>&lt;strong>Rule of Modularity&lt;/strong>: Write simple parts connected by clean
+interfaces.&lt;/li>
+&lt;li>&lt;strong>Rule of Clarity&lt;/strong>: Clarity is better than cleverness.&lt;/li>
+&lt;li>&lt;strong>Rule of Composition&lt;/strong>: Design programs to be connected to other
+programs.&lt;/li>
+&lt;/ul></description></item></channel></rss>

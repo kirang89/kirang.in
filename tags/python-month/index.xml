@@ -1,19 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Python-Month on Kiran Gangadharan</title>
-    <link>http://kirang.in/tags/python-month/</link>
-    <description>Recent content in Python-Month on Kiran Gangadharan</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jul 2013 17:02:00 +0530</lastBuildDate>
-    <atom:link href="http://kirang.in/tags/python-month/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>What is Python Month?</title>
-      <link>http://kirang.in/post/what-is-python-month/</link>
-      <pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate>
-      <guid>http://kirang.in/post/what-is-python-month/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India&#xA;on using and developing the Python programming language is conducted&#xA;annually by the Python developer community, and represented by the&#xA;Python Software Society of India. The conference attracts the best&#xA;Python programmers across the country and abroad.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python-Month on Kiran Gangadharan</title><link>http://kirang.in/tags/python-month/</link><description>Recent content in Python-Month on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 23 Jul 2013 17:02:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/python-month/index.xml" rel="self" type="application/rss+xml"/><item><title>What is Python Month?</title><link>http://kirang.in/post/what-is-python-month/</link><pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate><guid>http://kirang.in/post/what-is-python-month/</guid><description>&lt;p>&lt;strong>&lt;a href="http://in.pycon.org">PyCon India&lt;/a>,&lt;/strong> the premier conference in India
+on using and developing the Python programming language is conducted
+annually by the Python developer community, and represented by the
+Python Software Society of India. The conference attracts the best
+Python programmers across the country and abroad.&lt;/p></description></item></channel></rss>
