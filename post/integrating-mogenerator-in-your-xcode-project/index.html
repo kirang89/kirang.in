@@ -137,7 +137,7 @@ mogenerator is indispensable." />
   <meta itemprop="description" content="Every iOS app you build would require some sort of storage functionality within the device itself, especially if it caches data fetched from the network. Core Data, an object graph management framework developed by Apple will mostly likely be your choice in this regard. In that case, a tool like mogenerator is indispensable.">
   <meta itemprop="datePublished" content="2014-08-27T14:53:00+05:30">
   <meta itemprop="dateModified" content="2014-08-27T14:53:00+05:30">
-  <meta itemprop="wordCount" content="233">
+  <meta itemprop="wordCount" content="240">
   <meta itemprop="keywords" content="Ios">
   
   <meta property="og:url" content="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/">
@@ -236,6 +236,16 @@ mogenerator is indispensable." />
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -328,8 +338,15 @@ the necessary steps to add the mogenerator script to your project and
 automatically generate the necessary model classes whenever XCode builds
 your project.</p>
 <p>Let&rsquo;s begin by installing mogenerator on OS X using homebrew:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install mogenerator
-</span></span></code></pre></div><p>Once installed, open your project in XCode and select the &lsquo;Edit Scheme&rsquo;
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install mogenerator
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once installed, open your project in XCode and select the &lsquo;Edit Scheme&rsquo;
 option under the Product menu:</p>
 <p><img src="https://www.evernote.com/shard/s101/sh/71a6ab30-6ffd-4a14-a704-3d5616234b0d/b928625b2dbed0348a19c50f1ab15800/deep/0/Scheme-and-Product.png" alt="Product
 Menu"></p>
@@ -343,13 +360,25 @@ Pre-action"></p>
 <li>Provide build settings for: <!-- raw HTML omitted -->&lt;Project&gt;<!-- raw HTML omitted --></li>
 <li>Script:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">cd</span> <span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">SOURCE_ROOT</span><span style="color:#33b;background-color:#fff0f0">}</span>/<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">PROJECT_NAME</span><span style="color:#33b;background-color:#fff0f0">}</span>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#99d1db">cd</span> <span style="color:#a6d189">${</span><span style="color:#f2d5cf">SOURCE_ROOT</span><span style="color:#a6d189">}</span>/<span style="color:#a6d189">${</span><span style="color:#f2d5cf">PROJECT_NAME</span><span style="color:#a6d189">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/usr/local/bin/mogenerator --template-var <span style="color:#369">arc</span>=<span style="color:#038">true</span>
-</span></span><span style="display:flex;"><span>-m <span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">PROJECT_NAME</span><span style="color:#33b;background-color:#fff0f0">}</span>.xcdatamodeld/<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">PROJECT_NAME</span><span style="color:#33b;background-color:#fff0f0">}</span>.xcdatamodel
+</span></span><span style="display:flex;"><span>/usr/local/bin/mogenerator --template-var <span style="color:#f2d5cf">arc</span><span style="color:#99d1db;font-weight:bold">=</span><span style="color:#99d1db">true</span>
+</span></span><span style="display:flex;"><span>-m <span style="color:#a6d189">${</span><span style="color:#f2d5cf">PROJECT_NAME</span><span style="color:#a6d189">}</span>.xcdatamodeld/<span style="color:#a6d189">${</span><span style="color:#f2d5cf">PROJECT_NAME</span><span style="color:#a6d189">}</span>.xcdatamodel
 </span></span><span style="display:flex;"><span>-M Model/CoreData/Machine -H Model/CoreData/Human
-</span></span></code></pre></div><p>This is how your script action should look like:</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is how your script action should look like:</p>
 <p><img src="https://www.evernote.com/shard/s101/sh/58e8760b-21ef-4b23-8500-5d723f5015bb/efa9bb6b77b2d648f8839040252ac0ba/deep/0/Screenshot-27-08-14-14-35.png" alt="New Run Script
 action"></p>
 <p>Click <!-- raw HTML omitted -->OK<!-- raw HTML omitted --> and you&rsquo;re
@@ -394,15 +423,6 @@ it&rsquo;s magic on your data models!</p></section>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -410,6 +430,25 @@ it&rsquo;s magic on your data models!</p></section>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

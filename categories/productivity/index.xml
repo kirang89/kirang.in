@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
-      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
+      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;1 (use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
     </item>
     <item>
       <title>Useful AWK one-liners</title>
@@ -27,7 +27,7 @@
       <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
-      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
+      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
     </item>
   </channel>
 </rss>

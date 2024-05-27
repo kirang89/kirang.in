@@ -131,7 +131,7 @@
   <meta itemprop="description" content="In order to facilitate an efficient collaboration amongst developer teams, it is very important to keep the development workflow as simple and straightforward as possible. Version Control is one tool that helps with this. Continuous Integration is another one. Below, I’ll illustrate the steps needed to configure a basic Python application with Jenkins, a CI server that automates a lot of the repetitive stuff, so that you can focus on writing code.">
   <meta itemprop="datePublished" content="2013-11-28T20:19:00+05:30">
   <meta itemprop="dateModified" content="2013-11-28T20:19:00+05:30">
-  <meta itemprop="wordCount" content="417">
+  <meta itemprop="wordCount" content="438">
   <meta itemprop="keywords" content="Ci,Jenkins,Python">
   
   <meta property="og:url" content="http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/">
@@ -231,6 +231,16 @@
     class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
   >
     
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
     
 
     
@@ -345,28 +355,55 @@ Shell</em>. This allows you to specify the instructions to build your
 project. I&rsquo;ve used the following snippet, but feel free to modify it
 in accordance to your liking.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888"># Adding virtualenv to PATH</span>
-</span></span><span style="display:flex;"><span><span style="color:#369">PATH</span>=/usr/local/bin:<span style="color:#369">$PATH</span>
-</span></span><span style="display:flex;"><span><span style="color:#038">cd</span> <span style="color:#369">$WORKSPACE</span>/
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Adding virtualenv to PATH</span>
+</span></span><span style="display:flex;"><span><span style="color:#f2d5cf">PATH</span><span style="color:#99d1db;font-weight:bold">=</span>/usr/local/bin:<span style="color:#f2d5cf">$PATH</span>
+</span></span><span style="display:flex;"><span><span style="color:#99d1db">cd</span> <span style="color:#f2d5cf">$WORKSPACE</span>/
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>virtualenv --no-site-packages ve
 </span></span><span style="display:flex;"><span>. ve/bin/activate
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Installing necessary packages and project dependencies</span>
-</span></span><span style="display:flex;"><span>pip install -r requirements.txt --download-cache=/tmp/<span style="color:#369">$JOB_NAME</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Installing necessary packages and project dependencies</span>
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt --download-cache<span style="color:#99d1db;font-weight:bold">=</span>/tmp/<span style="color:#f2d5cf">$JOB_NAME</span>
 </span></span><span style="display:flex;"><span>pip install nose
 </span></span><span style="display:flex;"><span>pip install coverage
 </span></span><span style="display:flex;"><span>pip install pylint
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Running Tests</span>
-</span></span><span style="display:flex;"><span>nosetests --with-xunit --all-modules --traverse-namespace --with-coverage --cover-package=bootstrapy --cover-inclusive
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Running Tests</span>
+</span></span><span style="display:flex;"><span>nosetests --with-xunit --all-modules --traverse-namespace --with-coverage --cover-package<span style="color:#99d1db;font-weight:bold">=</span>bootstrapy --cover-inclusive
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Generating code coverage</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Generating code coverage</span>
 </span></span><span style="display:flex;"><span>coverage xml
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Checking for pylint violations</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Checking for pylint violations</span>
 </span></span><span style="display:flex;"><span>pylint -f parseable -d I0011,R0801 mypackage | tee pylint.out
-</span></span></code></pre></div><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li> Add <em>Publish Cobertura Coverage Report</em> and <em>Publish Junit test
 result report</em> to Post Build Actions and set them to <!-- raw HTML omitted -->coverage.xml<!-- raw HTML omitted --> and <!-- raw HTML omitted -->nosetests.xml<!-- raw HTML omitted --> :</li>
 </ul>
@@ -434,15 +471,6 @@ that you can do. So, have fun exploring !</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -450,6 +478,25 @@ that you can do. So, have fun exploring !</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

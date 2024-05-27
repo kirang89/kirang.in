@@ -62,7 +62,7 @@
   
   
   <meta name="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it&rsquo;s immutable. This means it isn&rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self." />
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy." />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -130,17 +130,17 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   
   <meta itemprop="name" content="Creating a Mutable Array data type in sqlalchemy">
   <meta itemprop="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.">
   <meta itemprop="datePublished" content="2014-08-09T00:00:00+05:30">
   <meta itemprop="dateModified" content="2014-08-09T00:00:00+05:30">
-  <meta itemprop="wordCount" content="140">
+  <meta itemprop="wordCount" content="163">
   <meta itemprop="keywords" content="Python,Sqlalchemy">
   
   <meta property="og:url" content="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Creating a Mutable Array data type in sqlalchemy">
   <meta property="og:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -154,7 +154,7 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Creating a Mutable Array data type in sqlalchemy">
   <meta name="twitter:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.">
 
   
   
@@ -235,6 +235,16 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -313,33 +323,68 @@ immutable. This means it isn&rsquo;t possible to add new data into array once
 it has been initialised. Unfortunately, I couldn&rsquo;t find any
 good solution to create mutable arrays until I came across this snippet
 by Michael Bayer, the author of sqlalchemy himself:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.ext.mutable</span> <span style="color:#080;font-weight:bold">import</span> Mutable
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.dialects.postgresql</span> <span style="color:#080;font-weight:bold">import</span> ARRAY
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#81c8be">from</span> <span style="color:#ef9f76">sqlalchemy.ext.mutable</span> <span style="color:#81c8be">import</span> Mutable
+</span></span><span style="display:flex;"><span><span style="color:#81c8be">from</span> <span style="color:#ef9f76">sqlalchemy.dialects.postgresql</span> <span style="color:#81c8be">import</span> ARRAY
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">MutableList</span>(Mutable, <span style="color:#038">list</span>):
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">append</span>(self, value):
-</span></span><span style="display:flex;"><span>        <span style="color:#038">list</span>.append(self, value)
-</span></span><span style="display:flex;"><span>        self.changed()
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">class</span> <span style="color:#e5c890">MutableList</span>(Mutable, <span style="color:#99d1db">list</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">def</span> <span style="color:#8caaee">append</span>(<span style="color:#99d1db">self</span>, value):
+</span></span><span style="display:flex;"><span>        <span style="color:#99d1db">list</span><span style="color:#99d1db;font-weight:bold">.</span>append(<span style="color:#99d1db">self</span>, value)
+</span></span><span style="display:flex;"><span>        <span style="color:#99d1db">self</span><span style="color:#99d1db;font-weight:bold">.</span>changed()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#555">@classmethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">coerce</span>(cls, key, value):
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#080">not</span> <span style="color:#038">isinstance</span>(value, MutableList):
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#038">isinstance</span>(value, <span style="color:#038">list</span>):
-</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> MutableList(value)
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> Mutable.coerce(key, value)
-</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">else</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> value
-</span></span></code></pre></div><p>What this snippet allows you to do is to extend a list to add mutability
+</span></span><span style="display:flex;"><span>    <span style="color:#8caaee;font-weight:bold">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">def</span> <span style="color:#8caaee">coerce</span>(<span style="color:#99d1db">cls</span>, key, value):
+</span></span><span style="display:flex;"><span>        <span style="color:#ca9ee6">if</span> <span style="color:#99d1db;font-weight:bold">not</span> <span style="color:#99d1db">isinstance</span>(value, MutableList):
+</span></span><span style="display:flex;"><span>            <span style="color:#ca9ee6">if</span> <span style="color:#99d1db">isinstance</span>(value, <span style="color:#99d1db">list</span>):
+</span></span><span style="display:flex;"><span>                <span style="color:#ca9ee6">return</span> MutableList(value)
+</span></span><span style="display:flex;"><span>            <span style="color:#ca9ee6">return</span> Mutable<span style="color:#99d1db;font-weight:bold">.</span>coerce(key, value)
+</span></span><span style="display:flex;"><span>        <span style="color:#ca9ee6">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#ca9ee6">return</span> value
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>What this snippet allows you to do is to extend a list to add mutability
 to it. So, now you can use the class above to create a mutable array
 type like so:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.dialects.postgresql</span> <span style="color:#080;font-weight:bold">import</span> ARRAY
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#81c8be">from</span> <span style="color:#ef9f76">sqlalchemy.dialects.postgresql</span> <span style="color:#81c8be">import</span> ARRAY
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Something</span>(Base):
-</span></span><span style="display:flex;"><span>    __tablename__ = <span style="color:#d20;background-color:#fff0f0">&#39;yaddayadda&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">class</span> <span style="color:#e5c890">Something</span>(Base):
+</span></span><span style="display:flex;"><span>    __tablename__ <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;yaddayadda&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#038">id</span> = Column(Integer, primary_key=<span style="color:#080;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>    data = Column(MutableList.as_mutable(ARRAY(String(<span style="color:#00d;font-weight:bold">100</span>))))
-</span></span></code></pre></div></section>
+</span></span><span style="display:flex;"><span>    <span style="color:#99d1db">id</span> <span style="color:#99d1db;font-weight:bold">=</span> Column(Integer, primary_key<span style="color:#99d1db;font-weight:bold">=</span><span style="color:#ef9f76">True</span>)
+</span></span><span style="display:flex;"><span>    data <span style="color:#99d1db;font-weight:bold">=</span> Column(MutableList<span style="color:#99d1db;font-weight:bold">.</span>as_mutable(ARRAY(String(<span style="color:#ef9f76">100</span>))))
+</span></span></code></pre></td></tr></table>
+</div>
+</div></section>
 
   
   
@@ -385,15 +430,6 @@ type like so:</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -401,6 +437,25 @@ type like so:</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

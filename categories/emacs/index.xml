@@ -13,21 +13,21 @@
       <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
-      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
+      <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;1 (use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
     </item>
     <item>
       <title>My eshell prompt setup</title>
       <link>http://kirang.in/post/eshell-prompt-setup/</link>
       <pubDate>Mon, 20 Jun 2016 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/eshell-prompt-setup/</guid>
-      <description>My setup is based on Howard Abrams&amp;rsquo; setup with some minor additions and is reproduced in its entirety here:&#xA;(defun curr-dir-git-branch-string (pwd) &amp;#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&amp;#34; (interactive) (when (and (eshell-search-path &amp;#34;git&amp;#34;) (locate-dominating-file pwd &amp;#34;.git&amp;#34;)) (let ((git-output (shell-command-to-string (concat &amp;#34;cd &amp;#34; pwd &amp;#34; &amp;amp;&amp;amp; git branch | grep &amp;#39;\\*&amp;#39; | sed -e &amp;#39;s/^\\* //&amp;#39;&amp;#34;)))) (if (&amp;gt; (length git-output) 0) (concat &amp;#34; :&amp;#34; (substring git-output 0 -1)) &amp;#34;(no branch)&amp;#34;)))) (defun pwd-replace-home (pwd) &amp;#34;Replace home in PWD with tilde (~) character.</description>
+      <description>My setup is based on Howard Abrams&amp;rsquo; setup with some minor additions and is reproduced in its entirety here:&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &amp;#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).</description>
     </item>
     <item>
       <title>Setting up org-mode pdf export in OS X ElCapitan</title>
       <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
-      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
+      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
     </item>
     <item>
       <title>Emacs as email client with offlineimap and mu4e on OS X</title>

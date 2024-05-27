@@ -61,7 +61,7 @@
   
   
   
-  <meta name="description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
+  <meta name="description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
 Rationals are slower in terms of operations on them when compared to decimals." />
   <meta name="author" content="Kiran Gangadharan" />
   
@@ -129,17 +129,17 @@ Rationals are slower in terms of operations on them when compared to decimals." 
   
   
   <meta itemprop="name" content="Rationals vs Decimals in Clojure">
-  <meta itemprop="description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
+  <meta itemprop="description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
 Rationals are slower in terms of operations on them when compared to decimals.">
   <meta itemprop="datePublished" content="2016-01-30T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-01-30T00:00:00+05:30">
-  <meta itemprop="wordCount" content="81">
+  <meta itemprop="wordCount" content="85">
   <meta itemprop="keywords" content="Clojure">
   
   <meta property="og:url" content="http://kirang.in/post/rationals-vs-decimals-clojure/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Rationals vs Decimals in Clojure">
-  <meta property="og:description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
+  <meta property="og:description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
 Rationals are slower in terms of operations on them when compared to decimals.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -152,7 +152,7 @@ Rationals are slower in terms of operations on them when compared to decimals.">
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Rationals vs Decimals in Clojure">
-  <meta name="twitter:description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
+  <meta name="twitter:description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
 Rationals are slower in terms of operations on them when compared to decimals.">
 
   
@@ -234,6 +234,16 @@ Rationals are slower in terms of operations on them when compared to decimals.">
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -311,11 +321,21 @@ Rationals are slower in terms of operations on them when compared to decimals.">
 <li>Use rationals if accuracy is your main concern. For example, operations on
 decimals are not associative.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">a</span> <span style="color:#00d;font-weight:bold">1.0</span><span style="color:#369">e50</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#369">b</span> <span style="color:#00d;font-weight:bold">-1.0</span><span style="color:#369">e50</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#369">c</span> <span style="color:#00d;font-weight:bold">17.0</span><span style="color:#369">e00</span>]
-</span></span><span style="display:flex;"><span>  (<span style="color:#038">= </span>(<span style="color:#038">+ </span>(<span style="color:#038">+ </span><span style="color:#369">a</span> <span style="color:#369">b</span>) <span style="color:#369">c</span>) (<span style="color:#038">+ </span><span style="color:#369">a</span> (<span style="color:#038">+ </span><span style="color:#369">b</span> <span style="color:#369">c</span>)))) <span style="color:#888">; =&gt; false</span>
-</span></span></code></pre></div><p>From the above example, one can infer that decimals are subjected to Floating
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#ca9ee6">let </span>[<span style="color:#f2d5cf">a</span> <span style="color:#ef9f76">1.0</span><span style="color:#f2d5cf">e50</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f2d5cf">b</span> <span style="color:#ef9f76">-1.0</span><span style="color:#f2d5cf">e50</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f2d5cf">c</span> <span style="color:#ef9f76">17.0</span><span style="color:#f2d5cf">e00</span>]
+</span></span><span style="display:flex;"><span>  (<span style="color:#99d1db">= </span>(<span style="color:#99d1db">+ </span>(<span style="color:#99d1db">+ </span><span style="color:#f2d5cf">a</span> <span style="color:#f2d5cf">b</span>) <span style="color:#f2d5cf">c</span>) (<span style="color:#99d1db">+ </span><span style="color:#f2d5cf">a</span> (<span style="color:#99d1db">+ </span><span style="color:#f2d5cf">b</span> <span style="color:#f2d5cf">c</span>)))) <span style="color:#737994;font-style:italic">; =&gt; false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>From the above example, one can infer that decimals are subjected to Floating
 Point corruption. You can find more examples <a href="https://stackoverflow.com/questions/2100490/floating-point-inaccuracy-examples">here</a>.</p>
 <ul>
 <li>Rationals are slower in terms of operations on them when compared to
@@ -361,15 +381,6 @@ decimals. There is an overhead involved when doing operations on rationals.</li>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -377,6 +388,25 @@ decimals. There is an overhead involved when doing operations on rationals.</li>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

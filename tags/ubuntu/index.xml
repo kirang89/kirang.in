@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/installing-pylibmc-in-ubuntu/</link>
       <pubDate>Wed, 22 May 2013 02:16:00 +0530</pubDate>
       <guid>http://kirang.in/post/installing-pylibmc-in-ubuntu/</guid>
-      <description>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.&#xA;Install python-dev&#xA;sudo apt-get install python-dev Install libmemcached&#xA;sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip&#xA;sudo pip install pylibmc </description>
+      <description>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.&#xA;Install python-dev&#xA;1 sudo apt-get install python-dev Install libmemcached&#xA;1 sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip&#xA;1 sudo pip install pylibmc </description>
     </item>
   </channel>
 </rss>

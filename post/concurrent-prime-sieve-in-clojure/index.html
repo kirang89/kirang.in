@@ -63,7 +63,7 @@
   
   <meta name="description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let&rsquo;s begin by creating an infinite sequence generator(starting from 2):
-(defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread." />
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread." />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -132,10 +132,10 @@ Let&rsquo;s begin by creating an infinite sequence generator(starting from 2):
   <meta itemprop="name" content="Concurrent Prime Sieve in Clojure">
   <meta itemprop="description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let’s begin by creating an infinite sequence generator(starting from 2):
-(defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
   <meta itemprop="datePublished" content="2015-12-28T00:00:00+05:30">
   <meta itemprop="dateModified" content="2015-12-28T00:00:00+05:30">
-  <meta itemprop="wordCount" content="447">
+  <meta itemprop="wordCount" content="486">
   <meta itemprop="keywords" content="Programming,Clojure">
   
   <meta property="og:url" content="http://kirang.in/post/concurrent-prime-sieve-in-clojure/">
@@ -143,7 +143,7 @@ Let’s begin by creating an infinite sequence generator(starting from 2):
   <meta property="og:title" content="Concurrent Prime Sieve in Clojure">
   <meta property="og:description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let’s begin by creating an infinite sequence generator(starting from 2):
-(defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -158,7 +158,7 @@ Let’s begin by creating an infinite sequence generator(starting from 2):
   <meta name="twitter:title" content="Concurrent Prime Sieve in Clojure">
   <meta name="twitter:description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let’s begin by creating an infinite sequence generator(starting from 2):
-(defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
 
   
   
@@ -238,6 +238,16 @@ Let’s begin by creating an infinite sequence generator(starting from 2):
     class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
   >
     
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
     
 
     
@@ -319,59 +329,128 @@ Rob Pike, I came across a
 Rob had claimed to be beautiful concurrent code. Curious enough, I checked out
 the example and decided on implementing it in Clojure.</p>
 <p>Let&rsquo;s begin by creating an infinite sequence generator(starting from 2):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">num-generator</span> [<span style="color:#369">out</span>]
-</span></span><span style="display:flex;"><span>  (<span style="color:#06b;font-weight:bold">go</span>
-</span></span><span style="display:flex;"><span>    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">n</span> <span style="color:#00d;font-weight:bold">2</span>]
-</span></span><span style="display:flex;"><span>      (<span style="color:#06b;font-weight:bold">&gt;!!</span> <span style="color:#369">out</span> <span style="color:#369">n</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#06b;font-weight:bold">recur</span> (<span style="color:#038">inc </span><span style="color:#369">n</span>)))))
-</span></span></code></pre></div><p>The <code>go</code> block ensures that the body is run on a seperate thread. I used the
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#e78284">defn </span><span style="color:#f2d5cf">num-generator</span> [<span style="color:#f2d5cf">out</span>]
+</span></span><span style="display:flex;"><span>  (<span style="color:#8caaee">go</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#ca9ee6">loop </span>[<span style="color:#f2d5cf">n</span> <span style="color:#ef9f76">2</span>]
+</span></span><span style="display:flex;"><span>      (<span style="color:#8caaee">&gt;!!</span> <span style="color:#f2d5cf">out</span> <span style="color:#f2d5cf">n</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#8caaee">recur</span> (<span style="color:#99d1db">inc </span><span style="color:#f2d5cf">n</span>)))))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>go</code> block ensures that the body is run on a seperate thread. I used the
 blocking put instead of the parking one to only generate a number when required
 by the program. Had I used the parking put <code>&gt;!</code> instead, we would&rsquo;ve encountered
 the <code>OutOfMemory</code> exception while executing the function.</p>
 <p>Let&rsquo;s test this generator:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">def </span><span style="color:#369">ichan</span> (<span style="color:#06b;font-weight:bold">chan</span>))
-</span></span><span style="display:flex;"><span><span style="color:#888">; Blocks at the put statement, waiting for a read</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#06b;font-weight:bold">num-generator</span> <span style="color:#369">ichan</span>)
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#ca9ee6">def </span><span style="color:#f2d5cf">ichan</span> (<span style="color:#8caaee">chan</span>))
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Blocks at the put statement, waiting for a read</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#8caaee">num-generator</span> <span style="color:#f2d5cf">ichan</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#06b;font-weight:bold">&lt;!!</span> <span style="color:#369">ichan</span>)  <span style="color:#888">; =&gt; 2</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#06b;font-weight:bold">&lt;!!</span> <span style="color:#369">ichan</span>)  <span style="color:#888">; =&gt; 3</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#06b;font-weight:bold">&lt;!!</span> <span style="color:#369">ichan</span>)  <span style="color:#888">; =&gt; 4</span>
-</span></span></code></pre></div><p>Not the best way to test of course, but it seems to work as expected.</p>
+</span></span><span style="display:flex;"><span>(<span style="color:#8caaee">&lt;!!</span> <span style="color:#f2d5cf">ichan</span>)  <span style="color:#737994;font-style:italic">; =&gt; 2</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#8caaee">&lt;!!</span> <span style="color:#f2d5cf">ichan</span>)  <span style="color:#737994;font-style:italic">; =&gt; 3</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#8caaee">&lt;!!</span> <span style="color:#f2d5cf">ichan</span>)  <span style="color:#737994;font-style:italic">; =&gt; 4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Not the best way to test of course, but it seems to work as expected.</p>
 <p>Next, let&rsquo;s write a filter function that takes an input channel, an output
 channel and a value, and filters out the non-prime numbers from the input
 channel before sending them to the output channel. This is what the &ldquo;<strong>prime
 sieve</strong>&rdquo; refers to.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">filter-prime</span> [<span style="color:#369">in</span> <span style="color:#369">out</span> <span style="color:#369">val</span>]
-</span></span><span style="display:flex;"><span>  (<span style="color:#06b;font-weight:bold">go</span>
-</span></span><span style="display:flex;"><span>    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">n</span> <span style="color:#00d;font-weight:bold">0</span>]
-</span></span><span style="display:flex;"><span>      (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">i</span> (<span style="color:#06b;font-weight:bold">&lt;!!</span> <span style="color:#369">in</span>)]
-</span></span><span style="display:flex;"><span>        (<span style="color:#038">when </span>(<span style="color:#038">not </span>(<span style="color:#038">= </span>(<span style="color:#06b;font-weight:bold">mod</span> <span style="color:#369">i</span> <span style="color:#369">val</span>) <span style="color:#00d;font-weight:bold">0</span>))
-</span></span><span style="display:flex;"><span>          (<span style="color:#06b;font-weight:bold">&gt;!!</span> <span style="color:#369">out</span> <span style="color:#369">i</span>)))
-</span></span><span style="display:flex;"><span>      (<span style="color:#06b;font-weight:bold">recur</span> (<span style="color:#038">inc </span><span style="color:#369">n</span>)))))
-</span></span></code></pre></div><p>Before testing <code>filter-prime</code>, let&rsquo;s tie the above two functions together
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#e78284">defn </span><span style="color:#f2d5cf">filter-prime</span> [<span style="color:#f2d5cf">in</span> <span style="color:#f2d5cf">out</span> <span style="color:#f2d5cf">val</span>]
+</span></span><span style="display:flex;"><span>  (<span style="color:#8caaee">go</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#ca9ee6">loop </span>[<span style="color:#f2d5cf">n</span> <span style="color:#ef9f76">0</span>]
+</span></span><span style="display:flex;"><span>      (<span style="color:#ca9ee6">let </span>[<span style="color:#f2d5cf">i</span> (<span style="color:#8caaee">&lt;!!</span> <span style="color:#f2d5cf">in</span>)]
+</span></span><span style="display:flex;"><span>        (<span style="color:#99d1db">when </span>(<span style="color:#99d1db">not </span>(<span style="color:#99d1db">= </span>(<span style="color:#8caaee">mod</span> <span style="color:#f2d5cf">i</span> <span style="color:#f2d5cf">val</span>) <span style="color:#ef9f76">0</span>))
+</span></span><span style="display:flex;"><span>          (<span style="color:#8caaee">&gt;!!</span> <span style="color:#f2d5cf">out</span> <span style="color:#f2d5cf">i</span>)))
+</span></span><span style="display:flex;"><span>      (<span style="color:#8caaee">recur</span> (<span style="color:#99d1db">inc </span><span style="color:#f2d5cf">n</span>)))))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Before testing <code>filter-prime</code>, let&rsquo;s tie the above two functions together
 with the user input using <code>fetch-prime</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">defn </span><span style="color:#369">fetch-prime</span> [<span style="color:#369">count</span>]
-</span></span><span style="display:flex;"><span>  (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">ch</span> (<span style="color:#06b;font-weight:bold">chan</span>)]
-</span></span><span style="display:flex;"><span>    (<span style="color:#06b;font-weight:bold">num-generator</span> <span style="color:#369">ch</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#080;font-weight:bold">loop </span>[<span style="color:#369">n</span> <span style="color:#369">count</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#369">c</span> <span style="color:#369">ch</span>]
-</span></span><span style="display:flex;"><span>      (<span style="color:#038">when </span>(<span style="color:#038">&gt; </span><span style="color:#369">n</span> <span style="color:#00d;font-weight:bold">0</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#080;font-weight:bold">let </span>[<span style="color:#369">p</span> (<span style="color:#06b;font-weight:bold">&lt;!!</span> <span style="color:#369">c</span>)
-</span></span><span style="display:flex;"><span>              <span style="color:#369">ch1</span> (<span style="color:#06b;font-weight:bold">chan</span>)]
-</span></span><span style="display:flex;"><span>          <span style="color:#888">;; Just printing the prime nos for now</span>
-</span></span><span style="display:flex;"><span>          (<span style="color:#038">println </span><span style="color:#d20;background-color:#fff0f0">&#34;Prime =&gt; &#34;</span> <span style="color:#369">p</span>)
-</span></span><span style="display:flex;"><span>          (<span style="color:#06b;font-weight:bold">filter-prime</span> <span style="color:#369">c</span> <span style="color:#369">ch1</span> <span style="color:#369">p</span>)
-</span></span><span style="display:flex;"><span>          (<span style="color:#06b;font-weight:bold">recur</span> (<span style="color:#038">dec </span><span style="color:#369">n</span>) <span style="color:#369">ch1</span>))))
-</span></span><span style="display:flex;"><span>    (<span style="color:#06b;font-weight:bold">close!</span> <span style="color:#369">ch</span>)))
-</span></span></code></pre></div><p>And, finally test to see if it works:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#06b;font-weight:bold">fetch-prime</span> <span style="color:#00d;font-weight:bold">6</span>)
-</span></span><span style="display:flex;"><span><span style="color:#888">; Prime =&gt; 2</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">; Prime =&gt; 3</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">; Prime =&gt; 5</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">; Prime =&gt; 7</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">; Prime =&gt; 11</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">; Prime =&gt; 13</span>
-</span></span></code></pre></div><p>The whole process can be visualised as a bunch of sieves lined up on top of each
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#e78284">defn </span><span style="color:#f2d5cf">fetch-prime</span> [<span style="color:#f2d5cf">count</span>]
+</span></span><span style="display:flex;"><span>  (<span style="color:#ca9ee6">let </span>[<span style="color:#f2d5cf">ch</span> (<span style="color:#8caaee">chan</span>)]
+</span></span><span style="display:flex;"><span>    (<span style="color:#8caaee">num-generator</span> <span style="color:#f2d5cf">ch</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#ca9ee6">loop </span>[<span style="color:#f2d5cf">n</span> <span style="color:#f2d5cf">count</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#f2d5cf">c</span> <span style="color:#f2d5cf">ch</span>]
+</span></span><span style="display:flex;"><span>      (<span style="color:#99d1db">when </span>(<span style="color:#99d1db">&gt; </span><span style="color:#f2d5cf">n</span> <span style="color:#ef9f76">0</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#ca9ee6">let </span>[<span style="color:#f2d5cf">p</span> (<span style="color:#8caaee">&lt;!!</span> <span style="color:#f2d5cf">c</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#f2d5cf">ch1</span> (<span style="color:#8caaee">chan</span>)]
+</span></span><span style="display:flex;"><span>          <span style="color:#737994;font-style:italic">;; Just printing the prime nos for now</span>
+</span></span><span style="display:flex;"><span>          (<span style="color:#99d1db">println </span><span style="color:#a6d189">&#34;Prime =&gt; &#34;</span> <span style="color:#f2d5cf">p</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#8caaee">filter-prime</span> <span style="color:#f2d5cf">c</span> <span style="color:#f2d5cf">ch1</span> <span style="color:#f2d5cf">p</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#8caaee">recur</span> (<span style="color:#99d1db">dec </span><span style="color:#f2d5cf">n</span>) <span style="color:#f2d5cf">ch1</span>))))
+</span></span><span style="display:flex;"><span>    (<span style="color:#8caaee">close!</span> <span style="color:#f2d5cf">ch</span>)))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And, finally test to see if it works:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#8caaee">fetch-prime</span> <span style="color:#ef9f76">6</span>)
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Prime =&gt; 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Prime =&gt; 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Prime =&gt; 5</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Prime =&gt; 7</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Prime =&gt; 11</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">; Prime =&gt; 13</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The whole process can be visualised as a bunch of sieves lined up on top of each
 other vertically with the numbers from the generator passing through
 them. Essentially, each sieve is a <code>filter-prime</code> with the last prime
 <code>val</code> passed as it&rsquo;s parameter. At any pass, if the modulus value is zero,
@@ -426,15 +505,6 @@ the non-primes makes this a neat example for demonstrating concurrency.</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -442,6 +512,25 @@ the non-primes makes this a neat example for demonstrating concurrency.</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

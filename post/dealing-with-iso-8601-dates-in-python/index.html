@@ -132,7 +132,7 @@ it here." />
   <meta itemprop="description" content="For those who don’t know what the ISO 8601 format is, you can read about it here.">
   <meta itemprop="datePublished" content="2014-04-10T17:55:00+05:30">
   <meta itemprop="dateModified" content="2014-04-10T17:55:00+05:30">
-  <meta itemprop="wordCount" content="101">
+  <meta itemprop="wordCount" content="111">
   <meta itemprop="keywords" content="Python">
   
   <meta property="og:url" content="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/">
@@ -231,6 +231,16 @@ it here." />
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -310,22 +320,50 @@ it here." />
   <section><p>For those who don&rsquo;t know what the ISO 8601 format is, you can read about
 it <a href="https://en.wikipedia.org/wiki/ISO_8601">here</a>.</p>
 <p>To create an ISO 8601 timestamp in Python, do:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>&gt;&gt;&gt; <span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">datetime</span> <span style="color:#080;font-weight:bold">import</span> datetime
-</span></span><span style="display:flex;"><span>&gt;&gt;&gt; timestamp = datetime.utcnow().isoformat() + <span style="color:#d20;background-color:#fff0f0">&#39;Z&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">&#39;2014-04-01T15:11:18.195125Z&#39;</span>
-</span></span></code></pre></div><p>The &rsquo; Z &rsquo; added to the timestamp indicates that the timezone is
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#99d1db;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#81c8be">from</span> <span style="color:#ef9f76">datetime</span> <span style="color:#81c8be">import</span> datetime
+</span></span><span style="display:flex;"><span><span style="color:#99d1db;font-weight:bold">&gt;&gt;&gt;</span> timestamp <span style="color:#99d1db;font-weight:bold">=</span> datetime<span style="color:#99d1db;font-weight:bold">.</span>utcnow()<span style="color:#99d1db;font-weight:bold">.</span>isoformat() <span style="color:#99d1db;font-weight:bold">+</span> <span style="color:#a6d189">&#39;Z&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6d189">&#39;2014-04-01T15:11:18.195125Z&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The &rsquo; Z &rsquo; added to the timestamp indicates that the timezone is
 <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a>.</p>
 <p>To parse a ISO 8601 timestamp and generate a <!-- raw HTML omitted -->datetime<!-- raw HTML omitted -->  object,
 do:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>&gt;&gt;&gt; <span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">dateutil.parser</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">dp</span>
-</span></span><span style="display:flex;"><span>&gt;&gt;&gt; a = dp.parse(timestamp)
-</span></span><span style="display:flex;"><span>&gt;&gt;&gt; a
-</span></span><span style="display:flex;"><span>datetime.datetime(<span style="color:#00d;font-weight:bold">2014</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">46</span>, <span style="color:#00d;font-weight:bold">113800</span>, tzinfo=tzutc())
-</span></span></code></pre></div><p>Alternatively, you could also generate the object using:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt;&gt;&gt; datetime.strptime(timestamp, <span style="color:#d20;background-color:#fff0f0">&#39;%Y-%m-</span><span style="color:#33b;background-color:#fff0f0">%d</span><span style="color:#d20;background-color:#fff0f0">T%H:%M:%S.</span><span style="color:#33b;background-color:#fff0f0">%f</span><span style="color:#d20;background-color:#fff0f0">Z&#39;</span>)
-</span></span><span style="display:flex;"><span>datetime.datetime(<span style="color:#00d;font-weight:bold">2014</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">46</span>, <span style="color:#00d;font-weight:bold">113800</span>)
-</span></span></code></pre></div></section>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#99d1db;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#81c8be">import</span> <span style="color:#ef9f76">dateutil.parser</span> <span style="color:#ca9ee6">as</span> <span style="color:#ef9f76">dp</span>
+</span></span><span style="display:flex;"><span><span style="color:#99d1db;font-weight:bold">&gt;&gt;&gt;</span> a <span style="color:#99d1db;font-weight:bold">=</span> dp<span style="color:#99d1db;font-weight:bold">.</span>parse(timestamp)
+</span></span><span style="display:flex;"><span><span style="color:#99d1db;font-weight:bold">&gt;&gt;&gt;</span> a
+</span></span><span style="display:flex;"><span>datetime<span style="color:#99d1db;font-weight:bold">.</span>datetime(<span style="color:#ef9f76">2014</span>, <span style="color:#ef9f76">4</span>, <span style="color:#ef9f76">1</span>, <span style="color:#ef9f76">15</span>, <span style="color:#ef9f76">11</span>, <span style="color:#ef9f76">46</span>, <span style="color:#ef9f76">113800</span>, tzinfo<span style="color:#99d1db;font-weight:bold">=</span>tzutc())
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Alternatively, you could also generate the object using:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#99d1db;font-weight:bold">&gt;&gt;&gt;</span> datetime<span style="color:#99d1db;font-weight:bold">.</span>strptime(timestamp, <span style="color:#a6d189">&#39;%Y-%m-</span><span style="color:#a6d189">%d</span><span style="color:#a6d189">T%H:%M:%S.</span><span style="color:#a6d189">%f</span><span style="color:#a6d189">Z&#39;</span>)
+</span></span><span style="display:flex;"><span>datetime<span style="color:#99d1db;font-weight:bold">.</span>datetime(<span style="color:#ef9f76">2014</span>, <span style="color:#ef9f76">4</span>, <span style="color:#ef9f76">1</span>, <span style="color:#ef9f76">15</span>, <span style="color:#ef9f76">11</span>, <span style="color:#ef9f76">46</span>, <span style="color:#ef9f76">113800</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></section>
 
   
   
@@ -365,15 +403,6 @@ do:</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -381,6 +410,25 @@ do:</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

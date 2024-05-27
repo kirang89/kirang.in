@@ -13,14 +13,14 @@
       <link>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
-      <description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:&#xA;query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.</description>
+      <description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.</description>
     </item>
     <item>
       <title>Creating a Mutable Array data type in sqlalchemy</title>
       <link>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
-      <description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:&#xA;from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.</description>
+      <description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.</description>
     </item>
     <item>
       <title>Dealing with ISO 8601 dates in Python</title>
@@ -83,7 +83,7 @@
       <link>http://kirang.in/post/installing-pylibmc-in-ubuntu/</link>
       <pubDate>Wed, 22 May 2013 02:16:00 +0530</pubDate>
       <guid>http://kirang.in/post/installing-pylibmc-in-ubuntu/</guid>
-      <description>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.&#xA;Install python-dev&#xA;sudo apt-get install python-dev Install libmemcached&#xA;sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip&#xA;sudo pip install pylibmc </description>
+      <description>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.&#xA;Install python-dev&#xA;1 sudo apt-get install python-dev Install libmemcached&#xA;1 sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip&#xA;1 sudo pip install pylibmc </description>
     </item>
     <item>
       <title>Type and Object in Python</title>

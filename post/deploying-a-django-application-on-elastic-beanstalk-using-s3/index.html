@@ -133,7 +133,7 @@ First, create a sample Django project and a AWS Elastic Beanstalk environment f
 First, create a sample Django project and a AWS Elastic Beanstalk environment for your application, as per the instructions provided in the official AWS documentation.">
   <meta itemprop="datePublished" content="2013-08-20T06:20:00+05:30">
   <meta itemprop="dateModified" content="2013-08-20T06:20:00+05:30">
-  <meta itemprop="wordCount" content="432">
+  <meta itemprop="wordCount" content="461">
   <meta itemprop="keywords" content="Aws,Deployment,Django,Elasticbeanstalk,Python,S3">
   
   <meta property="og:url" content="http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/">
@@ -239,6 +239,16 @@ First, create a sample Django project and a AWS Elastic Beanstalk environment f
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -334,46 +344,99 @@ development mode. Understanding this is critical to a successful
 deployment.</p>
 <p>So now let&rsquo;s go ahead and add S3 support. First you need to add the
 following dependencies to your requirements.txt:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install django-storages boto
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install django-storages boto
 </span></span><span style="display:flex;"><span>pip freeze | grep django-storages &gt;&gt; requirements.txt
 </span></span><span style="display:flex;"><span>pip freeze | grep boto &gt;&gt; requirements.txt
-</span></span></code></pre></div><p>Next, add <strong>storages</strong> to <!-- raw HTML omitted -->INSTALLED_APPS<!-- raw HTML omitted -->  in
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, add <strong>storages</strong> to <!-- raw HTML omitted -->INSTALLED_APPS<!-- raw HTML omitted -->  in
 your settings file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>INSTALLED_APPS = (
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;django.contrib.auth&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;django.contrib.contenttypes&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;django.contrib.sessions&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;django.contrib.sites&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;django.contrib.messages&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;django.contrib.admin&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;storages&#39;</span>,
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>INSTALLED_APPS <span style="color:#99d1db;font-weight:bold">=</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;django.contrib.auth&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;django.contrib.contenttypes&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;django.contrib.sessions&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;django.contrib.sites&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;django.contrib.messages&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;django.contrib.admin&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6d189">&#39;storages&#39;</span>,
 </span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p>Now we need to provide AWS credentials and the bucket name to allow AWS
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now we need to provide AWS credentials and the bucket name to allow AWS
 Elastic Beanstalk to transfer files to S3.  Add the following
 configuration to <!-- raw HTML omitted -->settings.py<!-- raw HTML omitted --> :</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">if</span> <span style="color:#080">not</span> DEBUG:
-</span></span><span style="display:flex;"><span>    AWS_STORAGE_BUCKET_NAME = <span style="color:#d20;background-color:#fff0f0">&#39;&lt;s3 bucket name&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>    AWS_ACCESS_KEY_ID = <span style="color:#d20;background-color:#fff0f0">&#39;&lt;access key id&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>    AWS_SECRET_ACCESS_KEY = <span style="color:#d20;background-color:#fff0f0">&#39;&lt;secret access key&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>    STATICFILES_STORAGE = <span style="color:#d20;background-color:#fff0f0">&#39;storages.backends.s3boto.S3BotoStorage&#39;</span>
-</span></span><span style="display:flex;"><span>    S3_URL = <span style="color:#d20;background-color:#fff0f0">&#39;http://</span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">.s3.amazonaws.com/&#39;</span> % AWS_STORAGE_BUCKET_NAME
-</span></span><span style="display:flex;"><span>    STATIC_URL = S3_URL
-</span></span></code></pre></div><p>The <!-- raw HTML omitted -->STATICFILES_STORAGE<!-- raw HTML omitted -->  setting
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ca9ee6">if</span> <span style="color:#99d1db;font-weight:bold">not</span> DEBUG:
+</span></span><span style="display:flex;"><span>    AWS_STORAGE_BUCKET_NAME <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;&lt;s3 bucket name&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>    AWS_ACCESS_KEY_ID <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;&lt;access key id&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>    AWS_SECRET_ACCESS_KEY <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;&lt;secret access key&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>    STATICFILES_STORAGE <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;storages.backends.s3boto.S3BotoStorage&#39;</span>
+</span></span><span style="display:flex;"><span>    S3_URL <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;http://</span><span style="color:#a6d189">%s</span><span style="color:#a6d189">.s3.amazonaws.com/&#39;</span> <span style="color:#99d1db;font-weight:bold">%</span> AWS_STORAGE_BUCKET_NAME
+</span></span><span style="display:flex;"><span>    STATIC_URL <span style="color:#99d1db;font-weight:bold">=</span> S3_URL
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <!-- raw HTML omitted -->STATICFILES_STORAGE<!-- raw HTML omitted -->  setting
 tells our application to use S3 for storing our static files.</p>
 <p>The last step is to configure <!-- raw HTML omitted -->STATIC_ROOT<!-- raw HTML omitted --> * *to
 create a static directory in the root folder of your project. To do
 that, add the following lines to your settings:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">os</span>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#81c8be">import</span> <span style="color:#ef9f76">os</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>STATIC_ROOT = os.path.join(
-</span></span><span style="display:flex;"><span>                  os.path.dirname(
-</span></span><span style="display:flex;"><span>				      os.path.dirname(
-</span></span><span style="display:flex;"><span>					      os.path.abspath(__file__)
+</span></span><span style="display:flex;"><span>STATIC_ROOT <span style="color:#99d1db;font-weight:bold">=</span> os<span style="color:#99d1db;font-weight:bold">.</span>path<span style="color:#99d1db;font-weight:bold">.</span>join(
+</span></span><span style="display:flex;"><span>                  os<span style="color:#99d1db;font-weight:bold">.</span>path<span style="color:#99d1db;font-weight:bold">.</span>dirname(
+</span></span><span style="display:flex;"><span>				      os<span style="color:#99d1db;font-weight:bold">.</span>path<span style="color:#99d1db;font-weight:bold">.</span>dirname(
+</span></span><span style="display:flex;"><span>					      os<span style="color:#99d1db;font-weight:bold">.</span>path<span style="color:#99d1db;font-weight:bold">.</span>abspath(<span style="color:#f2d5cf">__file__</span>)
 </span></span><span style="display:flex;"><span>					  )
 </span></span><span style="display:flex;"><span>	              ),
-</span></span><span style="display:flex;"><span>				  <span style="color:#d20;background-color:#fff0f0">&#39;static&#39;</span>
+</span></span><span style="display:flex;"><span>				  <span style="color:#a6d189">&#39;static&#39;</span>
 </span></span><span style="display:flex;"><span>			  )
-</span></span></code></pre></div><p>That&rsquo;s it ! When you run the application on AWS Elastic Beanstalk,
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>That&rsquo;s it ! When you run the application on AWS Elastic Beanstalk,
 the <code>03_collectstatic</code> command that you added to the ebs
 configuration file, will collect the static files from all your
 applications and then add them to the static folder created at
@@ -452,15 +515,6 @@ boilerplate application fully configured and ready for deployment.</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -468,6 +522,25 @@ boilerplate application fully configured and ready for deployment.</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

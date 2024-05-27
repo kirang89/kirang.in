@@ -64,7 +64,7 @@
   <meta name="description" content="I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&rsquo;ve already setup Emacs with org-mode and cider.
 First, start by installing the ob-clojure package:
 M-x package-install ob-clojure or simply do so with use-package:
-(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:" />
+1 (use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -134,10 +134,10 @@ M-x package-install ob-clojure or simply do so with use-package:
   <meta itemprop="description" content="I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I’ll illustrate the steps needed to achieve the same. I am assuming that you’ve already setup Emacs with org-mode and cider.
 First, start by installing the ob-clojure package:
 M-x package-install ob-clojure or simply do so with use-package:
-(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:">
+1 (use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:">
   <meta itemprop="datePublished" content="2016-07-18T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-07-18T00:00:00+05:30">
-  <meta itemprop="wordCount" content="209">
+  <meta itemprop="wordCount" content="212">
   <meta itemprop="keywords" content="Org-Mode,Emacs,Clojure">
   
   <meta property="og:url" content="http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/">
@@ -146,7 +146,7 @@ M-x package-install ob-clojure or simply do so with use-package:
   <meta property="og:description" content="I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I’ll illustrate the steps needed to achieve the same. I am assuming that you’ve already setup Emacs with org-mode and cider.
 First, start by installing the ob-clojure package:
 M-x package-install ob-clojure or simply do so with use-package:
-(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:">
+1 (use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -163,7 +163,7 @@ M-x package-install ob-clojure or simply do so with use-package:
   <meta name="twitter:description" content="I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I’ll illustrate the steps needed to achieve the same. I am assuming that you’ve already setup Emacs with org-mode and cider.
 First, start by installing the ob-clojure package:
 M-x package-install ob-clojure or simply do so with use-package:
-(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:">
+1 (use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:">
 
   
   
@@ -243,6 +243,16 @@ M-x package-install ob-clojure or simply do so with use-package:
     class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
   >
     
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
     
 
     
@@ -325,12 +335,27 @@ assuming that you&rsquo;ve already setup Emacs with org-mode and cider.</p>
 <pre tabindex="0"><code>M-x package-install
 ob-clojure
 </code></pre><p>or simply do so with <code>use-package</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#038">use-package</span> <span style="color:#369">ob-clojure</span>)
-</span></span></code></pre></div><p>Now we need to let org-mode know to use a cider repl to execute the snippets in
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#99d1db">use-package</span> <span style="color:#f2d5cf">ob-clojure</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now we need to let org-mode know to use a cider repl to execute the snippets in
 our file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#038">require</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)
-</span></span><span style="display:flex;"><span>(<span style="color:#038">setq</span> <span style="color:#369">org-babel-clojure-backend</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)
-</span></span></code></pre></div><p>We&rsquo;re done with the setup. Start a new cider repl connection by running:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#99d1db">require</span> <span style="color:#a6d189">&#39;cider</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#99d1db">setq</span> <span style="color:#f2d5cf">org-babel-clojure-backend</span> <span style="color:#a6d189">&#39;cider</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We&rsquo;re done with the setup. Start a new cider repl connection by running:</p>
 <pre tabindex="0"><code>M-x cider-jack-in
 </code></pre><p>Once the repl has successfully launched, create a new org file and add the
 following code block:</p>
@@ -400,15 +425,6 @@ instead.</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -416,6 +432,25 @@ instead.</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

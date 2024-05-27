@@ -63,7 +63,7 @@
   
   <meta name="description" content="Basic TeX Download and install Basic TeX package from here.
 Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
+1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
 Install Dependencies You&rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file." />
   <meta name="author" content="Kiran Gangadharan" />
   
@@ -133,11 +133,11 @@ Install Dependencies You&rsquo;re not ready yet. There are a few more packages t
   <meta itemprop="name" content="Setting up org-mode pdf export in OS X ElCapitan">
   <meta itemprop="description" content="Basic TeX Download and install Basic TeX package from here.
 Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
+1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
 Install Dependencies You’re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.">
   <meta itemprop="datePublished" content="2015-11-30T00:00:00+05:30">
   <meta itemprop="dateModified" content="2015-11-30T00:00:00+05:30">
-  <meta itemprop="wordCount" content="101">
+  <meta itemprop="wordCount" content="105">
   <meta itemprop="keywords" content="Org-Mode,Emacs,Osx">
   
   <meta property="og:url" content="http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/">
@@ -145,7 +145,7 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
   <meta property="og:title" content="Setting up org-mode pdf export in OS X ElCapitan">
   <meta property="og:description" content="Basic TeX Download and install Basic TeX package from here.
 Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
+1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
 Install Dependencies You’re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -162,7 +162,7 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
   <meta name="twitter:title" content="Setting up org-mode pdf export in OS X ElCapitan">
   <meta name="twitter:description" content="Basic TeX Download and install Basic TeX package from here.
 Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
+1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
 Install Dependencies You’re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.">
 
   
@@ -244,6 +244,16 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -322,15 +332,31 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
 <h2 id="set-system-path">Set System Path</h2>
 <p>The package will be installed at <code>/Library/TeX/texbin/</code>, so it
 must be added to your PATH like so:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">PATH</span>=<span style="color:#369">$PATH</span>:/Library/TeX/texbin
-</span></span></code></pre></div><p>Run <code>which latex</code> to ensure that the path has been set correctly.</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#99d1db">export</span> <span style="color:#f2d5cf">PATH</span><span style="color:#99d1db;font-weight:bold">=</span><span style="color:#f2d5cf">$PATH</span>:/Library/TeX/texbin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Run <code>which latex</code> to ensure that the path has been set correctly.</p>
 <h2 id="install-dependencies">Install Dependencies</h2>
 <p>You&rsquo;re not ready yet. There are a few more packages that need to be installed
 in order to render the pdf from the tex file. Install them like so:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tlmgr install wrapfig
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tlmgr install wrapfig
 </span></span><span style="display:flex;"><span>sudo tlmgr install marvosym
 </span></span><span style="display:flex;"><span>sudo tlmgr install wasysym
-</span></span></code></pre></div><p>You should now be able to export to pdf using <code>C-c C-e l p</code>.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You should now be able to export to pdf using <code>C-c C-e l p</code>.</p>
 </section>
 
   
@@ -383,15 +409,6 @@ in order to render the pdf from the tex file. Install them like so:</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -399,6 +416,25 @@ in order to render the pdf from the tex file. Install them like so:</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

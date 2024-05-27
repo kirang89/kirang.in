@@ -131,7 +131,7 @@
   <meta itemprop="description" content="When to use: Fixed set of keys in multiple map instances Defer until you have protocols Pros Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod Cons Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity Example:">
   <meta itemprop="datePublished" content="2016-02-24T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-02-24T00:00:00+05:30">
-  <meta itemprop="wordCount" content="109">
+  <meta itemprop="wordCount" content="112">
   <meta itemprop="keywords" content="Clojure">
   
   <meta property="og:url" content="http://kirang.in/post/using-records-in-clojure/">
@@ -230,6 +230,16 @@
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -322,10 +332,19 @@
 <li>Cannot be compared to an equivalent hash-map in terms of identity</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">defrecord </span><span style="color:#369">TreeNode</span> [<span style="color:#369">value</span> <span style="color:#038">left </span><span style="color:#369">right</span>])
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-clojure" data-lang="clojure"><span style="display:flex;"><span>(<span style="color:#e78284">defrecord </span><span style="color:#f2d5cf">TreeNode</span> [<span style="color:#f2d5cf">value</span> <span style="color:#99d1db">left </span><span style="color:#f2d5cf">right</span>])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#038">= </span>(<span style="color:#06b;font-weight:bold">TreeNode.</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#369">nil</span> <span style="color:#369">nil</span>) {<span style="color:#a60;background-color:#fff0f0">:val</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#a60;background-color:#fff0f0">:left</span> <span style="color:#369">nil</span> <span style="color:#a60;background-color:#fff0f0">:right</span> <span style="color:#369">nil</span>}) <span style="color:#888">;; =&gt; false</span>
-</span></span></code></pre></div><ul>
+</span></span><span style="display:flex;"><span>(<span style="color:#99d1db">= </span>(<span style="color:#8caaee">TreeNode.</span> <span style="color:#ef9f76">2</span> <span style="color:#f2d5cf">nil</span> <span style="color:#f2d5cf">nil</span>) {<span style="color:#a6d189">:val</span> <span style="color:#ef9f76">2</span> <span style="color:#a6d189">:left</span> <span style="color:#f2d5cf">nil</span> <span style="color:#a6d189">:right</span> <span style="color:#f2d5cf">nil</span>}) <span style="color:#737994;font-style:italic">;; =&gt; false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>No structural sharing when changing(redefining) a record</li>
 </ul>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted -->
@@ -370,15 +389,6 @@
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -386,6 +396,25 @@
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 

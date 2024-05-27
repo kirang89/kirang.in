@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
-      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
+      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
     </item>
     <item>
       <title>Installing PIL on Mac OSX Mavericks</title>

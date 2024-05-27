@@ -62,7 +62,7 @@
   
   
   <meta name="description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book." />
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res." />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -130,17 +130,17 @@ query = &#39;select * from books where author=:author&#39; from sqlalchemy impor
   
   <meta itemprop="name" content="Fetching data with a raw SQL query in SQLAlchemy">
   <meta itemprop="description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.">
   <meta itemprop="datePublished" content="2015-11-22T00:00:00+05:30">
   <meta itemprop="dateModified" content="2015-11-22T00:00:00+05:30">
-  <meta itemprop="wordCount" content="81">
+  <meta itemprop="wordCount" content="97">
   <meta itemprop="keywords" content="Python,Sqlalchemy">
   
   <meta property="og:url" content="http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Fetching data with a raw SQL query in SQLAlchemy">
   <meta property="og:description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -154,7 +154,7 @@ query = &#39;select * from books where author=:author&#39; from sqlalchemy impor
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Fetching data with a raw SQL query in SQLAlchemy">
   <meta name="twitter:description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.">
 
   
   
@@ -235,6 +235,16 @@ query = &#39;select * from books where author=:author&#39; from sqlalchemy impor
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -310,23 +320,45 @@ query = &#39;select * from books where author=:author&#39; from sqlalchemy impor
 
   <section><p>The following is a sane way of fetching data using a raw SQL query in
 SQLAlchemy:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>query = <span style="color:#d20;background-color:#fff0f0">&#39;select * from books where author=:author&#39;</span>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>query <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#a6d189">&#39;select * from books where author=:author&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy</span> <span style="color:#080;font-weight:bold">import</span> text
-</span></span><span style="display:flex;"><span>result = yoursession.execute(text(query), {<span style="color:#d20;background-color:#fff0f0">&#39;author&#39;</span>: <span style="color:#d20;background-color:#fff0f0">&#39;Neil Degrasse Tyson&#39;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#81c8be">from</span> <span style="color:#ef9f76">sqlalchemy</span> <span style="color:#81c8be">import</span> text
+</span></span><span style="display:flex;"><span>result <span style="color:#99d1db;font-weight:bold">=</span> yoursession<span style="color:#99d1db;font-weight:bold">.</span>execute(text(query), {<span style="color:#a6d189">&#39;author&#39;</span>: <span style="color:#a6d189">&#39;Neil Degrasse Tyson&#39;</span>})
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">collections</span> <span style="color:#080;font-weight:bold">import</span> namedtuple
-</span></span><span style="display:flex;"><span>Book = namedtuple(<span style="color:#d20;background-color:#fff0f0">&#39;Book&#39;</span>, result.keys())
+</span></span><span style="display:flex;"><span><span style="color:#81c8be">from</span> <span style="color:#ef9f76">collections</span> <span style="color:#81c8be">import</span> namedtuple
+</span></span><span style="display:flex;"><span>Book <span style="color:#99d1db;font-weight:bold">=</span> namedtuple(<span style="color:#a6d189">&#39;Book&#39;</span>, result<span style="color:#99d1db;font-weight:bold">.</span>keys())
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Create a namedtuple for each row</span>
-</span></span><span style="display:flex;"><span>books = [Record(*r) <span style="color:#080;font-weight:bold">for</span> r <span style="color:#080">in</span> res.fetchall()]
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Create a namedtuple for each row</span>
+</span></span><span style="display:flex;"><span>books <span style="color:#99d1db;font-weight:bold">=</span> [Record(<span style="color:#99d1db;font-weight:bold">*</span>r) <span style="color:#ca9ee6">for</span> r <span style="color:#99d1db;font-weight:bold">in</span> res<span style="color:#99d1db;font-weight:bold">.</span>fetchall()]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># Using namedtuple allows you to access attributes using the</span>
-</span></span><span style="display:flex;"><span><span style="color:#888"># dot operator instead of relying on indexes</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> book <span style="color:#080">in</span> books:
-</span></span><span style="display:flex;"><span>    <span style="color:#038">print</span>(book.name, book.author)
-</span></span></code></pre></div></section>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Using namedtuple allows you to access attributes using the</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># dot operator instead of relying on indexes</span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">for</span> book <span style="color:#99d1db;font-weight:bold">in</span> books:
+</span></span><span style="display:flex;"><span>    <span style="color:#99d1db">print</span>(book<span style="color:#99d1db;font-weight:bold">.</span>name, book<span style="color:#99d1db;font-weight:bold">.</span>author)
+</span></span></code></pre></td></tr></table>
+</div>
+</div></section>
 
   
   
@@ -372,15 +404,6 @@ SQLAlchemy:</p>
 
   
   
-  <div class="mt-24" id="disqus_thread"></div>
-  <script>
-    const disqusShortname = 'kirangin';
-    const script = document.createElement('script');
-    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
-    script.setAttribute('data-timestamp', +new Date());
-    document.head.appendChild(script);
-  </script>
-  
 
   
   
@@ -388,6 +411,25 @@ SQLAlchemy:</p>
   
 
 
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
   
 </article>
 
