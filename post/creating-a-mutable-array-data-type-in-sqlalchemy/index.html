@@ -72,14 +72,14 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -89,13 +89,13 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -103,7 +103,7 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -113,8 +113,8 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -136,7 +136,7 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   <meta itemprop="wordCount" content="140">
   <meta itemprop="keywords" content="Python,Sqlalchemy">
   
-  <meta property="og:url" content="https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
+  <meta property="og:url" content="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Creating a Mutable Array data type in sqlalchemy">
   <meta property="og:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
@@ -159,7 +159,7 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   
   
   
-  <link rel="canonical" href="https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/" />
+  <link rel="canonical" href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/" />
   
   
 </head>
@@ -169,7 +169,7 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -274,7 +274,7 @@ from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql i
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -313,32 +313,32 @@ immutable. This means it isn&rsquo;t possible to add new data into array once
 it has been initialised. Unfortunately, I couldn&rsquo;t find any
 good solution to create mutable arrays until I came across this snippet
 by Michael Bayer, the author of sqlalchemy himself:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.ext.mutable <span style="color:#f92672">import</span> Mutable
-</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.dialects.postgresql <span style="color:#f92672">import</span> ARRAY
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.ext.mutable</span> <span style="color:#080;font-weight:bold">import</span> Mutable
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.dialects.postgresql</span> <span style="color:#080;font-weight:bold">import</span> ARRAY
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MutableList</span>(Mutable, list):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">append</span>(self, value):
-</span></span><span style="display:flex;"><span>        list<span style="color:#f92672">.</span>append(self, value)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>changed()
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">MutableList</span>(Mutable, <span style="color:#038">list</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">append</span>(self, value):
+</span></span><span style="display:flex;"><span>        <span style="color:#038">list</span>.append(self, value)
+</span></span><span style="display:flex;"><span>        self.changed()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">coerce</span>(cls, key, value):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(value, MutableList):
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> isinstance(value, list):
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> MutableList(value)
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Mutable<span style="color:#f92672">.</span>coerce(key, value)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> value
+</span></span><span style="display:flex;"><span>    <span style="color:#555">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">coerce</span>(cls, key, value):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#080">not</span> <span style="color:#038">isinstance</span>(value, MutableList):
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">if</span> <span style="color:#038">isinstance</span>(value, <span style="color:#038">list</span>):
+</span></span><span style="display:flex;"><span>                <span style="color:#080;font-weight:bold">return</span> MutableList(value)
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> Mutable.coerce(key, value)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> value
 </span></span></code></pre></div><p>What this snippet allows you to do is to extend a list to add mutability
 to it. So, now you can use the class above to create a mutable array
 type like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sqlalchemy.dialects.postgresql <span style="color:#f92672">import</span> ARRAY
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">sqlalchemy.dialects.postgresql</span> <span style="color:#080;font-weight:bold">import</span> ARRAY
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Something</span>(Base):
-</span></span><span style="display:flex;"><span>    __tablename__ <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;yaddayadda&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Something</span>(Base):
+</span></span><span style="display:flex;"><span>    __tablename__ = <span style="color:#d20;background-color:#fff0f0">&#39;yaddayadda&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    id <span style="color:#f92672">=</span> Column(Integer, primary_key<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
-</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> Column(MutableList<span style="color:#f92672">.</span>as_mutable(ARRAY(String(<span style="color:#ae81ff">100</span>))))
+</span></span><span style="display:flex;"><span>    <span style="color:#038">id</span> = Column(Integer, primary_key=<span style="color:#080;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>    data = Column(MutableList.as_mutable(ARRAY(String(<span style="color:#00d;font-weight:bold">100</span>))))
 </span></span></code></pre></div></section>
 
   
@@ -347,13 +347,13 @@ type like so:</p>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/python"
+      href="http://kirang.in/tags/python"
       >python</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/sqlalchemy"
+      href="http://kirang.in/tags/sqlalchemy"
       >sqlalchemy</a
     >
     
@@ -368,14 +368,14 @@ type like so:</p>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/integrating-mogenerator-in-your-xcode-project/"
+      href="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/"
       ><span class="mr-1.5">←</span><span>Integrating mogenerator in your XCode project</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/dealing-with-iso-8601-dates-in-python/"
+      href="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/"
       ><span>Dealing with ISO 8601 dates in Python</span><span class="ml-1.5">→</span></a
     >
     
@@ -384,6 +384,15 @@ type like so:</p>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -403,7 +412,7 @@ type like so:</p>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

@@ -72,14 +72,14 @@ it here." />
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -89,13 +89,13 @@ it here." />
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -103,7 +103,7 @@ it here." />
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -113,8 +113,8 @@ it here." />
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -135,7 +135,7 @@ it here." />
   <meta itemprop="wordCount" content="101">
   <meta itemprop="keywords" content="Python">
   
-  <meta property="og:url" content="https://example.org/post/dealing-with-iso-8601-dates-in-python/">
+  <meta property="og:url" content="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Dealing with ISO 8601 dates in Python">
   <meta property="og:description" content="For those who don’t know what the ISO 8601 format is, you can read about it here.">
@@ -155,7 +155,7 @@ it here." />
   
   
   
-  <link rel="canonical" href="https://example.org/post/dealing-with-iso-8601-dates-in-python/" />
+  <link rel="canonical" href="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/" />
   
   
 </head>
@@ -165,7 +165,7 @@ it here." />
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -270,7 +270,7 @@ it here." />
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -310,21 +310,21 @@ it here." />
   <section><p>For those who don&rsquo;t know what the ISO 8601 format is, you can read about
 it <a href="https://en.wikipedia.org/wiki/ISO_8601">here</a>.</p>
 <p>To create an ISO 8601 timestamp in Python, do:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> timestamp <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>utcnow()<span style="color:#f92672">.</span>isoformat() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;Z&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;2014-04-01T15:11:18.195125Z&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>&gt;&gt;&gt; <span style="color:#080;font-weight:bold">from</span> <span style="color:#b06;font-weight:bold">datetime</span> <span style="color:#080;font-weight:bold">import</span> datetime
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; timestamp = datetime.utcnow().isoformat() + <span style="color:#d20;background-color:#fff0f0">&#39;Z&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">&#39;2014-04-01T15:11:18.195125Z&#39;</span>
 </span></span></code></pre></div><p>The &rsquo; Z &rsquo; added to the timestamp indicates that the timezone is
 <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a>.</p>
 <p>To parse a ISO 8601 timestamp and generate a <!-- raw HTML omitted -->datetime<!-- raw HTML omitted -->  object,
 do:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> dateutil.parser <span style="color:#66d9ef">as</span> dp
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> dp<span style="color:#f92672">.</span>parse(timestamp)
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a
-</span></span><span style="display:flex;"><span>datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2014</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">46</span>, <span style="color:#ae81ff">113800</span>, tzinfo<span style="color:#f92672">=</span>tzutc())
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>&gt;&gt;&gt; <span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">dateutil.parser</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#b06;font-weight:bold">dp</span>
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; a = dp.parse(timestamp)
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; a
+</span></span><span style="display:flex;"><span>datetime.datetime(<span style="color:#00d;font-weight:bold">2014</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">46</span>, <span style="color:#00d;font-weight:bold">113800</span>, tzinfo=tzutc())
 </span></span></code></pre></div><p>Alternatively, you could also generate the object using:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> datetime<span style="color:#f92672">.</span>strptime(timestamp, <span style="color:#e6db74">&#39;%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">T%H:%M:%S.</span><span style="color:#e6db74">%f</span><span style="color:#e6db74">Z&#39;</span>)
-</span></span><span style="display:flex;"><span>datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2014</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">46</span>, <span style="color:#ae81ff">113800</span>)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; datetime.strptime(timestamp, <span style="color:#d20;background-color:#fff0f0">&#39;%Y-%m-</span><span style="color:#33b;background-color:#fff0f0">%d</span><span style="color:#d20;background-color:#fff0f0">T%H:%M:%S.</span><span style="color:#33b;background-color:#fff0f0">%f</span><span style="color:#d20;background-color:#fff0f0">Z&#39;</span>)
+</span></span><span style="display:flex;"><span>datetime.datetime(<span style="color:#00d;font-weight:bold">2014</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">15</span>, <span style="color:#00d;font-weight:bold">11</span>, <span style="color:#00d;font-weight:bold">46</span>, <span style="color:#00d;font-weight:bold">113800</span>)
 </span></span></code></pre></div></section>
 
   
@@ -333,7 +333,7 @@ do:</p>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/python"
+      href="http://kirang.in/tags/python"
       >python</a
     >
     
@@ -348,14 +348,14 @@ do:</p>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/"
+      href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/"
       ><span class="mr-1.5">←</span><span>Creating a Mutable Array data type in sqlalchemy</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/brain-and-memory/"
+      href="http://kirang.in/post/brain-and-memory/"
       ><span>Brain and Memory</span><span class="ml-1.5">→</span></a
     >
     
@@ -364,6 +364,15 @@ do:</p>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -383,7 +392,7 @@ do:</p>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

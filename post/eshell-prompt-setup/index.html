@@ -72,14 +72,14 @@
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -89,13 +89,13 @@
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -103,7 +103,7 @@
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -113,8 +113,8 @@
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -136,7 +136,7 @@
   <meta itemprop="wordCount" content="375">
   <meta itemprop="keywords" content="Emacs">
   
-  <meta property="og:url" content="https://example.org/post/eshell-prompt-setup/">
+  <meta property="og:url" content="http://kirang.in/post/eshell-prompt-setup/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="My eshell prompt setup">
   <meta property="og:description" content="My setup is based on Howard Abrams’ setup with some minor additions and is reproduced in its entirety here:
@@ -158,7 +158,7 @@
   
   
   
-  <link rel="canonical" href="https://example.org/post/eshell-prompt-setup/" />
+  <link rel="canonical" href="http://kirang.in/post/eshell-prompt-setup/" />
   
   
 </head>
@@ -168,7 +168,7 @@
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -273,7 +273,7 @@
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -310,86 +310,86 @@
   <section><p>My setup is based on
 <a href="https://github.com/howardabrams/dot-files/blob/master/emacs-eshell.org#special-prompt">Howard Abrams&rsquo; setup</a>
 with some minor additions and is reproduced in its entirety here:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(defun curr-dir-git-branch-string (pwd)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Returns current git branch as a string, or the empty string if
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PWD is not in a git repo (or the git command is not found).&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (when (and (eshell-search-path <span style="color:#e6db74">&#34;git&#34;</span>)
-</span></span><span style="display:flex;"><span>             (locate-dominating-file pwd <span style="color:#e6db74">&#34;.git&#34;</span>))
-</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">let</span> ((git-output (shell-command-to-string (concat <span style="color:#e6db74">&#34;cd &#34;</span> pwd <span style="color:#e6db74">&#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;</span>))))
-</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">&gt;</span> (<span style="color:#a6e22e">length</span> git-output) <span style="color:#ae81ff">0</span>)
-</span></span><span style="display:flex;"><span>          (concat <span style="color:#e6db74">&#34; :&#34;</span> (substring git-output <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-1</span>))
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;(no branch)&#34;</span>))))
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#038">defun</span> <span style="color:#369">curr-dir-git-branch-string</span> (<span style="color:#369">pwd</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#d20;background-color:#fff0f0">&#34;Returns current git branch as a string, or the empty string if
+</span></span></span><span style="display:flex;"><span><span style="color:#d20;background-color:#fff0f0">PWD is not in a git repo (or the git command is not found).&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#369">interactive</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#038">when</span> (<span style="color:#038">and</span> (<span style="color:#369">eshell-search-path</span> <span style="color:#d20;background-color:#fff0f0">&#34;git&#34;</span>)
+</span></span><span style="display:flex;"><span>             (<span style="color:#369">locate-dominating-file</span> <span style="color:#369">pwd</span> <span style="color:#d20;background-color:#fff0f0">&#34;.git&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#080;font-weight:bold">let</span> ((<span style="color:#369">git-output</span> (<span style="color:#369">shell-command-to-string</span> (<span style="color:#369">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34;cd &#34;</span> <span style="color:#369">pwd</span> <span style="color:#d20;background-color:#fff0f0">&#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;</span>))))
+</span></span><span style="display:flex;"><span>      (<span style="color:#080;font-weight:bold">if</span> (<span style="color:#06b;font-weight:bold">&gt;</span> (<span style="color:#06b;font-weight:bold">length</span> <span style="color:#369">git-output</span>) <span style="color:#00d;font-weight:bold">0</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#369">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34; :&#34;</span> (<span style="color:#369">substring</span> <span style="color:#369">git-output</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#00d;font-weight:bold">-1</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#d20;background-color:#fff0f0">&#34;(no branch)&#34;</span>))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(defun pwd-replace-home (pwd)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Replace home in PWD with tilde (~) character.&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let*</span> ((home (expand-file-name (getenv <span style="color:#e6db74">&#34;HOME&#34;</span>)))
-</span></span><span style="display:flex;"><span>         (home-len (<span style="color:#a6e22e">length</span> home)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">if</span> (and
-</span></span><span style="display:flex;"><span>         (<span style="color:#a6e22e">&gt;=</span> (<span style="color:#a6e22e">length</span> pwd) home-len)
-</span></span><span style="display:flex;"><span>         (<span style="color:#a6e22e">equal</span> home (substring pwd <span style="color:#ae81ff">0</span> home-len)))
-</span></span><span style="display:flex;"><span>        (concat <span style="color:#e6db74">&#34;~&#34;</span> (substring pwd home-len))
-</span></span><span style="display:flex;"><span>      pwd)))
+</span></span><span style="display:flex;"><span>(<span style="color:#038">defun</span> <span style="color:#369">pwd-replace-home</span> (<span style="color:#369">pwd</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#d20;background-color:#fff0f0">&#34;Replace home in PWD with tilde (~) character.&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#369">interactive</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#080;font-weight:bold">let*</span> ((<span style="color:#369">home</span> (<span style="color:#369">expand-file-name</span> (<span style="color:#369">getenv</span> <span style="color:#d20;background-color:#fff0f0">&#34;HOME&#34;</span>)))
+</span></span><span style="display:flex;"><span>         (<span style="color:#369">home-len</span> (<span style="color:#06b;font-weight:bold">length</span> <span style="color:#369">home</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#080;font-weight:bold">if</span> (<span style="color:#038">and</span>
+</span></span><span style="display:flex;"><span>         (<span style="color:#06b;font-weight:bold">&gt;=</span> (<span style="color:#06b;font-weight:bold">length</span> <span style="color:#369">pwd</span>) <span style="color:#369">home-len</span>)
+</span></span><span style="display:flex;"><span>         (<span style="color:#06b;font-weight:bold">equal</span> <span style="color:#369">home</span> (<span style="color:#369">substring</span> <span style="color:#369">pwd</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#369">home-len</span>)))
+</span></span><span style="display:flex;"><span>        (<span style="color:#369">concat</span> <span style="color:#d20;background-color:#fff0f0">&#34;~&#34;</span> (<span style="color:#369">substring</span> <span style="color:#369">pwd</span> <span style="color:#369">home-len</span>))
+</span></span><span style="display:flex;"><span>      <span style="color:#369">pwd</span>)))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(defun pwd-shorten-dirs (pwd)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Shorten all directory names in PWD except the last two.&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let</span> ((p-lst (split-string pwd <span style="color:#e6db74">&#34;/&#34;</span>)))
-</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">&gt;</span> (<span style="color:#a6e22e">length</span> p-lst) <span style="color:#ae81ff">2</span>)
-</span></span><span style="display:flex;"><span>        (concat
-</span></span><span style="display:flex;"><span>         (mapconcat (lambda (elm) (<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">zerop</span> (<span style="color:#a6e22e">length</span> elm)) <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>                               (substring elm <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span>)))
-</span></span><span style="display:flex;"><span>                    (<span style="color:#a6e22e">butlast</span> p-lst <span style="color:#ae81ff">2</span>)
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;/&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;/&#34;</span>
-</span></span><span style="display:flex;"><span>         (mapconcat (lambda (elm) elm)
-</span></span><span style="display:flex;"><span>                    (<span style="color:#a6e22e">last</span> p-lst <span style="color:#ae81ff">2</span>)
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;/&#34;</span>))
-</span></span><span style="display:flex;"><span>      pwd  <span style="color:#75715e">;; Otherwise, we just return the PWD</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#038">defun</span> <span style="color:#369">pwd-shorten-dirs</span> (<span style="color:#369">pwd</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#d20;background-color:#fff0f0">&#34;Shorten all directory names in PWD except the last two.&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#080;font-weight:bold">let</span> ((<span style="color:#369">p-lst</span> (<span style="color:#369">split-string</span> <span style="color:#369">pwd</span> <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#080;font-weight:bold">if</span> (<span style="color:#06b;font-weight:bold">&gt;</span> (<span style="color:#06b;font-weight:bold">length</span> <span style="color:#369">p-lst</span>) <span style="color:#00d;font-weight:bold">2</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#369">concat</span>
+</span></span><span style="display:flex;"><span>         (<span style="color:#369">mapconcat</span> (<span style="color:#038">lambda</span> (<span style="color:#369">elm</span>) (<span style="color:#080;font-weight:bold">if</span> (<span style="color:#06b;font-weight:bold">zerop</span> (<span style="color:#06b;font-weight:bold">length</span> <span style="color:#369">elm</span>)) <span style="color:#d20;background-color:#fff0f0">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                               (<span style="color:#369">substring</span> <span style="color:#369">elm</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#00d;font-weight:bold">1</span>)))
+</span></span><span style="display:flex;"><span>                    (<span style="color:#06b;font-weight:bold">butlast</span> <span style="color:#369">p-lst</span> <span style="color:#00d;font-weight:bold">2</span>)
+</span></span><span style="display:flex;"><span>                    <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>         (<span style="color:#369">mapconcat</span> (<span style="color:#038">lambda</span> (<span style="color:#369">elm</span>) <span style="color:#369">elm</span>)
+</span></span><span style="display:flex;"><span>                    (<span style="color:#06b;font-weight:bold">last</span> <span style="color:#369">p-lst</span> <span style="color:#00d;font-weight:bold">2</span>)
+</span></span><span style="display:flex;"><span>                    <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>))
+</span></span><span style="display:flex;"><span>      <span style="color:#369">pwd</span>  <span style="color:#888">;; Otherwise, we just return the PWD</span>
 </span></span><span style="display:flex;"><span>      )))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(defun split-directory-prompt (<span style="color:#a6e22e">directory</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if</span> (string-match-p <span style="color:#e6db74">&#34;.*/.*&#34;</span> <span style="color:#a6e22e">directory</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">list</span> (file-name-directory <span style="color:#a6e22e">directory</span>) (file-name-base <span style="color:#a6e22e">directory</span>))
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">directory</span>)))
+</span></span><span style="display:flex;"><span>(<span style="color:#038">defun</span> <span style="color:#369">split-directory-prompt</span> (<span style="color:#06b;font-weight:bold">directory</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#d20;background-color:#fff0f0">&#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#080;font-weight:bold">if</span> (<span style="color:#369">string-match-p</span> <span style="color:#d20;background-color:#fff0f0">&#34;.*/.*&#34;</span> <span style="color:#06b;font-weight:bold">directory</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#b06;font-weight:bold">list</span> (<span style="color:#369">file-name-directory</span> <span style="color:#06b;font-weight:bold">directory</span>) (<span style="color:#369">file-name-base</span> <span style="color:#06b;font-weight:bold">directory</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#b06;font-weight:bold">list</span> <span style="color:#d20;background-color:#fff0f0">&#34;&#34;</span> <span style="color:#06b;font-weight:bold">directory</span>)))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Create a custom prompt using the functions above</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> eshell-prompt-function
-</span></span><span style="display:flex;"><span>      (lambda ()
-</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">let*</span> ((<span style="color:#a6e22e">directory</span> (split-directory-prompt (pwd-shorten-dirs (pwd-replace-home (eshell/pwd)))))
-</span></span><span style="display:flex;"><span>               (parent (<span style="color:#a6e22e">car</span> <span style="color:#a6e22e">directory</span>))
-</span></span><span style="display:flex;"><span>               (name (<span style="color:#a6e22e">cadr</span> <span style="color:#a6e22e">directory</span>))
-</span></span><span style="display:flex;"><span>               (branch (or (curr-dir-git-branch-string (eshell/pwd)) <span style="color:#e6db74">&#34;&#34;</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#888">;; Create a custom prompt using the functions above</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">setq</span> <span style="color:#369">eshell-prompt-function</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#038">lambda</span> ()
+</span></span><span style="display:flex;"><span>        (<span style="color:#080;font-weight:bold">let*</span> ((<span style="color:#06b;font-weight:bold">directory</span> (<span style="color:#369">split-directory-prompt</span> (<span style="color:#369">pwd-shorten-dirs</span> (<span style="color:#369">pwd-replace-home</span> (<span style="color:#369">eshell/pwd</span>)))))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">parent</span> (<span style="color:#06b;font-weight:bold">car</span> <span style="color:#06b;font-weight:bold">directory</span>))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">name</span> (<span style="color:#06b;font-weight:bold">cadr</span> <span style="color:#06b;font-weight:bold">directory</span>))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">branch</span> (<span style="color:#038">or</span> (<span style="color:#369">curr-dir-git-branch-string</span> (<span style="color:#369">eshell/pwd</span>)) <span style="color:#d20;background-color:#fff0f0">&#34;&#34;</span>)))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          (<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">eq</span> <span style="color:#e6db74">&#39;dark</span> (frame-parameter <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;background-mode</span>))
-</span></span><span style="display:flex;"><span>              (concat   <span style="color:#75715e">;; Prompt for Dark Themes</span>
-</span></span><span style="display:flex;"><span>               (propertize parent <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:foreground</span> <span style="color:#e6db74">&#34;#8888FF&#34;</span>))
-</span></span><span style="display:flex;"><span>               (propertize name   <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:foreground</span> <span style="color:#e6db74">&#34;#8888FF&#34;</span> <span style="color:#e6db74">:weight</span> bold))
-</span></span><span style="display:flex;"><span>               (propertize branch <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:foreground</span> <span style="color:#e6db74">&#34;green&#34;</span>))
-</span></span><span style="display:flex;"><span>               (propertize <span style="color:#e6db74">&#34; λ&#34;</span>   <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:weight</span> ultra-bold))
-</span></span><span style="display:flex;"><span>               (propertize <span style="color:#e6db74">&#34; &#34;</span>    <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:weight</span> bold)))
+</span></span><span style="display:flex;"><span>          (<span style="color:#080;font-weight:bold">if</span> (<span style="color:#06b;font-weight:bold">eq</span> <span style="color:#a60;background-color:#fff0f0">&#39;dark</span> (<span style="color:#369">frame-parameter</span> <span style="color:#036;font-weight:bold">nil</span> <span style="color:#a60;background-color:#fff0f0">&#39;background-mode</span>))
+</span></span><span style="display:flex;"><span>              (<span style="color:#369">concat</span>   <span style="color:#888">;; Prompt for Dark Themes</span>
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">propertize</span> <span style="color:#369">parent</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;#8888FF&#34;</span>))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">propertize</span> <span style="color:#369">name</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;#8888FF&#34;</span> <span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">propertize</span> <span style="color:#369">branch</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;green&#34;</span>))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; λ&#34;</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">ultra-bold</span>))
+</span></span><span style="display:flex;"><span>               (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; &#34;</span>    <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>)))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            (concat    <span style="color:#75715e">;; Prompt for Light Themes</span>
-</span></span><span style="display:flex;"><span>             (propertize parent <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:foreground</span> <span style="color:#e6db74">&#34;blue&#34;</span>))
-</span></span><span style="display:flex;"><span>             (propertize name   <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:foreground</span> <span style="color:#e6db74">&#34;blue&#34;</span> <span style="color:#e6db74">:weight</span> bold))
-</span></span><span style="display:flex;"><span>             (propertize branch <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:foreground</span> <span style="color:#e6db74">&#34;dark green&#34;</span>))
-</span></span><span style="display:flex;"><span>             (propertize <span style="color:#e6db74">&#34; λ&#34;</span>   <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:weight</span> ultra-bold))
-</span></span><span style="display:flex;"><span>             (propertize <span style="color:#e6db74">&#34; &#34;</span>    <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(<span style="color:#e6db74">:weight</span> bold)))))))
+</span></span><span style="display:flex;"><span>            (<span style="color:#369">concat</span>    <span style="color:#888">;; Prompt for Light Themes</span>
+</span></span><span style="display:flex;"><span>             (<span style="color:#369">propertize</span> <span style="color:#369">parent</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;blue&#34;</span>))
+</span></span><span style="display:flex;"><span>             (<span style="color:#369">propertize</span> <span style="color:#369">name</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;blue&#34;</span> <span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>))
+</span></span><span style="display:flex;"><span>             (<span style="color:#369">propertize</span> <span style="color:#369">branch</span> <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:foreground</span> <span style="color:#d20;background-color:#fff0f0">&#34;dark green&#34;</span>))
+</span></span><span style="display:flex;"><span>             (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; λ&#34;</span>   <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">ultra-bold</span>))
+</span></span><span style="display:flex;"><span>             (<span style="color:#369">propertize</span> <span style="color:#d20;background-color:#fff0f0">&#34; &#34;</span>    <span style="color:#a60;background-color:#fff0f0">&#39;face</span> `(<span style="color:#a60;background-color:#fff0f0">:weight</span> <span style="color:#369">bold</span>)))))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Set this to match eshell-prompt-function</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> eshell-prompt-regexp <span style="color:#e6db74">&#34; λ &#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#888">;; Set this to match eshell-prompt-function</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">setq</span> <span style="color:#369">eshell-prompt-regexp</span> <span style="color:#d20;background-color:#fff0f0">&#34; λ &#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Make C-a go to beginning of command instead of line</span>
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;eshell-mode-hook</span> <span style="color:#f92672">&#39;</span>(lambda ()
-</span></span><span style="display:flex;"><span>                               (local-set-key (kbd <span style="color:#e6db74">&#34;C-a&#34;</span>)
-</span></span><span style="display:flex;"><span>                                              <span style="color:#f92672">&#39;</span>(lambda ()
-</span></span><span style="display:flex;"><span>                                                 (interactive)
-</span></span><span style="display:flex;"><span>                                                 (beginning-of-line)
-</span></span><span style="display:flex;"><span>                                                 (search-forward-regexp eshell-prompt-regexp)))))
+</span></span><span style="display:flex;"><span><span style="color:#888">;; Make C-a go to beginning of command instead of line</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#369">add-hook</span> <span style="color:#a60;background-color:#fff0f0">&#39;eshell-mode-hook</span> &#39;(<span style="color:#038">lambda</span> ()
+</span></span><span style="display:flex;"><span>                               (<span style="color:#369">local-set-key</span> (<span style="color:#369">kbd</span> <span style="color:#d20;background-color:#fff0f0">&#34;C-a&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              &#39;(<span style="color:#038">lambda</span> ()
+</span></span><span style="display:flex;"><span>                                                 (<span style="color:#369">interactive</span>)
+</span></span><span style="display:flex;"><span>                                                 (<span style="color:#369">beginning-of-line</span>)
+</span></span><span style="display:flex;"><span>                                                 (<span style="color:#369">search-forward-regexp</span> <span style="color:#369">eshell-prompt-regexp</span>)))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Turn off the default prompt.</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> eshell-highlight-prompt <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span><span style="color:#888">;; Turn off the default prompt.</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#080;font-weight:bold">setq</span> <span style="color:#369">eshell-highlight-prompt</span> <span style="color:#036;font-weight:bold">nil</span>)
 </span></span></code></pre></div><p>You should now be able to see a nice and clean prompt like this:</p>
 <p><img src="/images/eshell_screenshot.png" alt="Screenshot"></p>
 </section>
@@ -400,7 +400,7 @@ with some minor additions and is reproduced in its entirety here:</p>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/emacs"
+      href="http://kirang.in/tags/emacs"
       >emacs</a
     >
     
@@ -415,14 +415,14 @@ with some minor additions and is reproduced in its entirety here:</p>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/setting-up-org-mode-to-run-clojure-code/"
+      href="http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/"
       ><span class="mr-1.5">←</span><span>Setting up Org-mode to run Clojure code</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/creating-a-simple-stack-based-language-in-clojure/"
+      href="http://kirang.in/post/creating-a-simple-stack-based-language-in-clojure/"
       ><span>Creating a simple stack-based language in Clojure</span><span class="ml-1.5">→</span></a
     >
     
@@ -431,6 +431,15 @@ with some minor additions and is reproduced in its entirety here:</p>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -450,7 +459,7 @@ with some minor additions and is reproduced in its entirety here:</p>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

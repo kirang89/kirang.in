@@ -74,14 +74,14 @@ Install Dependencies You&rsquo;re not ready yet. There are a few more packages t
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -91,13 +91,13 @@ Install Dependencies You&rsquo;re not ready yet. There are a few more packages t
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -105,7 +105,7 @@ Install Dependencies You&rsquo;re not ready yet. There are a few more packages t
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -115,8 +115,8 @@ Install Dependencies You&rsquo;re not ready yet. There are a few more packages t
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -140,7 +140,7 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
   <meta itemprop="wordCount" content="101">
   <meta itemprop="keywords" content="Org-Mode,Emacs,Osx">
   
-  <meta property="og:url" content="https://example.org/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/">
+  <meta property="og:url" content="http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Setting up org-mode pdf export in OS X ElCapitan">
   <meta property="og:description" content="Basic TeX Download and install Basic TeX package from here.
@@ -168,7 +168,7 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
   
   
   
-  <link rel="canonical" href="https://example.org/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/" />
+  <link rel="canonical" href="http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/" />
   
   
 </head>
@@ -178,7 +178,7 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -283,7 +283,7 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -322,12 +322,12 @@ Install Dependencies You’re not ready yet. There are a few more packages that 
 <h2 id="set-system-path">Set System Path</h2>
 <p>The package will be installed at <code>/Library/TeX/texbin/</code>, so it
 must be added to your PATH like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$PATH:/Library/TeX/texbin
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">export</span> <span style="color:#369">PATH</span>=<span style="color:#369">$PATH</span>:/Library/TeX/texbin
 </span></span></code></pre></div><p>Run <code>which latex</code> to ensure that the path has been set correctly.</p>
 <h2 id="install-dependencies">Install Dependencies</h2>
 <p>You&rsquo;re not ready yet. There are a few more packages that need to be installed
 in order to render the pdf from the tex file. Install them like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tlmgr install wrapfig
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tlmgr install wrapfig
 </span></span><span style="display:flex;"><span>sudo tlmgr install marvosym
 </span></span><span style="display:flex;"><span>sudo tlmgr install wasysym
 </span></span></code></pre></div><p>You should now be able to export to pdf using <code>C-c C-e l p</code>.</p>
@@ -339,19 +339,19 @@ in order to render the pdf from the tex file. Install them like so:</p>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/org-mode"
+      href="http://kirang.in/tags/org-mode"
       >org-mode</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/emacs"
+      href="http://kirang.in/tags/emacs"
       >emacs</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/osx"
+      href="http://kirang.in/tags/osx"
       >osx</a
     >
     
@@ -366,14 +366,14 @@ in order to render the pdf from the tex file. Install them like so:</p>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/useful-awk-one-liners/"
+      href="http://kirang.in/post/useful-awk-one-liners/"
       ><span class="mr-1.5">←</span><span>Useful AWK one-liners</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/fetching-data-with-raw-sql-query-in-sqlalchemy/"
+      href="http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/"
       ><span>Fetching data with a raw SQL query in SQLAlchemy</span><span class="ml-1.5">→</span></a
     >
     
@@ -382,6 +382,15 @@ in order to render the pdf from the tex file. Install them like so:</p>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -401,7 +410,7 @@ in order to render the pdf from the tex file. Install them like so:</p>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

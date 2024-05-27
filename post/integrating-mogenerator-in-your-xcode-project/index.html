@@ -77,14 +77,14 @@ mogenerator is indispensable." />
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -94,13 +94,13 @@ mogenerator is indispensable." />
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -108,7 +108,7 @@ mogenerator is indispensable." />
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -118,8 +118,8 @@ mogenerator is indispensable." />
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -140,7 +140,7 @@ mogenerator is indispensable." />
   <meta itemprop="wordCount" content="233">
   <meta itemprop="keywords" content="Ios">
   
-  <meta property="og:url" content="https://example.org/post/integrating-mogenerator-in-your-xcode-project/">
+  <meta property="og:url" content="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Integrating mogenerator in your XCode project">
   <meta property="og:description" content="Every iOS app you build would require some sort of storage functionality within the device itself, especially if it caches data fetched from the network. Core Data, an object graph management framework developed by Apple will mostly likely be your choice in this regard. In that case, a tool like mogenerator is indispensable.">
@@ -160,7 +160,7 @@ mogenerator is indispensable." />
   
   
   
-  <link rel="canonical" href="https://example.org/post/integrating-mogenerator-in-your-xcode-project/" />
+  <link rel="canonical" href="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/" />
   
   
 </head>
@@ -170,7 +170,7 @@ mogenerator is indispensable." />
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -275,7 +275,7 @@ mogenerator is indispensable." />
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -328,7 +328,7 @@ the necessary steps to add the mogenerator script to your project and
 automatically generate the necessary model classes whenever XCode builds
 your project.</p>
 <p>Let&rsquo;s begin by installing mogenerator on OS X using homebrew:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install mogenerator
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install mogenerator
 </span></span></code></pre></div><p>Once installed, open your project in XCode and select the &lsquo;Edit Scheme&rsquo;
 option under the Product menu:</p>
 <p><img src="https://www.evernote.com/shard/s101/sh/71a6ab30-6ffd-4a14-a704-3d5616234b0d/b928625b2dbed0348a19c50f1ab15800/deep/0/Scheme-and-Product.png" alt="Product
@@ -343,11 +343,11 @@ Pre-action"></p>
 <li>Provide build settings for: <!-- raw HTML omitted -->&lt;Project&gt;<!-- raw HTML omitted --></li>
 <li>Script:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd <span style="color:#e6db74">${</span>SOURCE_ROOT<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>PROJECT_NAME<span style="color:#e6db74">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#038">cd</span> <span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">SOURCE_ROOT</span><span style="color:#33b;background-color:#fff0f0">}</span>/<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">PROJECT_NAME</span><span style="color:#33b;background-color:#fff0f0">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/usr/local/bin/mogenerator --template-var arc<span style="color:#f92672">=</span>true
-</span></span><span style="display:flex;"><span>-m <span style="color:#e6db74">${</span>PROJECT_NAME<span style="color:#e6db74">}</span>.xcdatamodeld/<span style="color:#e6db74">${</span>PROJECT_NAME<span style="color:#e6db74">}</span>.xcdatamodel
+</span></span><span style="display:flex;"><span>/usr/local/bin/mogenerator --template-var <span style="color:#369">arc</span>=<span style="color:#038">true</span>
+</span></span><span style="display:flex;"><span>-m <span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">PROJECT_NAME</span><span style="color:#33b;background-color:#fff0f0">}</span>.xcdatamodeld/<span style="color:#33b;background-color:#fff0f0">${</span><span style="color:#369">PROJECT_NAME</span><span style="color:#33b;background-color:#fff0f0">}</span>.xcdatamodel
 </span></span><span style="display:flex;"><span>-M Model/CoreData/Machine -H Model/CoreData/Human
 </span></span></code></pre></div><p>This is how your script action should look like:</p>
 <p><img src="https://www.evernote.com/shard/s101/sh/58e8760b-21ef-4b23-8500-5d723f5015bb/efa9bb6b77b2d648f8839040252ac0ba/deep/0/Screenshot-27-08-14-14-35.png" alt="New Run Script
@@ -362,7 +362,7 @@ it&rsquo;s magic on your data models!</p></section>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/ios"
+      href="http://kirang.in/tags/ios"
       >ios</a
     >
     
@@ -377,14 +377,14 @@ it&rsquo;s magic on your data models!</p></section>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/"
+      href="http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/"
       ><span class="mr-1.5">←</span><span>Emacs as email client with offlineimap and mu4e on OS X</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/"
+      href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/"
       ><span>Creating a Mutable Array data type in sqlalchemy</span><span class="ml-1.5">→</span></a
     >
     
@@ -393,6 +393,15 @@ it&rsquo;s magic on your data models!</p></section>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -412,7 +421,7 @@ it&rsquo;s magic on your data models!</p></section>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

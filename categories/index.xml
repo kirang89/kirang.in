@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Kiran Gangadharan</title>
-    <link>https://example.org/categories/</link>
+    <link>http://kirang.in/categories/</link>
     <description>Recent content in Categories on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Feb 2019 00:51:50 +0530</lastBuildDate>
-    <atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kirang.in/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go</title>
-      <link>https://example.org/categories/go/</link>
+      <link>http://kirang.in/categories/go/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/go/</guid>
+      <guid>http://kirang.in/categories/go/</guid>
       <description></description>
     </item>
     <item>
       <title>Elixir</title>
-      <link>https://example.org/categories/elixir/</link>
+      <link>http://kirang.in/categories/elixir/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/elixir/</guid>
+      <guid>http://kirang.in/categories/elixir/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>https://example.org/categories/programming/</link>
+      <link>http://kirang.in/categories/programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/programming/</guid>
+      <guid>http://kirang.in/categories/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Talks</title>
-      <link>https://example.org/categories/talks/</link>
+      <link>http://kirang.in/categories/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/talks/</guid>
+      <guid>http://kirang.in/categories/talks/</guid>
       <description></description>
     </item>
     <item>
       <title>Reading</title>
-      <link>https://example.org/categories/reading/</link>
+      <link>http://kirang.in/categories/reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/reading/</guid>
+      <guid>http://kirang.in/categories/reading/</guid>
       <description></description>
     </item>
     <item>
       <title>Emacs</title>
-      <link>https://example.org/categories/emacs/</link>
+      <link>http://kirang.in/categories/emacs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/emacs/</guid>
+      <guid>http://kirang.in/categories/emacs/</guid>
       <description></description>
     </item>
     <item>
       <title>Productivity</title>
-      <link>https://example.org/categories/productivity/</link>
+      <link>http://kirang.in/categories/productivity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/productivity/</guid>
+      <guid>http://kirang.in/categories/productivity/</guid>
       <description></description>
     </item>
     <item>
       <title>Clojure</title>
-      <link>https://example.org/categories/clojure/</link>
+      <link>http://kirang.in/categories/clojure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/clojure/</guid>
+      <guid>http://kirang.in/categories/clojure/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://example.org/categories/python/</link>
+      <link>http://kirang.in/categories/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/python/</guid>
+      <guid>http://kirang.in/categories/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Miscellaneous</title>
-      <link>https://example.org/categories/miscellaneous/</link>
+      <link>http://kirang.in/categories/miscellaneous/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/miscellaneous/</guid>
+      <guid>http://kirang.in/categories/miscellaneous/</guid>
       <description></description>
     </item>
     <item>
       <title>Android</title>
-      <link>https://example.org/categories/android/</link>
+      <link>http://kirang.in/categories/android/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/android/</guid>
+      <guid>http://kirang.in/categories/android/</guid>
       <description></description>
     </item>
     <item>
       <title>Uncategorized</title>
-      <link>https://example.org/categories/uncategorized/</link>
+      <link>http://kirang.in/categories/uncategorized/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/uncategorized/</guid>
+      <guid>http://kirang.in/categories/uncategorized/</guid>
       <description></description>
     </item>
     <item>
       <title>Design</title>
-      <link>https://example.org/categories/design/</link>
+      <link>http://kirang.in/categories/design/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/design/</guid>
+      <guid>http://kirang.in/categories/design/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>https://example.org/categories/web/</link>
+      <link>http://kirang.in/categories/web/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/web/</guid>
+      <guid>http://kirang.in/categories/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Open Source</title>
-      <link>https://example.org/categories/open-source/</link>
+      <link>http://kirang.in/categories/open-source/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/categories/open-source/</guid>
+      <guid>http://kirang.in/categories/open-source/</guid>
       <description></description>
     </item>
   </channel>

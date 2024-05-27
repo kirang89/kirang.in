@@ -71,14 +71,14 @@
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -88,13 +88,13 @@
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -102,7 +102,7 @@
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -112,8 +112,8 @@
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -134,7 +134,7 @@
   <meta itemprop="wordCount" content="726">
   <meta itemprop="keywords" content="Java,Jvm,Performance">
   
-  <meta property="og:url" content="https://example.org/post/jvm-profiling-disclosures/">
+  <meta property="og:url" content="http://kirang.in/post/jvm-profiling-disclosures/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="JVM Profiling Disclosures">
   <meta property="og:description" content="Well, I’ve never actually given importance to the term ”profiling” till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don’t leave any open doors for memory leaks or poor CPU utilization.">
@@ -156,7 +156,7 @@
   
   
   
-  <link rel="canonical" href="https://example.org/post/jvm-profiling-disclosures/" />
+  <link rel="canonical" href="http://kirang.in/post/jvm-profiling-disclosures/" />
   
   
 </head>
@@ -166,7 +166,7 @@
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -271,7 +271,7 @@
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -405,19 +405,19 @@ and <code>jhat</code> (Haven’t really tried this out)</li>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/java"
+      href="http://kirang.in/tags/java"
       >java</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/jvm"
+      href="http://kirang.in/tags/jvm"
       >jvm</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/performance"
+      href="http://kirang.in/tags/performance"
       >performance</a
     >
     
@@ -432,14 +432,14 @@ and <code>jhat</code> (Haven’t really tried this out)</li>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/what-is-python-month/"
+      href="http://kirang.in/post/what-is-python-month/"
       ><span class="mr-1.5">←</span><span>What is Python Month?</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/installing-pylibmc-in-ubuntu/"
+      href="http://kirang.in/post/installing-pylibmc-in-ubuntu/"
       ><span>Installing pylibmc in ubuntu</span><span class="ml-1.5">→</span></a
     >
     
@@ -448,6 +448,15 @@ and <code>jhat</code> (Haven’t really tried this out)</li>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -467,7 +476,7 @@ and <code>jhat</code> (Haven’t really tried this out)</li>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

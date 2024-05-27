@@ -73,14 +73,14 @@ Inherit from object() Instance variables for information unique to an instance C
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -90,13 +90,13 @@ Inherit from object() Instance variables for information unique to an instance C
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -104,7 +104,7 @@ Inherit from object() Instance variables for information unique to an instance C
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -114,8 +114,8 @@ Inherit from object() Instance variables for information unique to an instance C
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -138,7 +138,7 @@ Inherit from object() Instance variables for information unique to an instance C
   <meta itemprop="wordCount" content="258">
   <meta itemprop="keywords" content="Python">
   
-  <meta property="og:url" content="https://example.org/post/writing-good-classes-in-python/">
+  <meta property="og:url" content="http://kirang.in/post/writing-good-classes-in-python/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Writing good Classes in Python">
   <meta property="og:description" content="This post is the highlight of Raymond Hettinger’s talk “Python’s Class Development Toolkit” at PyCon US 2013.
@@ -162,7 +162,7 @@ Inherit from object() Instance variables for information unique to an instance C
   
   
   
-  <link rel="canonical" href="https://example.org/post/writing-good-classes-in-python/" />
+  <link rel="canonical" href="http://kirang.in/post/writing-good-classes-in-python/" />
   
   
 </head>
@@ -172,7 +172,7 @@ Inherit from object() Instance variables for information unique to an instance C
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -277,7 +277,7 @@ Inherit from object() Instance variables for information unique to an instance C
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -341,45 +341,45 @@ to preserve namespace when subclassing. The underlying variable name
 changes based on the caller.</li>
 </ul>
 <p>This is an example with all the above practices implemented:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">import</span> <span style="color:#b06;font-weight:bold">math</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GoodCircle</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;This represents the circle class&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">GoodCircle</span>(<span style="color:#038">object</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#d20;background-color:#fff0f0">&#39;&#39;&#39;This represents the circle class&#39;&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    __slots__ <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;diameter&#39;</span>]        <span style="color:#75715e"># Last Resort for memory efficiency</span>
-</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.1&#39;</span>
+</span></span><span style="display:flex;"><span>    __slots__ = [<span style="color:#d20;background-color:#fff0f0">&#39;diameter&#39;</span>]        <span style="color:#888"># Last Resort for memory efficiency</span>
+</span></span><span style="display:flex;"><span>    version = <span style="color:#d20;background-color:#fff0f0">&#39;0.1&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, radius):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>radius <span style="color:#f92672">=</span> radius
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> __init__(self, radius):
+</span></span><span style="display:flex;"><span>        self.radius = radius
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">from_bbd</span>(cls, bbd):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;Construct a Circle from bounding box diagonal&#39;</span>
-</span></span><span style="display:flex;"><span>        radius <span style="color:#f92672">=</span> bbd <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0</span> <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">2.0</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> cls(radius)
+</span></span><span style="display:flex;"><span>    <span style="color:#555">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">from_bbd</span>(cls, bbd):
+</span></span><span style="display:flex;"><span>        <span style="color:#d20;background-color:#fff0f0">&#39;Construct a Circle from bounding box diagonal&#39;</span>
+</span></span><span style="display:flex;"><span>        radius = bbd / <span style="color:#00d;font-weight:bold">2.0</span> / math.sqrt(<span style="color:#00d;font-weight:bold">2.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> cls(radius)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@property</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">radius</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>diameter <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">@property</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">radius</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> self.diameter / <span style="color:#00d;font-weight:bold">2.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@radius.setter</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">radius</span>(self, radius):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>diameter <span style="color:#f92672">=</span> radius <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">@radius.setter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">radius</span>(self, radius):
+</span></span><span style="display:flex;"><span>        self.diameter = radius * <span style="color:#00d;font-weight:bold">2.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@staticmethod</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">angle_to_grade</span>(angle):
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;Convert angle in degree to percentage degree&#39;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> math<span style="color:#f92672">.</span>tan(math<span style="color:#f92672">.</span>radians(angle)) <span style="color:#f92672">*</span> <span style="color:#ae81ff">100.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555">@staticmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">angle_to_grade</span>(angle):
+</span></span><span style="display:flex;"><span>        <span style="color:#d20;background-color:#fff0f0">&#39;Convert angle in degree to percentage degree&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> math.tan(math.radians(angle)) * <span style="color:#00d;font-weight:bold">100.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">area</span>(self):
-</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>__perimeter()
-</span></span><span style="display:flex;"><span>        r <span style="color:#f92672">=</span> p <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>pi <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> math<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> r <span style="color:#f92672">**</span> <span style="color:#ae81ff">2.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">area</span>(self):
+</span></span><span style="display:flex;"><span>        p = self.__perimeter()
+</span></span><span style="display:flex;"><span>        r = p / math.pi / <span style="color:#00d;font-weight:bold">2.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> math.pi * r ** <span style="color:#00d;font-weight:bold">2.0</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">perimeter</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pi <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>radius
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">perimeter</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">2.0</span> * math.pi * self.radius
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    __perimeter <span style="color:#f92672">=</span> perimeter
+</span></span><span style="display:flex;"><span>    __perimeter = perimeter
 </span></span></code></pre></div><p> </p>
 </section>
 
@@ -389,7 +389,7 @@ changes based on the caller.</li>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/python"
+      href="http://kirang.in/tags/python"
       >python</a
     >
     
@@ -404,14 +404,14 @@ changes based on the caller.</li>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/installing-pil-on-mac-osx-mavericks/"
+      href="http://kirang.in/post/installing-pil-on-mac-osx-mavericks/"
       ><span class="mr-1.5">←</span><span>Installing PIL on Mac OSX Mavericks</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/"
+      href="http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/"
       ><span>Setting up Jenkins as a watchdog for your Python application</span><span class="ml-1.5">→</span></a
     >
     
@@ -420,6 +420,15 @@ changes based on the caller.</li>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -439,7 +448,7 @@ changes based on the caller.</li>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

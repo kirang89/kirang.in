@@ -74,14 +74,14 @@ M-x package-install ob-clojure or simply do so with use-package:
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://example.org/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
 
   
   
   
   
   
-  <link rel="preload" as="image" href="https://example.org/theme.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
 
   
   
@@ -91,13 +91,13 @@ M-x package-install ob-clojure or simply do so with use-package:
 
   
   
-  <link rel="preload" as="image" href="https://example.org/twitter.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/github.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/linkedin.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
-  <link rel="preload" as="image" href="https://example.org/rss.svg" />
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
   
   
 
@@ -105,7 +105,7 @@ M-x package-install ob-clojure or simply do so with use-package:
   
   <script
     defer
-    src="https://example.org/highlight.min.js"
+    src="http://kirang.in/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
@@ -115,8 +115,8 @@ M-x package-install ob-clojure or simply do so with use-package:
   
 
   
-  <link rel="icon" href="https://example.org/favicon_32x32.png" />
-  <link rel="apple-touch-icon" href="https://example.org/apple-touch-icon.png" />
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.126.1">
@@ -140,7 +140,7 @@ M-x package-install ob-clojure or simply do so with use-package:
   <meta itemprop="wordCount" content="209">
   <meta itemprop="keywords" content="Org-Mode,Emacs,Clojure">
   
-  <meta property="og:url" content="https://example.org/post/setting-up-org-mode-to-run-clojure-code/">
+  <meta property="og:url" content="http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Setting up Org-mode to run Clojure code">
   <meta property="og:description" content="I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I’ll illustrate the steps needed to achieve the same. I am assuming that you’ve already setup Emacs with org-mode and cider.
@@ -168,7 +168,7 @@ M-x package-install ob-clojure or simply do so with use-package:
   
   
   
-  <link rel="canonical" href="https://example.org/post/setting-up-org-mode-to-run-clojure-code/" />
+  <link rel="canonical" href="http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/" />
   
   
 </head>
@@ -178,7 +178,7 @@ M-x package-install ob-clojure or simply do so with use-package:
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="https://example.org/"
+      href="http://kirang.in/"
       >Kiran Gangadharan</a
     >
     <div
@@ -283,7 +283,7 @@ M-x package-install ob-clojure or simply do so with use-package:
       <a
         class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
         style="--url: url(./rss.svg)"
-        href="https://example.org/index.xml"
+        href="http://kirang.in/index.xml"
         target="_blank"
         rel="alternate"
       >
@@ -325,11 +325,11 @@ assuming that you&rsquo;ve already setup Emacs with org-mode and cider.</p>
 <pre tabindex="0"><code>M-x package-install
 ob-clojure
 </code></pre><p>or simply do so with <code>use-package</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(use-package ob-clojure)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#038">use-package</span> <span style="color:#369">ob-clojure</span>)
 </span></span></code></pre></div><p>Now we need to let org-mode know to use a cider repl to execute the snippets in
 our file:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;cider</span>)
-</span></span><span style="display:flex;"><span>(setq org-babel-clojure-backend <span style="color:#e6db74">&#39;cider</span>)
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#038">require</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#038">setq</span> <span style="color:#369">org-babel-clojure-backend</span> <span style="color:#a60;background-color:#fff0f0">&#39;cider</span>)
 </span></span></code></pre></div><p>We&rsquo;re done with the setup. Start a new cider repl connection by running:</p>
 <pre tabindex="0"><code>M-x cider-jack-in
 </code></pre><p>Once the repl has successfully launched, create a new org file and add the
@@ -356,19 +356,19 @@ instead.</p>
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/org-mode"
+      href="http://kirang.in/tags/org-mode"
       >org-mode</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/emacs"
+      href="http://kirang.in/tags/emacs"
       >emacs</a
     >
      
     <a
       class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="https://example.org/tags/clojure"
+      href="http://kirang.in/tags/clojure"
       >clojure</a
     >
     
@@ -383,14 +383,14 @@ instead.</p>
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/stuff-i-did-in-2016/"
+      href="http://kirang.in/post/stuff-i-did-in-2016/"
       ><span class="mr-1.5">←</span><span>Stuff I did in 2016</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://example.org/post/eshell-prompt-setup/"
+      href="http://kirang.in/post/eshell-prompt-setup/"
       ><span>My eshell prompt setup</span><span class="ml-1.5">→</span></a
     >
     
@@ -399,6 +399,15 @@ instead.</p>
   
 
   
+  
+  <div class="mt-24" id="disqus_thread"></div>
+  <script>
+    const disqusShortname = 'kirangin';
+    const script = document.createElement('script');
+    script.src = 'https://' + disqusShortname + '.disqus.com/embed.js';
+    script.setAttribute('data-timestamp', +new Date());
+    document.head.appendChild(script);
+  </script>
   
 
   
@@ -418,7 +427,7 @@ instead.</p>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://example.org/">Kiran Gangadharan</a>
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

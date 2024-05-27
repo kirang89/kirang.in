@@ -2,332 +2,332 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kiran Gangadharan</title>
-    <link>https://example.org/</link>
+    <link>http://kirang.in/</link>
     <description>Recent content on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Feb 2019 00:51:50 +0530</lastBuildDate>
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kirang.in/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Exploring gokibitz for embedding Go games</title>
-      <link>https://example.org/post/exploring-gokibitz-for-embedding-go-games/</link>
+      <link>http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/</link>
       <pubDate>Wed, 20 Feb 2019 00:51:50 +0530</pubDate>
-      <guid>https://example.org/post/exploring-gokibitz-for-embedding-go-games/</guid>
+      <guid>http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/</guid>
       <description>I&amp;rsquo;m experimenting with embedding kifus of my games using gokibitz. It also shows you the comments, if any, that people have made per move. For example, here&amp;rsquo;s the kifu of a game I lost (pretty badly IMO).&#xA;I failed to balance territory with influence, which my opponent took advantage of, as you may have noticed.</description>
     </item>
     <item>
       <title>The Road to a Masterless Multinode Distributed System in Elixir</title>
-      <link>https://example.org/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</link>
+      <link>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</guid>
+      <guid>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</guid>
       <description>My first conference talk presented at Functional Conf 2018! Yay!&#xA;I co-presented this with my colleague Udit. This talk is about our journey building a masterless multi-node distributed system in Elixir. It covers the problems we faced, how we dealt with them and the lessons learnt in the process.&#xA;I&amp;rsquo;m grateful to nilenso for providing me with the opportunity to work on this project and give this talk. If this type of work sounds interesting to you, talk to us!</description>
     </item>
     <item>
       <title>What I Love About Go/Baduk</title>
-      <link>https://example.org/post/what-i-love-about-baduk/</link>
+      <link>http://kirang.in/post/what-i-love-about-baduk/</link>
       <pubDate>Thu, 25 Oct 2018 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/what-i-love-about-baduk/</guid>
+      <guid>http://kirang.in/post/what-i-love-about-baduk/</guid>
       <description>I hadn’t thought about Go or even played it until recently, when a colleague of mine who worked at nilenso raved about the elegance of the game. He mentioned Cho Chikun’s book to be an excellent introduction when I enquired further. Given that we had the book in our library, I decided to give it a read. By the end of it, I was fascinated not just by the beauty and elegance of the game, but also the history and culture.</description>
     </item>
     <item>
       <title>Stuff I did in 2016</title>
-      <link>https://example.org/post/stuff-i-did-in-2016/</link>
+      <link>http://kirang.in/post/stuff-i-did-in-2016/</link>
       <pubDate>Sat, 31 Dec 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/stuff-i-did-in-2016/</guid>
+      <guid>http://kirang.in/post/stuff-i-did-in-2016/</guid>
       <description>Books The Power of Habit&#xA;Quite an eye opener. Looking forward to re-reading this sometime soon.&#xA;Dreaming in Code&#xA;Highly recommended read for any software developer.&#xA;Clojure for the Brave and True&#xA;The Joy of Clojure&#xA;My love for Clojure has grown substantially, thanks to this read.&#xA;The Catcher in the Rye&#xA;In Other Words&#xA;Jhumpa Lahiri talks about the difficulties of learning a new language(Italian) completely different from English. She documents all the frustating moments that she went through in the process.</description>
     </item>
     <item>
       <title>Setting up Org-mode to run Clojure code</title>
-      <link>https://example.org/post/setting-up-org-mode-to-run-clojure-code/</link>
+      <link>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</link>
       <pubDate>Mon, 18 Jul 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/setting-up-org-mode-to-run-clojure-code/</guid>
+      <guid>http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/</guid>
       <description>I wanted to be able to store interesting clojure snippets in an org file and then execute and play with them without leaving the file. In this post, I&amp;rsquo;ll illustrate the steps needed to achieve the same. I am assuming that you&amp;rsquo;ve already setup Emacs with org-mode and cider.&#xA;First, start by installing the ob-clojure package:&#xA;M-x package-install ob-clojure or simply do so with use-package:&#xA;(use-package ob-clojure) Now we need to let org-mode know to use a cider repl to execute the snippets in our file:</description>
     </item>
     <item>
       <title>My eshell prompt setup</title>
-      <link>https://example.org/post/eshell-prompt-setup/</link>
+      <link>http://kirang.in/post/eshell-prompt-setup/</link>
       <pubDate>Mon, 20 Jun 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/eshell-prompt-setup/</guid>
+      <guid>http://kirang.in/post/eshell-prompt-setup/</guid>
       <description>My setup is based on Howard Abrams&amp;rsquo; setup with some minor additions and is reproduced in its entirety here:&#xA;(defun curr-dir-git-branch-string (pwd) &amp;#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&amp;#34; (interactive) (when (and (eshell-search-path &amp;#34;git&amp;#34;) (locate-dominating-file pwd &amp;#34;.git&amp;#34;)) (let ((git-output (shell-command-to-string (concat &amp;#34;cd &amp;#34; pwd &amp;#34; &amp;amp;&amp;amp; git branch | grep &amp;#39;\\*&amp;#39; | sed -e &amp;#39;s/^\\* //&amp;#39;&amp;#34;)))) (if (&amp;gt; (length git-output) 0) (concat &amp;#34; :&amp;#34; (substring git-output 0 -1)) &amp;#34;(no branch)&amp;#34;)))) (defun pwd-replace-home (pwd) &amp;#34;Replace home in PWD with tilde (~) character.</description>
     </item>
     <item>
       <title>Creating a simple stack-based language in Clojure</title>
-      <link>https://example.org/post/creating-a-simple-stack-based-language-in-clojure/</link>
+      <link>http://kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</link>
       <pubDate>Mon, 04 Apr 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/creating-a-simple-stack-based-language-in-clojure/</guid>
+      <guid>http://kirang.in/post/creating-a-simple-stack-based-language-in-clojure/</guid>
       <description>Let&amp;rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:&#xA;push 8 push 4 + push 3 * This would be equivalent to (in infix notation):&#xA;(8 + 4) * 3 Here is a simple parser-cum-evaluator for the above input:&#xA;(defn parse-eval [string stack] &amp;#34;Parse and Evaluate the line sent and push result to stack if necessary.&amp;#34; (let [cmd (clojure.</description>
     </item>
     <item>
       <title>Using records in Clojure</title>
-      <link>https://example.org/post/using-records-in-clojure/</link>
+      <link>http://kirang.in/post/using-records-in-clojure/</link>
       <pubDate>Wed, 24 Feb 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/using-records-in-clojure/</guid>
+      <guid>http://kirang.in/post/using-records-in-clojure/</guid>
       <description>When to use: Fixed set of keys in multiple map instances Defer until you have protocols Pros Created quickly Less memory overhead Key lookup performance same/faster when compared to equivalent hash-maps Can implement protocols Generated class has a type that can be used to dispatch methods using multimethod Cons Cannot be used as a function like hash-maps can Cannot be compared to an equivalent hash-map in terms of identity Example:</description>
     </item>
     <item>
       <title>Implementing Norvig&#39;s Spelling Corrector in Clojure</title>
-      <link>https://example.org/post/implementing-norvigs-spelling-corrector-in-clojure/</link>
+      <link>http://kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</link>
       <pubDate>Wed, 03 Feb 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/implementing-norvigs-spelling-corrector-in-clojure/</guid>
+      <guid>http://kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/</guid>
       <description>I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&amp;rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&amp;rsquo;ve managed a decent implementation. It was fun! :)&#xA;(def alphabets &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;) (defn words [text] (re-seq #&amp;#34;[a-zA-Z]+&amp;#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.</description>
     </item>
     <item>
       <title>Rationals vs Decimals in Clojure</title>
-      <link>https://example.org/post/rationals-vs-decimals-clojure/</link>
+      <link>http://kirang.in/post/rationals-vs-decimals-clojure/</link>
       <pubDate>Sat, 30 Jan 2016 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/rationals-vs-decimals-clojure/</guid>
+      <guid>http://kirang.in/post/rationals-vs-decimals-clojure/</guid>
       <description>Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (+ (+ a b) c) (+ a (+ b c)))) ; =&amp;gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.&#xA;Rationals are slower in terms of operations on them when compared to decimals.</description>
     </item>
     <item>
       <title>Books I read in 2015</title>
-      <link>https://example.org/post/books_read_2015/</link>
+      <link>http://kirang.in/post/books_read_2015/</link>
       <pubDate>Tue, 29 Dec 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/books_read_2015/</guid>
+      <guid>http://kirang.in/post/books_read_2015/</guid>
       <description>Zen Pencils: Cartoon Quotes from Inspirational Folks Recommended for: Everyone. This should definitely be on everyone&amp;rsquo;s reading list. No excuses.&#xA;The Age of Reason Recommended for: folks who&amp;rsquo;ve never put serious thought into the writings in religious scriptures. This book teaches you the need for thinking for yourself.&#xA;The Cuckoo&amp;rsquo;s Egg: Tracking a Spy Through the Maze of Computer Espionage Recommended for: fans of Hacker Fiction. Though the writing is writing plain, the inner geek in me was excited throughout the book.</description>
     </item>
     <item>
       <title>Concurrent Prime Sieve in Clojure</title>
-      <link>https://example.org/post/concurrent-prime-sieve-in-clojure/</link>
+      <link>http://kirang.in/post/concurrent-prime-sieve-in-clojure/</link>
       <pubDate>Mon, 28 Dec 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/concurrent-prime-sieve-in-clojure/</guid>
+      <guid>http://kirang.in/post/concurrent-prime-sieve-in-clojure/</guid>
       <description>While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.&#xA;Let&amp;rsquo;s begin by creating an infinite sequence generator(starting from 2):&#xA;(defn num-generator [out] (go (loop [n 2] (&amp;gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.</description>
     </item>
     <item>
       <title>Useful AWK one-liners</title>
-      <link>https://example.org/post/useful-awk-one-liners/</link>
+      <link>http://kirang.in/post/useful-awk-one-liners/</link>
       <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/useful-awk-one-liners/</guid>
+      <guid>http://kirang.in/post/useful-awk-one-liners/</guid>
       <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:&#xA;If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
     </item>
     <item>
       <title>Setting up org-mode pdf export in OS X ElCapitan</title>
-      <link>https://example.org/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
       <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
       <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
     </item>
     <item>
       <title>Fetching data with a raw SQL query in SQLAlchemy</title>
-      <link>https://example.org/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
+      <link>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
+      <guid>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
       <description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:&#xA;query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.</description>
     </item>
     <item>
       <title>Different applications of reduce in Clojure</title>
-      <link>https://example.org/post/different-applications-of-reduce-in-clojure/</link>
+      <link>http://kirang.in/post/different-applications-of-reduce-in-clojure/</link>
       <pubDate>Sun, 15 Nov 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/different-applications-of-reduce-in-clojure/</guid>
+      <guid>http://kirang.in/post/different-applications-of-reduce-in-clojure/</guid>
       <description>I&amp;rsquo;ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I&amp;rsquo;ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.&#xA;This post is an effort to document some snippets to demonstrate how useful reduce can be.&#xA;Reverse a collection (defn myreverse [coll] (reduce conj &amp;#39;() coll)) (myreverse &amp;#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.</description>
     </item>
     <item>
       <title>CS Reading: Computer Programming as an Art</title>
-      <link>https://example.org/post/cs-reading-computer-programming-as-an-art/</link>
+      <link>http://kirang.in/post/cs-reading-computer-programming-as-an-art/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/cs-reading-computer-programming-as-an-art/</guid>
+      <guid>http://kirang.in/post/cs-reading-computer-programming-as-an-art/</guid>
       <description>Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of &amp;ldquo;Art&amp;rdquo;. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.</description>
     </item>
     <item>
       <title>Setting up ACL in Mosquitto using Postgres</title>
-      <link>https://example.org/post/setting-up-acl-in-mosquitto-using-postgres/</link>
+      <link>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</link>
       <pubDate>Sat, 23 May 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/setting-up-acl-in-mosquitto-using-postgres/</guid>
+      <guid>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</guid>
       <description>Lately, I&amp;rsquo;ve been playing around with Mosquitto and MQTT in general. Something that is essential to prevent unauthorized access to topics is some sort of an access control mechanism. In this post, I&amp;rsquo;ll illustrate the necessary steps for setting up an ACL(Access Control List) using Postgres and mosquitto-auth-plugin.&#xA;Install Dependencies sudo apt-get install libc-ares-dev libcurl4-openssl-dev uuid-dev postgresql libpq-dev git Install Mosquitto Download Mosquitto from source:&#xA;wget http://mosquitto.org/files/source/mosquitto-1.4.1.tar.gz Build it from source:</description>
     </item>
     <item>
       <title>Emacs as email client with offlineimap and mu4e on OS X</title>
-      <link>https://example.org/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
+      <link>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
       <pubDate>Thu, 13 Nov 2014 02:06:44 +0530</pubDate>
-      <guid>https://example.org/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
+      <guid>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
       <description>Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I&amp;rsquo;ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven&amp;rsquo;t found myself entirely comfortable using any of these. What I&amp;rsquo;m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.</description>
     </item>
     <item>
       <title>Integrating mogenerator in your XCode project</title>
-      <link>https://example.org/post/integrating-mogenerator-in-your-xcode-project/</link>
+      <link>http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/</link>
       <pubDate>Wed, 27 Aug 2014 14:53:00 +0530</pubDate>
-      <guid>https://example.org/post/integrating-mogenerator-in-your-xcode-project/</guid>
+      <guid>http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/</guid>
       <description>&lt;p&gt;Every iOS app you build would require some sort of storage functionality&#xA;within the device itself, especially if it caches data fetched from the&#xA;network. &lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html&#34;&gt;Core&#xA;Data&lt;/a&gt;,&#xA;an object graph management framework developed by Apple will mostly&#xA;likely be your choice in this regard. In that case, a tool like&#xA;mogenerator is indispensable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creating a Mutable Array data type in sqlalchemy</title>
-      <link>https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
+      <link>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
+      <guid>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
       <description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:&#xA;from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.</description>
     </item>
     <item>
       <title>Dealing with ISO 8601 dates in Python</title>
-      <link>https://example.org/post/dealing-with-iso-8601-dates-in-python/</link>
+      <link>http://kirang.in/post/dealing-with-iso-8601-dates-in-python/</link>
       <pubDate>Thu, 10 Apr 2014 17:55:00 +0530</pubDate>
-      <guid>https://example.org/post/dealing-with-iso-8601-dates-in-python/</guid>
+      <guid>http://kirang.in/post/dealing-with-iso-8601-dates-in-python/</guid>
       <description>&lt;p&gt;For those who don&amp;rsquo;t know what the ISO 8601 format is, you can read about&#xA;it &lt;a href=&#34;https://en.wikipedia.org/wiki/ISO_8601&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Brain and Memory</title>
-      <link>https://example.org/post/brain-and-memory/</link>
+      <link>http://kirang.in/post/brain-and-memory/</link>
       <pubDate>Mon, 03 Mar 2014 13:19:00 +0530</pubDate>
-      <guid>https://example.org/post/brain-and-memory/</guid>
+      <guid>http://kirang.in/post/brain-and-memory/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Brain&lt;/strong&gt; is one of the most complex organ in our body; and by complex I&#xA;don&amp;rsquo;t mean it&amp;rsquo;s ability in controlling various functions of our body,&#xA;rather it&amp;rsquo;s ability to randomly store and retrieve humongous amounts of&#xA;information in no time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Testing your Galaxy S2 i9100 after flashing a new ROM</title>
-      <link>https://example.org/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
+      <link>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
       <pubDate>Sun, 23 Feb 2014 19:22:00 +0530</pubDate>
-      <guid>https://example.org/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
+      <guid>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
       <description>&lt;p&gt;After a bit of boredom and a morbid desire to play with KitKat ROM&amp;rsquo;s for&#xA;my Galaxy S2, here I was, pulling through the day without realising how&#xA;much time I poured into getting the latest Cyanogenmod 11 nightly&#xA;working on my phone. It took patience, some restarts, some flashings,&#xA;some more restarts, and a plethora of network bandwith wastefulness, to&#xA;finally get my phone setup with everything that I needed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Documentaries I&#39;ve watched</title>
-      <link>https://example.org/post/documentaries-ive-watched/</link>
+      <link>http://kirang.in/post/documentaries-ive-watched/</link>
       <pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate>
-      <guid>https://example.org/post/documentaries-ive-watched/</guid>
+      <guid>http://kirang.in/post/documentaries-ive-watched/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;Revolution OS&lt;/li&gt;&#xA;&lt;li&gt;Pirates of the Silicon Valley&lt;/li&gt;&#xA;&lt;li&gt;DEFCON: The Documentary&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>My Automation Recipes</title>
-      <link>https://example.org/post/my-automations-recipes/</link>
+      <link>http://kirang.in/post/my-automations-recipes/</link>
       <pubDate>Wed, 29 Jan 2014 19:13:00 +0530</pubDate>
-      <guid>https://example.org/post/my-automations-recipes/</guid>
+      <guid>http://kirang.in/post/my-automations-recipes/</guid>
       <description>Send text files from Dropbox to Evernote http://zpr.io/gwfA&#xA;Create a Wordpress Draft Post from Evernote - http://zpr.io/gwfu&#xA;Send link of a newly created Gist to Evernote - http://zpr.io/gwfb&#xA;Save my starred GitHub repositories to Evernote - https://ifttt.com/recipes/143039&#xA;Add Evernote link for YouTube videos to watch later - https://ifttt.com/recipes/143040&#xA;Save a favorited item in Pocket to Evernote - https://ifttt.com/recipes/143042&#xA;Upload photo tagged #flickrd on Instagram to Flickr - https://ifttt.com/recipes/143043m</description>
     </item>
     <item>
       <title>Books and Short Stories I read in 2014</title>
-      <link>https://example.org/post/books-i-read-in-2014/</link>
+      <link>http://kirang.in/post/books-i-read-in-2014/</link>
       <pubDate>Thu, 16 Jan 2014 00:28:00 +0530</pubDate>
-      <guid>https://example.org/post/books-i-read-in-2014/</guid>
+      <guid>http://kirang.in/post/books-i-read-in-2014/</guid>
       <description> The Yellow Wallpaper by Charlotte Perkins Gillman The Old Man and the Sea by Hemingway How to Read Faster and Recall More by Gordon Wainwright The Raid: A Volunteer&amp;rsquo;s Story by Leo Tolstoy Moonwalking with Einstein by Joshua Foer Surely You&amp;rsquo;re Joking, Mr Feynman by Richard P. Feynman </description>
     </item>
     <item>
       <title>The Unix Philosophy - A Summary</title>
-      <link>https://example.org/post/the-unix-philosophy-summary/</link>
+      <link>http://kirang.in/post/the-unix-philosophy-summary/</link>
       <pubDate>Thu, 12 Dec 2013 20:45:00 +0530</pubDate>
-      <guid>https://example.org/post/the-unix-philosophy-summary/</guid>
+      <guid>http://kirang.in/post/the-unix-philosophy-summary/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rule of Modularity&lt;/strong&gt;: Write simple parts connected by clean&#xA;interfaces.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rule of Clarity&lt;/strong&gt;: Clarity is better than cleverness.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rule of Composition&lt;/strong&gt;: Design programs to be connected to other&#xA;programs.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Installing PIL on Mac OSX Mavericks</title>
-      <link>https://example.org/post/installing-pil-on-mac-osx-mavericks/</link>
+      <link>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</link>
       <pubDate>Mon, 09 Dec 2013 12:13:00 +0530</pubDate>
-      <guid>https://example.org/post/installing-pil-on-mac-osx-mavericks/</guid>
+      <guid>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ve probably tried installing &lt;a href=&#34;http://en.wikipedia.org/wiki/Python_Imaging_Library&#34;&gt;PIL(Python Imaging&#xA;Library)&lt;/a&gt; on OSX&#xA;Mavericks(version 10.9), you&amp;rsquo;re likely to have failed in doing so. After&#xA;searching for a while, I found the solution that worked for me.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writing good Classes in Python</title>
-      <link>https://example.org/post/writing-good-classes-in-python/</link>
+      <link>http://kirang.in/post/writing-good-classes-in-python/</link>
       <pubDate>Mon, 02 Dec 2013 08:38:00 +0530</pubDate>
-      <guid>https://example.org/post/writing-good-classes-in-python/</guid>
+      <guid>http://kirang.in/post/writing-good-classes-in-python/</guid>
       <description>This post is the highlight of Raymond Hettinger&amp;rsquo;s talk &amp;ldquo;Python&amp;rsquo;s Class Development Toolkit&amp;rdquo; at PyCon US 2013.&#xA;Things to keep in mind while writing Classes:&#xA;Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.</description>
     </item>
     <item>
       <title>Setting up Jenkins as a watchdog for your Python application</title>
-      <link>https://example.org/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
+      <link>http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
       <pubDate>Thu, 28 Nov 2013 20:19:00 +0530</pubDate>
-      <guid>https://example.org/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
+      <guid>http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
       <description>In order to facilitate an efficient collaboration amongst developer teams, it is very important to keep the development workflow as simple and straightforward as possible. Version Control is one tool that helps with this. Continuous Integration is another one. Below, I&amp;rsquo;ll illustrate the steps needed to configure a basic Python application with Jenkins, a CI server that automates a lot of the repetitive stuff, so that you can focus on writing code.</description>
     </item>
     <item>
       <title>What makes a great API?</title>
-      <link>https://example.org/post/what-makes-a-great-api/</link>
+      <link>http://kirang.in/post/what-makes-a-great-api/</link>
       <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
-      <guid>https://example.org/post/what-makes-a-great-api/</guid>
+      <guid>http://kirang.in/post/what-makes-a-great-api/</guid>
       <description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs. In this post, I&amp;rsquo;ll highlight a few practices/tips that I&amp;rsquo;ve learnt, designing a few and using different API&amp;rsquo;s.</description>
     </item>
     <item>
       <title>A guide to Visual Design</title>
-      <link>https://example.org/post/a-guide-to-visual-design/</link>
+      <link>http://kirang.in/post/a-guide-to-visual-design/</link>
       <pubDate>Wed, 30 Oct 2013 11:44:00 +0530</pubDate>
-      <guid>https://example.org/post/a-guide-to-visual-design/</guid>
+      <guid>http://kirang.in/post/a-guide-to-visual-design/</guid>
       <description>&lt;p&gt;Making something complex so simple is really hard. And this holds true&#xA;even for visual design. It&amp;rsquo;s easier to screw up visual design and create&#xA;a mess, than you think. That being said, I&amp;rsquo;ll highlight a few points&#xA;about good visual design practices that I&amp;rsquo;ve learnt below:&lt;/p&gt;</description>
     </item>
     <item>
       <title>An Eventful September</title>
-      <link>https://example.org/post/an-eventful-september/</link>
+      <link>http://kirang.in/post/an-eventful-september/</link>
       <pubDate>Thu, 03 Oct 2013 18:51:00 +0530</pubDate>
-      <guid>https://example.org/post/an-eventful-september/</guid>
+      <guid>http://kirang.in/post/an-eventful-september/</guid>
       <description>&lt;p&gt;Looking back at September, it&amp;rsquo;s probably been one of the most happening&#xA;months for me in this year. Well, at least technically. I will try and&#xA;recollect some bits from the eventlog here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building an open-source Python application the right way</title>
-      <link>https://example.org/post/building-an-open-source-python-application-the-right-way/</link>
+      <link>http://kirang.in/post/building-an-open-source-python-application-the-right-way/</link>
       <pubDate>Mon, 09 Sep 2013 22:44:00 +0530</pubDate>
-      <guid>https://example.org/post/building-an-open-source-python-application-the-right-way/</guid>
+      <guid>http://kirang.in/post/building-an-open-source-python-application-the-right-way/</guid>
       <description>&lt;p&gt;If you love Python and love open source like I do, you&amp;rsquo;d probably be&#xA;open sourcing something new every day/week/month. Sure that there are&#xA;quite a lot of articles online that tell you the best practices of&#xA;writing Python code, testing, packaging, distributing etc, I haven&amp;rsquo;t&#xA;really found a good article that highlights what are the best&#xA;practices/conventions to be followed while building a full fledged and&#xA;open source Python application. So I decided to write one.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Familiarising yourself with a large codebase</title>
-      <link>https://example.org/post/familiarising-yourself-with-a-large-codebase/</link>
+      <link>http://kirang.in/post/familiarising-yourself-with-a-large-codebase/</link>
       <pubDate>Fri, 06 Sep 2013 02:56:00 +0530</pubDate>
-      <guid>https://example.org/post/familiarising-yourself-with-a-large-codebase/</guid>
+      <guid>http://kirang.in/post/familiarising-yourself-with-a-large-codebase/</guid>
       <description>I&amp;rsquo;m sure that a lot of developers find it harder to read existing code and understand the ideals behind it, rather than writing it from scratch, themselves. I too have this same problem, and so started looking around online as to how people have dealt with it. I&amp;rsquo;ve compiled some good answers from various sources, below:&#xA;Try and understand at a high level, what the purpose of the code is, and then identify the key elements/functions that help achieve this purpose Try to read as much design and documentation about the project before diving in Try and figure out the relations between various components and then draw/visualise an architecture diagram Talk to authors and clarify things with them beforehand Go through unit tests to get a high level overview Start with the entry point in the program.</description>
     </item>
     <item>
       <title>Deploying a Django application on Elastic Beanstalk using S3</title>
-      <link>https://example.org/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</link>
+      <link>http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</link>
       <pubDate>Tue, 20 Aug 2013 06:20:00 +0530</pubDate>
-      <guid>https://example.org/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</guid>
+      <guid>http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</guid>
       <description>This post was born out of the pain to get a sample django application, configured properly, using Amazon S3 for serving static files, to run on AWS Elastic Beanstalk. I encountered many errors on the way, but finally managed to get a full fledged application running successfully. I am gonna try and highlight the key steps here to help you get your project up and running in no time.&#xA;First, create a sample Django project and a AWS Elastic Beanstalk environment for your application, as per the instructions provided in the official AWS documentation.</description>
     </item>
     <item>
       <title>Web Typography checklist</title>
-      <link>https://example.org/post/web-typography-checklist/</link>
+      <link>http://kirang.in/post/web-typography-checklist/</link>
       <pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate>
-      <guid>https://example.org/post/web-typography-checklist/</guid>
+      <guid>http://kirang.in/post/web-typography-checklist/</guid>
       <description>The following is a note-to-self checklist for web typography:&#xA;Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids </description>
     </item>
     <item>
       <title>What is Python Month?</title>
-      <link>https://example.org/post/what-is-python-month/</link>
+      <link>http://kirang.in/post/what-is-python-month/</link>
       <pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate>
-      <guid>https://example.org/post/what-is-python-month/</guid>
+      <guid>http://kirang.in/post/what-is-python-month/</guid>
       <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India&#xA;on using and developing the Python programming language is conducted&#xA;annually by the Python developer community, and represented by the&#xA;Python Software Society of India. The conference attracts the best&#xA;Python programmers across the country and abroad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JVM Profiling Disclosures</title>
-      <link>https://example.org/post/jvm-profiling-disclosures/</link>
+      <link>http://kirang.in/post/jvm-profiling-disclosures/</link>
       <pubDate>Wed, 22 May 2013 02:55:00 +0530</pubDate>
-      <guid>https://example.org/post/jvm-profiling-disclosures/</guid>
+      <guid>http://kirang.in/post/jvm-profiling-disclosures/</guid>
       <description>Well, I’ve never actually given importance to the term ”profiling” till a few days ago. The real deal was that I was just too lazy to actually run a profiler and then to try interpret the stats and hopefully find the bottleneck in the code. So to avoid all this hassle, I tried to be careful while writing code to make sure I don’t leave any open doors for memory leaks or poor CPU utilization.</description>
     </item>
     <item>
       <title>Installing pylibmc in ubuntu</title>
-      <link>https://example.org/post/installing-pylibmc-in-ubuntu/</link>
+      <link>http://kirang.in/post/installing-pylibmc-in-ubuntu/</link>
       <pubDate>Wed, 22 May 2013 02:16:00 +0530</pubDate>
-      <guid>https://example.org/post/installing-pylibmc-in-ubuntu/</guid>
+      <guid>http://kirang.in/post/installing-pylibmc-in-ubuntu/</guid>
       <description>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.&#xA;Install python-dev&#xA;sudo apt-get install python-dev Install libmemcached&#xA;sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip&#xA;sudo pip install pylibmc </description>
     </item>
     <item>
       <title>Type and Object in Python</title>
-      <link>https://example.org/post/type-and-object-in-python/</link>
+      <link>http://kirang.in/post/type-and-object-in-python/</link>
       <pubDate>Wed, 22 May 2013 01:59:00 +0530</pubDate>
-      <guid>https://example.org/post/type-and-object-in-python/</guid>
+      <guid>http://kirang.in/post/type-and-object-in-python/</guid>
       <description>&lt;p&gt;Recently I stumbled across an article talking about the importance of&#xA;understanding type and object in Python, so thought of writing a small&#xA;post on it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Make your open source project documentation suck less</title>
-      <link>https://example.org/post/make-your-open-source-project-documentation-suck-less/</link>
+      <link>http://kirang.in/post/make-your-open-source-project-documentation-suck-less/</link>
       <pubDate>Tue, 07 May 2013 16:55:00 +0530</pubDate>
-      <guid>https://example.org/post/make-your-open-source-project-documentation-suck-less/</guid>
+      <guid>http://kirang.in/post/make-your-open-source-project-documentation-suck-less/</guid>
       <description>I just stumbled into this talk about documentation by Jacob-Kaplan Moss and it was really an insightful look into how one must design the documentation for an open source project. Below is the gist of his talk:&#xA;Documentation is communication This is the single most important point that you need to understand. Documentation is not just written as a guide, but as a means to communicate with various developers and users across the globe.</description>
     </item>
     <item>
       <title>My Sublime workflow</title>
-      <link>https://example.org/post/my-sublime-workflow/</link>
+      <link>http://kirang.in/post/my-sublime-workflow/</link>
       <pubDate>Sat, 04 May 2013 13:44:00 +0530</pubDate>
-      <guid>https://example.org/post/my-sublime-workflow/</guid>
+      <guid>http://kirang.in/post/my-sublime-workflow/</guid>
       <description>The settings I use for Sublime Text 2:&#xA;{ &amp;#34;color_scheme&amp;#34;: &amp;#34;Packages/User/Tomorrow-Night.tmTheme&amp;#34;, &amp;#34;detect_slow_plugins&amp;#34;: false, &amp;#34;draw_white_space&amp;#34;: &amp;#34;all&amp;#34;, &amp;#34;find_selected_text&amp;#34;: true, &amp;#34;fold_buttons&amp;#34;: false, &amp;#34;folder_exclude_patterns&amp;#34;: [ &amp;#34;.svn&amp;#34;, &amp;#34;.git&amp;#34;, &amp;#34;.hg&amp;#34;, &amp;#34;CVS&amp;#34;, &amp;#34;_build&amp;#34;, &amp;#34;dist&amp;#34;, &amp;#34;build&amp;#34;, &amp;#34;site&amp;#34; ], &amp;#34;font_face&amp;#34;: &amp;#34;Ubuntu Mono&amp;#34;, &amp;#34;font_options&amp;#34;: [ &amp;#34;subpixel_antialias&amp;#34; ], &amp;#34;font_size&amp;#34;: 13, &amp;#34;highlight_line&amp;#34;: true, &amp;#34;ignored_packages&amp;#34;: [ &amp;#34;Vintage&amp;#34; ], &amp;#34;rulers&amp;#34;: [ 80, 100 ], &amp;#34;soda_classic_tabs&amp;#34;: true, &amp;#34;theme&amp;#34;: &amp;#34;Soda Dark.sublime-theme&amp;#34;, &amp;#34;translate_tabs_to_spaces&amp;#34;: true, &amp;#34;trim_trailing_white_space_on_save&amp;#34;: true } Plugins Emmet-Sublime SublimeLinter SublimeREPL SideBarEnhancements Markdown Preview Git Others Tomorrow-Night color scheme Soda Dark theme </description>
     </item>
     <item>
       <title>Hello World!</title>
-      <link>https://example.org/post/hello-world/</link>
+      <link>http://kirang.in/post/hello-world/</link>
       <pubDate>Fri, 03 May 2013 14:38:00 +0530</pubDate>
-      <guid>https://example.org/post/hello-world/</guid>
+      <guid>http://kirang.in/post/hello-world/</guid>
       <description>Hello World!</description>
     </item>
     <item>
       <title></title>
-      <link>https://example.org/about/</link>
+      <link>http://kirang.in/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.org/about/</guid>
+      <guid>http://kirang.in/about/</guid>
       <description>Hello There! I’m Kiran Gangadharan.&#xA;I currently work at nilenso as a polyglot programmer exploring new challenges.&#xA;When I&amp;rsquo;m not writing code, I usually read books or play/read/watch Go.&#xA;You can find me on Twitter, peruse my projects on GitHub, see my reading list on Goodreads, and watch/review my games on OGS.</description>
     </item>
   </channel>

@@ -2,94 +2,94 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Kiran Gangadharan</title>
-    <link>https://example.org/tags/python/</link>
+    <link>http://kirang.in/tags/python/</link>
     <description>Recent content in Python on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0530</lastBuildDate>
-    <atom:link href="https://example.org/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kirang.in/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fetching data with a raw SQL query in SQLAlchemy</title>
-      <link>https://example.org/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
+      <link>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
       <pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
+      <guid>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
       <description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:&#xA;query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.</description>
     </item>
     <item>
       <title>Creating a Mutable Array data type in sqlalchemy</title>
-      <link>https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
+      <link>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
       <pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate>
-      <guid>https://example.org/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
+      <guid>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
       <description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:&#xA;from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.</description>
     </item>
     <item>
       <title>Dealing with ISO 8601 dates in Python</title>
-      <link>https://example.org/post/dealing-with-iso-8601-dates-in-python/</link>
+      <link>http://kirang.in/post/dealing-with-iso-8601-dates-in-python/</link>
       <pubDate>Thu, 10 Apr 2014 17:55:00 +0530</pubDate>
-      <guid>https://example.org/post/dealing-with-iso-8601-dates-in-python/</guid>
+      <guid>http://kirang.in/post/dealing-with-iso-8601-dates-in-python/</guid>
       <description>&lt;p&gt;For those who don&amp;rsquo;t know what the ISO 8601 format is, you can read about&#xA;it &lt;a href=&#34;https://en.wikipedia.org/wiki/ISO_8601&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing PIL on Mac OSX Mavericks</title>
-      <link>https://example.org/post/installing-pil-on-mac-osx-mavericks/</link>
+      <link>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</link>
       <pubDate>Mon, 09 Dec 2013 12:13:00 +0530</pubDate>
-      <guid>https://example.org/post/installing-pil-on-mac-osx-mavericks/</guid>
+      <guid>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</guid>
       <description>&lt;p&gt;If you&amp;rsquo;ve probably tried installing &lt;a href=&#34;http://en.wikipedia.org/wiki/Python_Imaging_Library&#34;&gt;PIL(Python Imaging&#xA;Library)&lt;/a&gt; on OSX&#xA;Mavericks(version 10.9), you&amp;rsquo;re likely to have failed in doing so. After&#xA;searching for a while, I found the solution that worked for me.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writing good Classes in Python</title>
-      <link>https://example.org/post/writing-good-classes-in-python/</link>
+      <link>http://kirang.in/post/writing-good-classes-in-python/</link>
       <pubDate>Mon, 02 Dec 2013 08:38:00 +0530</pubDate>
-      <guid>https://example.org/post/writing-good-classes-in-python/</guid>
+      <guid>http://kirang.in/post/writing-good-classes-in-python/</guid>
       <description>This post is the highlight of Raymond Hettinger&amp;rsquo;s talk &amp;ldquo;Python&amp;rsquo;s Class Development Toolkit&amp;rdquo; at PyCon US 2013.&#xA;Things to keep in mind while writing Classes:&#xA;Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.</description>
     </item>
     <item>
       <title>Setting up Jenkins as a watchdog for your Python application</title>
-      <link>https://example.org/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
+      <link>http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
       <pubDate>Thu, 28 Nov 2013 20:19:00 +0530</pubDate>
-      <guid>https://example.org/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
+      <guid>http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
       <description>In order to facilitate an efficient collaboration amongst developer teams, it is very important to keep the development workflow as simple and straightforward as possible. Version Control is one tool that helps with this. Continuous Integration is another one. Below, I&amp;rsquo;ll illustrate the steps needed to configure a basic Python application with Jenkins, a CI server that automates a lot of the repetitive stuff, so that you can focus on writing code.</description>
     </item>
     <item>
       <title>An Eventful September</title>
-      <link>https://example.org/post/an-eventful-september/</link>
+      <link>http://kirang.in/post/an-eventful-september/</link>
       <pubDate>Thu, 03 Oct 2013 18:51:00 +0530</pubDate>
-      <guid>https://example.org/post/an-eventful-september/</guid>
+      <guid>http://kirang.in/post/an-eventful-september/</guid>
       <description>&lt;p&gt;Looking back at September, it&amp;rsquo;s probably been one of the most happening&#xA;months for me in this year. Well, at least technically. I will try and&#xA;recollect some bits from the eventlog here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building an open-source Python application the right way</title>
-      <link>https://example.org/post/building-an-open-source-python-application-the-right-way/</link>
+      <link>http://kirang.in/post/building-an-open-source-python-application-the-right-way/</link>
       <pubDate>Mon, 09 Sep 2013 22:44:00 +0530</pubDate>
-      <guid>https://example.org/post/building-an-open-source-python-application-the-right-way/</guid>
+      <guid>http://kirang.in/post/building-an-open-source-python-application-the-right-way/</guid>
       <description>&lt;p&gt;If you love Python and love open source like I do, you&amp;rsquo;d probably be&#xA;open sourcing something new every day/week/month. Sure that there are&#xA;quite a lot of articles online that tell you the best practices of&#xA;writing Python code, testing, packaging, distributing etc, I haven&amp;rsquo;t&#xA;really found a good article that highlights what are the best&#xA;practices/conventions to be followed while building a full fledged and&#xA;open source Python application. So I decided to write one.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Deploying a Django application on Elastic Beanstalk using S3</title>
-      <link>https://example.org/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</link>
+      <link>http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</link>
       <pubDate>Tue, 20 Aug 2013 06:20:00 +0530</pubDate>
-      <guid>https://example.org/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</guid>
+      <guid>http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</guid>
       <description>This post was born out of the pain to get a sample django application, configured properly, using Amazon S3 for serving static files, to run on AWS Elastic Beanstalk. I encountered many errors on the way, but finally managed to get a full fledged application running successfully. I am gonna try and highlight the key steps here to help you get your project up and running in no time.&#xA;First, create a sample Django project and a AWS Elastic Beanstalk environment for your application, as per the instructions provided in the official AWS documentation.</description>
     </item>
     <item>
       <title>What is Python Month?</title>
-      <link>https://example.org/post/what-is-python-month/</link>
+      <link>http://kirang.in/post/what-is-python-month/</link>
       <pubDate>Tue, 23 Jul 2013 17:02:00 +0530</pubDate>
-      <guid>https://example.org/post/what-is-python-month/</guid>
+      <guid>http://kirang.in/post/what-is-python-month/</guid>
       <description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://in.pycon.org&#34;&gt;PyCon India&lt;/a&gt;,&lt;/strong&gt; the premier conference in India&#xA;on using and developing the Python programming language is conducted&#xA;annually by the Python developer community, and represented by the&#xA;Python Software Society of India. The conference attracts the best&#xA;Python programmers across the country and abroad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing pylibmc in ubuntu</title>
-      <link>https://example.org/post/installing-pylibmc-in-ubuntu/</link>
+      <link>http://kirang.in/post/installing-pylibmc-in-ubuntu/</link>
       <pubDate>Wed, 22 May 2013 02:16:00 +0530</pubDate>
-      <guid>https://example.org/post/installing-pylibmc-in-ubuntu/</guid>
+      <guid>http://kirang.in/post/installing-pylibmc-in-ubuntu/</guid>
       <description>Before you install Pylibmc on your machine, there are a few dependencies that you need to take care of, so as to ensure a successful installation.&#xA;Install python-dev&#xA;sudo apt-get install python-dev Install libmemcached&#xA;sudo apt-get install libmemcached-dev Now you can successfully install pylibmc using pip&#xA;sudo pip install pylibmc </description>
     </item>
     <item>
       <title>Type and Object in Python</title>
-      <link>https://example.org/post/type-and-object-in-python/</link>
+      <link>http://kirang.in/post/type-and-object-in-python/</link>
       <pubDate>Wed, 22 May 2013 01:59:00 +0530</pubDate>
-      <guid>https://example.org/post/type-and-object-in-python/</guid>
+      <guid>http://kirang.in/post/type-and-object-in-python/</guid>
       <description>&lt;p&gt;Recently I stumbled across an article talking about the importance of&#xA;understanding type and object in Python, so thought of writing a small&#xA;post on it.&lt;/p&gt;</description>
     </item>
   </channel>

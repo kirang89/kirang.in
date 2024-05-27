@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pycon India on Kiran Gangadharan</title>
-    <link>https://example.org/tags/pycon-india/</link>
+    <link>http://kirang.in/tags/pycon-india/</link>
     <description>Recent content in Pycon India on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Oct 2013 18:51:00 +0530</lastBuildDate>
-    <atom:link href="https://example.org/tags/pycon-india/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kirang.in/tags/pycon-india/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Eventful September</title>
-      <link>https://example.org/post/an-eventful-september/</link>
+      <link>http://kirang.in/post/an-eventful-september/</link>
       <pubDate>Thu, 03 Oct 2013 18:51:00 +0530</pubDate>
-      <guid>https://example.org/post/an-eventful-september/</guid>
+      <guid>http://kirang.in/post/an-eventful-september/</guid>
       <description>&lt;p&gt;Looking back at September, it&amp;rsquo;s probably been one of the most happening&#xA;months for me in this year. Well, at least technically. I will try and&#xA;recollect some bits from the eventlog here.&lt;/p&gt;</description>
     </item>
   </channel>
