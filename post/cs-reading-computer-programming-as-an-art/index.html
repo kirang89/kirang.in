@@ -1,31 +1,444 @@
-<!doctype html><html class="not-ready lg:text-base" style=--bg:#fff lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>CS Reading: Computer Programming as an Art - Kiran Gangadharan</title>
-<meta name=theme-color><meta name=description content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of &ldquo;Art&rdquo;. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering."><meta name=author content="Kiran Gangadharan"><link rel="preload stylesheet" as=style href=http://kirang.in/main.min.css><link rel=preload as=image href=http://kirang.in/theme.svg><link rel=preload as=image href=http://kirang.in/twitter.svg><link rel=preload as=image href=http://kirang.in/github.svg><link rel=preload as=image href=http://kirang.in/linkedin.svg><link rel=preload as=image href=http://kirang.in/rss.svg><script defer src=http://kirang.in/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=http://kirang.in/favicon_32x32.png><link rel=apple-touch-icon href=http://kirang.in/apple-touch-icon.png><meta name=generator content="Hugo 0.126.1"><meta itemprop=name content="CS Reading: Computer Programming as an Art"><meta itemprop=description content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering."><meta itemprop=datePublished content="2015-07-31T00:00:00+05:30"><meta itemprop=dateModified content="2015-07-31T00:00:00+05:30"><meta itemprop=wordCount content="264"><meta itemprop=keywords content="Reading,Research-Paper"><meta property="og:url" content="http://kirang.in/post/cs-reading-computer-programming-as-an-art/"><meta property="og:site_name" content="Kiran Gangadharan"><meta property="og:title" content="CS Reading: Computer Programming as an Art"><meta property="og:description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2015-07-31T00:00:00+05:30"><meta property="article:modified_time" content="2015-07-31T00:00:00+05:30"><meta property="article:tag" content="Reading"><meta property="article:tag" content="Research-Paper"><meta name=twitter:card content="summary"><meta name=twitter:title content="CS Reading: Computer Programming as an Art"><meta name=twitter:description content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering."><link rel=canonical href=http://kirang.in/post/cs-reading-computer-programming-as-an-art/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold" href=http://kirang.in/>Kiran Gangadharan</a><div class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#fff".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6"><a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/about/>About</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/kirang89 target=_blank rel=me>twitter
-</a><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/kirang89 target=_blank rel=me>github
-</a><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com/in/kirang89 target=_blank rel=me>linkedin
-</a><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=http://kirang.in/index.xml target=_blank rel=alternate>rss</a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"><article><header class=mb-16><h1 class="!my-0 pb-2.5">CS Reading: Computer Programming as an Art</h1><div class="text-sm antialiased opacity-60"><time>Jul 31, 2015</time>
-<span class=mx-1>&#183;</span>
-<span>Kiran Gangadharan</span></div></header><section><h3 id=paper-computer-programming-as-an-art>Paper: Computer Programming as an Art</h3><h3 id=author-donald-eknuth>Author: Donald E.Knuth</h3><p>In this paper, Prof Knuth tries to highlight what Art and Science
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>CS Reading: Computer Programming as an Art - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of &ldquo;Art&rdquo;. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://kirang.in/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="CS Reading: Computer Programming as an Art">
+  <meta itemprop="description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.">
+  <meta itemprop="datePublished" content="2015-07-31T00:00:00+05:30">
+  <meta itemprop="dateModified" content="2015-07-31T00:00:00+05:30">
+  <meta itemprop="wordCount" content="264">
+  <meta itemprop="keywords" content="Reading,Research-Paper">
+  
+  <meta property="og:url" content="http://kirang.in/post/cs-reading-computer-programming-as-an-art/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="CS Reading: Computer Programming as an Art">
+  <meta property="og:description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2015-07-31T00:00:00+05:30">
+    <meta property="article:modified_time" content="2015-07-31T00:00:00+05:30">
+    <meta property="article:tag" content="Reading">
+    <meta property="article:tag" content="Research-Paper">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CS Reading: Computer Programming as an Art">
+  <meta name="twitter:description" content="Paper: Computer Programming as an Art Author: Donald E.Knuth In this paper, Prof Knuth tries to highlight what Art and Science mean, and how history has often failed to understand it. He talks about the etymology of “Art”. He mentions how we used science and art in the same sense in the earlier times, and how the differences slowly started evolving to the way in which we now distinguish science and engineering.">
+
+  
+  
+  
+  <link rel="canonical" href="http://kirang.in/post/cs-reading-computer-programming-as-an-art/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://kirang.in/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://kirang.in/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">CS Reading: Computer Programming as an Art</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Jul 31, 2015</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Kiran Gangadharan</span>
+      
+    </div>
+    
+  </header>
+
+  <section><h3 id="paper-computer-programming-as-an-art">Paper: Computer Programming as an Art</h3>
+<h3 id="author-donald-eknuth">Author: Donald E.Knuth</h3>
+<p>In this paper, Prof Knuth tries to highlight what Art and Science
 mean, and how history has often failed to understand it. He talks
 about the etymology of &ldquo;Art&rdquo;. He mentions how we used science and art
 in the same sense in the earlier times, and how the differences slowly
 started evolving to the way in which we now distinguish science and
-engineering.</p><p>He then goes on to talk about how Programming is both an art as well
+engineering.</p>
+<p>He then goes on to talk about how Programming is both an art as well
 as a science. Prof Knuth feels that writing a program can be like
 composing poetry or music — it can provide us with intellectual as
 well as emotional satisfaction because it is a real achievement to
 master complexity and build a system of consistent rules. He feels
 that reading programs written by other people and recognizing works of
-art amongst them provides the same satisfaction as well.</p><p>He highlights that programmers attain even more pleasure when they
+art amongst them provides the same satisfaction as well.</p>
+<p>He highlights that programmers attain even more pleasure when they
 accomplish something with limited tools. Though it does not seem to be
 the case now(thanks to Moore&rsquo;s law), he feels that there is still
 plenty of room for artistry. He encourages writing occasional &ldquo;toy&rdquo;
 programs under simulated restrictions, in order to test our abilities
 to the limit. He feels that doing so prevents lethargy and taking
-trivial things for granted.</p><p>He concludes by requesting hardware designers and system programmers
+trivial things for granted.</p>
+<p>He concludes by requesting hardware designers and system programmers
 to provide everyone beautiful programs to work with especially for
 routine tasks, so that we become encouraged to write better programs
-and derive a greater sense of pleasure while doing so.</p></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]" href=http://kirang.in/tags/reading>reading</a>
-<a class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]" href=http://kirang.in/tags/research-paper>research-paper</a></footer><nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]"><a class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]" href=http://kirang.in/post/different-applications-of-reduce-in-clojure/><span class=mr-1.5>←</span><span>Different applications of reduce in Clojure</span></a>
-<a class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]" href=http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/><span>Setting up ACL in Mosquitto using Postgres</span><span class=ml-1.5>→</span></a></nav><div class="giscus mt-24"></div><script src=https://giscus.app/client.js data-repo=kirang89/kirang.in data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY=" data-category=General data-category-id=DIC_kwDOCeAGSM4Cfo4J data-mapping=title data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en data-loading=lazy crossorigin=anonymous async></script></article></main><footer class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"><div class=mr-auto>&copy; 2024
-<a class=link href=http://kirang.in/>Kiran Gangadharan</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>✎ Paper</a></footer></body></html>
+and derive a greater sense of pleasure while doing so.</p>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://kirang.in/tags/reading"
+      >reading</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://kirang.in/tags/research-paper"
+      >research-paper</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://kirang.in/post/different-applications-of-reduce-in-clojure/"
+      ><span class="mr-1.5">←</span><span>Different applications of reduce in Clojure</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/"
+      ><span>Setting up ACL in Mosquitto using Postgres</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

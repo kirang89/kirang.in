@@ -1,3 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Postgres on Kiran Gangadharan</title><link>http://kirang.in/tags/postgres/</link><description>Recent content in Postgres on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 23 May 2015 00:00:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/postgres/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up ACL in Mosquitto using Postgres</title><link>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</link><pubDate>Sat, 23 May 2015 00:00:00 +0530</pubDate><guid>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</guid><description>Lately, I&amp;rsquo;ve been playing around with Mosquitto and MQTT in general. Something that is essential to prevent unauthorized access to topics is some sort of an access control mechanism. In this post, I&amp;rsquo;ll illustrate the necessary steps for setting up an ACL(Access Control List) using Postgres and mosquitto-auth-plugin.
-Install Dependencies sudo apt-get install libc-ares-dev libcurl4-openssl-dev uuid-dev postgresql libpq-dev git Install Mosquitto Download Mosquitto from source:
-wget http://mosquitto.org/files/source/mosquitto-1.4.1.tar.gz Build it from source:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postgres on Kiran Gangadharan</title>
+    <link>http://kirang.in/tags/postgres/</link>
+    <description>Recent content in Postgres on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 May 2015 00:00:00 +0530</lastBuildDate>
+    <atom:link href="http://kirang.in/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up ACL in Mosquitto using Postgres</title>
+      <link>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</link>
+      <pubDate>Sat, 23 May 2015 00:00:00 +0530</pubDate>
+      <guid>http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/</guid>
+      <description>Lately, I&amp;rsquo;ve been playing around with Mosquitto and MQTT in general. Something that is essential to prevent unauthorized access to topics is some sort of an access control mechanism. In this post, I&amp;rsquo;ll illustrate the necessary steps for setting up an ACL(Access Control List) using Postgres and mosquitto-auth-plugin.&#xA;Install Dependencies sudo apt-get install libc-ares-dev libcurl4-openssl-dev uuid-dev postgresql libpq-dev git Install Mosquitto Download Mosquitto from source:&#xA;wget http://mosquitto.org/files/source/mosquitto-1.4.1.tar.gz Build it from source:</description>
+    </item>
+  </channel>
+</rss>

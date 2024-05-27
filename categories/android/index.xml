@@ -1,6 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on Kiran Gangadharan</title><link>http://kirang.in/categories/android/</link><description>Recent content in Android on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 23 Feb 2014 19:22:00 +0530</lastBuildDate><atom:link href="http://kirang.in/categories/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Testing your Galaxy S2 i9100 after flashing a new ROM</title><link>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link><pubDate>Sun, 23 Feb 2014 19:22:00 +0530</pubDate><guid>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid><description>&lt;p>After a bit of boredom and a morbid desire to play with KitKat ROM&amp;rsquo;s for
-my Galaxy S2, here I was, pulling through the day without realising how
-much time I poured into getting the latest Cyanogenmod 11 nightly
-working on my phone. It took patience, some restarts, some flashings,
-some more restarts, and a plethora of network bandwith wastefulness, to
-finally get my phone setup with everything that I needed.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Kiran Gangadharan</title>
+    <link>http://kirang.in/categories/android/</link>
+    <description>Recent content in Android on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Feb 2014 19:22:00 +0530</lastBuildDate>
+    <atom:link href="http://kirang.in/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing your Galaxy S2 i9100 after flashing a new ROM</title>
+      <link>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</link>
+      <pubDate>Sun, 23 Feb 2014 19:22:00 +0530</pubDate>
+      <guid>http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/</guid>
+      <description>&lt;p&gt;After a bit of boredom and a morbid desire to play with KitKat ROM&amp;rsquo;s for&#xA;my Galaxy S2, here I was, pulling through the day without realising how&#xA;much time I poured into getting the latest Cyanogenmod 11 nightly&#xA;working on my phone. It took patience, some restarts, some flashings,&#xA;some more restarts, and a plethora of network bandwith wastefulness, to&#xA;finally get my phone setup with everything that I needed.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

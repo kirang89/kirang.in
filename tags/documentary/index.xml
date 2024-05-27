@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Documentary on Kiran Gangadharan</title><link>http://kirang.in/tags/documentary/</link><description>Recent content in Documentary on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2014 19:23:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/documentary/index.xml" rel="self" type="application/rss+xml"/><item><title>Documentaries I've watched</title><link>http://kirang.in/post/documentaries-ive-watched/</link><pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate><guid>http://kirang.in/post/documentaries-ive-watched/</guid><description>&lt;ul>
-&lt;li>Revolution OS&lt;/li>
-&lt;li>Pirates of the Silicon Valley&lt;/li>
-&lt;li>DEFCON: The Documentary&lt;/li>
-&lt;/ul></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentary on Kiran Gangadharan</title>
+    <link>http://kirang.in/tags/documentary/</link>
+    <description>Recent content in Documentary on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Feb 2014 19:23:00 +0530</lastBuildDate>
+    <atom:link href="http://kirang.in/tags/documentary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Documentaries I&#39;ve watched</title>
+      <link>http://kirang.in/post/documentaries-ive-watched/</link>
+      <pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate>
+      <guid>http://kirang.in/post/documentaries-ive-watched/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Revolution OS&lt;/li&gt;&#xA;&lt;li&gt;Pirates of the Silicon Valley&lt;/li&gt;&#xA;&lt;li&gt;DEFCON: The Documentary&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

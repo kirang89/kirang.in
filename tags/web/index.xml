@@ -1,5 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on Kiran Gangadharan</title><link>http://kirang.in/tags/web/</link><description>Recent content in Web on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 07 Nov 2013 22:59:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>What makes a great API?</title><link>http://kirang.in/post/what-makes-a-great-api/</link><pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate><guid>http://kirang.in/post/what-makes-a-great-api/</guid><description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs. In this post, I&amp;rsquo;ll highlight a few practices/tips that I&amp;rsquo;ve learnt, designing a few and using different API&amp;rsquo;s.</description></item><item><title>A guide to Visual Design</title><link>http://kirang.in/post/a-guide-to-visual-design/</link><pubDate>Wed, 30 Oct 2013 11:44:00 +0530</pubDate><guid>http://kirang.in/post/a-guide-to-visual-design/</guid><description>&lt;p>Making something complex so simple is really hard. And this holds true
-even for visual design. It&amp;rsquo;s easier to screw up visual design and create
-a mess, than you think. That being said, I&amp;rsquo;ll highlight a few points
-about good visual design practices that I&amp;rsquo;ve learnt below:&lt;/p></description></item><item><title>Web Typography checklist</title><link>http://kirang.in/post/web-typography-checklist/</link><pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate><guid>http://kirang.in/post/web-typography-checklist/</guid><description>The following is a note-to-self checklist for web typography:
-Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Kiran Gangadharan</title>
+    <link>http://kirang.in/tags/web/</link>
+    <description>Recent content in Web on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Nov 2013 22:59:00 +0530</lastBuildDate>
+    <atom:link href="http://kirang.in/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What makes a great API?</title>
+      <link>http://kirang.in/post/what-makes-a-great-api/</link>
+      <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
+      <guid>http://kirang.in/post/what-makes-a-great-api/</guid>
+      <description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs. In this post, I&amp;rsquo;ll highlight a few practices/tips that I&amp;rsquo;ve learnt, designing a few and using different API&amp;rsquo;s.</description>
+    </item>
+    <item>
+      <title>A guide to Visual Design</title>
+      <link>http://kirang.in/post/a-guide-to-visual-design/</link>
+      <pubDate>Wed, 30 Oct 2013 11:44:00 +0530</pubDate>
+      <guid>http://kirang.in/post/a-guide-to-visual-design/</guid>
+      <description>&lt;p&gt;Making something complex so simple is really hard. And this holds true&#xA;even for visual design. It&amp;rsquo;s easier to screw up visual design and create&#xA;a mess, than you think. That being said, I&amp;rsquo;ll highlight a few points&#xA;about good visual design practices that I&amp;rsquo;ve learnt below:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Web Typography checklist</title>
+      <link>http://kirang.in/post/web-typography-checklist/</link>
+      <pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate>
+      <guid>http://kirang.in/post/web-typography-checklist/</guid>
+      <description>The following is a note-to-self checklist for web typography:&#xA;Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids </description>
+    </item>
+  </channel>
+</rss>
