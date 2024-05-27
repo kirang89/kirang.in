@@ -1,0 +1,20 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Kiran Gangadharan'
+theme = 'paper'
+
+[params]
+color = 'light'
+
+# header social icons
+twitter = 'kirang89'
+github = 'kirang89'
+linkedin = 'kirang89'
+
+rss = true
+# avatar = 'kiran.daredevil@gmail.com'
+# name = 'Kiran Gangadharan'
+# bio = 'Hacks. Thoughts. Writings.'
+monoDarkIcon = true
+gravatarCdn = "https://0.gravatar.com/avatar/c5118751c1d02d2650acaa3f6d64ae8b4c68a6f72abbc56e35bd292e0eb2f256?size=128"
+favicon = "favicon_32x32.png"
