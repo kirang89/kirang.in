@@ -1,12 +1,13 @@
 # kirang.in
+[![Build](https://github.com/kirang89/kirang.in/actions/workflows/hugo-publish.yml/badge.svg)](https://github.com/kirang89/kirang.in/actions/workflows/hugo-publish.yml)
 
-This repo will eventually be the source of my blog  http://kirang.in
+The source of my blog at https://kirang.in
 
 ## Running
 
 To run the server in development mode, do:
 
-``` shell
+```shell
 hugo server -D
 ```
 
@@ -18,10 +19,9 @@ Simply run `hugo` to build the website
 
 After building the website, do the following:
 
-``` shell
+```shell
 cd public
 git add --all
 git commit -m "Publish"
-cd ..
 git push origin gh-pages
 ```
