@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Sqlalchemy on Kiran Gangadharan</title>
-    <link>http://kirang.in/tags/sqlalchemy/</link>
-    <description>Recent content in Sqlalchemy on Kiran Gangadharan</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0530</lastBuildDate>
-    <atom:link href="http://kirang.in/tags/sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Fetching data with a raw SQL query in SQLAlchemy</title>
-      <link>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link>
-      <pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate>
-      <guid>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid>
-      <description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.</description>
-    </item>
-    <item>
-      <title>Creating a Mutable Array data type in sqlalchemy</title>
-      <link>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link>
-      <pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate>
-      <guid>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid>
-      <description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sqlalchemy on Kiran Gangadharan</title><link>http://kirang.in/tags/sqlalchemy/</link><description>Recent content in Sqlalchemy on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 22 Nov 2015 00:00:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/sqlalchemy/index.xml" rel="self" type="application/rss+xml"/><item><title>Fetching data with a raw SQL query in SQLAlchemy</title><link>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</link><pubDate>Sun, 22 Nov 2015 00:00:00 +0530</pubDate><guid>http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/</guid><description>The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &amp;#39;select * from books where author=:author&amp;#39; from sqlalchemy import text result = yoursession.execute(text(query), {&amp;#39;author&amp;#39;: &amp;#39;Neil Degrasse Tyson&amp;#39;}) from collections import namedtuple Book = namedtuple(&amp;#39;Book&amp;#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.</description></item><item><title>Creating a Mutable Array data type in sqlalchemy</title><link>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</link><pubDate>Sat, 09 Aug 2014 00:00:00 +0530</pubDate><guid>http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/</guid><description>The problem with using the ARRAY datatype in sqlalchemy is that it&amp;rsquo;s immutable. This means it isn&amp;rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&amp;rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.</description></item></channel></rss>

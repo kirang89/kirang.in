@@ -1,33 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Miscellaneous on Kiran Gangadharan</title>
-    <link>http://kirang.in/categories/miscellaneous/</link>
-    <description>Recent content in Miscellaneous on Kiran Gangadharan</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 03 Mar 2014 13:19:00 +0530</lastBuildDate>
-    <atom:link href="http://kirang.in/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Brain and Memory</title>
-      <link>http://kirang.in/post/brain-and-memory/</link>
-      <pubDate>Mon, 03 Mar 2014 13:19:00 +0530</pubDate>
-      <guid>http://kirang.in/post/brain-and-memory/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Brain&lt;/strong&gt; is one of the most complex organ in our body; and by complex I&#xA;don&amp;rsquo;t mean it&amp;rsquo;s ability in controlling various functions of our body,&#xA;rather it&amp;rsquo;s ability to randomly store and retrieve humongous amounts of&#xA;information in no time.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Documentaries I&#39;ve watched</title>
-      <link>http://kirang.in/post/documentaries-ive-watched/</link>
-      <pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate>
-      <guid>http://kirang.in/post/documentaries-ive-watched/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;Revolution OS&lt;/li&gt;&#xA;&lt;li&gt;Pirates of the Silicon Valley&lt;/li&gt;&#xA;&lt;li&gt;DEFCON: The Documentary&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
-      <title>Hello World!</title>
-      <link>http://kirang.in/post/hello-world/</link>
-      <pubDate>Fri, 03 May 2013 14:38:00 +0530</pubDate>
-      <guid>http://kirang.in/post/hello-world/</guid>
-      <description>Hello World!</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Miscellaneous on Kiran Gangadharan</title><link>http://kirang.in/categories/miscellaneous/</link><description>Recent content in Miscellaneous on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 03 Mar 2014 13:19:00 +0530</lastBuildDate><atom:link href="http://kirang.in/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml"/><item><title>Brain and Memory</title><link>http://kirang.in/post/brain-and-memory/</link><pubDate>Mon, 03 Mar 2014 13:19:00 +0530</pubDate><guid>http://kirang.in/post/brain-and-memory/</guid><description>&lt;p>&lt;strong>Brain&lt;/strong> is one of the most complex organ in our body; and by complex I
+don&amp;rsquo;t mean it&amp;rsquo;s ability in controlling various functions of our body,
+rather it&amp;rsquo;s ability to randomly store and retrieve humongous amounts of
+information in no time.&lt;/p></description></item><item><title>Documentaries I've watched</title><link>http://kirang.in/post/documentaries-ive-watched/</link><pubDate>Thu, 20 Feb 2014 19:23:00 +0530</pubDate><guid>http://kirang.in/post/documentaries-ive-watched/</guid><description>&lt;ul>
+&lt;li>Revolution OS&lt;/li>
+&lt;li>Pirates of the Silicon Valley&lt;/li>
+&lt;li>DEFCON: The Documentary&lt;/li>
+&lt;/ul></description></item><item><title>Hello World!</title><link>http://kirang.in/post/hello-world/</link><pubDate>Fri, 03 May 2013 14:38:00 +0530</pubDate><guid>http://kirang.in/post/hello-world/</guid><description>Hello World!</description></item></channel></rss>
