@@ -1,78 +1,519 @@
-<!doctype html><html class="not-ready lg:text-base" style=--bg:#fff lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Building an open-source Python application the right way - Kiran Gangadharan</title>
-<meta name=theme-color><meta name=description content="If you love Python and love open source like I do, you&rsquo;d probably be
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Building an open-source Python application the right way - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="If you love Python and love open source like I do, you&rsquo;d probably be
 open sourcing something new every day/week/month. Sure that there are
 quite a lot of articles online that tell you the best practices of
 writing Python code, testing, packaging, distributing etc, I haven&rsquo;t
 really found a good article that highlights what are the best
 practices/conventions to be followed while building a full fledged and
-open source Python application. So I decided to write one."><meta name=author content="Kiran Gangadharan"><link rel="preload stylesheet" as=style href=http://kirang.in/main.min.css><link rel=preload as=image href=http://kirang.in/theme.svg><link rel=preload as=image href=http://kirang.in/twitter.svg><link rel=preload as=image href=http://kirang.in/github.svg><link rel=preload as=image href=http://kirang.in/linkedin.svg><link rel=preload as=image href=http://kirang.in/rss.svg><script defer src=http://kirang.in/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=http://kirang.in/favicon_32x32.png><link rel=apple-touch-icon href=http://kirang.in/apple-touch-icon.png><meta name=generator content="Hugo 0.126.1"><meta itemprop=name content="Building an open-source Python application the right way"><meta itemprop=description content="If you love Python and love open source like I do, you’d probably be open sourcing something new every day/week/month. Sure that there are quite a lot of articles online that tell you the best practices of writing Python code, testing, packaging, distributing etc, I haven’t really found a good article that highlights what are the best practices/conventions to be followed while building a full fledged and open source Python application. So I decided to write one."><meta itemprop=datePublished content="2013-09-09T22:44:00+05:30"><meta itemprop=dateModified content="2013-09-09T22:44:00+05:30"><meta itemprop=wordCount content="670"><meta itemprop=keywords content="Bootstrapy,Open-Source,Programming,Python"><meta property="og:url" content="http://kirang.in/post/building-an-open-source-python-application-the-right-way/"><meta property="og:site_name" content="Kiran Gangadharan"><meta property="og:title" content="Building an open-source Python application the right way"><meta property="og:description" content="If you love Python and love open source like I do, you’d probably be open sourcing something new every day/week/month. Sure that there are quite a lot of articles online that tell you the best practices of writing Python code, testing, packaging, distributing etc, I haven’t really found a good article that highlights what are the best practices/conventions to be followed while building a full fledged and open source Python application. So I decided to write one."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2013-09-09T22:44:00+05:30"><meta property="article:modified_time" content="2013-09-09T22:44:00+05:30"><meta property="article:tag" content="Bootstrapy"><meta property="article:tag" content="Open-Source"><meta property="article:tag" content="Programming"><meta property="article:tag" content="Python"><meta name=twitter:card content="summary"><meta name=twitter:title content="Building an open-source Python application the right way"><meta name=twitter:description content="If you love Python and love open source like I do, you’d probably be open sourcing something new every day/week/month. Sure that there are quite a lot of articles online that tell you the best practices of writing Python code, testing, packaging, distributing etc, I haven’t really found a good article that highlights what are the best practices/conventions to be followed while building a full fledged and open source Python application. So I decided to write one."><link rel=canonical href=http://kirang.in/post/building-an-open-source-python-application-the-right-way/></head><body class="text-black duration-200 ease-out dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center"><div class="relative z-50 mr-auto flex items-center"><a class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold" href=http://kirang.in/>Kiran Gangadharan</a><div class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#fff".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"><nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6"><a class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal" href=/about/>About</a></nav><nav class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./twitter.svg) href=https://twitter.com/kirang89 target=_blank rel=me>twitter
-</a><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/kirang89 target=_blank rel=me>github
-</a><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com/in/kirang89 target=_blank rel=me>linkedin
-</a><a class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./rss.svg) href=http://kirang.in/index.xml target=_blank rel=alternate>rss</a></nav></div></header><main class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"><article><header class=mb-16><h1 class="!my-0 pb-2.5">Building an open-source Python application the right way</h1><div class="text-sm antialiased opacity-60"><time>Sep 9, 2013</time>
-<span class=mx-1>&#183;</span>
-<span>Kiran Gangadharan</span></div></header><section><p>If you love Python and love open source like I do, you&rsquo;d probably be
+open source Python application. So I decided to write one." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://kirang.in/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.126.1">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="Building an open-source Python application the right way">
+  <meta itemprop="description" content="If you love Python and love open source like I do, you’d probably be open sourcing something new every day/week/month. Sure that there are quite a lot of articles online that tell you the best practices of writing Python code, testing, packaging, distributing etc, I haven’t really found a good article that highlights what are the best practices/conventions to be followed while building a full fledged and open source Python application. So I decided to write one.">
+  <meta itemprop="datePublished" content="2013-09-09T22:44:00+05:30">
+  <meta itemprop="dateModified" content="2013-09-09T22:44:00+05:30">
+  <meta itemprop="wordCount" content="670">
+  <meta itemprop="keywords" content="Bootstrapy,Open-Source,Programming,Python">
+  
+  <meta property="og:url" content="http://kirang.in/post/building-an-open-source-python-application-the-right-way/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="Building an open-source Python application the right way">
+  <meta property="og:description" content="If you love Python and love open source like I do, you’d probably be open sourcing something new every day/week/month. Sure that there are quite a lot of articles online that tell you the best practices of writing Python code, testing, packaging, distributing etc, I haven’t really found a good article that highlights what are the best practices/conventions to be followed while building a full fledged and open source Python application. So I decided to write one.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2013-09-09T22:44:00+05:30">
+    <meta property="article:modified_time" content="2013-09-09T22:44:00+05:30">
+    <meta property="article:tag" content="Bootstrapy">
+    <meta property="article:tag" content="Open-Source">
+    <meta property="article:tag" content="Programming">
+    <meta property="article:tag" content="Python">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building an open-source Python application the right way">
+  <meta name="twitter:description" content="If you love Python and love open source like I do, you’d probably be open sourcing something new every day/week/month. Sure that there are quite a lot of articles online that tell you the best practices of writing Python code, testing, packaging, distributing etc, I haven’t really found a good article that highlights what are the best practices/conventions to be followed while building a full fledged and open source Python application. So I decided to write one.">
+
+  
+  
+  
+  <link rel="canonical" href="http://kirang.in/post/building-an-open-source-python-application-the-right-way/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://kirang.in/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://kirang.in/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Building an open-source Python application the right way</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Sep 9, 2013</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>Kiran Gangadharan</span>
+      
+    </div>
+    
+  </header>
+
+  <section><p>If you love Python and love open source like I do, you&rsquo;d probably be
 open sourcing something new every day/week/month. Sure that there are
 quite a lot of articles online that tell you the best practices of
 writing Python code, testing, packaging, distributing etc, I haven&rsquo;t
 really found a good article that highlights what are the best
 practices/conventions to be followed while building a full fledged and
-open source Python application. So I decided to write one.</p><p>While I know that this was a good idea, I also wanted some sort of
+open source Python application. So I decided to write one.</p>
+<p>While I know that this was a good idea, I also wanted some sort of
 template code that I could reuse in every project. Hence, I decided to
-write one. Meet <a href=https://github.com/kirang89/bootstrapy>bootstrapy</a>, a
+write one. Meet <a href="https://github.com/kirang89/bootstrapy">bootstrapy</a>, a
 bootstrap python application that takes the pain out of setting up a
 sample application and lets you focus on writing code and tests for
 them. As a follow up of the application, I&rsquo;ll try and explain the
-purpose of various files in as simple manner as possible.</p><p>First, let&rsquo;s take a look at the directory structure of bootstrapy:</p><p><a href=http://kirang89.webfactional.com/wp-content/uploads/2013/09/bootstrapy-screenshot.png><img src=http://kirang89.webfactional.com/wp-content/uploads/2013/09/bootstrapy-screenshot.png alt=bootstrapy-screenshot></a>
-<strong>Files</strong></p><ul><li><em>AUTHORS.rst</em> - This is where you would add yourself as well as the
-names of other contributors to your project</li><li><em>CHANGELOG</em> - Contains the list of changes in your application for
+purpose of various files in as simple manner as possible.</p>
+<p>First, let&rsquo;s take a look at the directory structure of bootstrapy:</p>
+<p><a href="http://kirang89.webfactional.com/wp-content/uploads/2013/09/bootstrapy-screenshot.png"><img src="http://kirang89.webfactional.com/wp-content/uploads/2013/09/bootstrapy-screenshot.png" alt="bootstrapy-screenshot"></a>
+<strong>Files</strong></p>
+<ul>
+<li><em>AUTHORS.rst</em> - This is where you would add yourself as well as the
+names of other contributors to your project</li>
+<li><em>CHANGELOG</em> - Contains the list of changes in your application for
 each release you do. This serves as a quick overview of what has
 changed in your application/project for both developers/users. This
 file may be optional or mandatory, depending on the license you
-choose.</li><li><em>CONTRIBUTING.rst</em> - Contains the instructions to be followed that
-instructs developers on how they can help out with your project.</li><li><em>MANIFEST.in</em> - While this is not mandatory, it is fairly common to
+choose.</li>
+<li><em>CONTRIBUTING.rst</em> - Contains the instructions to be followed that
+instructs developers on how they can help out with your project.</li>
+<li><em>MANIFEST.in</em> - While this is not mandatory, it is fairly common to
 list the contents of your distribution in this file. This file
 indicates what files are needed to be included in the source
 distribution but does directly affect what files are installed. In
 short words, the packages that need to be installed, should be
-mentioned in setup.py  and
+mentioned in <!-- raw HTML omitted -->setup.py<!-- raw HTML omitted -->  and
 the extras needed in the final binary of your application, should be
-mentioned in the MANIFEST file.</li><li><em>Makefile</em> - Makefiles are generally used to organise code
+mentioned in the MANIFEST file.</li>
+<li><em>Makefile</em> - Makefiles are generally used to organise code
 compilation. But we can abuse it a bit and use it to do various
 other things like setting up an environment, installing
-dependencies, cleaning up……you get the picture.</li><li><em>requirements.txt</em> - This is where you put all the
+dependencies, cleaning up……you get the picture.</li>
+<li><em>requirements.txt</em> - This is where you put all the
 dependencies/packages needed by your project/application. Doing so,
-you can install them using make
-deps  which internally runs pip install -r
-requirements.txt</li><li><em>setup.py</em> - Tells you that the package/module that you&rsquo;re about to
+you can install them using <!-- raw HTML omitted -->make
+deps<!-- raw HTML omitted -->  which internally runs <!-- raw HTML omitted -->pip install -r
+requirements.txt<!-- raw HTML omitted --></li>
+<li><em>setup.py</em> - Tells you that the package/module that you&rsquo;re about to
 install have been packaged and distributed using Distutils, which is
 the standard for distributing Python modules. This allows for easy
-installation of Python projects by just running  python
-setup.py install</li></ul><p>You can do other things like create your own package, zip it and even
-upload it to <a href=https://pypi.python.org/>PyPi</a>. For more details, refer
-<a href=http://docs.python.org/2/install/index.html>Installing Python Modules</a>
-and <a href=http://pythonhosted.org/an_example_pypi_project/setuptools.html>Getting started with setuptools and
-setup.py</a>.</p><p><strong>Directories</strong></p><ul><li><em>docs</em> - This is the directory to be created to store all the
+installation of Python projects by just running  <!-- raw HTML omitted -->python
+setup.py install<!-- raw HTML omitted --></li>
+</ul>
+<p>You can do other things like create your own package, zip it and even
+upload it to <a href="https://pypi.python.org/">PyPi</a>. For more details, refer
+<a href="http://docs.python.org/2/install/index.html">Installing Python Modules</a>
+and <a href="http://pythonhosted.org/an_example_pypi_project/setuptools.html">Getting started with setuptools and
+setup.py</a>.</p>
+<p><strong>Directories</strong></p>
+<ul>
+<li><em>docs</em> - This is the directory to be created to store all the
 documentation to be used by Sphinx. You should basically store the
-documentation files in <strong>.rst</strong>(reStructured Text)  format.</li><li><em>mypackage</em> - This is the main package of your project. This is
+documentation files in <strong>.rst</strong>(reStructured Text)  format.</li>
+<li><em>mypackage</em> - This is the main package of your project. This is
 where your project/application code goes into. You can see some
-sample, useless code in myapp.py .</li><li><em>tests</em> - This is where all your tests go into. Add all your test
-cases/suites in this directory and execute them by callingmake test . I
+sample, useless code in <!-- raw HTML omitted -->myapp.py<!-- raw HTML omitted --> .</li>
+<li><em>tests</em> - This is where all your tests go into. Add all your test
+cases/suites in this directory and execute them by calling<!-- raw HTML omitted -->make test<!-- raw HTML omitted --> . I
 have currently configured the project to run tests using
-<a href=http://nose.readthedocs.org/en/latest/>Nose</a>. It automagically
+<a href="http://nose.readthedocs.org/en/latest/">Nose</a>. It automagically
 detects where all your tests are located and then runs them. It is
 recommended that you follow the pattern
-&rsquo;test_&lt;feature-to-be-tested>.py&rsquo; while naming files containing
-test cases for &lt;feature-to-be-tested>.</li></ul><p> </p><p>So now whenever I need to work on a Python application, all I need to do
+&rsquo;test_&lt;feature-to-be-tested&gt;.py&rsquo; while naming files containing
+test cases for &lt;feature-to-be-tested&gt;.</li>
+</ul>
+<p> </p>
+<p>So now whenever I need to work on a Python application, all I need to do
 is to clone the bootstrapy repo, and voila ! I can start writing code.
-Sweet, isn&rsquo;t it ?</p><p>This is the project structure that I would recommend, but there may be
+Sweet, isn&rsquo;t it ?</p>
+<p>This is the project structure that I would recommend, but there may be
 different opinions about the same. If you have a suggestion, feel free
-to raise an <a href=https://github.com/kirang89/bootstrapy/issues>issue on
+to raise an <a href="https://github.com/kirang89/bootstrapy/issues">issue on
 github</a>. If you have a
-question/feedback instead, ping me directly <a href=mailto:%20kiran.daredevil@gmail.com>via
-email</a>.</p></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]" href=http://kirang.in/tags/bootstrapy>bootstrapy</a>
-<a class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]" href=http://kirang.in/tags/open-source>open source</a>
-<a class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]" href=http://kirang.in/tags/programming>programming</a>
-<a class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]" href=http://kirang.in/tags/python>python</a></footer><nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]"><a class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]" href=http://kirang.in/post/an-eventful-september/><span class=mr-1.5>←</span><span>An Eventful September</span></a>
-<a class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]" href=http://kirang.in/post/familiarising-yourself-with-a-large-codebase/><span>Familiarising yourself with a large codebase</span><span class=ml-1.5>→</span></a></nav><div class="giscus mt-24"></div><script src=https://giscus.app/client.js data-repo=kirang89/kirang.in data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY=" data-category=General data-category-id=DIC_kwDOCeAGSM4Cfo4J data-mapping=title data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en data-loading=lazy crossorigin=anonymous async></script></article></main><footer class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"><div class=mr-auto>&copy; 2024
-<a class=link href=http://kirang.in/>Kiran Gangadharan</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>Powered by Hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>✎ Paper</a></footer></body></html>
+question/feedback instead, ping me directly <a href="mailto:%20kiran.daredevil@gmail.com">via
+email</a>.</p></section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://kirang.in/tags/bootstrapy"
+      >bootstrapy</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://kirang.in/tags/open-source"
+      >open source</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://kirang.in/tags/programming"
+      >programming</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://kirang.in/tags/python"
+      >python</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://kirang.in/post/an-eventful-september/"
+      ><span class="mr-1.5">←</span><span>An Eventful September</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://kirang.in/post/familiarising-yourself-with-a-large-codebase/"
+      ><span>Familiarising yourself with a large codebase</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

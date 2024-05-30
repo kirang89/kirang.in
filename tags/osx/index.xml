@@ -1,7 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Osx on Kiran Gangadharan</title><link>http://kirang.in/tags/osx/</link><description>Recent content in Osx on Kiran Gangadharan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 30 Nov 2015 00:00:00 +0530</lastBuildDate><atom:link href="http://kirang.in/tags/osx/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up org-mode pdf export in OS X ElCapitan</title><link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link><pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate><guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid><description>Basic TeX Download and install Basic TeX package from here.
-Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:
-1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.
-Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description></item><item><title>Installing PIL on Mac OSX Mavericks</title><link>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</link><pubDate>Mon, 09 Dec 2013 12:13:00 +0530</pubDate><guid>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</guid><description>&lt;p>If you&amp;rsquo;ve probably tried installing &lt;a href="http://en.wikipedia.org/wiki/Python_Imaging_Library">PIL(Python Imaging
-Library)&lt;/a> on OSX
-Mavericks(version 10.9), you&amp;rsquo;re likely to have failed in doing so. After
-searching for a while, I found the solution that worked for me.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Osx on Kiran Gangadharan</title>
+    <link>http://kirang.in/tags/osx/</link>
+    <description>Recent content in Osx on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Nov 2015 00:00:00 +0530</lastBuildDate>
+    <atom:link href="http://kirang.in/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up org-mode pdf export in OS X ElCapitan</title>
+      <link>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</link>
+      <pubDate>Mon, 30 Nov 2015 00:00:00 +0530</pubDate>
+      <guid>http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/</guid>
+      <description>Basic TeX Download and install Basic TeX package from here.&#xA;Set System Path The package will be installed at /Library/TeX/texbin/, so it must be added to your PATH like so:&#xA;1 export PATH=$PATH:/Library/TeX/texbin Run which latex to ensure that the path has been set correctly.&#xA;Install Dependencies You&amp;rsquo;re not ready yet. There are a few more packages that need to be installed in order to render the pdf from the tex file.</description>
+    </item>
+    <item>
+      <title>Installing PIL on Mac OSX Mavericks</title>
+      <link>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</link>
+      <pubDate>Mon, 09 Dec 2013 12:13:00 +0530</pubDate>
+      <guid>http://kirang.in/post/installing-pil-on-mac-osx-mavericks/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve probably tried installing &lt;a href=&#34;http://en.wikipedia.org/wiki/Python_Imaging_Library&#34;&gt;PIL(Python Imaging&#xA;Library)&lt;/a&gt; on OSX&#xA;Mavericks(version 10.9), you&amp;rsquo;re likely to have failed in doing so. After&#xA;searching for a while, I found the solution that worked for me.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

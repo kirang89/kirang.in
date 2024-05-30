@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Kiran Gangadharan</title>
+    <link>http://kirang.in/tags/hugo/</link>
+    <description>Recent content in Hugo on Kiran Gangadharan</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 May 2024 15:51:28 +0530</lastBuildDate>
+    <atom:link href="http://kirang.in/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revamp and Resume</title>
+      <link>http://kirang.in/post/revamp-and-resume/</link>
+      <pubDate>Thu, 30 May 2024 15:51:28 +0530</pubDate>
+      <guid>http://kirang.in/post/revamp-and-resume/</guid>
+      <description>It&amp;rsquo;s been a while since I last wrote anything. I&amp;rsquo;ve had a few ideas, but I ended up procrastinating and avoiding the work.&#xA;Recently, I&amp;rsquo;ve been thinking of doing deliberate practice to improve my writing, and this provided a good enough reason to break out of the procrastination loop and start publishing again.&#xA;Before writing this post, I revamped my blog by updating the version of Hugo and changing the UI theme.</description>
+    </item>
+  </channel>
+</rss>
