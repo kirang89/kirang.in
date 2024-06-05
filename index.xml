@@ -6,8 +6,15 @@
     <description>Recent content on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 May 2024 15:51:28 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2024 11:21:14 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uses This</title>
+      <link>http://kirang.in/post/uses-this/</link>
+      <pubDate>Wed, 05 Jun 2024 11:21:14 +0530</pubDate>
+      <guid>http://kirang.in/post/uses-this/</guid>
+      <description>Inspired by uses this.&#xA;Hardware Workstation Laptop: Macbook M2 Pro w/ 16GB RAM (provided b nilenso) Monitor: DELL U2723QE 27&amp;quot; 4K Monitor Keyboard: Keychron K8 Pro w/ Gateron Brown switch Mouse: Logitech G102 Lightsync (provided by nilenso) Wrist Rest: 3M WR310LE Gel Headphones: Sony WH-1000XM4 (provided by nilenso), OnePlus Buds Z2 Misc Reading: Kindle Paperwhite 10th gen Software Mac Application Launcher: Alfred Application Manager: AppCleaner Bookmarks: Raindrop Browser: Arc Calendar: Notion Calendar (formerly cron) Clipboard Management: Flycut Cloud Storage: Box, Backblaze(as cold storage) Code Editor: Emacs, IntelliJ Colour Picker: Pika Dev environment manager: ASDF.</description>
+    </item>
     <item>
       <title>Revamp and Resume</title>
       <link>http://kirang.in/post/revamp-and-resume/</link>
