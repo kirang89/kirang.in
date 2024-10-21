@@ -66,8 +66,133 @@
   
   
   
-  <meta name="description" content="I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig&rsquo;s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I&rsquo;ve managed a decent implementation. It was fun! :)
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure." />
+  <meta name="description" content="I wanted to try something small in Clojure as an exercise, and so I decided to
+implement Norvig&rsquo;s spelling corrector
+(which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to
+figure out an idiomatic solution, but I think I&rsquo;ve managed a decent
+implementation. It was fun! :)
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+
+
+
+(def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;)
+
+(defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text))
+
+(defn train [features]
+  (reduce (fn [model word]
+            (let [lword (clojure.string/lower-case word)
+                  value (get model lword 1)]
+              (assoc model lword (&#43; 1 value)))) {} features))
+
+(def nwords (train (words (slurp &#34;data.txt&#34;))))
+
+;; splits
+(defn get-splits [word] (map #(conj [] (subs word 0 %) (subs word %)) (range (inc (count word)))))
+
+;; deletes
+(defn get-deletes [coll]
+  (map (fn [[p1 p2]] (apply str (concat p1 (rest p2)))) coll))
+
+;; transposes
+(defn get-transposes [coll]
+  (map (fn [[p1 p2]] (apply str (concat p1 (str (second p2)) (str (first p2)) (drop 2 p2)))) coll))
+
+;; replaces
+(defn get-replaces [coll]
+  (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) (rest p2))) alphabets)) coll)))
+
+;; inserts
+(defn get-inserts [coll]
+  (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) p2)) alphabets)) coll)))
+
+(defn edits1 [word]
+  (let [coll (get-splits word)]
+    (distinct (concat (get-deletes coll)
+                      (get-transposes coll)
+                      (get-replaces coll)
+                      (get-inserts coll)))))
+
+(defn known-edits2 [word]
+  (distinct
+   (flatten
+    (map (fn [e1w] (reduce #(if (contains? nwords %2) (conj % %2) %) [] (edits1 e1w)))
+       (edits1 word)))))
+
+(defn known [words]
+  (reduce #(if (contains? nwords %2) (conj % %2) %) [] words))
+
+(defn correct [word]
+  (let [candidates (or (seq (known [word]))
+                       (seq (edits1 word))
+                       (seq (known-edits2 word))
+                       [word])]
+    (apply (partial max-key #(get nwords % 1)) candidates)))
+
+
+;; (correct &#34;speling&#34;) ; =&gt; spelling
+
+
+You can find the source code with tests
+here." />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -124,20 +249,17 @@
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Implementing Norvig&#39;s Spelling Corrector in Clojure">
   <meta itemprop="description" content="I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig’s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I’ve managed a decent implementation. It was fun! :)
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.string/lower-case word) value (get model lword 1)] (assoc model lword (&#43; 1 value)))) {} features)) (def nwords (train (words (slurp &#34;data.txt&#34;)))) ;; splits (defn get-splits [word] (map #(conj [] (subs word 0 %) (subs word %)) (range (inc (count word))))) ;; deletes (defn get-deletes [coll] (map (fn [[p1 p2]] (apply str (concat p1 (rest p2)))) coll)) ;; transposes (defn get-transposes [coll] (map (fn [[p1 p2]] (apply str (concat p1 (str (second p2)) (str (first p2)) (drop 2 p2)))) coll)) ;; replaces (defn get-replaces [coll] (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) (rest p2))) alphabets)) coll))) ;; inserts (defn get-inserts [coll] (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) p2)) alphabets)) coll))) (defn edits1 [word] (let [coll (get-splits word)] (distinct (concat (get-deletes coll) (get-transposes coll) (get-replaces coll) (get-inserts coll))))) (defn known-edits2 [word] (distinct (flatten (map (fn [e1w] (reduce #(if (contains? nwords %2) (conj % %2) %) [] (edits1 e1w))) (edits1 word))))) (defn known [words] (reduce #(if (contains? nwords %2) (conj % %2) %) [] words)) (defn correct [word] (let [candidates (or (seq (known [word])) (seq (edits1 word)) (seq (known-edits2 word)) [word])] (apply (partial max-key #(get nwords % 1)) candidates))) ;; (correct &#34;speling&#34;) ; =&gt; spelling You can find the source code with tests here.">
   <meta itemprop="datePublished" content="2016-02-03T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-02-03T00:00:00+05:30">
   <meta itemprop="wordCount" content="345">
@@ -147,7 +269,7 @@
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Implementing Norvig&#39;s Spelling Corrector in Clojure">
   <meta property="og:description" content="I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig’s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I’ve managed a decent implementation. It was fun! :)
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.string/lower-case word) value (get model lword 1)] (assoc model lword (&#43; 1 value)))) {} features)) (def nwords (train (words (slurp &#34;data.txt&#34;)))) ;; splits (defn get-splits [word] (map #(conj [] (subs word 0 %) (subs word %)) (range (inc (count word))))) ;; deletes (defn get-deletes [coll] (map (fn [[p1 p2]] (apply str (concat p1 (rest p2)))) coll)) ;; transposes (defn get-transposes [coll] (map (fn [[p1 p2]] (apply str (concat p1 (str (second p2)) (str (first p2)) (drop 2 p2)))) coll)) ;; replaces (defn get-replaces [coll] (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) (rest p2))) alphabets)) coll))) ;; inserts (defn get-inserts [coll] (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) p2)) alphabets)) coll))) (defn edits1 [word] (let [coll (get-splits word)] (distinct (concat (get-deletes coll) (get-transposes coll) (get-replaces coll) (get-inserts coll))))) (defn known-edits2 [word] (distinct (flatten (map (fn [e1w] (reduce #(if (contains? nwords %2) (conj % %2) %) [] (edits1 e1w))) (edits1 word))))) (defn known [words] (reduce #(if (contains? nwords %2) (conj % %2) %) [] words)) (defn correct [word] (let [candidates (or (seq (known [word])) (seq (edits1 word)) (seq (known-edits2 word)) [word])] (apply (partial max-key #(get nwords % 1)) candidates))) ;; (correct &#34;speling&#34;) ; =&gt; spelling You can find the source code with tests here.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -160,7 +282,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Implementing Norvig&#39;s Spelling Corrector in Clojure">
   <meta name="twitter:description" content="I wanted to try something small in Clojure as an exercise, and so I decided to implement Norvig’s spelling corrector (which is an elegant Python implementation btw). Being a clojure newbie, it was a bit frustating to figure out an idiomatic solution, but I think I’ve managed a decent implementation. It was fun! :)
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 (def alphabets &#34;abcdefghijklmnopqrstuvwxyz&#34;) (defn words [text] (re-seq #&#34;[a-zA-Z]&#43;&#34; text)) (defn train [features] (reduce (fn [model word] (let [lword (clojure.string/lower-case word) value (get model lword 1)] (assoc model lword (&#43; 1 value)))) {} features)) (def nwords (train (words (slurp &#34;data.txt&#34;)))) ;; splits (defn get-splits [word] (map #(conj [] (subs word 0 %) (subs word %)) (range (inc (count word))))) ;; deletes (defn get-deletes [coll] (map (fn [[p1 p2]] (apply str (concat p1 (rest p2)))) coll)) ;; transposes (defn get-transposes [coll] (map (fn [[p1 p2]] (apply str (concat p1 (str (second p2)) (str (first p2)) (drop 2 p2)))) coll)) ;; replaces (defn get-replaces [coll] (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) (rest p2))) alphabets)) coll))) ;; inserts (defn get-inserts [coll] (flatten (map (fn [[p1 p2]] (map #(apply str (concat p1 (str %) p2)) alphabets)) coll))) (defn edits1 [word] (let [coll (get-splits word)] (distinct (concat (get-deletes coll) (get-transposes coll) (get-replaces coll) (get-inserts coll))))) (defn known-edits2 [word] (distinct (flatten (map (fn [e1w] (reduce #(if (contains? nwords %2) (conj % %2) %) [] (edits1 e1w))) (edits1 word))))) (defn known [words] (reduce #(if (contains? nwords %2) (conj % %2) %) [] words)) (defn correct [word] (let [candidates (or (seq (known [word])) (seq (edits1 word)) (seq (known-edits2 word)) [word])] (apply (partial max-key #(get nwords % 1)) candidates))) ;; (correct &#34;speling&#34;) ; =&gt; spelling You can find the source code with tests here.">
 
   
   

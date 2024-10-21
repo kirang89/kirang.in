@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/what-makes-a-great-api/</link>
       <pubDate>Thu, 07 Nov 2013 22:59:00 +0530</pubDate>
       <guid>http://kirang.in/post/what-makes-a-great-api/</guid>
-      <description>We are slowly moving towards a completely api-fied world. All the common services that we used to find so hard to deal with a few years back, have become super easy thanks to introduction of API&amp;rsquo;s. Today, every other person/business out there is developing an API to make an XYZ service more awesome (and gain some developer love). Hence, it is important to understand the principles behind designing good APIs. In this post, I&amp;rsquo;ll highlight a few practices/tips that I&amp;rsquo;ve learnt, designing a few and using different API&amp;rsquo;s.</description>
+      <description>&lt;p&gt;We are slowly moving towards a completely api-fied world. All the common&#xA;services that we used to find so hard to deal with a few years back,&#xA;have become super easy thanks to introduction of API&amp;rsquo;s. Today, every&#xA;other person/business out there is developing an API to make an XYZ&#xA;service more awesome (and gain some developer love). Hence, it is&#xA;important to understand the principles behind designing good APIs. In&#xA;this post, I&amp;rsquo;ll highlight a few practices/tips that I&amp;rsquo;ve learnt,&#xA;designing a few and using different API&amp;rsquo;s.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A guide to Visual Design</title>
@@ -27,7 +27,7 @@
       <link>http://kirang.in/post/web-typography-checklist/</link>
       <pubDate>Wed, 14 Aug 2013 12:06:00 +0530</pubDate>
       <guid>http://kirang.in/post/web-typography-checklist/</guid>
-      <description>The following is a note-to-self checklist for web typography:&#xA;Use web-safe fonts Use font-stacks Limit to 2 or 3 fonts Ensure good letter and word spacing Take care of line-height Make sure content is aligned (check line breaks) Set proper typographical hierarchy Differenciate hyperlinks appropriately Resolve conflicts of contrast Use tools like typetester and cssfontstack as aids </description>
+      <description>&lt;p&gt;The following is a note-to-self checklist for web typography:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use web-safe fonts&lt;/li&gt;&#xA;&lt;li&gt;Use font-stacks&lt;/li&gt;&#xA;&lt;li&gt;Limit to 2 or 3 fonts&lt;/li&gt;&#xA;&lt;li&gt;Ensure good letter and word spacing&lt;/li&gt;&#xA;&lt;li&gt;Take care of line-height&lt;/li&gt;&#xA;&lt;li&gt;Make sure content is aligned (check line breaks)&lt;/li&gt;&#xA;&lt;li&gt;Set proper typographical hierarchy&lt;/li&gt;&#xA;&lt;li&gt;Differenciate hyperlinks appropriately&lt;/li&gt;&#xA;&lt;li&gt;Resolve conflicts of contrast&lt;/li&gt;&#xA;&lt;li&gt;Use tools like &lt;a href=&#34;http://typetester.org&#34;&gt;typetester&lt;/a&gt; and&#xA;&lt;a href=&#34;http://cssfontstack.com&#34;&gt;cssfontstack&lt;/a&gt; as aids&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

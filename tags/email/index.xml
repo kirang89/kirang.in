@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</link>
       <pubDate>Thu, 13 Nov 2014 02:06:44 +0530</pubDate>
       <guid>http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/</guid>
-      <description>Introduction For something as trivial and important as email, it annoys me that I feel uncomfortable with any client I use. I&amp;rsquo;ve tried the Gmail interface, Mail.app, Airmail and Mailbox, but somehow I haven&amp;rsquo;t found myself entirely comfortable using any of these. What I&amp;rsquo;m looking for is a client that is easy to shoot up, quick to navigate between emails and can entirely depend on keyboard shortcuts alone. In short email on the terminal.</description>
+      <description>&lt;h2 id=&#34;introductiona-idsec-1-namesec-1a&#34;&gt;Introduction&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/h2&gt;&#xA;&lt;p&gt;For something as trivial and important as email, it annoys me that I&#xA;feel uncomfortable with any client I use. I&amp;rsquo;ve tried the Gmail&#xA;interface, Mail.app, Airmail and Mailbox, but somehow I haven&amp;rsquo;t found&#xA;myself entirely comfortable using any of these. What I&amp;rsquo;m looking for&#xA;is a client that is easy to shoot up, quick to navigate between emails&#xA;and can entirely depend on keyboard shortcuts alone. In short email on&#xA;the terminal. Although I&amp;rsquo;ve been hearing good reviews about Mutt for a&#xA;while now, I wanted to use Emacs for all the editing. So I finally&#xA;decided to give mu4e a shot.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

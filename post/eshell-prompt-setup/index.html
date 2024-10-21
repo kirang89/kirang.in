@@ -66,8 +66,176 @@
   
   
   
-  <meta name="description" content="My setup is based on Howard Abrams&rsquo; setup with some minor additions and is reproduced in its entirety here:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found)." />
+  <meta name="description" content="My setup is based on
+Howard Abrams&rsquo; setup
+with some minor additions and is reproduced in its entirety here:
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+
+
+(defun curr-dir-git-branch-string (pwd)
+  &#34;Returns current git branch as a string, or the empty string if
+PWD is not in a git repo (or the git command is not found).&#34;
+  (interactive)
+  (when (and (eshell-search-path &#34;git&#34;)
+             (locate-dominating-file pwd &#34;.git&#34;))
+    (let ((git-output (shell-command-to-string (concat &#34;cd &#34; pwd &#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;))))
+      (if (&gt; (length git-output) 0)
+          (concat &#34; :&#34; (substring git-output 0 -1))
+        &#34;(no branch)&#34;))))
+
+(defun pwd-replace-home (pwd)
+  &#34;Replace home in PWD with tilde (~) character.&#34;
+  (interactive)
+  (let* ((home (expand-file-name (getenv &#34;HOME&#34;)))
+         (home-len (length home)))
+    (if (and
+         (&gt;= (length pwd) home-len)
+         (equal home (substring pwd 0 home-len)))
+        (concat &#34;~&#34; (substring pwd home-len))
+      pwd)))
+
+(defun pwd-shorten-dirs (pwd)
+  &#34;Shorten all directory names in PWD except the last two.&#34;
+  (let ((p-lst (split-string pwd &#34;/&#34;)))
+    (if (&gt; (length p-lst) 2)
+        (concat
+         (mapconcat (lambda (elm) (if (zerop (length elm)) &#34;&#34;
+                               (substring elm 0 1)))
+                    (butlast p-lst 2)
+                    &#34;/&#34;)
+         &#34;/&#34;
+         (mapconcat (lambda (elm) elm)
+                    (last p-lst 2)
+                    &#34;/&#34;))
+      pwd  ;; Otherwise, we just return the PWD
+      )))
+
+(defun split-directory-prompt (directory)
+  &#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34;
+  (if (string-match-p &#34;.*/.*&#34; directory)
+      (list (file-name-directory directory) (file-name-base directory))
+    (list &#34;&#34; directory)))
+
+;; Create a custom prompt using the functions above
+(setq eshell-prompt-function
+      (lambda ()
+        (let* ((directory (split-directory-prompt (pwd-shorten-dirs (pwd-replace-home (eshell/pwd)))))
+               (parent (car directory))
+               (name (cadr directory))
+               (branch (or (curr-dir-git-branch-string (eshell/pwd)) &#34;&#34;)))
+
+          (if (eq &#39;dark (frame-parameter nil &#39;background-mode))
+              (concat   ;; Prompt for Dark Themes
+               (propertize parent &#39;face `(:foreground &#34;#8888FF&#34;))
+               (propertize name   &#39;face `(:foreground &#34;#8888FF&#34; :weight bold))
+               (propertize branch &#39;face `(:foreground &#34;green&#34;))
+               (propertize &#34; λ&#34;   &#39;face `(:weight ultra-bold))
+               (propertize &#34; &#34;    &#39;face `(:weight bold)))
+
+            (concat    ;; Prompt for Light Themes
+             (propertize parent &#39;face `(:foreground &#34;blue&#34;))
+             (propertize name   &#39;face `(:foreground &#34;blue&#34; :weight bold))
+             (propertize branch &#39;face `(:foreground &#34;dark green&#34;))
+             (propertize &#34; λ&#34;   &#39;face `(:weight ultra-bold))
+             (propertize &#34; &#34;    &#39;face `(:weight bold)))))))
+
+;; Set this to match eshell-prompt-function
+(setq eshell-prompt-regexp &#34; λ &#34;)
+
+;; Make C-a go to beginning of command instead of line
+(add-hook &#39;eshell-mode-hook &#39;(lambda ()
+                               (local-set-key (kbd &#34;C-a&#34;)
+                                              &#39;(lambda ()
+                                                 (interactive)
+                                                 (beginning-of-line)
+                                                 (search-forward-regexp eshell-prompt-regexp)))))
+
+;; Turn off the default prompt.
+(setq eshell-highlight-prompt nil)
+
+
+You should now be able to see a nice and clean prompt like this:" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -124,20 +292,17 @@
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="My eshell prompt setup">
   <meta itemprop="description" content="My setup is based on Howard Abrams’ setup with some minor additions and is reproduced in its entirety here:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&#34; (interactive) (when (and (eshell-search-path &#34;git&#34;) (locate-dominating-file pwd &#34;.git&#34;)) (let ((git-output (shell-command-to-string (concat &#34;cd &#34; pwd &#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;)))) (if (&gt; (length git-output) 0) (concat &#34; :&#34; (substring git-output 0 -1)) &#34;(no branch)&#34;)))) (defun pwd-replace-home (pwd) &#34;Replace home in PWD with tilde (~) character.&#34; (interactive) (let* ((home (expand-file-name (getenv &#34;HOME&#34;))) (home-len (length home))) (if (and (&gt;= (length pwd) home-len) (equal home (substring pwd 0 home-len))) (concat &#34;~&#34; (substring pwd home-len)) pwd))) (defun pwd-shorten-dirs (pwd) &#34;Shorten all directory names in PWD except the last two.&#34; (let ((p-lst (split-string pwd &#34;/&#34;))) (if (&gt; (length p-lst) 2) (concat (mapconcat (lambda (elm) (if (zerop (length elm)) &#34;&#34; (substring elm 0 1))) (butlast p-lst 2) &#34;/&#34;) &#34;/&#34; (mapconcat (lambda (elm) elm) (last p-lst 2) &#34;/&#34;)) pwd ;; Otherwise, we just return the PWD ))) (defun split-directory-prompt (directory) &#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34; (if (string-match-p &#34;.*/.*&#34; directory) (list (file-name-directory directory) (file-name-base directory)) (list &#34;&#34; directory))) ;; Create a custom prompt using the functions above (setq eshell-prompt-function (lambda () (let* ((directory (split-directory-prompt (pwd-shorten-dirs (pwd-replace-home (eshell/pwd))))) (parent (car directory)) (name (cadr directory)) (branch (or (curr-dir-git-branch-string (eshell/pwd)) &#34;&#34;))) (if (eq &#39;dark (frame-parameter nil &#39;background-mode)) (concat ;; Prompt for Dark Themes (propertize parent &#39;face `(:foreground &#34;#8888FF&#34;)) (propertize name &#39;face `(:foreground &#34;#8888FF&#34; :weight bold)) (propertize branch &#39;face `(:foreground &#34;green&#34;)) (propertize &#34; λ&#34; &#39;face `(:weight ultra-bold)) (propertize &#34; &#34; &#39;face `(:weight bold))) (concat ;; Prompt for Light Themes (propertize parent &#39;face `(:foreground &#34;blue&#34;)) (propertize name &#39;face `(:foreground &#34;blue&#34; :weight bold)) (propertize branch &#39;face `(:foreground &#34;dark green&#34;)) (propertize &#34; λ&#34; &#39;face `(:weight ultra-bold)) (propertize &#34; &#34; &#39;face `(:weight bold))))))) ;; Set this to match eshell-prompt-function (setq eshell-prompt-regexp &#34; λ &#34;) ;; Make C-a go to beginning of command instead of line (add-hook &#39;eshell-mode-hook &#39;(lambda () (local-set-key (kbd &#34;C-a&#34;) &#39;(lambda () (interactive) (beginning-of-line) (search-forward-regexp eshell-prompt-regexp))))) ;; Turn off the default prompt. (setq eshell-highlight-prompt nil) You should now be able to see a nice and clean prompt like this:">
   <meta itemprop="datePublished" content="2016-06-20T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-06-20T00:00:00+05:30">
   <meta itemprop="wordCount" content="455">
@@ -147,7 +312,7 @@
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="My eshell prompt setup">
   <meta property="og:description" content="My setup is based on Howard Abrams’ setup with some minor additions and is reproduced in its entirety here:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&#34; (interactive) (when (and (eshell-search-path &#34;git&#34;) (locate-dominating-file pwd &#34;.git&#34;)) (let ((git-output (shell-command-to-string (concat &#34;cd &#34; pwd &#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;)))) (if (&gt; (length git-output) 0) (concat &#34; :&#34; (substring git-output 0 -1)) &#34;(no branch)&#34;)))) (defun pwd-replace-home (pwd) &#34;Replace home in PWD with tilde (~) character.&#34; (interactive) (let* ((home (expand-file-name (getenv &#34;HOME&#34;))) (home-len (length home))) (if (and (&gt;= (length pwd) home-len) (equal home (substring pwd 0 home-len))) (concat &#34;~&#34; (substring pwd home-len)) pwd))) (defun pwd-shorten-dirs (pwd) &#34;Shorten all directory names in PWD except the last two.&#34; (let ((p-lst (split-string pwd &#34;/&#34;))) (if (&gt; (length p-lst) 2) (concat (mapconcat (lambda (elm) (if (zerop (length elm)) &#34;&#34; (substring elm 0 1))) (butlast p-lst 2) &#34;/&#34;) &#34;/&#34; (mapconcat (lambda (elm) elm) (last p-lst 2) &#34;/&#34;)) pwd ;; Otherwise, we just return the PWD ))) (defun split-directory-prompt (directory) &#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34; (if (string-match-p &#34;.*/.*&#34; directory) (list (file-name-directory directory) (file-name-base directory)) (list &#34;&#34; directory))) ;; Create a custom prompt using the functions above (setq eshell-prompt-function (lambda () (let* ((directory (split-directory-prompt (pwd-shorten-dirs (pwd-replace-home (eshell/pwd))))) (parent (car directory)) (name (cadr directory)) (branch (or (curr-dir-git-branch-string (eshell/pwd)) &#34;&#34;))) (if (eq &#39;dark (frame-parameter nil &#39;background-mode)) (concat ;; Prompt for Dark Themes (propertize parent &#39;face `(:foreground &#34;#8888FF&#34;)) (propertize name &#39;face `(:foreground &#34;#8888FF&#34; :weight bold)) (propertize branch &#39;face `(:foreground &#34;green&#34;)) (propertize &#34; λ&#34; &#39;face `(:weight ultra-bold)) (propertize &#34; &#34; &#39;face `(:weight bold))) (concat ;; Prompt for Light Themes (propertize parent &#39;face `(:foreground &#34;blue&#34;)) (propertize name &#39;face `(:foreground &#34;blue&#34; :weight bold)) (propertize branch &#39;face `(:foreground &#34;dark green&#34;)) (propertize &#34; λ&#34; &#39;face `(:weight ultra-bold)) (propertize &#34; &#34; &#39;face `(:weight bold))))))) ;; Set this to match eshell-prompt-function (setq eshell-prompt-regexp &#34; λ &#34;) ;; Make C-a go to beginning of command instead of line (add-hook &#39;eshell-mode-hook &#39;(lambda () (local-set-key (kbd &#34;C-a&#34;) &#39;(lambda () (interactive) (beginning-of-line) (search-forward-regexp eshell-prompt-regexp))))) ;; Turn off the default prompt. (setq eshell-highlight-prompt nil) You should now be able to see a nice and clean prompt like this:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -160,7 +325,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="My eshell prompt setup">
   <meta name="twitter:description" content="My setup is based on Howard Abrams’ setup with some minor additions and is reproduced in its entirety here:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 (defun curr-dir-git-branch-string (pwd) &#34;Returns current git branch as a string, or the empty string if PWD is not in a git repo (or the git command is not found).&#34; (interactive) (when (and (eshell-search-path &#34;git&#34;) (locate-dominating-file pwd &#34;.git&#34;)) (let ((git-output (shell-command-to-string (concat &#34;cd &#34; pwd &#34; &amp;&amp; git branch | grep &#39;\\*&#39; | sed -e &#39;s/^\\* //&#39;&#34;)))) (if (&gt; (length git-output) 0) (concat &#34; :&#34; (substring git-output 0 -1)) &#34;(no branch)&#34;)))) (defun pwd-replace-home (pwd) &#34;Replace home in PWD with tilde (~) character.&#34; (interactive) (let* ((home (expand-file-name (getenv &#34;HOME&#34;))) (home-len (length home))) (if (and (&gt;= (length pwd) home-len) (equal home (substring pwd 0 home-len))) (concat &#34;~&#34; (substring pwd home-len)) pwd))) (defun pwd-shorten-dirs (pwd) &#34;Shorten all directory names in PWD except the last two.&#34; (let ((p-lst (split-string pwd &#34;/&#34;))) (if (&gt; (length p-lst) 2) (concat (mapconcat (lambda (elm) (if (zerop (length elm)) &#34;&#34; (substring elm 0 1))) (butlast p-lst 2) &#34;/&#34;) &#34;/&#34; (mapconcat (lambda (elm) elm) (last p-lst 2) &#34;/&#34;)) pwd ;; Otherwise, we just return the PWD ))) (defun split-directory-prompt (directory) &#34;Break up the directory into a &#39;parent&#39; and a &#39;base&#39;&#34; (if (string-match-p &#34;.*/.*&#34; directory) (list (file-name-directory directory) (file-name-base directory)) (list &#34;&#34; directory))) ;; Create a custom prompt using the functions above (setq eshell-prompt-function (lambda () (let* ((directory (split-directory-prompt (pwd-shorten-dirs (pwd-replace-home (eshell/pwd))))) (parent (car directory)) (name (cadr directory)) (branch (or (curr-dir-git-branch-string (eshell/pwd)) &#34;&#34;))) (if (eq &#39;dark (frame-parameter nil &#39;background-mode)) (concat ;; Prompt for Dark Themes (propertize parent &#39;face `(:foreground &#34;#8888FF&#34;)) (propertize name &#39;face `(:foreground &#34;#8888FF&#34; :weight bold)) (propertize branch &#39;face `(:foreground &#34;green&#34;)) (propertize &#34; λ&#34; &#39;face `(:weight ultra-bold)) (propertize &#34; &#34; &#39;face `(:weight bold))) (concat ;; Prompt for Light Themes (propertize parent &#39;face `(:foreground &#34;blue&#34;)) (propertize name &#39;face `(:foreground &#34;blue&#34; :weight bold)) (propertize branch &#39;face `(:foreground &#34;dark green&#34;)) (propertize &#34; λ&#34; &#39;face `(:weight ultra-bold)) (propertize &#34; &#34; &#39;face `(:weight bold))))))) ;; Set this to match eshell-prompt-function (setq eshell-prompt-regexp &#34; λ &#34;) ;; Make C-a go to beginning of command instead of line (add-hook &#39;eshell-mode-hook &#39;(lambda () (local-set-key (kbd &#34;C-a&#34;) &#39;(lambda () (interactive) (beginning-of-line) (search-forward-regexp eshell-prompt-regexp))))) ;; Turn off the default prompt. (setq eshell-highlight-prompt nil) You should now be able to see a nice and clean prompt like this:">
 
   
   

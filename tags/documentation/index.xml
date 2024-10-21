@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/make-your-open-source-project-documentation-suck-less/</link>
       <pubDate>Tue, 07 May 2013 16:55:00 +0530</pubDate>
       <guid>http://kirang.in/post/make-your-open-source-project-documentation-suck-less/</guid>
-      <description>I just stumbled into this talk about documentation by Jacob-Kaplan Moss and it was really an insightful look into how one must design the documentation for an open source project. Below is the gist of his talk:&#xA;Documentation is communication This is the single most important point that you need to understand. Documentation is not just written as a guide, but as a means to communicate with various developers and users across the globe.</description>
+      <description>&lt;p&gt;I just stumbled into this talk about documentation by &lt;a href=&#34;https://people.djangoproject.com/jacobian/&#34;&gt;Jacob-Kaplan&#xA;Moss&lt;/a&gt; and it was really an&#xA;insightful look into how one must design the documentation for an open&#xA;source project. Below is the gist of his talk:&lt;/p&gt;&#xA;&lt;h2 id=&#34;documentation-is-communication&#34;&gt;Documentation is communication&lt;/h2&gt;&#xA;&lt;p&gt;This is the single most important point that you need to understand.&#xA;Documentation is not just written as a guide, but as a means to&#xA;communicate with various developers and users across the globe. And if&#xA;you think about it, your project is close to worthless, if you cannot&#xA;communicate effectively about it to your users.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/useful-awk-one-liners/</link>
       <pubDate>Tue, 15 Dec 2015 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/useful-awk-one-liners/</guid>
-      <description>While reading Masterminds of Programming I came across the interview with Alfred Aho and his thoughts about the design of the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but have never really felt the urge to dive in. Then I came across this sentence:&#xA;If I had to choose a word to describe our centering forces in language design, I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of implementation; and I, utility.</description>
+      <description>&lt;p&gt;While reading&#xA;&lt;a href=&#34;http://shop.oreilly.com/product/9780596515171.do&#34;&gt;Masterminds of Programming&lt;/a&gt; I&#xA;came across the interview with &lt;a href=&#34;https://en.wikipedia.org/wiki/Alfred_Aho&#34;&gt;Alfred Aho&lt;/a&gt; and his thoughts about the design of&#xA;the AWK programming language. I&amp;rsquo;ve always known about the existence of awk, but&#xA;have never really felt the urge to dive in. Then I came across this sentence:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;If I had to choose a word to describe our centering forces in language design,&#xA;I&amp;rsquo;d say Kernighan emphasized ease of learning; Weiberger, soundness of&#xA;implementation; and I, utility. I think AWK has all three of these properties.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

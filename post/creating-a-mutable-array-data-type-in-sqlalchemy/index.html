@@ -66,8 +66,52 @@
   
   
   
-  <meta name="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it&rsquo;s immutable. This means it isn&rsquo;t possible to add new data into array once it has been initialised. Unfortunately, I couldn&rsquo;t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy." />
+  <meta name="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it&rsquo;s
+immutable. This means it isn&rsquo;t possible to add new data into array once
+it has been initialised. Unfortunately, I couldn&rsquo;t find any
+good solution to create mutable arrays until I came across this snippet
+by Michael Bayer, the author of sqlalchemy himself:
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+
+
+from sqlalchemy.ext.mutable import Mutable
+from sqlalchemy.dialects.postgresql import ARRAY
+
+class MutableList(Mutable, list):
+    def append(self, value):
+        list.append(self, value)
+        self.changed()
+
+    @classmethod
+    def coerce(cls, key, value):
+        if not isinstance(value, MutableList):
+            if isinstance(value, list):
+                return MutableList(value)
+            return Mutable.coerce(key, value)
+        else:
+            return value
+
+
+What this snippet allows you to do is to extend a list to add mutability
+to it. So, now you can use the class above to create a mutable array
+type like so:" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -124,20 +168,17 @@
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Creating a Mutable Array data type in sqlalchemy">
   <meta itemprop="description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.changed() @classmethod def coerce(cls, key, value): if not isinstance(value, MutableList): if isinstance(value, list): return MutableList(value) return Mutable.coerce(key, value) else: return value What this snippet allows you to do is to extend a list to add mutability to it. So, now you can use the class above to create a mutable array type like so:">
   <meta itemprop="datePublished" content="2014-08-09T00:00:00+05:30">
   <meta itemprop="dateModified" content="2014-08-09T00:00:00+05:30">
   <meta itemprop="wordCount" content="163">
@@ -147,7 +188,7 @@
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Creating a Mutable Array data type in sqlalchemy">
   <meta property="og:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.changed() @classmethod def coerce(cls, key, value): if not isinstance(value, MutableList): if isinstance(value, list): return MutableList(value) return Mutable.coerce(key, value) else: return value What this snippet allows you to do is to extend a list to add mutability to it. So, now you can use the class above to create a mutable array type like so:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -161,7 +202,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Creating a Mutable Array data type in sqlalchemy">
   <meta name="twitter:description" content="The problem with using the ARRAY datatype in sqlalchemy is that it’s immutable. This means it isn’t possible to add new data into array once it has been initialised. Unfortunately, I couldn’t find any good solution to create mutable arrays until I came across this snippet by Michael Bayer, the author of sqlalchemy himself:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from sqlalchemy.ext.mutable import Mutable from sqlalchemy.dialects.postgresql import ARRAY class MutableList(Mutable, list): def append(self, value): list.append(self, value) self.changed() @classmethod def coerce(cls, key, value): if not isinstance(value, MutableList): if isinstance(value, list): return MutableList(value) return Mutable.coerce(key, value) else: return value What this snippet allows you to do is to extend a list to add mutability to it. So, now you can use the class above to create a mutable array type like so:">
 
   
   

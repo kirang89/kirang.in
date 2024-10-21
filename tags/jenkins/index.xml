@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</link>
       <pubDate>Thu, 28 Nov 2013 20:19:00 +0530</pubDate>
       <guid>http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/</guid>
-      <description>In order to facilitate an efficient collaboration amongst developer teams, it is very important to keep the development workflow as simple and straightforward as possible. Version Control is one tool that helps with this. Continuous Integration is another one. Below, I&amp;rsquo;ll illustrate the steps needed to configure a basic Python application with Jenkins, a CI server that automates a lot of the repetitive stuff, so that you can focus on writing code.</description>
+      <description>&lt;p&gt;In order to facilitate  an efficient collaboration amongst developer&#xA;teams, it is very important to keep the development workflow as simple&#xA;and straightforward as possible. Version Control is one tool that helps&#xA;with this. Continuous Integration is another one. Below, I&amp;rsquo;ll illustrate&#xA;the steps needed to configure a basic Python application with&#xA;&lt;a href=&#34;http://jenkins-ci.org&#34;&gt;Jenkins&lt;/a&gt;, a CI server that automates a lot of&#xA;the repetitive stuff, so that you can focus on writing code. Well, let&amp;rsquo;s&#xA;get started then.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

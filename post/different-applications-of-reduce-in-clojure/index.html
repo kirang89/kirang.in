@@ -66,9 +66,185 @@
   
   
   
-  <meta name="description" content="I&rsquo;ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I&rsquo;ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
+  <meta name="description" content="I&rsquo;ve just started learning Clojure using
+Clojure for the Brave and True and solving
+problems on 4Clojure. While doing so, I&rsquo;ve noticed
+that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
 This post is an effort to document some snippets to demonstrate how useful reduce can be.
-Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure." />
+Reverse a collection
+
+
+1
+2
+3
+4
+5
+6
+
+
+(defn myreverse [coll]
+  (reduce conj &#39;() coll))
+
+(myreverse &#39;(1 2 3 4))
+
+;; (4 3 2 1)
+
+
+Find frequency of words in a string
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+(defn freq [str]
+  (reduce #(assoc %1 %2 (inc (%1 %2 0)))
+          {}
+          (clojure.string/split str #&#34;\s&#34;)))
+
+(freq &#34;Hey there! I am the hey man! I like to hey the people&#34;)
+
+;; {&#34;like&#34; 1, &#34;people&#34; 1, &#34;man!&#34; 1, &#34;am&#34; 1, &#34;Hey&#34; 1,
+;;  &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2}
+
+
+Transform all values in a map
+
+
+1
+2
+3
+4
+5
+6
+
+
+(reduce (fn [new-map [key val]]
+          (assoc new-map key (inc val)))
+        {}
+        {:lat 50.23 :lng 24.21})
+
+;; {:lat 51.23, :lng 25.21}
+
+
+Using reduce to filter out values in map
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+(reduce (fn [new-map [key val]]
+          (if (&gt; val 3)
+            (assoc new-map key val)
+            new-map))
+        {}
+        {:a 2 :b 4 :c 3 :d -1 :e 9 :f 23})
+
+;; {:b 4, :e 9, :f 23}
+
+
+Implementing a mapping function
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+(defn mapr [f coll]
+  (reverse (reduce (fn [new-seq elem]
+            (conj new-seq (f elem)))
+          (list) coll)))
+
+(mapr (fn [x] (* x 2)) [1 2 3 4])
+
+;; (2 4 6 8)
+
+
+Sort list of list based on sum of elements
+
+
+1
+2
+3
+
+
+(sort-by #(reduce &#43; %) [&#39;(8 8 7) &#39;(1 2 3) &#39;(6 5 7)])
+
+;; ((1 2 3) (6 5 7) (8 8 7))
+
+
+Generate Fibonacci series
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+
+
+
+;; Generate first 10 fibonacci numbers
+
+(reduce
+  (fn [a b]
+    (conj a (&#43; (last a) (last (butlast a)))))
+  [0 1]
+  (range 8))
+
+;; [0 1 1 2 3 5 8 13 21]
+
+
+Finding factorial
+
+
+1
+2
+
+
+(defn factorial [n]
+  (reduce * (range 1 (inc n))))
+
+
+Implementing comp
+
+
+1
+2
+3
+
+
+(fn [&amp; fs]
+  (fn [&amp; xs]
+    (first (reduce #(vector (apply %2 %1)) xs (reverse fs)))))
+
+
+" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -125,21 +301,18 @@ Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() col
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Different applications of reduce in Clojure">
   <meta itemprop="description" content="I’ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I’ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
 This post is an effort to document some snippets to demonstrate how useful reduce can be.
-Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.">
+Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.string/split str #&#34;\s&#34;))) (freq &#34;Hey there! I am the hey man! I like to hey the people&#34;) ;; {&#34;like&#34; 1, &#34;people&#34; 1, &#34;man!&#34; 1, &#34;am&#34; 1, &#34;Hey&#34; 1, ;; &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2} Transform all values in a map 1 2 3 4 5 6 (reduce (fn [new-map [key val]] (assoc new-map key (inc val))) {} {:lat 50.23 :lng 24.21}) ;; {:lat 51.23, :lng 25.21} Using reduce to filter out values in map 1 2 3 4 5 6 7 8 (reduce (fn [new-map [key val]] (if (&gt; val 3) (assoc new-map key val) new-map)) {} {:a 2 :b 4 :c 3 :d -1 :e 9 :f 23}) ;; {:b 4, :e 9, :f 23} Implementing a mapping function 1 2 3 4 5 6 7 8 (defn mapr [f coll] (reverse (reduce (fn [new-seq elem] (conj new-seq (f elem))) (list) coll))) (mapr (fn [x] (* x 2)) [1 2 3 4]) ;; (2 4 6 8) Sort list of list based on sum of elements 1 2 3 (sort-by #(reduce &#43; %) [&#39;(8 8 7) &#39;(1 2 3) &#39;(6 5 7)]) ;; ((1 2 3) (6 5 7) (8 8 7)) Generate Fibonacci series 1 2 3 4 5 6 7 8 9 10 ;; Generate first 10 fibonacci numbers (reduce (fn [a b] (conj a (&#43; (last a) (last (butlast a))))) [0 1] (range 8)) ;; [0 1 1 2 3 5 8 13 21] Finding factorial 1 2 (defn factorial [n] (reduce * (range 1 (inc n)))) Implementing comp 1 2 3 (fn [&amp; fs] (fn [&amp; xs] (first (reduce #(vector (apply %2 %1)) xs (reverse fs)))))">
   <meta itemprop="datePublished" content="2015-11-15T00:00:00+05:30">
   <meta itemprop="dateModified" content="2015-11-15T00:00:00+05:30">
   <meta itemprop="wordCount" content="382">
@@ -150,7 +323,7 @@ Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() col
   <meta property="og:title" content="Different applications of reduce in Clojure">
   <meta property="og:description" content="I’ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I’ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
 This post is an effort to document some snippets to demonstrate how useful reduce can be.
-Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.">
+Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.string/split str #&#34;\s&#34;))) (freq &#34;Hey there! I am the hey man! I like to hey the people&#34;) ;; {&#34;like&#34; 1, &#34;people&#34; 1, &#34;man!&#34; 1, &#34;am&#34; 1, &#34;Hey&#34; 1, ;; &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2} Transform all values in a map 1 2 3 4 5 6 (reduce (fn [new-map [key val]] (assoc new-map key (inc val))) {} {:lat 50.23 :lng 24.21}) ;; {:lat 51.23, :lng 25.21} Using reduce to filter out values in map 1 2 3 4 5 6 7 8 (reduce (fn [new-map [key val]] (if (&gt; val 3) (assoc new-map key val) new-map)) {} {:a 2 :b 4 :c 3 :d -1 :e 9 :f 23}) ;; {:b 4, :e 9, :f 23} Implementing a mapping function 1 2 3 4 5 6 7 8 (defn mapr [f coll] (reverse (reduce (fn [new-seq elem] (conj new-seq (f elem))) (list) coll))) (mapr (fn [x] (* x 2)) [1 2 3 4]) ;; (2 4 6 8) Sort list of list based on sum of elements 1 2 3 (sort-by #(reduce &#43; %) [&#39;(8 8 7) &#39;(1 2 3) &#39;(6 5 7)]) ;; ((1 2 3) (6 5 7) (8 8 7)) Generate Fibonacci series 1 2 3 4 5 6 7 8 9 10 ;; Generate first 10 fibonacci numbers (reduce (fn [a b] (conj a (&#43; (last a) (last (butlast a))))) [0 1] (range 8)) ;; [0 1 1 2 3 5 8 13 21] Finding factorial 1 2 (defn factorial [n] (reduce * (range 1 (inc n)))) Implementing comp 1 2 3 (fn [&amp; fs] (fn [&amp; xs] (first (reduce #(vector (apply %2 %1)) xs (reverse fs)))))">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -164,7 +337,7 @@ Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() col
   <meta name="twitter:title" content="Different applications of reduce in Clojure">
   <meta name="twitter:description" content="I’ve just started learning Clojure using Clojure for the Brave and True and solving problems on 4Clojure. While doing so, I’ve noticed that a lot of problems that seem tricky can be quickly solved using clojure.core/reduce.
 This post is an effort to document some snippets to demonstrate how useful reduce can be.
-Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.">
+Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() coll)) (myreverse &#39;(1 2 3 4)) ;; (4 3 2 1) Find frequency of words in a string 1 2 3 4 5 6 7 8 9 (defn freq [str] (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} (clojure.string/split str #&#34;\s&#34;))) (freq &#34;Hey there! I am the hey man! I like to hey the people&#34;) ;; {&#34;like&#34; 1, &#34;people&#34; 1, &#34;man!&#34; 1, &#34;am&#34; 1, &#34;Hey&#34; 1, ;; &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2} Transform all values in a map 1 2 3 4 5 6 (reduce (fn [new-map [key val]] (assoc new-map key (inc val))) {} {:lat 50.23 :lng 24.21}) ;; {:lat 51.23, :lng 25.21} Using reduce to filter out values in map 1 2 3 4 5 6 7 8 (reduce (fn [new-map [key val]] (if (&gt; val 3) (assoc new-map key val) new-map)) {} {:a 2 :b 4 :c 3 :d -1 :e 9 :f 23}) ;; {:b 4, :e 9, :f 23} Implementing a mapping function 1 2 3 4 5 6 7 8 (defn mapr [f coll] (reverse (reduce (fn [new-seq elem] (conj new-seq (f elem))) (list) coll))) (mapr (fn [x] (* x 2)) [1 2 3 4]) ;; (2 4 6 8) Sort list of list based on sum of elements 1 2 3 (sort-by #(reduce &#43; %) [&#39;(8 8 7) &#39;(1 2 3) &#39;(6 5 7)]) ;; ((1 2 3) (6 5 7) (8 8 7)) Generate Fibonacci series 1 2 3 4 5 6 7 8 9 10 ;; Generate first 10 fibonacci numbers (reduce (fn [a b] (conj a (&#43; (last a) (last (butlast a))))) [0 1] (range 8)) ;; [0 1 1 2 3 5 8 13 21] Finding factorial 1 2 (defn factorial [n] (reduce * (range 1 (inc n)))) Implementing comp 1 2 3 (fn [&amp; fs] (fn [&amp; xs] (first (reduce #(vector (apply %2 %1)) xs (reverse fs)))))">
 
   
   

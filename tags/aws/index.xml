@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</link>
       <pubDate>Tue, 20 Aug 2013 06:20:00 +0530</pubDate>
       <guid>http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/</guid>
-      <description>This post was born out of the pain to get a sample django application, configured properly, using Amazon S3 for serving static files, to run on AWS Elastic Beanstalk. I encountered many errors on the way, but finally managed to get a full fledged application running successfully. I am gonna try and highlight the key steps here to help you get your project up and running in no time.&#xA;First, create a sample Django project and a AWS Elastic Beanstalk environment for your application, as per the instructions provided in the official AWS documentation.</description>
+      <description>&lt;p&gt;This post was born out of the pain to get a sample django application,&#xA;configured properly, using Amazon S3 for serving static files, to  run&#xA;on AWS Elastic Beanstalk. I encountered many errors on the way, but&#xA;finally managed to get a full fledged application running successfully.&#xA;I am gonna try and highlight the key steps here to help you get your&#xA;project up and running in no time.&lt;/p&gt;&#xA;&lt;p&gt;First, create a sample Django project&#xA;and a AWS Elastic Beanstalk environment for your application, as per the&#xA;instructions provided in the &lt;a href=&#34;http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_Python_django.html&#34;&gt;official AWS&#xA;documentation&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

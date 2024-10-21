@@ -66,9 +66,33 @@
   
   
   
-  <meta name="description" content="This post is the highlight of Raymond Hettinger&rsquo;s talk &ldquo;Python&rsquo;s Class Development Toolkit&rdquo; at PyCon US 2013.
+  <meta name="description" content="This post is the highlight of Raymond Hettinger&rsquo;s talk &ldquo;Python&rsquo;s Class
+Development
+Toolkit&rdquo;
+at PyCon US 2013.
 Things to keep in mind while writing Classes:
-Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes." />
+
+Inherit from object()
+Instance variables for information unique to an instance
+Class variables for data shared among all instances
+Regular methods need self to operate on instance data
+Class methods implement alternative constructors. They need cls so
+they can create subclass instances as well
+Static methods attach functions to classes. They don&rsquo;t need
+either self or  cls. Static
+methods improve discoverability and require context to be specified.
+A property() lets
+getter and setter methods be invoked automatically by attribute
+access. This allows Python Classes to expose their instance
+variables freely.
+The __slots__ variable
+implements Flyweight Design Pattern by supressing instance
+dictionaries.
+Use __perimeter
+to preserve namespace when subclassing. The underlying variable name
+changes based on the caller.
+
+This is an example with all the above practices implemented:" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -125,21 +149,18 @@ Inherit from object() Instance variables for information unique to an instance C
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Writing good Classes in Python">
   <meta itemprop="description" content="This post is the highlight of Raymond Hettinger’s talk “Python’s Class Development Toolkit” at PyCon US 2013.
 Things to keep in mind while writing Classes:
-Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.">
+Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes. They don’t need either self or cls. Static methods improve discoverability and require context to be specified. A property() lets getter and setter methods be invoked automatically by attribute access. This allows Python Classes to expose their instance variables freely. The __slots__ variable implements Flyweight Design Pattern by supressing instance dictionaries. Use __perimeter to preserve namespace when subclassing. The underlying variable name changes based on the caller. This is an example with all the above practices implemented:">
   <meta itemprop="datePublished" content="2013-12-02T08:38:00+05:30">
   <meta itemprop="dateModified" content="2013-12-02T08:38:00+05:30">
   <meta itemprop="wordCount" content="297">
@@ -150,7 +171,7 @@ Inherit from object() Instance variables for information unique to an instance C
   <meta property="og:title" content="Writing good Classes in Python">
   <meta property="og:description" content="This post is the highlight of Raymond Hettinger’s talk “Python’s Class Development Toolkit” at PyCon US 2013.
 Things to keep in mind while writing Classes:
-Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.">
+Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes. They don’t need either self or cls. Static methods improve discoverability and require context to be specified. A property() lets getter and setter methods be invoked automatically by attribute access. This allows Python Classes to expose their instance variables freely. The __slots__ variable implements Flyweight Design Pattern by supressing instance dictionaries. Use __perimeter to preserve namespace when subclassing. The underlying variable name changes based on the caller. This is an example with all the above practices implemented:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -164,7 +185,7 @@ Inherit from object() Instance variables for information unique to an instance C
   <meta name="twitter:title" content="Writing good Classes in Python">
   <meta name="twitter:description" content="This post is the highlight of Raymond Hettinger’s talk “Python’s Class Development Toolkit” at PyCon US 2013.
 Things to keep in mind while writing Classes:
-Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes.">
+Inherit from object() Instance variables for information unique to an instance Class variables for data shared among all instances Regular methods need self to operate on instance data Class methods implement alternative constructors. They need cls so they can create subclass instances as well Static methods attach functions to classes. They don’t need either self or cls. Static methods improve discoverability and require context to be specified. A property() lets getter and setter methods be invoked automatically by attribute access. This allows Python Classes to expose their instance variables freely. The __slots__ variable implements Flyweight Design Pattern by supressing instance dictionaries. Use __perimeter to preserve namespace when subclassing. The underlying variable name changes based on the caller. This is an example with all the above practices implemented:">
 
   
   

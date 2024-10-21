@@ -66,10 +66,56 @@
   
   
   
-  <meta name="description" content="Let&rsquo;s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
-push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
-(8 &#43; 4) * 3 Here is a simple parser-cum-evaluator for the above input:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary." />
+  <meta name="description" content="Let&rsquo;s look at how to build a simple stack-based language in Clojure. First, this
+is how the input would look like:
+push 8
+push 4
+&#43;
+push 3
+*
+
+This would be equivalent to (in infix notation):
+(8 &#43; 4) * 3
+
+Here is a simple parser-cum-evaluator for the above input:
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+
+
+(defn parse-eval [string stack]
+  &#34;Parse and Evaluate the line sent and push result to stack if necessary.&#34;
+  (let [cmd (clojure.string/split string #&#34; &#34;)
+        fname (first cmd)
+        arg (second cmd)
+        digit? #(Character/isDigit (first %))
+        op? #(some (fn [x] (= x %)) [&#34;&#43;&#34; &#34;-&#34; &#34;*&#34; &#34;/&#34;])
+        make-fn #(resolve (symbol %))]
+    (if (and (nil? arg) (op? fname))
+      ;; If operator, apply it to arguments in stack
+      (conj (drop 2 stack) (apply (make-fn fname) (take 2 stack)))
+      (if (and (= (keyword fname) :push) (digit? arg))
+        ;; If push command, add value to stack
+        (conj stack (Integer/parseInt arg))
+        (throw (Exception. &#34;Error while parsing&#34;))))))
+
+
+Now we need to read the program mentioned above from a file and send it to the above
+function:" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -126,22 +172,19 @@ push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Creating a simple stack-based language in Clojure">
   <meta itemprop="description" content="Let’s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
 push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
 (8 &#43; 4) * 3 Here is a simple parser-cum-evaluator for the above input:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary.&#34; (let [cmd (clojure.string/split string #&#34; &#34;) fname (first cmd) arg (second cmd) digit? #(Character/isDigit (first %)) op? #(some (fn [x] (= x %)) [&#34;&#43;&#34; &#34;-&#34; &#34;*&#34; &#34;/&#34;]) make-fn #(resolve (symbol %))] (if (and (nil? arg) (op? fname)) ;; If operator, apply it to arguments in stack (conj (drop 2 stack) (apply (make-fn fname) (take 2 stack))) (if (and (= (keyword fname) :push) (digit? arg)) ;; If push command, add value to stack (conj stack (Integer/parseInt arg)) (throw (Exception. &#34;Error while parsing&#34;)))))) Now we need to read the program mentioned above from a file and send it to the above function:">
   <meta itemprop="datePublished" content="2016-04-04T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-04-04T00:00:00+05:30">
   <meta itemprop="wordCount" content="223">
@@ -153,7 +196,7 @@ push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
   <meta property="og:description" content="Let’s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
 push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
 (8 &#43; 4) * 3 Here is a simple parser-cum-evaluator for the above input:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary.&#34; (let [cmd (clojure.string/split string #&#34; &#34;) fname (first cmd) arg (second cmd) digit? #(Character/isDigit (first %)) op? #(some (fn [x] (= x %)) [&#34;&#43;&#34; &#34;-&#34; &#34;*&#34; &#34;/&#34;]) make-fn #(resolve (symbol %))] (if (and (nil? arg) (op? fname)) ;; If operator, apply it to arguments in stack (conj (drop 2 stack) (apply (make-fn fname) (take 2 stack))) (if (and (= (keyword fname) :push) (digit? arg)) ;; If push command, add value to stack (conj stack (Integer/parseInt arg)) (throw (Exception. &#34;Error while parsing&#34;)))))) Now we need to read the program mentioned above from a file and send it to the above function:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -168,7 +211,7 @@ push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
   <meta name="twitter:description" content="Let’s look at how to build a simple stack-based language in Clojure. First, this is how the input would look like:
 push 8 push 4 &#43; push 3 * This would be equivalent to (in infix notation):
 (8 &#43; 4) * 3 Here is a simple parser-cum-evaluator for the above input:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 (defn parse-eval [string stack] &#34;Parse and Evaluate the line sent and push result to stack if necessary.&#34; (let [cmd (clojure.string/split string #&#34; &#34;) fname (first cmd) arg (second cmd) digit? #(Character/isDigit (first %)) op? #(some (fn [x] (= x %)) [&#34;&#43;&#34; &#34;-&#34; &#34;*&#34; &#34;/&#34;]) make-fn #(resolve (symbol %))] (if (and (nil? arg) (op? fname)) ;; If operator, apply it to arguments in stack (conj (drop 2 stack) (apply (make-fn fname) (take 2 stack))) (if (and (= (keyword fname) :push) (digit? arg)) ;; If push command, add value to stack (conj stack (Integer/parseInt arg)) (throw (Exception. &#34;Error while parsing&#34;)))))) Now we need to read the program mentioned above from a file and send it to the above function:">
 
   
   

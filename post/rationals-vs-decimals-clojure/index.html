@@ -66,8 +66,30 @@
   
   
   
-  <meta name="description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
-Rationals are slower in terms of operations on them when compared to decimals." />
+  <meta name="description" content="
+Use rationals if accuracy is your main concern. For example, operations on
+decimals are not associative.
+
+
+
+1
+2
+3
+4
+
+
+(let [a 1.0e50
+      b -1.0e50
+      c 17.0e00]
+  (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false
+
+
+From the above example, one can infer that decimals are subjected to Floating
+Point corruption. You can find more examples here.
+
+Rationals are slower in terms of operations on them when compared to
+decimals. There is an overhead involved when doing operations on rationals.
+" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -124,20 +146,17 @@ Rationals are slower in terms of operations on them when compared to decimals." 
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Rationals vs Decimals in Clojure">
   <meta itemprop="description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
-Rationals are slower in terms of operations on them when compared to decimals.">
+Rationals are slower in terms of operations on them when compared to decimals. There is an overhead involved when doing operations on rationals.">
   <meta itemprop="datePublished" content="2016-01-30T00:00:00+05:30">
   <meta itemprop="dateModified" content="2016-01-30T00:00:00+05:30">
   <meta itemprop="wordCount" content="85">
@@ -147,7 +166,7 @@ Rationals are slower in terms of operations on them when compared to decimals.">
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Rationals vs Decimals in Clojure">
   <meta property="og:description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
-Rationals are slower in terms of operations on them when compared to decimals.">
+Rationals are slower in terms of operations on them when compared to decimals. There is an overhead involved when doing operations on rationals.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -160,7 +179,7 @@ Rationals are slower in terms of operations on them when compared to decimals.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Rationals vs Decimals in Clojure">
   <meta name="twitter:description" content="Use rationals if accuracy is your main concern. For example, operations on decimals are not associative. 1 2 3 4 (let [a 1.0e50 b -1.0e50 c 17.0e00] (= (&#43; (&#43; a b) c) (&#43; a (&#43; b c)))) ; =&gt; false From the above example, one can infer that decimals are subjected to Floating Point corruption. You can find more examples here.
-Rationals are slower in terms of operations on them when compared to decimals.">
+Rationals are slower in terms of operations on them when compared to decimals. There is an overhead involved when doing operations on rationals.">
 
   
   

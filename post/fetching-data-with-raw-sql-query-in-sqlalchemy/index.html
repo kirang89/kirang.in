@@ -66,8 +66,47 @@
   
   
   
-  <meta name="description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res." />
+  <meta name="description" content="The following is a sane way of fetching data using a raw SQL query in
+SQLAlchemy:
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+
+
+
+query = &#39;select * from books where author=:author&#39;
+
+from sqlalchemy import text
+result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;})
+
+from collections import namedtuple
+Book = namedtuple(&#39;Book&#39;, result.keys())
+
+# Create a namedtuple for each row
+books = [Record(*r) for r in res.fetchall()]
+
+# Using namedtuple allows you to access attributes using the
+# dot operator instead of relying on indexes
+for book in books:
+    print(book.name, book.author)
+
+
+" />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -124,20 +163,17 @@
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Fetching data with a raw SQL query in SQLAlchemy">
   <meta itemprop="description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.name, book.author)">
   <meta itemprop="datePublished" content="2015-11-22T00:00:00+05:30">
   <meta itemprop="dateModified" content="2015-11-22T00:00:00+05:30">
   <meta itemprop="wordCount" content="97">
@@ -147,7 +183,7 @@
   <meta property="og:site_name" content="Kiran Gangadharan">
   <meta property="og:title" content="Fetching data with a raw SQL query in SQLAlchemy">
   <meta property="og:description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.name, book.author)">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -161,7 +197,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Fetching data with a raw SQL query in SQLAlchemy">
   <meta name="twitter:description" content="The following is a sane way of fetching data using a raw SQL query in SQLAlchemy:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 query = &#39;select * from books where author=:author&#39; from sqlalchemy import text result = yoursession.execute(text(query), {&#39;author&#39;: &#39;Neil Degrasse Tyson&#39;}) from collections import namedtuple Book = namedtuple(&#39;Book&#39;, result.keys()) # Create a namedtuple for each row books = [Record(*r) for r in res.fetchall()] # Using namedtuple allows you to access attributes using the # dot operator instead of relying on indexes for book in books: print(book.name, book.author)">
 
   
   

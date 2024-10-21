@@ -66,9 +66,33 @@
   
   
   
-  <meta name="description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
+  <meta name="description" content="While watching the
+Go Concurrency Patterns talk by
+Rob Pike, I came across a
+Concurrent Prime Sieve implementation in Go which
+Rob had claimed to be beautiful concurrent code. Curious enough, I checked out
+the example and decided on implementing it in Clojure.
 Let&rsquo;s begin by creating an infinite sequence generator(starting from 2):
-1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread." />
+
+
+1
+2
+3
+4
+5
+
+
+(defn num-generator [out]
+  (go
+    (loop [n 2]
+      (&gt;!! out n)
+      (recur (inc n)))))
+
+
+The go block ensures that the body is run on a seperate thread. I used the
+blocking put instead of the parking one to only generate a number when required
+by the program. Had I used the parking put &gt;! instead, we would&rsquo;ve encountered
+the OutOfMemory exception while executing the function." />
   <meta name="author" content="Kiran Gangadharan" />
   
 
@@ -125,21 +149,18 @@ Let&rsquo;s begin by creating an infinite sequence generator(starting from 2):
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.127.0">
+  <meta name="generator" content="Hugo 0.136.2">
 
   
   
   
   
-  
-
-
   
   
   <meta itemprop="name" content="Concurrent Prime Sieve in Clojure">
   <meta itemprop="description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let’s begin by creating an infinite sequence generator(starting from 2):
-1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread. I used the blocking put instead of the parking one to only generate a number when required by the program. Had I used the parking put &gt;! instead, we would’ve encountered the OutOfMemory exception while executing the function.">
   <meta itemprop="datePublished" content="2015-12-28T00:00:00+05:30">
   <meta itemprop="dateModified" content="2015-12-28T00:00:00+05:30">
   <meta itemprop="wordCount" content="486">
@@ -150,7 +171,7 @@ Let’s begin by creating an infinite sequence generator(starting from 2):
   <meta property="og:title" content="Concurrent Prime Sieve in Clojure">
   <meta property="og:description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let’s begin by creating an infinite sequence generator(starting from 2):
-1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread. I used the blocking put instead of the parking one to only generate a number when required by the program. Had I used the parking put &gt;! instead, we would’ve encountered the OutOfMemory exception while executing the function.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -165,7 +186,7 @@ Let’s begin by creating an infinite sequence generator(starting from 2):
   <meta name="twitter:title" content="Concurrent Prime Sieve in Clojure">
   <meta name="twitter:description" content="While watching the Go Concurrency Patterns talk by Rob Pike, I came across a Concurrent Prime Sieve implementation in Go which Rob had claimed to be beautiful concurrent code. Curious enough, I checked out the example and decided on implementing it in Clojure.
 Let’s begin by creating an infinite sequence generator(starting from 2):
-1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread.">
+1 2 3 4 5 (defn num-generator [out] (go (loop [n 2] (&gt;!! out n) (recur (inc n))))) The go block ensures that the body is run on a seperate thread. I used the blocking put instead of the parking one to only generate a number when required by the program. Had I used the parking put &gt;! instead, we would’ve encountered the OutOfMemory exception while executing the function.">
 
   
   

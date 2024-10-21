@@ -13,7 +13,7 @@
       <link>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0530</pubDate>
       <guid>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</guid>
-      <description>My first conference talk presented at Functional Conf 2018! Yay!&#xA;I co-presented this with my colleague Udit. This talk is about our journey building a masterless multi-node distributed system in Elixir. It covers the problems we faced, how we dealt with them and the lessons learnt in the process.&#xA;I&amp;rsquo;m grateful to nilenso for providing me with the opportunity to work on this project and give this talk. If this type of work sounds interesting to you, talk to us!</description>
+      <description>&lt;p&gt;My first conference talk presented at &lt;a href=&#34;https://functionalconf.com/&#34;&gt;Functional Conf 2018&lt;/a&gt;! Yay!&lt;/p&gt;&#xA;&lt;p&gt;I co-presented this with my colleague &lt;a href=&#34;https://twitter.com/yudistrange&#34;&gt;Udit&lt;/a&gt;. This talk is about our journey building a masterless multi-node distributed system in Elixir. It covers the problems we faced, how we dealt with them and the lessons learnt in the process.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;I&amp;rsquo;m grateful to &lt;a href=&#34;https://nilenso.com/&#34;&gt;nilenso&lt;/a&gt; for providing me with the opportunity to work on this project and give this talk. If this type of work sounds interesting to you, &lt;a href=&#34;https://nilenso.com/careers.html&#34;&gt;talk to us&lt;/a&gt;!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
