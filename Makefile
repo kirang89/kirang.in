@@ -15,7 +15,12 @@ serve: ## Starts a server in development mode
 update-theme:  ## Updates the theme by updating submodule from remote
 	git submodule update --recursive --remote
 
-publish: build ## Builds content and pushes it to gh-pages
+worktree: ## Creates a worktree for gh-pages branch
+	rm -rf public
+	git worktree remove public
+	git worktree add -B gh-pages public origin/gh-pages
+
+publish: worktree build ## Builds content and pushes it to gh-pages
 	cd public; \
   git add .; \
 	git commit -m "Publish"; \
