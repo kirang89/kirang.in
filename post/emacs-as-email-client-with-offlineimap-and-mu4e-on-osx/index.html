@@ -132,7 +132,7 @@ decided to give mu4e a shot." />
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.136.2">
+  <meta name="generator" content="Hugo 0.146.5">
 
   
   
@@ -341,7 +341,7 @@ decided to give mu4e a shot." />
     
   </header>
 
-  <section><h2 id="introductiona-idsec-1-namesec-1a">Introduction<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+  <section><h2 id="introduction">Introduction<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <p>For something as trivial and important as email, it annoys me that I
 feel uncomfortable with any client I use. I&rsquo;ve tried the Gmail
 interface, Mail.app, Airmail and Mailbox, but somehow I haven&rsquo;t found
@@ -353,14 +353,14 @@ while now, I wanted to use Emacs for all the editing. So I finally
 decided to give mu4e a shot.</p>
 <p>Here within, I&rsquo;ve described the setup I&rsquo;ve used(rather flicked) for
 setting up mu4e on OSX.</p>
-<h3 id="offlineimapa-idsec-1-1-namesec-1-1a">OfflineIMAP<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<h3 id="offlineimap">OfflineIMAP<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <p>OfflineIMAP is one of the key components here. In essence, OfflineIMAP
 allows you to download all your emails from an IMAP account into a
 directory in your local machine and keep both the local and remote
 repositories in sync. Think of it as &lsquo;git&rsquo; cloning a remote
 repository(IMAP) into your local machine and then syncing future
 changes by pulling from remote and/or pushing local changes to it.</p>
-<h4 id="installationa-idsec-1-1-1-namesec-1-1-1a">Installation<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+<h4 id="installation">Installation<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>You can install offlineimap on OSX using homebrew like so:</p>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -370,7 +370,7 @@ changes by pulling from remote and/or pushing local changes to it.</p>
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install offline-imap
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="configurationa-idsec-1-1-2-namesec-1-1-2a">Configuration<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+</div><h4 id="configuration">Configuration<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Once offlineimap has been installed, create a <code>~/.offlineimaprc</code>
 file. Add the following configuration into it:</p>
 <pre><code>[general]
@@ -411,7 +411,7 @@ configuration. Pretty cool eh?</p>
 can instead add <code>sslcacertfile</code> and point it to your CA certificate.</p>
 <p>For more options and their explanations, check out the the
 <a href="https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf">configuration file</a> from the offlinemap source on GitHub.</p>
-<h4 id="runninga-idsec-1-1-3-namesec-1-1-3a">Running<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+<h4 id="running">Running<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Once you&rsquo;ve setup your configuration, open up a terminal and run:</p>
 <pre><code>offlineimap
 </code></pre>
@@ -420,20 +420,20 @@ pulling down all the email(with attachments) into <code>localfolders</code>. Thi
 may take quite a bit of time depending on the number of emails.</p>
 <p>In the future you can use <code>offlineimap -q</code> to run in &ldquo;quick
 mode&rdquo;. This will perform lesser checks and in turn tends to be faster.</p>
-<h3 id="mua-idsec-1-2-namesec-1-2a">Mu<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<h3 id="mu">Mu<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <p>The emails that you pulled in the above step are stored in <code>Maildir</code>
 format in your machine. Mu is designed to index messages stored in
 this format. This allows you to do powerful and fast searches on your
 emails. In addition, it allows you to view messages and even extract
 attachments. The <a href="http://www.djcbsoftware.nl/code/mu/cheatsheet.html">Mu cheatsheet</a> can tell you all about it. So what is
 Mu4e then ?</p>
-<h4 id="mu4ea-idsec-1-2-1-namesec-1-2-1a">Mu4e<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+<h4 id="mu4e">Mu4e<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p><a href="http://www.djcbsoftware.nl/code/mu/mu4e/">Mu4e</a> is an Emacs frontend for Mu. In other words Mu for Emacs. It
 allows you directly handle all your emails right from Emacs
 itself. Remember that, since mu4e is a just an interface, it can
 neither pull messages from nor push messages to, the server. Refer the
 <a href="http://www.djcbsoftware.nl/code/mu/mu4e/index.html">user manual</a> to learn more about what mu4e can and cannot do.</p>
-<h4 id="installationa-idsec-1-2-2-namesec-1-2-2a">Installation<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+<h4 id="installation-1">Installation<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Installing mu is as simple as running:</p>
 <pre><code>brew install mu
 </code></pre>
@@ -463,14 +463,14 @@ sudo ln -s /usr/local/Cellar/emacs-mac/emacs-24.3-mac-4.8/bin/emacs /usr/bin/ema
 <pre><code>EMACS=$(which emacs) brew install mu --with-emacs --HEAD
 </code></pre>
 <p>and everything should work just fine.</p>
-<h4 id="runninga-idsec-1-2-3-namesec-1-2-3a">Running<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+<h4 id="running-1">Running<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>Once the installation has been completed, run mu to start indexing
 your emails:</p>
 <pre><code>mu index --maildir=~/.Mail
 </code></pre>
 <p>This should just be a matter of few minutes. In the meantime, let us
 configure mu4e to work with Emacs.</p>
-<h4 id="configuring-mu4e-in-emacsa-idsec-1-2-4-namesec-1-2-4a">Configuring Mu4e in Emacs<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
+<h4 id="configuring-mu4e-in-emacs">Configuring Mu4e in Emacs<!-- raw HTML omitted --><!-- raw HTML omitted --></h4>
 <p>As the last step, we now need to setup Emacs to be able to send and
 receive emails using it&rsquo;s interface.</p>
 <p>Add the configuration below into you <code>~/.emacs</code> file:</p>
@@ -714,7 +714,7 @@ soon enough. Until then, I think I can live with this.</p>
   class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
 >
   <div class="mr-auto">
-    &copy; 2024
+    &copy; 2025
     <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"

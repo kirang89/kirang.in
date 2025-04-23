@@ -301,7 +301,7 @@ Implementing comp
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.136.2">
+  <meta name="generator" content="Hugo 0.146.5">
 
   
   
@@ -516,7 +516,7 @@ Reverse a collection 1 2 3 4 5 6 (defn myreverse [coll] (reduce conj &#39;() col
 problems on <a href="https://www.4clojure.com/">4Clojure</a>. While doing so, I&rsquo;ve noticed
 that a lot of problems that seem tricky can be quickly solved using <code>clojure.core/reduce</code>.</p>
 <p>This post is an effort to document some snippets to demonstrate how useful <code>reduce</code> can be.</p>
-<h3 id="reverse-a-collectiona-idsec-1-namesec-1a">Reverse a collection<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<h3 id="reverse-a-collection">Reverse a collection<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
@@ -535,7 +535,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
 </span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">;; (4 3 2 1)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="find-frequency-of-words-in-a-stringa-idsec-2-namesec-2a">Find frequency of words in a string<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+</div><h3 id="find-frequency-of-words-in-a-string">Find frequency of words in a string<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
@@ -560,7 +560,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
 </span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">;;  &#34;hey&#34; 2, &#34;there!&#34; 1, &#34;I&#34; 2, &#34;to&#34; 1, &#34;the&#34; 2}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="transform-all-values-in-a-mapa-idsec-3-namesec-3a">Transform all values in a map<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+</div><h3 id="transform-all-values-in-a-map">Transform all values in a map<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
@@ -579,7 +579,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
 </span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">;; {:lat 51.23, :lng 25.21}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="using-reduce-to-filter-out-values-in-mapa-idsec-4-namesec-4a">Using reduce to filter out values in map<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+</div><h3 id="using-reduce-to-filter-out-values-in-map">Using reduce to filter out values in map<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
@@ -602,7 +602,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
 </span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">;; {:b 4, :e 9, :f 23}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="implementing-a-mapping-functiona-idsec-5-namesec-5a">Implementing a mapping function<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+</div><h3 id="implementing-a-mapping-function">Implementing a mapping function<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
@@ -625,7 +625,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
 </span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">;; (2 4 6 8)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="sort-list-of-list-based-on-sum-of-elementsa-idsec-6-namesec-6a">Sort list of list based on sum of elements<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+</div><h3 id="sort-list-of-list-based-on-sum-of-elements">Sort list of list based on sum of elements<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
@@ -638,7 +638,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
 </span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic">;; ((1 2 3) (6 5 7) (8 8 7))</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="generate-fibonacci-seriesa-idsec-7-namesec-7a">Generate Fibonacci series<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+</div><h3 id="generate-fibonacci-series">Generate Fibonacci series<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
@@ -765,7 +765,7 @@ that a lot of problems that seem tricky can be quickly solved using <code>clojur
   class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
 >
   <div class="mr-auto">
-    &copy; 2024
+    &copy; 2025
     <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"

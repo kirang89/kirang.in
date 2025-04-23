@@ -32,28 +32,28 @@
     <loc>http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/</loc>
     <lastmod>2019-02-20T00:51:50+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/tags/go/</loc>
+    <loc>http://kirang.in/categories/go/</loc>
     <lastmod>2019-02-20T00:51:50+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/categories/go/</loc>
+    <loc>http://kirang.in/tags/go/</loc>
     <lastmod>2019-02-20T00:51:50+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/tags/distributed-systems/</loc>
     <lastmod>2018-12-15T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/tags/elixir/</loc>
+    <loc>http://kirang.in/categories/elixir/</loc>
     <lastmod>2018-12-15T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/categories/elixir/</loc>
+    <loc>http://kirang.in/tags/elixir/</loc>
     <lastmod>2018-12-15T00:00:00+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/categories/programming/</loc>
     <lastmod>2018-12-15T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/tags/talks/</loc>
+    <loc>http://kirang.in/categories/talks/</loc>
     <lastmod>2018-12-15T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/categories/talks/</loc>
+    <loc>http://kirang.in/tags/talks/</loc>
     <lastmod>2018-12-15T00:00:00+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/</loc>
@@ -62,10 +62,10 @@
     <loc>http://kirang.in/post/what-i-love-about-baduk/</loc>
     <lastmod>2018-10-25T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/tags/reading/</loc>
+    <loc>http://kirang.in/categories/reading/</loc>
     <lastmod>2016-12-31T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/categories/reading/</loc>
+    <loc>http://kirang.in/tags/reading/</loc>
     <lastmod>2016-12-31T00:00:00+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/post/stuff-i-did-in-2016/</loc>
@@ -74,10 +74,10 @@
     <loc>http://kirang.in/tags/clojure/</loc>
     <lastmod>2016-07-18T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/tags/emacs/</loc>
+    <loc>http://kirang.in/categories/emacs/</loc>
     <lastmod>2016-07-18T00:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/categories/emacs/</loc>
+    <loc>http://kirang.in/tags/emacs/</loc>
     <lastmod>2016-07-18T00:00:00+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/tags/org-mode/</loc>
@@ -197,10 +197,10 @@
     <loc>http://kirang.in/categories/miscellaneous/</loc>
     <lastmod>2014-03-03T13:19:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/tags/android/</loc>
+    <loc>http://kirang.in/categories/android/</loc>
     <lastmod>2014-02-23T19:22:00+05:30</lastmod>
   </url><url>
-    <loc>http://kirang.in/categories/android/</loc>
+    <loc>http://kirang.in/tags/android/</loc>
     <lastmod>2014-02-23T19:22:00+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/tags/cyanogenmod/</loc>

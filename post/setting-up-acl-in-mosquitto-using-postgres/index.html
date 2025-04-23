@@ -132,7 +132,7 @@ Download Mosquitto from source:" />
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.136.2">
+  <meta name="generator" content="Hugo 0.146.5">
 
   
   
@@ -349,10 +349,10 @@ general. Something that is essential to prevent unauthorized access to
 topics is some sort of an access control mechanism. In this post, I&rsquo;ll
 illustrate the necessary steps for setting up an ACL(Access Control
 List) using Postgres and <a href="https://github.com/jpmens/mosquitto-auth-plug.git">mosquitto-auth-plugin</a>.</p>
-<h2 id="install-dependenciesa-idsec-1-namesec-1a">Install Dependencies<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="install-dependencies">Install Dependencies<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <pre><code>sudo apt-get install libc-ares-dev libcurl4-openssl-dev uuid-dev postgresql libpq-dev git
 </code></pre>
-<h2 id="install-mosquittoa-idsec-2-namesec-2a">Install Mosquitto<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="install-mosquitto">Install Mosquitto<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <p>Download Mosquitto from source:</p>
 <pre><code>wget http://mosquitto.org/files/source/mosquitto-1.4.1.tar.gz
 </code></pre>
@@ -366,7 +366,7 @@ cd mosquitto-1.4.1
 <pre><code>make mosquitto
 sudo make install
 </code></pre>
-<h2 id="setup-the-authentication-plugina-idsec-3-namesec-3a">Setup the Authentication plugin<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="setup-the-authentication-plugin">Setup the Authentication plugin<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <pre><code>git clone https://github.com/jpmens/mosquitto-auth-plug.git
 cd mosquitto-auth-plug
 cp config.mk.in config.mk
@@ -394,7 +394,7 @@ OPENSSLDIR = /usr
 <p>Finally, move the generated plugin file to the root directory of Mosquitto:</p>
 <pre><code>mv auth-plug.so /etc/mosquitto/
 </code></pre>
-<h2 id="setup-mosquitto-with-the-plugina-idsec-4-namesec-4a">Setup Mosquitto with the plugin<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="setup-mosquitto-with-the-plugin">Setup Mosquitto with the plugin<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <p>Add the following lines to <code>mosquitto.conf</code>:</p>
 <pre><code>auth_opt_backends postgres
 auth_plugin /etc/mosquitto/auth-plug.so
@@ -429,7 +429,7 @@ CREATE UNIQUE INDEX acls_user_topic ON acls (username, topic);
 </code></pre>
 <p><em>Note: The password will stored as a PBKDF2 hash. There are a few
 <a href="https://github.com/jpmens/mosquitto-auth-plug/tree/master/contrib">tools</a> to help you generate the required hash.</em></p>
-<h2 id="testing-broker-with-the-new-configurationa-idsec-5-namesec-5a">Testing broker with the new configuration<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h2 id="testing-broker-with-the-new-configuration">Testing broker with the new configuration<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <p>Once you&rsquo;ve completed adding the necessary configuration and tables,
 it&rsquo;s time to finally test them out! To do so, start Mosquitto with the
 configuration file:</p>
@@ -538,7 +538,7 @@ the raw password while connecting.</p>
   class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
 >
   <div class="mr-auto">
-    &copy; 2024
+    &copy; 2025
     <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
