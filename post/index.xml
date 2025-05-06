@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Oct 2024 15:50:21 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 06 May 2025 10:17:09 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</title>
+      <link>http://kirang.in/post/local-llm-setup/</link>
+      <pubDate>Tue, 06 May 2025 10:17:09 +0530</pubDate>
+      <guid>http://kirang.in/post/local-llm-setup/</guid>
+      <description>&lt;p&gt;I’ve been exploring how small, open-source language models can fit into a local development setup to improve how I work day-to-day. There’s something satisfying about building a lightweight, responsive system that runs entirely on your own machine. This post is a practical guide to using tiny models with just enough tooling to throttle things locally, and run smarter without adding complexity.&lt;/p&gt;&#xA;&lt;p&gt;While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Every school should have library periods</title>
       <link>http://kirang.in/post/school-library-periods/</link>

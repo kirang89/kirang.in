@@ -1,0 +1,675 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fff"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="google-site-verification" content="G_45CPokMqh_LLvc0RdyiWWVQq9G0nvUhl53pa2ra-g" />
+
+  
+  <title>Tiny Models, Local Throttles: Exploring My Local AI Dev Setup - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="I’ve been exploring how small, open-source language models can fit into a local development setup to improve how I work day-to-day. There’s something satisfying about building a lightweight, responsive system that runs entirely on your own machine. This post is a practical guide to using tiny models with just enough tooling to throttle things locally, and run smarter without adding complexity.
+While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:" />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/goodreads.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://kirang.in/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.147.1">
+
+  
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Tiny Models, Local Throttles: Exploring My Local AI Dev Setup">
+  <meta itemprop="description" content="I’ve been exploring how small, open-source language models can fit into a local development setup to improve how I work day-to-day. There’s something satisfying about building a lightweight, responsive system that runs entirely on your own machine. This post is a practical guide to using tiny models with just enough tooling to throttle things locally, and run smarter without adding complexity.
+While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:">
+  <meta itemprop="datePublished" content="2025-05-06T10:17:09+05:30">
+  <meta itemprop="dateModified" content="2025-05-06T10:17:09+05:30">
+  <meta itemprop="wordCount" content="1718">
+  
+  <meta property="og:url" content="http://kirang.in/post/local-llm-setup/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="Tiny Models, Local Throttles: Exploring My Local AI Dev Setup">
+  <meta property="og:description" content="I’ve been exploring how small, open-source language models can fit into a local development setup to improve how I work day-to-day. There’s something satisfying about building a lightweight, responsive system that runs entirely on your own machine. This post is a practical guide to using tiny models with just enough tooling to throttle things locally, and run smarter without adding complexity.
+While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-05-06T10:17:09+05:30">
+    <meta property="article:modified_time" content="2025-05-06T10:17:09+05:30">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tiny Models, Local Throttles: Exploring My Local AI Dev Setup">
+  <meta name="twitter:description" content="I’ve been exploring how small, open-source language models can fit into a local development setup to improve how I work day-to-day. There’s something satisfying about building a lightweight, responsive system that runs entirely on your own machine. This post is a practical guide to using tiny models with just enough tooling to throttle things locally, and run smarter without adding complexity.
+While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:">
+
+  
+  
+  
+  <link rel="canonical" href="http://kirang.in/post/local-llm-setup/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://kirang.in/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fff'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://kirang.in/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./goodreads.svg)"
+        href="https://goodreads.com/kirang"
+        target="_blank"
+        rel="me"
+      >
+        goodreads
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>May 6, 2025</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>I’ve been exploring how small, open-source language models can fit into a local development setup to improve how I work day-to-day. There’s something satisfying about building a lightweight, responsive system that runs entirely on your own machine. This post is a practical guide to using tiny models with just enough tooling to throttle things locally, and run smarter without adding complexity.</p>
+<p>While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:</p>
+<ol>
+<li><strong>Privacy</strong>: You own the data</li>
+<li><strong>Control</strong>: Run on your hardware</li>
+<li><strong>Learning</strong>: Understanding what it takes to run a model and the trade-offs</li>
+<li><strong>Fine-tuning</strong>: Allows fine-tuning small models with generous resources to make them on-par or better than SOTA models for specific use-cases</li>
+<li><strong>Offline</strong>: All of the model’s knowledge made available without an internet connection</li>
+<li><strong>Fun!</strong></li>
+</ol>
+<p>I&rsquo;ve tried using LLMs in different parts of my workflow, from the terminal to an IDE assistant to an AI-assisted pair programmer.  This guide will help you explore small language models and learn how to integrate them with your day-to-day workflows.</p>
+<h2 id="getting-started-with-local-models">Getting started with local models</h2>
+<p>The two simplest methods to get started with local models are using <a href="https://github.com/Mozilla-Ocho/llamafile">llamafiles</a> and <a href="https://ollama.com/">Ollama</a>.</p>
+<p><strong>Llamafile</strong></p>
+<p>To run a llamafile model, simply download a model tagged with <code>llamafile</code> from <a href="https://huggingface.co/models?library=llamafile">HuggingFace</a> and do the following:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod +x &lt;model&gt;.llamafile
+</span></span><span style="display:flex;"><span>$ ./&lt;model&gt;.llamafile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This will start a chat and you&rsquo;re good to go. It can’t get any simpler than that.</p>
+<p><strong>Ollama</strong></p>
+<p>Ollama offers an organized approach for managing models, similar to what Docker does for containers (in fact, there are a lot of similarities between the two). To get started, download Ollama for your platform and use it to run a model from their <a href="https://ollama.com/search">registry</a> like so:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama run llama3.2:3b
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you want to just provide a prompt without turning on chat, do this instead:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama run llama3.2:3b <span style="color:#a6d189">&#34;why is the sky blue?&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can also list all downloaded models using:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama list
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="choosing-models-to-explore">Choosing models to explore</h2>
+<p>Once you have a medium installed for running models, the next step is to download a model. But which one? There are plenty of options and it is hard to select one. I suggest starting with the following as I’ve found them to be good for regular use:</p>
+<ul>
+<li><a href="https://ollama.com/library/llama3.1:8b">llama3.1:8b</a></li>
+<li><a href="https://ollama.com/library/qwen2.5">qwen2.5:7b</a></li>
+<li><a href="https://ollama.com/library/gemma3:12b">gemma3:12b</a></li>
+</ul>
+<p>If you are looking for a model trained on more code, consider exploring:</p>
+<ul>
+<li><a href="https://ollama.com/library/qwen2.5-coder">qwen2.5-coder:7b</a></li>
+<li><a href="https://ollama.com/library/deepseek-coder-v2:16b">deepseek-coder-v2:16b</a></li>
+</ul>
+<p>For image reasoning models, consider:</p>
+<ul>
+<li><a href="https://ollama.com/library/llava:13b">llava:13b</a></li>
+<li><a href="https://ollama.com/library/llama3.2-vision">llama3.2-vision</a></li>
+<li><a href="https://moondream.ai/">moondream</a> (a tiny model that packs a punch!)</li>
+</ul>
+<p>I’d used a few reasoning models, but not enough to recommend a few, but these are some worth considering:</p>
+<ul>
+<li><a href="https://ollama.com/library/deepseek-r1:8b">deepseek-r1</a> (distilled from DeepSeek-R1)</li>
+<li><a href="https://ollama.com/library/qwen3">qwen3</a></li>
+</ul>
+<h3 id="understanding-model-trade-offs">Understanding Model Trade-offs</h3>
+<p>When selecting a local model, there are two key specifications that impact both size and performance:</p>
+<p><strong>Parameters</strong></p>
+<p>The number of parameters (like 8b or 16b) refers to the number of learned values in billions after training a model. More parameters mean more knowledge and better reasoning for the model.</p>
+<p><strong>Quantization</strong></p>
+<p>An optimization to reduce a model’s size by using fewer bits (reducing the floating point precision) to represent weights. Generally represented as Q4_K_M (4-bit), Q8_0 (8-bit), FP32 (original) and such, it provides a trade-off between memory usage and quality. The higher the quantization (Q4 &gt; Q8), the faster the loading and inference, but the lower the output quality.</p>
+<p><strong>Finding the balance</strong></p>
+<p>On my M2 Pro, I’ve found 7/8B models with Q8 quantization and 12-14B models with Q5 or even Q6 quantization to be a good balance between performance and quality. I’d suggest experimenting with these parameters for your hardware to find yours. The process of finding the most bang-for-buck configuration is both educational and fun!</p>
+<!-- raw HTML omitted -->
+<p>You can further customize the model with parameters like context size, temperature or even add to the system prompt by creating a modelfile. See the <a href="https://github.com/ollama/ollama/blob/main/docs/modelfile.md">modelfile documentation</a> for more details.</p>
+<!-- raw HTML omitted -->
+<h2 id="better-tooling">Better Tooling</h2>
+<p>Although Ollama provides simple interface for model interaction, it is designed to only work with open-source models. To work with any and every model with a consistent interface, consider using one of these two alternatives:</p>
+<ul>
+<li><a href="https://github.com/simonw/llm">simonw/llm: Access large language models from the command-line</a>
+<ul>
+<li>Simple cli interface, lots of useful functionality. Highly recommended.</li>
+<li>For a better understanding of the features, watch <a href="https://www.youtube.com/watch?v=QUXQNi6jQ30&amp;t=2778s">Simon&rsquo;s talk</a></li>
+</ul>
+</li>
+<li><a href="https://docs.openwebui.com/">open-webui: A UI based AI interface</a>
+<ul>
+<li>For a ChatGPT like user interface for interacting with models</li>
+<li>Makes it easy to drag-drop documents or images and prompt with them</li>
+</ul>
+</li>
+</ul>
+<h3 id="editor-integration">Editor Integration</h3>
+<p>A simple use-case for having a local model would be to augment your editor workflow. This includes tasks like asking questions without leaving editor, generating, reviewing,  and explaining code, generating documentation, scripts, etc:.</p>
+<p>Everyone has their preferred editor workflow and configuration. I’ll walk through my personal setup.</p>
+<h3 id="emacs">Emacs</h3>
+<p>I&rsquo;ve been using  Sergey Kostyaev&rsquo;s <a href="https://github.com/s-kostyaev/ellama">ellama</a> for a while now, and it works well. There&rsquo;s also <a href="https://github.com/jart/emacs-copilot">jart/emacs-copilot</a> by Justine Tunney, the author of llamafile, which provides copilot-style code completion that works with a llamafile model. I had some issues getting it to work, but it seems worth trying out.</p>
+<p>Here&rsquo;s my ellama configuration:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">llm</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:straight</span> (<span style="color:#a6d189">:host</span> <span style="color:#f2d5cf">github</span> <span style="color:#a6d189">:repo</span> <span style="color:#a6d189">&#34;ahyatt/llm&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">ellama</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:straight</span> (<span style="color:#a6d189">:host</span> <span style="color:#f2d5cf">github</span> <span style="color:#a6d189">:repo</span> <span style="color:#a6d189">&#34;s-kostyaev/ellama&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:init</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#737994;font-style:italic">;; setup key bindings</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#f2d5cf">setopt</span> <span style="color:#f2d5cf">ellama-keymap-prefix</span> <span style="color:#a6d189">&#34;C-c e&#34;</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#8caaee">require</span> <span style="color:#a6d189">&#39;llm-ollama</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#f2d5cf">setopt</span> <span style="color:#f2d5cf">ellama-provider</span>
+</span></span><span style="display:flex;"><span>	        (<span style="color:#f2d5cf">make-llm-ollama</span> <span style="color:#a6d189">:chat-model</span> <span style="color:#a6d189">&#34;codestral:latest&#34;</span>)))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>While exploring other setups, I came across <a href="https://github.com/copilot-emacs/copilot.el">copilot.el</a> – an Emacs plugin for Github Copilot. Curious to understand how this was made to work, I found the below section in Robert Krahn&rsquo;s <a href="https://robert.kra.hn/posts/2023-02-22-copilot-emacs-setup/">blog post</a>:</p>
+<blockquote>
+<p>Even though Copilot is primarily a VSCode utility, making it work in Emacs is fairly straightforward. In essence it is not much different than a language server. The VSCode extension is not open source but since it is implemented in JavaScript you can extract the vsix package as a zip file and get hold of the JS files. As far as I know, the copilot.vim plugin was the first non-VSCode integration that used that approach. The worker.js file that is part of the vsix extension can be started as a node.js process that will read JSON-RPC data from stdin.
+&hellip;
+An editor like Emacs or VIM can start the worker in a subprocess and then interact with, sending JSON messages and reading JSON responses back via stdout.</p></blockquote>
+<p>Here&rsquo;s the configuration:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">copilot</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:straight</span> (<span style="color:#a6d189">:host</span> <span style="color:#f2d5cf">github</span> <span style="color:#a6d189">:repo</span> <span style="color:#a6d189">&#34;copilot-emacs/copilot.el&#34;</span> <span style="color:#a6d189">:files</span> (<span style="color:#a6d189">&#34;*.el&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#737994;font-style:italic">;; (add-to-list &#39;copilot-major-mode-alist &#39;(&#34;enh-ruby&#34; . &#34;ruby&#34;))</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#f2d5cf">add-hook</span> <span style="color:#a6d189">&#39;prog-mode-hook</span> <span style="color:#a6d189">&#39;copilot-mode</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#f2d5cf">define-key</span> <span style="color:#f2d5cf">copilot-completion-map</span> (<span style="color:#f2d5cf">kbd</span> <span style="color:#a6d189">&#34;&lt;tab&gt;&#34;</span>) <span style="color:#a6d189">&#39;copilot-accept-completion</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#f2d5cf">define-key</span> <span style="color:#f2d5cf">copilot-completion-map</span> (<span style="color:#f2d5cf">kbd</span> <span style="color:#a6d189">&#34;TAB&#34;</span>) <span style="color:#a6d189">&#39;copilot-accept-completion</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#99d1db">defvar</span> <span style="color:#f2d5cf">kg/no-copilot-modes</span> <span style="color:#99d1db;font-weight:bold">&#39;</span>(<span style="color:#f2d5cf">shell-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">inferior-python-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">eshell-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">term-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">vterm-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">comint-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">compilation-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">debugger-mode</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">dired-mode-hook</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">compilation-mode-hook</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">flutter-mode-hook</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">minibuffer-mode-hook</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#f2d5cf">shell-script-modes</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">&#34;Modes in which copilot is inconvenient.&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#99d1db">defun</span> <span style="color:#f2d5cf">kg/copilot-disable-predicate</span> ()
+</span></span><span style="display:flex;"><span>  <span style="color:#a6d189">&#34;When copilot should not automatically show completions.&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#99d1db">or</span> (<span style="color:#8caaee">member</span> <span style="color:#f2d5cf">major-mode</span> <span style="color:#f2d5cf">kg/no-copilot-modes</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#f2d5cf">company--active-p</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#f2d5cf">add-to-list</span> <span style="color:#a6d189">&#39;copilot-disable-predicates</span> <span style="color:#8caaee">#&#39;</span><span style="color:#f2d5cf">kg/copilot-disable-predicate</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I’ve also experimented with integrating Aider using <a href="https://github.com/MatthewZMD/aidermacs">aidermacs</a>, but haven’t done enough to write about it yet. I’ll update this post when I have.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>My go-to tool here is <a href="https://github.com/cline/cline">Cline</a>. Cline is an agentic code assistant that can reason and do tasks like creating/editing files, running commands like tests, automatically fix bugs after running tests etc It can infer the context required to do a task. As a bonus, it also provides the input/output tokens and the cost of each query. Although it works fairly well with local models, using it with a state-of-the-art model like Claude has been a game-changer.</p>
+<h3 id="intellij-idea">IntelliJ Idea</h3>
+<p>I use the plugin from <a href="https://www.continue.dev/">Continue.dev</a> that provides a chat as well as a code completion interface. The chat and code completion models can be configured independently. I use  <a href="https://ollama.com/library/llama3.1:8b">llama3.1:8b</a> for the former and <a href="https://ollama.com/library/starcoder2:3b">starcoder2:3b</a> for the latter.</p>
+<h2 id="evaluating-models">Evaluating models</h2>
+<p>Occasionally, you might find yourself wanting to compare responses from different models for a given prompt. You might be curious to see the differences in terms of the content or how something is explained –– if nuances are captured, caveats are mentioned, or if examples are used for illustration.</p>
+<p>One tool that I&rsquo;ve found useful is <a href="https://www.promptfoo.dev/">promptfoo</a>. It is designed as a testing framework where a test case containing prompts, a list of models to evaluate and tests is executed and a report is generated. Here&rsquo;s a simple configuration:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ca9ee6">description</span>: <span style="color:#a6d189">&#34;General Instruction Evaluation&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">prompts</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#a6d189">&#34;illustrate how {{topic}} works with an example&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">providers</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#a6d189">&#34;ollama:chat:llama3.1:8b-instruct-q6_K&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#a6d189">&#34;ollama:chat:qwen2.5:14b&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#a6d189">&#34;ollama:chat:hf.co/unsloth/gemma-3-12b-it-GGUF:Q4_K_M&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">tests</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ca9ee6">vars</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ca9ee6">topic</span>: dependency injection with Dagger
+</span></span><span style="display:flex;"><span>  - <span style="color:#ca9ee6">vars</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ca9ee6">topic</span>: gig economy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once specified, do <code>promptfoo eval</code> to run the test(s) against the models. The generated report provides a nice tabular representation of the prompt and the model responses, and  looks like this:</p>
+<p><img src="/promptfoo-ui.png" alt="Promptfoo UI"></p>
+<p>This is however <em>not</em> the right tool if you want to compare and contrast models across a wide variety of use-cases to understand their strengths and flaws. For a more in-depth evaluation, consider using <a href="https://github.com/EleutherAI/lm-evaluation-harness#">lm-evaluation-harness</a> or <a href="https://github.com/confident-ai/deepeval#js-repo-pjax-container">deepeval</a> instead.</p>
+<h3 id="public-benchmarks">Public Benchmarks</h3>
+<p><a href="https://huggingface.co/">HuggingFace</a> maintains a <a href="https://huggingface.co/collections/open-llm-leaderboard/the-big-benchmarks-collection-64faca6335a7fc7d4ffe974a">open model leaderboard</a> where it constantly <a href="https://www.notion.so/Tiny-Models-Local-Throttles-Exploring-My-Local-AI-Dev-Setup-14a0f0425dae80a38f98edf7ad5cdf7c?pvs=21">evaluates</a> the models hosted on its platform, but it’s slow to load and buggy at times. I’d recommend looking at the following instead:</p>
+<ul>
+<li><a href="https://llm-stats.com/">LLM-stats</a> for a good overview of model benchmarks and comparisons. It has filters for comparing open models with specific parameters. The visualizations are nice too.</li>
+<li><a href="https://aider.chat/docs/leaderboards/#llm-code-editing-skill-by-model-release-date">Aider benchmarks</a> particularly for code editing and refactoring</li>
+<li><a href="https://www.prollm.ai/leaderboard/stack-eval?type=conceptual,debugging,implementation,optimization&amp;level=advanced,beginner,intermediate&amp;tag=assembly,bash/shell,c,c%23,c%2B%2B,clojure,dart,delphi,elixir,go,haskell,java,javascript,kotlin,objective-c,perl,php,python,r,ruby,rust,scala,sql,swift,typescript,vba">StackEval</a> for ability to function as a coding assistant</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Be wary of taking these benchmarks at face value. They are simply a filter to pick a few starter models to experiment with. Models can train on benchmark data to appear better, so you need to try it for practical purposes in everyday use. Even better if you have your own evaluation dataset to test a model.</p>
+<!-- raw HTML omitted -->
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>There’s still a lot I haven’t tried — newer models, IDE tools, and ideas. But that’s part of the fun. While this setup hasn’t radically transformed my workflow, it has added a few tools to the kit — ones that feel lightweight, local, and surprisingly capable. It’s a starting point for exploring what small models can do in a developer’s everyday environment and I’m curious to see just how far that can go.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://kirang.in/post/school-library-periods/"
+      ><span>Every school should have library periods</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2025
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
