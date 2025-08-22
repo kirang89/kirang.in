@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 May 2025 10:17:09 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 21 Aug 2025 02:07:38 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practical Patterns for Coding with Cursor</title>
+      <link>http://kirang.in/post/working-with-cursor/</link>
+      <pubDate>Thu, 21 Aug 2025 02:07:38 +0530</pubDate>
+      <guid>http://kirang.in/post/working-with-cursor/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using Cursor consistently for the past 6 months across different languages and stacks. Along the way, I&amp;rsquo;ve noticed a few patterns to make it much more effective for coding, planning, and documentation.&lt;/p&gt;&#xA;&lt;p&gt;I make no promise of a 10x productivity boost at the end (there&amp;rsquo;s plenty of that on X.com, much to my annoyance). These are tried-and-tested mental models that have worked for me. While the tooling will keep evolving, these patterns have brought some stability to my workflow.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</title>
       <link>http://kirang.in/post/local-llm-setup/</link>

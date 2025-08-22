@@ -6,8 +6,15 @@
     <description>Recent content on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 May 2025 10:17:09 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 21 Aug 2025 02:07:38 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Practical Patterns for Coding with Cursor</title>
+      <link>http://kirang.in/post/working-with-cursor/</link>
+      <pubDate>Thu, 21 Aug 2025 02:07:38 +0530</pubDate>
+      <guid>http://kirang.in/post/working-with-cursor/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using Cursor consistently for the past 6 months across different languages and stacks. Along the way, I&amp;rsquo;ve noticed a few patterns to make it much more effective for coding, planning, and documentation.&lt;/p&gt;&#xA;&lt;p&gt;I make no promise of a 10x productivity boost at the end (there&amp;rsquo;s plenty of that on X.com, much to my annoyance). These are tried-and-tested mental models that have worked for me. While the tooling will keep evolving, these patterns have brought some stability to my workflow.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</title>
       <link>http://kirang.in/post/local-llm-setup/</link>
@@ -356,7 +363,7 @@
       <link>http://kirang.in/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://kirang.in/about/</guid>
-      <description>&lt;p&gt;Hello There! I’m &lt;!-- raw HTML omitted --&gt;Kiran Gangadharan&lt;!-- raw HTML omitted --&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I currently work at &lt;a href=&#34;https://nilenso.com/&#34;&gt;nilenso&lt;/a&gt; as a polyglot programmer exploring new challenges.&lt;/p&gt;&#xA;&lt;p&gt;When I&amp;rsquo;m not writing code, I usually read books or play/read/watch Go.&lt;/p&gt;&#xA;&lt;p&gt;You can find me on &lt;a href=&#34;https://twitter.com/kirang89&#34;&gt;Twitter&lt;/a&gt;, peruse my projects on &lt;a href=&#34;https://github.com/kirang89&#34;&gt;GitHub&lt;/a&gt;, see my reading list on &lt;a href=&#34;https://www.goodreads.com/user/show/24562454-kiran-gangadharan&#34;&gt;Goodreads&lt;/a&gt;, and watch/review my games on &lt;a href=&#34;https://online-go.com/player/501498/&#34;&gt;OGS&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Hi! I’m &lt;!-- raw HTML omitted --&gt;Kiran&lt;!-- raw HTML omitted --&gt; 👋&lt;/p&gt;&#xA;&lt;p&gt;I currently work at &lt;a href=&#34;https://nilenso.com/&#34;&gt;nilenso&lt;/a&gt; as a polyglot engineer consulting with different organisations and solving diverse challenges.&lt;/p&gt;&#xA;&lt;p&gt;I contain multitudes: parent, engineer, reader, photographer to name a few. My interests keep shifting, and I get immense satisfaction from the process of learning something new.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been trying (and &lt;em&gt;failing&lt;/em&gt;) to write mostly about whatever I fancy, or want to learn better.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
