@@ -6,8 +6,15 @@
     <description>Recent content on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Aug 2025 02:07:38 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 13:15:28 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning OCaml</title>
+      <link>http://kirang.in/post/learning-ocaml/</link>
+      <pubDate>Sun, 07 Sep 2025 13:15:28 +0530</pubDate>
+      <guid>http://kirang.in/post/learning-ocaml/</guid>
+      <description>&lt;p&gt;Learning a new programming language has always been a fun exercise. It often provides a new perspective for thinking about programs and reveals insights into the design decisions and trade-offs in terms of &lt;a href=&#34;https://www.youtube.com/watch?v=SxdOUGdseq4&#34;&gt;what is simple and what is easy&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;My first introduction to the ML Family of languages was through the highly recommended &lt;a href=&#34;https://www.coursera.org/instructor/~873260&#34;&gt;Programming Languages course series by Dan Grossman&lt;/a&gt;. This course presents different ways of thinking about and writing programs using SML, Racket, and Ruby. As part of the coursework, I was introduced to SML and I immediately took to it. Its clean, readable Python-like syntax without the explicit type annotations of Java, despite being strongly typed, enabled by the Hindley-Milner type inference.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Practical Patterns for Coding with Cursor</title>
       <link>http://kirang.in/post/working-with-cursor/</link>
