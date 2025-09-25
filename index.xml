@@ -6,8 +6,15 @@
     <description>Recent content on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Sep 2025 13:15:28 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 26 Sep 2025 01:00:00 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>John Cage’s 4’33”</title>
+      <link>http://kirang.in/post/john-cage-silent-piece/</link>
+      <pubDate>Fri, 26 Sep 2025 01:00:00 +0530</pubDate>
+      <guid>http://kirang.in/post/john-cage-silent-piece/</guid>
+      <description>&lt;p&gt;Today I learned about John Cage, the composer,  and listened to his famous but controversial &lt;a href=&#34;https://johncage.org/pp/John-Cage-Work-Detail.cfm?work_ID=17&#34;&gt;4&#39;33 piece&lt;/a&gt;. If you haven&amp;rsquo;t heard of it before, this is Cage&amp;rsquo;s famous silent piece, premiered in 1952 at a concert in Woodstock, New York. You can watch it &lt;a href=&#34;https://www.youtube.com/watch?v=JTEFKFiXSx4&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I had a little context so I made a lucky guess that the point of the performance was the act of listening to it. But it was still hard to listen through to the end. I was feeling restless. From what I had read, the audience didn&amp;rsquo;t see this coming, so I can imagine people feeling annoyed and confused seeing a pianist sitting idle for the entire duration.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Learning OCaml</title>
       <link>http://kirang.in/post/learning-ocaml/</link>
