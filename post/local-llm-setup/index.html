@@ -124,7 +124,7 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.151.0">
+  <meta name="generator" content="Hugo 0.152.2">
 
   
   
@@ -471,7 +471,8 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
 <blockquote>
 <p>Even though Copilot is primarily a VSCode utility, making it work in Emacs is fairly straightforward. In essence it is not much different than a language server. The VSCode extension is not open source but since it is implemented in JavaScript you can extract the vsix package as a zip file and get hold of the JS files. As far as I know, the copilot.vim plugin was the first non-VSCode integration that used that approach. The worker.js file that is part of the vsix extension can be started as a node.js process that will read JSON-RPC data from stdin.
 &hellip;
-An editor like Emacs or VIM can start the worker in a subprocess and then interact with, sending JSON messages and reading JSON responses back via stdout.</p></blockquote>
+An editor like Emacs or VIM can start the worker in a subprocess and then interact with, sending JSON messages and reading JSON responses back via stdout.</p>
+</blockquote>
 <p>Here&rsquo;s the configuration:</p>
 <div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
