@@ -40,8 +40,6 @@
 
 
 
-
-
 <html
   class="not-ready lg:text-base"
   style="--bg: #faf8f1"
@@ -111,8 +109,6 @@ open source Python application. So I decided to write one." />
   <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
   <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
-  
-  <link rel="preload" as="image" href="http://kirang.in/goodreads.svg" />
   
   
 
@@ -217,7 +213,7 @@ open source Python application. So I decided to write one." />
     const metaTheme = document.querySelector('meta[name="theme-color"]');
     const lightBg = '#faf8f1'.replace(/"/g, '');
     const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      metaTheme.setAttribute('content', isDark ? '#16130f' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
       localStorage.setItem('dark', isDark);
     };
@@ -237,9 +233,15 @@ open source Python application. So I decided to write one." />
     });
 
     
+    
     const btnDark = document.querySelector('.btn-dark');
     btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
+      const next = localStorage.getItem('dark') !== 'true';
+      if (document.startViewTransition) {
+        document.startViewTransition(() => setDark(next));
+      } else {
+        setDark(next);
+      }
     });
   </script>
 
@@ -302,16 +304,6 @@ open source Python application. So I decided to write one." />
         rel="alternate"
       >
         rss
-      </a>
-      
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./goodreads.svg)"
-        href="https://goodreads.com/kirang"
-        target="_blank"
-        rel="me"
-      >
-        goodreads
       </a>
       
     </nav>

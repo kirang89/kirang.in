@@ -40,8 +40,6 @@
 
 
 
-
-
 <html
   class="not-ready lg:text-base"
   style="--bg: #faf8f1"
@@ -109,8 +107,6 @@
   <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
   <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
-  
-  <link rel="preload" as="image" href="http://kirang.in/goodreads.svg" />
   
   
 
@@ -204,7 +200,7 @@
     const metaTheme = document.querySelector('meta[name="theme-color"]');
     const lightBg = '#faf8f1'.replace(/"/g, '');
     const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      metaTheme.setAttribute('content', isDark ? '#16130f' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
       localStorage.setItem('dark', isDark);
     };
@@ -224,9 +220,15 @@
     });
 
     
+    
     const btnDark = document.querySelector('.btn-dark');
     btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
+      const next = localStorage.getItem('dark') !== 'true';
+      if (document.startViewTransition) {
+        document.startViewTransition(() => setDark(next));
+      } else {
+        setDark(next);
+      }
     });
   </script>
 
@@ -291,16 +293,6 @@
         rss
       </a>
       
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./goodreads.svg)"
-        href="https://goodreads.com/kirang"
-        target="_blank"
-        rel="me"
-      >
-        goodreads
-      </a>
-      
     </nav>
     
   </div>
@@ -320,148 +312,447 @@
 
 
 
- 
 
 
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+<div class="archive not-prose">
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Epicurus and Alternate Education</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Nov 18, 2025</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/epicurus-and-alternate-education/">Epicurus and Alternate Education</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2025</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/epicurus-and-alternate-education/">
+          <time datetime="2025-11-18">Nov 18</time>
+          <span class="t">Epicurus and Alternate Education</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/driving-in-bangalore/">
+          <time datetime="2025-10-12">Oct 12</time>
+          <span class="t">Driving in Bangalore: A Guide</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/john-cage-silent-piece/">
+          <time datetime="2025-09-26">Sep 26</time>
+          <span class="t">John Cage’s 4’33”</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/learning-ocaml/">
+          <time datetime="2025-09-07">Sep 7</time>
+          <span class="t">Learning OCaml</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/working-with-cursor/">
+          <time datetime="2025-08-21">Aug 21</time>
+          <span class="t">Practical Patterns for Coding with Cursor</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/local-llm-setup/">
+          <time datetime="2025-05-06">May 6</time>
+          <span class="t">Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Driving in Bangalore: A Guide</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Oct 12, 2025</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/driving-in-bangalore/">Driving in Bangalore: A Guide</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2024</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/school-library-periods/">
+          <time datetime="2024-10-21">Oct 21</time>
+          <span class="t">Every school should have library periods</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/uses-this/">
+          <time datetime="2024-06-05">Jun 5</time>
+          <span class="t">Uses This</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/revamp-and-resume/">
+          <time datetime="2024-05-30">May 30</time>
+          <span class="t">Revamp and Resume</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">John Cage’s 4’33”</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Sep 26, 2025</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/john-cage-silent-piece/">John Cage’s 4’33”</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2019</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/">
+          <time datetime="2019-02-20">Feb 20</time>
+          <span class="t">Exploring gokibitz for embedding Go games</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Learning OCaml</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Sep 7, 2025</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/learning-ocaml/">Learning OCaml</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2018</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/the-road-to-masterless-multinode-distributed-system-in-elixir/">
+          <time datetime="2018-12-15">Dec 15</time>
+          <span class="t">The Road to a Masterless Multinode Distributed System in Elixir</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/what-i-love-about-baduk/">
+          <time datetime="2018-10-25">Oct 25</time>
+          <span class="t">What I Love About Go/Baduk</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Practical Patterns for Coding with Cursor</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 21, 2025</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/working-with-cursor/">Practical Patterns for Coding with Cursor</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2016</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/stuff-i-did-in-2016/">
+          <time datetime="2016-12-31">Dec 31</time>
+          <span class="t">Stuff I did in 2016</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/setting-up-org-mode-to-run-clojure-code/">
+          <time datetime="2016-07-18">Jul 18</time>
+          <span class="t">Setting up Org-mode to run Clojure code</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/eshell-prompt-setup/">
+          <time datetime="2016-06-20">Jun 20</time>
+          <span class="t">My eshell prompt setup</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/creating-a-simple-stack-based-language-in-clojure/">
+          <time datetime="2016-04-04">Apr 4</time>
+          <span class="t">Creating a simple stack-based language in Clojure</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/using-records-in-clojure/">
+          <time datetime="2016-02-24">Feb 24</time>
+          <span class="t">Using records in Clojure</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/implementing-norvigs-spelling-corrector-in-clojure/">
+          <time datetime="2016-02-03">Feb 3</time>
+          <span class="t">Implementing Norvig&#39;s Spelling Corrector in Clojure</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/rationals-vs-decimals-clojure/">
+          <time datetime="2016-01-30">Jan 30</time>
+          <span class="t">Rationals vs Decimals in Clojure</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</h2>
-  <time class="text-sm antialiased opacity-60"
-    >May 6, 2025</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/local-llm-setup/">Tiny Models, Local Throttles: Exploring My Local AI Dev Setup</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2015</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/books_read_2015/">
+          <time datetime="2015-12-29">Dec 29</time>
+          <span class="t">Books I read in 2015</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/concurrent-prime-sieve-in-clojure/">
+          <time datetime="2015-12-28">Dec 28</time>
+          <span class="t">Concurrent Prime Sieve in Clojure</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/useful-awk-one-liners/">
+          <time datetime="2015-12-15">Dec 15</time>
+          <span class="t">Useful AWK one-liners</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/setting-up-org-mode-pdf-export-in-osx-elcapitan/">
+          <time datetime="2015-11-30">Nov 30</time>
+          <span class="t">Setting up org-mode pdf export in OS X ElCapitan</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">
+          <time datetime="2015-11-22">Nov 22</time>
+          <span class="t">Fetching data with a raw SQL query in SQLAlchemy</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/different-applications-of-reduce-in-clojure/">
+          <time datetime="2015-11-15">Nov 15</time>
+          <span class="t">Different applications of reduce in Clojure</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/cs-reading-computer-programming-as-an-art/">
+          <time datetime="2015-07-31">Jul 31</time>
+          <span class="t">CS Reading: Computer Programming as an Art</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/setting-up-acl-in-mosquitto-using-postgres/">
+          <time datetime="2015-05-23">May 23</time>
+          <span class="t">Setting up ACL in Mosquitto using Postgres</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Every school should have library periods</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Oct 21, 2024</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/school-library-periods/">Every school should have library periods</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2014</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/emacs-as-email-client-with-offlineimap-and-mu4e-on-osx/">
+          <time datetime="2014-11-13">Nov 13</time>
+          <span class="t">Emacs as email client with offlineimap and mu4e on OS X</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/integrating-mogenerator-in-your-xcode-project/">
+          <time datetime="2014-08-27">Aug 27</time>
+          <span class="t">Integrating mogenerator in your XCode project</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
+          <time datetime="2014-08-09">Aug 9</time>
+          <span class="t">Creating a Mutable Array data type in sqlalchemy</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/">
+          <time datetime="2014-04-10">Apr 10</time>
+          <span class="t">Dealing with ISO 8601 dates in Python</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/brain-and-memory/">
+          <time datetime="2014-03-03">Mar 3</time>
+          <span class="t">Brain and Memory</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/testing-your-galaxy-s2-i9100-after-flashing-a-new-rom/">
+          <time datetime="2014-02-23">Feb 23</time>
+          <span class="t">Testing your Galaxy S2 i9100 after flashing a new ROM</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/documentaries-ive-watched/">
+          <time datetime="2014-02-20">Feb 20</time>
+          <span class="t">Documentaries I&#39;ve watched</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/my-automations-recipes/">
+          <time datetime="2014-01-29">Jan 29</time>
+          <span class="t">My Automation Recipes</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/books-i-read-in-2014/">
+          <time datetime="2014-01-16">Jan 16</time>
+          <span class="t">Books and Short Stories I read in 2014</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Uses This</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Jun 5, 2024</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/uses-this/">Uses This</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2013</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/the-unix-philosophy-summary/">
+          <time datetime="2013-12-12">Dec 12</time>
+          <span class="t">The Unix Philosophy - A Summary</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/installing-pil-on-mac-osx-mavericks/">
+          <time datetime="2013-12-09">Dec 9</time>
+          <span class="t">Installing PIL on Mac OSX Mavericks</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/writing-good-classes-in-python/">
+          <time datetime="2013-12-02">Dec 2</time>
+          <span class="t">Writing good Classes in Python</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/">
+          <time datetime="2013-11-28">Nov 28</time>
+          <span class="t">Setting up Jenkins as a watchdog for your Python application</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/what-makes-a-great-api/">
+          <time datetime="2013-11-07">Nov 7</time>
+          <span class="t">What makes a great API?</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/a-guide-to-visual-design/">
+          <time datetime="2013-10-30">Oct 30</time>
+          <span class="t">A guide to Visual Design</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/an-eventful-september/">
+          <time datetime="2013-10-03">Oct 3</time>
+          <span class="t">An Eventful September</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/building-an-open-source-python-application-the-right-way/">
+          <time datetime="2013-09-09">Sep 9</time>
+          <span class="t">Building an open-source Python application the right way</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/familiarising-yourself-with-a-large-codebase/">
+          <time datetime="2013-09-06">Sep 6</time>
+          <span class="t">Familiarising yourself with a large codebase</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/">
+          <time datetime="2013-08-20">Aug 20</time>
+          <span class="t">Deploying a Django application on Elastic Beanstalk using S3</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/web-typography-checklist/">
+          <time datetime="2013-08-14">Aug 14</time>
+          <span class="t">Web Typography checklist</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/what-is-python-month/">
+          <time datetime="2013-07-23">Jul 23</time>
+          <span class="t">What is Python Month?</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/jvm-profiling-disclosures/">
+          <time datetime="2013-05-22">May 22</time>
+          <span class="t">JVM Profiling Disclosures</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/installing-pylibmc-in-ubuntu/">
+          <time datetime="2013-05-22">May 22</time>
+          <span class="t">Installing pylibmc in ubuntu</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/type-and-object-in-python/">
+          <time datetime="2013-05-22">May 22</time>
+          <span class="t">Type and Object in Python</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/make-your-open-source-project-documentation-suck-less/">
+          <time datetime="2013-05-07">May 7</time>
+          <span class="t">Make your open source project documentation suck less</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/my-sublime-workflow/">
+          <time datetime="2013-05-04">May 4</time>
+          <span class="t">My Sublime workflow</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/hello-world/">
+          <time datetime="2013-05-03">May 3</time>
+          <span class="t">Hello World!</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Revamp and Resume</h2>
-  <time class="text-sm antialiased opacity-60"
-    >May 30, 2024</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/revamp-and-resume/">Revamp and Resume</a>
-</section>
+</div>
 
 
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Exploring gokibitz for embedding Go games</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Feb 20, 2019</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/exploring-gokibitz-for-embedding-go-games/">Exploring gokibitz for embedding Go games</a>
-</section>
-
-
-
-
-<nav class="mt-16 flex">
-  
-  
-  <a class="btn ml-auto" href="/post/page/2/"
-    >Next Page →</a
-  >
-  
-</nav>
 
 
 

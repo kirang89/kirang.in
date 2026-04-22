@@ -40,8 +40,6 @@
 
 
 
-
-
 <html
   class="not-ready lg:text-base"
   style="--bg: #faf8f1"
@@ -109,8 +107,6 @@
   <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
   
   <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
-  
-  <link rel="preload" as="image" href="http://kirang.in/goodreads.svg" />
   
   
 
@@ -204,7 +200,7 @@
     const metaTheme = document.querySelector('meta[name="theme-color"]');
     const lightBg = '#faf8f1'.replace(/"/g, '');
     const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      metaTheme.setAttribute('content', isDark ? '#16130f' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
       localStorage.setItem('dark', isDark);
     };
@@ -224,9 +220,15 @@
     });
 
     
+    
     const btnDark = document.querySelector('.btn-dark');
     btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
+      const next = localStorage.getItem('dark') !== 'true';
+      if (document.startViewTransition) {
+        document.startViewTransition(() => setDark(next));
+      } else {
+        setDark(next);
+      }
     });
   </script>
 
@@ -291,16 +293,6 @@
         rss
       </a>
       
-      <a
-        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
-        style="--url: url(./goodreads.svg)"
-        href="https://goodreads.com/kirang"
-        target="_blank"
-        rel="me"
-      >
-        goodreads
-      </a>
-      
     </nav>
     
   </div>
@@ -314,7 +306,7 @@
 
 
 
-<h1 class="mb-16">#Python</h1>
+<h1 class="archive-heading">#Python</h1>
 
 
 
@@ -322,148 +314,118 @@
 
 
 
- 
 
 
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+<div class="archive not-prose">
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Fetching data with a raw SQL query in SQLAlchemy</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Nov 22, 2015</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">Fetching data with a raw SQL query in SQLAlchemy</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2015</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/fetching-data-with-raw-sql-query-in-sqlalchemy/">
+          <time datetime="2015-11-22">Nov 22</time>
+          <span class="t">Fetching data with a raw SQL query in SQLAlchemy</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Creating a Mutable Array data type in sqlalchemy</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 9, 2014</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/">Creating a Mutable Array data type in sqlalchemy</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2014</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/creating-a-mutable-array-data-type-in-sqlalchemy/">
+          <time datetime="2014-08-09">Aug 9</time>
+          <span class="t">Creating a Mutable Array data type in sqlalchemy</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/">
+          <time datetime="2014-04-10">Apr 10</time>
+          <span class="t">Dealing with ISO 8601 dates in Python</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Dealing with ISO 8601 dates in Python</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Apr 10, 2014</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/dealing-with-iso-8601-dates-in-python/">Dealing with ISO 8601 dates in Python</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <section class="year">
+    <h2>2013</h2>
+    <ol>
+      
+      <li>
+        <a href="http://kirang.in/post/installing-pil-on-mac-osx-mavericks/">
+          <time datetime="2013-12-09">Dec 9</time>
+          <span class="t">Installing PIL on Mac OSX Mavericks</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/writing-good-classes-in-python/">
+          <time datetime="2013-12-02">Dec 2</time>
+          <span class="t">Writing good Classes in Python</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/">
+          <time datetime="2013-11-28">Nov 28</time>
+          <span class="t">Setting up Jenkins as a watchdog for your Python application</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/an-eventful-september/">
+          <time datetime="2013-10-03">Oct 3</time>
+          <span class="t">An Eventful September</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/building-an-open-source-python-application-the-right-way/">
+          <time datetime="2013-09-09">Sep 9</time>
+          <span class="t">Building an open-source Python application the right way</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/">
+          <time datetime="2013-08-20">Aug 20</time>
+          <span class="t">Deploying a Django application on Elastic Beanstalk using S3</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/what-is-python-month/">
+          <time datetime="2013-07-23">Jul 23</time>
+          <span class="t">What is Python Month?</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/installing-pylibmc-in-ubuntu/">
+          <time datetime="2013-05-22">May 22</time>
+          <span class="t">Installing pylibmc in ubuntu</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="http://kirang.in/post/type-and-object-in-python/">
+          <time datetime="2013-05-22">May 22</time>
+          <span class="t">Type and Object in Python</span>
+        </a>
+      </li>
+      
+    </ol>
+  </section>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Installing PIL on Mac OSX Mavericks</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Dec 9, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/installing-pil-on-mac-osx-mavericks/">Installing PIL on Mac OSX Mavericks</a>
-</section>
+</div>
 
 
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Writing good Classes in Python</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Dec 2, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/writing-good-classes-in-python/">Writing good Classes in Python</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Setting up Jenkins as a watchdog for your Python application</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Nov 28, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/setting-up-jenkins-as-a-watchdog-for-your-python-application/">Setting up Jenkins as a watchdog for your Python application</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">An Eventful September</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Oct 3, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/an-eventful-september/">An Eventful September</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Building an open-source Python application the right way</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Sep 9, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/building-an-open-source-python-application-the-right-way/">Building an open-source Python application the right way</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Deploying a Django application on Elastic Beanstalk using S3</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 20, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/deploying-a-django-application-on-elastic-beanstalk-using-s3/">Deploying a Django application on Elastic Beanstalk using S3</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">What is Python Month?</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Jul 23, 2013</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://kirang.in/post/what-is-python-month/">What is Python Month?</a>
-</section>
-
-
-
-
-<nav class="mt-16 flex">
-  
-  
-  <a class="btn ml-auto" href="/tags/python/page/2/"
-    >Next Page →</a
-  >
-  
-</nav>
 
 
 
