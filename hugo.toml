@@ -6,6 +6,9 @@ pygmentsstyle = "pastie"
 pygmentscodefences = true
 enableRobotsTXT = true
 
+[pagination]
+pagerSize = 100
+
 [menu]
   [[menu.main]]
     identifier = "about"
@@ -43,7 +46,6 @@ color = 'linen'
 twitter = 'kirang89'
 github = 'kirang89'
 linkedin = 'kirang89'
-goodreads = 'kirang'
 rss = true
 # avatar = 'kiran.daredevil@gmail.com'
 # name = 'Kiran Gangadharan'
