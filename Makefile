@@ -16,8 +16,8 @@ update-theme:  ## Updates the theme by updating submodule from remote
 	git submodule update --recursive --remote
 
 worktree: ## Creates a worktree for gh-pages branch
+	-git worktree remove public
 	rm -rf public
-	git worktree remove public
 	git worktree add -B gh-pages public origin/gh-pages
 
 publish: worktree build ## Builds content and pushes it to gh-pages
