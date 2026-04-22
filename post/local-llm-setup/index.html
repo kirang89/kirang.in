@@ -44,7 +44,7 @@
 
 <html
   class="not-ready lg:text-base"
-  style="--bg: #fff"
+  style="--bg: #faf8f1"
   lang="en-us"
 >
   <head>
@@ -70,6 +70,11 @@
 While the spotlight is on state-of-the-art frontier models, I am interested in exploring the capabilities of open-source models that I can run on my Macbook M2 Pro (10-core CPU, 16GB RAM). Working with open-source models locally is interesting and exciting for a few reasons:" />
   <meta name="author" content="Kiran Gangadharan" />
   
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" />
 
   
   
@@ -124,7 +129,7 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
   <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.152.2">
+  <meta name="generator" content="Hugo 0.160.1">
 
   
   
@@ -203,7 +208,7 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
 
     
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = '#fff'.replace(/"/g, '');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
     const setDark = (isDark) => {
       metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
@@ -344,43 +349,43 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
 <p>The two simplest methods to get started with local models are using <a href="https://github.com/Mozilla-Ocho/llamafile">llamafiles</a> and <a href="https://ollama.com/">Ollama</a>.</p>
 <p><strong>Llamafile</strong></p>
 <p>To run a llamafile model, simply download a model tagged with <code>llamafile</code> from <a href="https://huggingface.co/models?library=llamafile">HuggingFace</a> and do the following:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod +x &lt;model&gt;.llamafile
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod +x &lt;model&gt;.llamafile
 </span></span><span style="display:flex;"><span>$ ./&lt;model&gt;.llamafile
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>This will start a chat and you&rsquo;re good to go. It can’t get any simpler than that.</p>
 <p><strong>Ollama</strong></p>
 <p>Ollama offers an organized approach for managing models, similar to what Docker does for containers (in fact, there are a lot of similarities between the two). To get started, download Ollama for your platform and use it to run a model from their <a href="https://ollama.com/search">registry</a> like so:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama run llama3.2:3b
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama run llama3.2:3b
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>If you want to just provide a prompt without turning on chat, do this instead:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama run llama3.2:3b <span style="color:#a6d189">&#34;why is the sky blue?&#34;</span>
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama run llama3.2:3b <span style="color:#a6d189">&#34;why is the sky blue?&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can also list all downloaded models using:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama list
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ollama list
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="choosing-models-to-explore">Choosing models to explore</h2>
@@ -439,9 +444,9 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
 <h3 id="emacs">Emacs</h3>
 <p>I&rsquo;ve been using  Sergey Kostyaev&rsquo;s <a href="https://github.com/s-kostyaev/ellama">ellama</a> for a while now, and it works well. There&rsquo;s also <a href="https://github.com/jart/emacs-copilot">jart/emacs-copilot</a> by Justine Tunney, the author of llamafile, which provides copilot-style code completion that works with a llamafile model. I had some issues getting it to work, but it seems worth trying out.</p>
 <p>Here&rsquo;s my ellama configuration:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
@@ -454,7 +459,7 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">llm</span>
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">llm</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:straight</span> (<span style="color:#a6d189">:host</span> <span style="color:#f2d5cf">github</span> <span style="color:#a6d189">:repo</span> <span style="color:#a6d189">&#34;ahyatt/llm&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">ellama</span>
@@ -474,9 +479,9 @@ While the spotlight is on state-of-the-art frontier models, I am interested in e
 An editor like Emacs or VIM can start the worker in a subprocess and then interact with, sending JSON messages and reading JSON responses back via stdout.</p>
 </blockquote>
 <p>Here&rsquo;s the configuration:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
@@ -507,7 +512,7 @@ An editor like Emacs or VIM can start the worker in a subprocess and then intera
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">copilot</span>
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#8caaee">use-package</span> <span style="color:#f2d5cf">copilot</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:straight</span> (<span style="color:#a6d189">:host</span> <span style="color:#f2d5cf">github</span> <span style="color:#a6d189">:repo</span> <span style="color:#a6d189">&#34;copilot-emacs/copilot.el&#34;</span> <span style="color:#a6d189">:files</span> (<span style="color:#a6d189">&#34;*.el&#34;</span>))
 </span></span><span style="display:flex;"><span>  <span style="color:#a6d189">:config</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#737994;font-style:italic">;; (add-to-list &#39;copilot-major-mode-alist &#39;(&#34;enh-ruby&#34; . &#34;ruby&#34;))</span>
@@ -546,9 +551,9 @@ An editor like Emacs or VIM can start the worker in a subprocess and then intera
 <h2 id="evaluating-models">Evaluating models</h2>
 <p>Occasionally, you might find yourself wanting to compare responses from different models for a given prompt. You might be curious to see the differences in terms of the content or how something is explained –– if nuances are captured, caveats are mentioned, or if examples are used for illustration.</p>
 <p>One tool that I&rsquo;ve found useful is <a href="https://www.promptfoo.dev/">promptfoo</a>. It is designed as a testing framework where a test case containing prompts, a list of models to evaluate and tests is executed and a report is generated. Here&rsquo;s a simple configuration:</p>
-<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
@@ -565,7 +570,7 @@ An editor like Emacs or VIM can start the worker in a subprocess and then intera
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ca9ee6">description</span>: <span style="color:#a6d189">&#34;General Instruction Evaluation&#34;</span>
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ca9ee6">description</span>: <span style="color:#a6d189">&#34;General Instruction Evaluation&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ca9ee6">prompts</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#a6d189">&#34;illustrate how {{topic}} works with an example&#34;</span>
@@ -663,7 +668,7 @@ An editor like Emacs or VIM can start the worker in a subprocess and then intera
   class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
 >
   <div class="mr-auto">
-    &copy; 2025
+    &copy; 2026
     <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
