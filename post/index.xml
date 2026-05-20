@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Kiran Gangadharan</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Nov 2025 11:27:15 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="http://kirang.in/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Training a small model to write better OCaml with RLVR and GRPO</title>
+      <link>http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0530</pubDate>
+      <guid>http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;Note: This was originally posted on the &lt;a href=&#34;https://blog.nilenso.com/blog/2026/05/18/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/&#34;&gt;nilenso blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;For a while now, I’ve been interested in &lt;a href=&#34;https://blog.nilenso.com/blog/2025/05/06/local-llm-setup/&#34;&gt;exploring the capabilities of small language models&lt;/a&gt;. When my colleague &lt;a href=&#34;https://x.com/AtharvaRaykar&#34;&gt;Atharva&lt;/a&gt; introduced me to RLVR and GRPO for doing RL training without a human feedback loop, I wanted to know more.&lt;/p&gt;&#xA;&lt;p&gt;In the &lt;a href=&#34;https://blog.nilenso.com/blog/2026/01/28/reinforcement-learning-with-grpo/&#34;&gt;previous post&lt;/a&gt;, we explored the workings of RLVR and GRPO. In this post, I’ll walk through a code-generation experiment where I trained a small 1.5B model with GRPO, improved its ability to generate correct and valid OCaml code, and share what I learned along the way.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Epicurus and Alternate Education</title>
       <link>http://kirang.in/post/epicurus-and-alternate-education/</link>

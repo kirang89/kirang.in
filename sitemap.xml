@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://kirang.in/post/epicurus-and-alternate-education/</loc>
-    <lastmod>2025-11-18T11:27:15+05:30</lastmod>
-  </url><url>
     <loc>http://kirang.in/</loc>
-    <lastmod>2025-11-18T11:27:15+05:30</lastmod>
+    <lastmod>2026-05-18T00:00:00+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/post/</loc>
+    <lastmod>2026-05-18T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/</loc>
+    <lastmod>2026-05-18T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>http://kirang.in/post/epicurus-and-alternate-education/</loc>
     <lastmod>2025-11-18T11:27:15+05:30</lastmod>
   </url><url>
     <loc>http://kirang.in/post/driving-in-bangalore/</loc>

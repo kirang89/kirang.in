@@ -1,0 +1,703 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="google-site-verification" content="G_45CPokMqh_LLvc0RdyiWWVQq9G0nvUhl53pa2ra-g" />
+
+  
+  <title>Training a small model to write better OCaml with RLVR and GRPO - Kiran Gangadharan</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="
+Note: This was originally posted on the nilenso blog.
+
+For a while now, I’ve been interested in exploring the capabilities of small language models. When my colleague Atharva introduced me to RLVR and GRPO for doing RL training without a human feedback loop, I wanted to know more.
+In the previous post, we explored the workings of RLVR and GRPO. In this post, I’ll walk through a code-generation experiment where I trained a small 1.5B model with GRPO, improved its ability to generate correct and valid OCaml code, and share what I learned along the way." />
+  <meta name="author" content="Kiran Gangadharan" />
+  
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" />
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://kirang.in/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="http://kirang.in/twitter.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/github.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/linkedin.svg" />
+  
+  <link rel="preload" as="image" href="http://kirang.in/rss.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://kirang.in/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://kirang.in/favicon_32x32.png" />
+  <link rel="apple-touch-icon" href="http://kirang.in/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.161.1">
+
+  
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Training a small model to write better OCaml with RLVR and GRPO">
+  <meta itemprop="description" content="Note: This was originally posted on the nilenso blog.
+For a while now, I’ve been interested in exploring the capabilities of small language models. When my colleague Atharva introduced me to RLVR and GRPO for doing RL training without a human feedback loop, I wanted to know more.
+In the previous post, we explored the workings of RLVR and GRPO. In this post, I’ll walk through a code-generation experiment where I trained a small 1.5B model with GRPO, improved its ability to generate correct and valid OCaml code, and share what I learned along the way.">
+  <meta itemprop="datePublished" content="2026-05-18T00:00:00+05:30">
+  <meta itemprop="dateModified" content="2026-05-18T00:00:00+05:30">
+  <meta itemprop="wordCount" content="2755">
+  <meta itemprop="image" content="http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/cover.png">
+  
+  <meta property="og:url" content="http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/">
+  <meta property="og:site_name" content="Kiran Gangadharan">
+  <meta property="og:title" content="Training a small model to write better OCaml with RLVR and GRPO">
+  <meta property="og:description" content="Note: This was originally posted on the nilenso blog.
+For a while now, I’ve been interested in exploring the capabilities of small language models. When my colleague Atharva introduced me to RLVR and GRPO for doing RL training without a human feedback loop, I wanted to know more.
+In the previous post, we explored the workings of RLVR and GRPO. In this post, I’ll walk through a code-generation experiment where I trained a small 1.5B model with GRPO, improved its ability to generate correct and valid OCaml code, and share what I learned along the way.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-18T00:00:00+05:30">
+    <meta property="article:modified_time" content="2026-05-18T00:00:00+05:30">
+    <meta property="og:image" content="http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/cover.png">
+
+  
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/cover.png">
+  <meta name="twitter:title" content="Training a small model to write better OCaml with RLVR and GRPO">
+  <meta name="twitter:description" content="Note: This was originally posted on the nilenso blog.
+For a while now, I’ve been interested in exploring the capabilities of small language models. When my colleague Atharva introduced me to RLVR and GRPO for doing RL training without a human feedback loop, I wanted to know more.
+In the previous post, we explored the workings of RLVR and GRPO. In this post, I’ll walk through a code-generation experiment where I trained a small 1.5B model with GRPO, improved its ability to generate correct and valid OCaml code, and share what I learned along the way.">
+
+  
+  
+  
+  <link rel="canonical" href="http://kirang.in/post/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://kirang.in/"
+      >Kiran Gangadharan</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#16130f' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      const next = localStorage.getItem('dark') !== 'true';
+      if (document.startViewTransition) {
+        document.startViewTransition(() => setDark(next));
+      } else {
+        setDark(next);
+      }
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >About</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/kirang89"
+        target="_blank"
+        rel="me"
+      >
+        linkedin
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="http://kirang.in/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Training a small model to write better OCaml with RLVR and GRPO</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>May 18, 2026</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><blockquote>
+<p><em>Note: This was originally posted on the <a href="https://blog.nilenso.com/blog/2026/05/18/training-a-small-model-to-write-better-ocaml-with-rlvr-and-grpo/">nilenso blog</a>.</em></p>
+</blockquote>
+<p>For a while now, I’ve been interested in <a href="https://blog.nilenso.com/blog/2025/05/06/local-llm-setup/">exploring the capabilities of small language models</a>. When my colleague <a href="https://x.com/AtharvaRaykar">Atharva</a> introduced me to RLVR and GRPO for doing RL training without a human feedback loop, I wanted to know more.</p>
+<p>In the <a href="https://blog.nilenso.com/blog/2026/01/28/reinforcement-learning-with-grpo/">previous post</a>, we explored the workings of RLVR and GRPO. In this post, I’ll walk through a code-generation experiment where I trained a small 1.5B model with GRPO, improved its ability to generate correct and valid OCaml code, and share what I learned along the way.</p>
+<p>It started with a simple hypothesis:</p>
+<p>“<em>Can training a small local model on OCaml code generation using RLVR and GRPO give me a much better model that can help me explore the language and write better OCaml code?</em>”</p>
+<p>The small model that I eventually chose was trained on public GitHub repositories across 92 programming languages. Since OCaml is a relatively niche language in this mix, the setting was a good fit for evaluating how well RLVR could improve the model&rsquo;s capabilities.</p>
+<p>I had some idea about training models, but not enough to make all the design decisions. I needed an anchor to get started.</p>
+<h1 id="constraints-keep-you-focused">Constraints keep you focused</h1>
+<p>Given the broad spectrum of decisions to make, I wanted to define some requirements upfront to keep things simple and focused.</p>
+<ul>
+<li><strong>Local inference</strong>: train a small model that can be run on my M2 Pro with 16 GB RAM. After some testing, I decided to use <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF">Qwen2.5-Coder-1.5B-Instruct</a> as the base model. It did the best in my small eval dataset amongst similar models in that class. It also had a <em>relatively better</em> knowledge of the OCaml syntax and could solve trivial problems.</li>
+<li><strong>Single GPU</strong>: train the model on a single rented GPU. I decided to use an RTX 6000 with 48GB of VRAM. The full fine-tuning of the model would’ve been feasible, but tight, when accounting for the model weights, gradients, optimizer states, activations, and GRPO rollouts. LoRA made it more practical by training only ~37M adapter parameters, significantly reducing training memory. It also gave me more room to experiment with different training configurations.</li>
+<li><strong>Fast dev feedback loop</strong>: sanity test the training code on my Mac quickly before the actual run. I was dabbling with <a href="https://nix.dev/manual/nix/2.28/introduction.html">Nix</a> at the time and used it to create the platform-specific environments. I eventually used it for training in production as well.</li>
+<li><strong>Training and test dataset</strong>: use a small dataset of programming problems with varied difficulty for both training and evaluation. I could not find a good OCaml dataset to use, so I ended up porting a subset of the <a href="https://huggingface.co/datasets/TIGER-Lab/AceCode-87K">AceCode-87K</a> dataset with tests to OCaml using Claude with some programmatic verification steps. The evaluation dataset was generated using a combination of 99lisp, leetcode and AceCode problems of varying difficulty in terms of the concepts covered and reasoning effort required.</li>
+<li><strong>Training loop</strong>: work with simple abstractions for the actual training loop. Instead of writing a custom GRPO implementation, I used <a href="https://huggingface.co/docs/trl/index">Hugging Face’s trl library</a> because it already supported <a href="https://huggingface.co/docs/trl/grpo_trainer">GRPOTrainer</a> with PEFT/LoRA integration, working with Hugging Face datasets, and useful logging hooks.</li>
+</ul>
+<h1 id="reward-functions-shape-the-learning-trajectory">Reward functions shape the learning trajectory</h1>
+<p>In the <a href="https://blog.nilenso.com/blog/2026/01/28/reinforcement-learning-with-grpo/">previous blog post about RLVR and GRPO</a>, we saw that reward design is central to how the model learns. When a lot of OCaml solutions failed early, a binary pass/fail reward provided little-to-no information for learning. I ended up using a graduated reward system that recognized nuanced progress across type-check, compilation, and test phases while penalizing degenerate completions.</p>
+<p><img src="grpo_reward_system-2.svg" alt="GRPO reward system"></p>
+<h1 id="the-knobs-that-shaped-learning">The knobs that shaped learning</h1>
+<p>Since the previous post already explained the mechanics of GRPO, I’ll skip the parameter glossary here. In this section, we&rsquo;ll look at a small set of parameters that impacted model learning more than the rest:</p>
+<ul>
+<li><strong>Number of generations per prompt</strong> controlled how much relative signal GRPO had. Too few samples made most groups look identical; more samples improved comparison but increased rollout cost.</li>
+<li><strong>Sampling temperature and <code>top_p</code></strong> controlled exploration. More randomness helped when the model was failing early, but too much produced noisy OCaml and made rewards harder to interpret.</li>
+<li><strong>KL penalty</strong> kept the trained model from drifting too far from the base model’s capabilities. Too much slowed learning; too little made collapse easier.</li>
+<li><strong>Gradient clipping</strong> helped keep updates bounded as reward variance increased. Without it, training was more prone sudden instability.</li>
+<li><strong>Completion length</strong> affected both cost and behavior. Longer completions gave the model more tokens to solve problems, but also made rambling and code-block spam more likely.</li>
+<li><strong>LoRA rank and target modules</strong> controlled how much the model could adapt while keeping the run feasible on a single GPU.</li>
+</ul>
+<p>These knobs were tightly coupled. Increasing exploration could improve reward diversity, but it also made training less stable. Increasing stability reduced the reward variation that GRPO needed to learn. Most of the tweaking was about managing these trade-offs in a reasonable way.</p>
+<h1 id="setting-up-the-training-harness">Setting up the training harness</h1>
+<p>Now that we have the basic ingredients, we need a recipe to put it all together. The TRL library provides a good interface for doing this with <code>GRPOTrainer</code>.</p>
+<p>At a high level, the training loop looked like this:</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">52
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># 1. Reward function: grade one generated OCaml solution.</span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># Given the model&#39;s completion and the problem&#39;s tests, </span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># return a scalar reward</span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">def</span> <span style="color:#8caaee">grade_ocaml_solution</span>(completion, info, state):
+</span></span><span style="display:flex;"><span>    reward, metadata <span style="color:#99d1db;font-weight:bold">=</span> compute_reward(
+</span></span><span style="display:flex;"><span>        generated_solution<span style="color:#99d1db;font-weight:bold">=</span>completion,
+</span></span><span style="display:flex;"><span>        unit_tests<span style="color:#99d1db;font-weight:bold">=</span>info[<span style="color:#a6d189">&#34;tests&#34;</span>],
+</span></span><span style="display:flex;"><span>        problem_id<span style="color:#99d1db;font-weight:bold">=</span>info[<span style="color:#a6d189">&#34;problem_id&#34;</span>],
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">return</span> reward
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># 2. Load the training dataset from Hugging Face</span>
+</span></span><span style="display:flex;"><span>raw_dataset <span style="color:#99d1db;font-weight:bold">=</span> load_dataset(<span style="color:#a6d189">&#34;kiranpg/ocaml-training-problems&#34;</span>, split<span style="color:#99d1db;font-weight:bold">=</span><span style="color:#a6d189">&#34;train&#34;</span>)
+</span></span><span style="display:flex;"><span>train_dataset <span style="color:#99d1db;font-weight:bold">=</span> raw_dataset<span style="color:#99d1db;font-weight:bold">.</span>map(
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">lambda</span> row: {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6d189">&#34;prompt&#34;</span>: render_prompt(row[<span style="color:#a6d189">&#34;prompt&#34;</span>], problem_id<span style="color:#99d1db;font-weight:bold">=</span>row[<span style="color:#a6d189">&#34;id&#34;</span>]),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6d189">&#34;problem_id&#34;</span>: row[<span style="color:#a6d189">&#34;id&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6d189">&#34;tests&#34;</span>: row[<span style="color:#a6d189">&#34;tests&#34;</span>],
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># 3. TRL reward adapter to score a batch of completions at once</span>
+</span></span><span style="display:flex;"><span><span style="color:#ca9ee6">def</span> <span style="color:#8caaee">reward_func</span>(prompts, completions, problem_id<span style="color:#99d1db;font-weight:bold">=</span><span style="color:#ef9f76">None</span>, <span style="color:#99d1db;font-weight:bold">**</span>columns):
+</span></span><span style="display:flex;"><span>    rewards <span style="color:#99d1db;font-weight:bold">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">for</span> i, completion <span style="color:#99d1db;font-weight:bold">in</span> <span style="color:#99d1db">enumerate</span>(completions):
+</span></span><span style="display:flex;"><span>        info <span style="color:#99d1db;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6d189">&#34;problem_id&#34;</span>: problem_id[i],
+</span></span><span style="display:flex;"><span>            <span style="color:#a6d189">&#34;tests&#34;</span>: columns[<span style="color:#a6d189">&#34;tests&#34;</span>][i],
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        rewards<span style="color:#99d1db;font-weight:bold">.</span>append(
+</span></span><span style="display:flex;"><span>            grade_ocaml_solution(
+</span></span><span style="display:flex;"><span>                completion<span style="color:#99d1db;font-weight:bold">=</span>completion,
+</span></span><span style="display:flex;"><span>                info<span style="color:#99d1db;font-weight:bold">=</span>info,
+</span></span><span style="display:flex;"><span>                state<span style="color:#99d1db;font-weight:bold">=</span>{},
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">return</span> rewards
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># 4. Wire the dataset, reward function, tokenizer, and LoRA config into GRPOTrainer</span>
+</span></span><span style="display:flex;"><span>trainer <span style="color:#99d1db;font-weight:bold">=</span> GRPOTrainer(
+</span></span><span style="display:flex;"><span>    model<span style="color:#99d1db;font-weight:bold">=</span><span style="color:#a6d189">&#34;base-model&#34;</span>,
+</span></span><span style="display:flex;"><span>    train_dataset<span style="color:#99d1db;font-weight:bold">=</span>train_dataset,
+</span></span><span style="display:flex;"><span>    reward_funcs<span style="color:#99d1db;font-weight:bold">=</span>[reward_func],
+</span></span><span style="display:flex;"><span>    args<span style="color:#99d1db;font-weight:bold">=</span>GRPOConfig(<span style="color:#99d1db;font-weight:bold">...</span>),
+</span></span><span style="display:flex;"><span>    processing_class<span style="color:#99d1db;font-weight:bold">=</span>tokenizer,
+</span></span><span style="display:flex;"><span>    peft_config<span style="color:#99d1db;font-weight:bold">=</span>LoraConfig(<span style="color:#99d1db;font-weight:bold">...</span>),
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#737994;font-style:italic"># 5. Start training</span>
+</span></span><span style="display:flex;"><span>trainer<span style="color:#99d1db;font-weight:bold">.</span>train()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="creating-feedback-loops-for-faster-experimentation">Creating feedback loops for faster experimentation</h1>
+<p>It is critical to monitor training closely from the start. Metrics can show you if the run is moving in the right direction. But to understand what the model is actually learning (OCaml constructs, code styling patterns, shortcuts and reward-hacking behavior), pay close attention to the generated completions.</p>
+<p><img src="Screenshot_2026-01-07_at_6.01.04_PM.png" alt="Screenshot 2026-01-07 at 6.01.04 PM.png"></p>
+<p>The most useful metrics that helped me understand a run were:</p>
+<ul>
+<li><strong>Reward distribution</strong>: Mean and standard deviation of rewards within each completion group. The mean tracked progress and the standard deviation showed whether the completions were meaningfully different.</li>
+<li><strong>Policy loss</strong>: GRPO objective value being optimized. Near-zero values for long stretches usually meant little learning signal while sharp spikes suggested unstable updates.</li>
+<li><strong>Gradient norm</strong>: Size of model update for each step. Spikes meant unstable training while near-zero values meant the model was barely changing.</li>
+<li><strong>Learning rate</strong>: How big a step the optimizer takes when updating the model. Higher values meant faster learning that could become unstable while very low values meant slow or no learning.</li>
+<li><strong>Entropy</strong>: Variation in the model’s choice of tokens. Higher entropy meant more exploration while very low entropy meant the model was becoming predictable.</li>
+<li><strong>KL divergence</strong>: Measure of divergence between the trained policy and the reference policy. High KL meant the model was drifting aggressively from the base model — a sign of learning, but also hinting at instability or reward hacking. Low KL meant the model was staying close to its original behavior, which was safer but could also mean it was not learning much.</li>
+<li><strong>Fraction zero reward std</strong>: Fraction of prompts where all generated completions received identical rewards. High values meant GRPO had little signal to learn from. A low value meant more reward diversity, giving the model more signal to learn from.</li>
+<li><strong>Mean completion length</strong>: Average length of generated completion. Increasing lengths often meant rambling or max-token behavior while sharp drops indicated collapse.</li>
+<li><strong>Cumulative error breakdown</strong>: Breakdown of failures across reward components such as type-check, compilation, and passing tests. Changes in the breakdown showed whether the model was improving in the right direction or optimizing one part of the reward pipeline.</li>
+</ul>
+<h1 id="training-impact-on-model-capabilities">Training Impact on Model Capabilities</h1>
+<p>On a synthetic evaluation set of 1k problems (<a href="https://huggingface.co/datasets/nilenso/ocaml-eval-problems">nilenso/ocaml-eval-problems</a>) adapted from multiple sources, the trained model generated <em>more correct solutions</em> and <em>much more compilable code</em> than the base model.</p>
+<p><img src="Screenshot_2026-05-05_at_2.17.39_PM.png" alt="Screenshot 2026-05-05 at 2.17.39 PM.png"></p>
+<p>The biggest shift was not just in pass rate, but in <em>failure mode</em>. The base model often failed at the type/syntax stage, while the trained model moved many of those attempts into compiled-but-test-failed territory. That meant the model was producing code that was closer to executable OCaml, even when it was still wrong.</p>
+<p>The trained model solved more easy and medium difficulty problems and made a small improvement solving a hard problem. The bigger win, however, was in producing more valid code: it compiled seven of every ten attempts compared with two out of ten for the base model.</p>
+<p><img src="Screenshot_2026-05-05_at_2.18.36_PM.png" alt="Screenshot 2026-05-05 at 2.18.36 PM.png"></p>
+<h3 id="shifting-towards-a-more-functional-style">Shifting towards a more functional style</h3>
+<p>Along with the improvement in writing valid code, the trained model started favoring a more functional style for solving problems. Overall, imperative solutions became rarer, dropping from 7% to 2%.</p>
+<p><img src="Screenshot_2026-05-05_at_2.19.38_PM.png" alt="Screenshot 2026-05-05 at 2.19.38 PM.png"></p>
+<p>Here’s an example solution that hints at the shift:</p>
+<p>Base</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ocaml" data-lang="ocaml"><span style="display:flex;"><span><span style="color:#ca9ee6">let</span> get_exchange_rate <span style="color:#99d1db;font-weight:bold">(</span>arg1 <span style="color:#99d1db;font-weight:bold">:</span> <span style="color:#e78284">string</span> <span style="color:#e78284">list</span><span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#99d1db;font-weight:bold">:</span> <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#e78284">string</span> <span style="color:#99d1db;font-weight:bold">*</span> <span style="color:#ca9ee6">&#39;</span>a<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#e78284">list</span> <span style="color:#99d1db;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ca9ee6">let</span> rates <span style="color:#99d1db;font-weight:bold">=</span> ref <span style="color:#99d1db">[]</span> <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ef9f76">List</span>.iter <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#ca9ee6">fun</span> cmd <span style="color:#99d1db;font-weight:bold">-&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">let</span> parts <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">String</span>.split_on_comma cmd <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">let</span> source <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">List</span>.nth parts 0 <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">let</span> target <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">List</span>.nth parts 1 <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">let</span> rate <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">List</span>.nth parts 2 <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">if</span> rate <span style="color:#99d1db;font-weight:bold">&lt;&gt;</span> <span style="color:#a6d189">&#34;&#34;</span> <span style="color:#ca9ee6">then</span>
+</span></span><span style="display:flex;"><span>      rates <span style="color:#99d1db;font-weight:bold">:=</span> <span style="color:#99d1db;font-weight:bold">(</span>source <span style="color:#99d1db;font-weight:bold">^</span> <span style="color:#a6d189">&#34;-&#34;</span> <span style="color:#99d1db;font-weight:bold">^</span> target<span style="color:#99d1db;font-weight:bold">,</span> <span style="color:#e78284">float</span> rate<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#99d1db;font-weight:bold">::</span> <span style="color:#99d1db;font-weight:bold">!</span>rates
+</span></span><span style="display:flex;"><span>  <span style="color:#99d1db;font-weight:bold">)</span> arg1<span style="color:#99d1db;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#99d1db;font-weight:bold">!</span>rates
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Trained</p>
+<div class="highlight"><div style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#838ba7">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#c6d0f5;background-color:#303446;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ocaml" data-lang="ocaml"><span style="display:flex;"><span><span style="color:#ca9ee6">let</span> get_exchange_rate <span style="color:#99d1db;font-weight:bold">(</span>arg1 <span style="color:#99d1db;font-weight:bold">:</span> <span style="color:#e78284">string</span> <span style="color:#e78284">list</span><span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#99d1db;font-weight:bold">:</span> <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#e78284">string</span> <span style="color:#99d1db;font-weight:bold">*</span> <span style="color:#ca9ee6">&#39;</span>a<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#e78284">list</span> <span style="color:#99d1db;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ca9ee6">let</span> <span style="color:#ca9ee6">rec</span> get_exchange_rate_helper <span style="color:#99d1db;font-weight:bold">(</span>commands <span style="color:#99d1db;font-weight:bold">:</span> <span style="color:#e78284">string</span> <span style="color:#e78284">list</span><span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#99d1db;font-weight:bold">:</span> <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#e78284">string</span> <span style="color:#99d1db;font-weight:bold">*</span> <span style="color:#ca9ee6">&#39;</span>a<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#e78284">list</span> <span style="color:#99d1db;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ca9ee6">match</span> commands <span style="color:#ca9ee6">with</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#99d1db;font-weight:bold">|</span> <span style="color:#99d1db">[]</span> <span style="color:#99d1db;font-weight:bold">-&gt;</span> <span style="color:#99d1db">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#99d1db;font-weight:bold">|</span> command <span style="color:#99d1db;font-weight:bold">::</span> rest <span style="color:#99d1db;font-weight:bold">-&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ca9ee6">let</span> parts <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">String</span>.split_on_char <span style="color:#a6d189">&#39;,&#39;</span> command <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ca9ee6">if</span> <span style="color:#ef9f76">List</span>.exists <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#ca9ee6">fun</span> part <span style="color:#99d1db;font-weight:bold">-&gt;</span> <span style="color:#ef9f76">String</span>.starts_with <span style="color:#a6d189">&#34;rate=&#34;</span> part<span style="color:#99d1db;font-weight:bold">)</span> parts <span style="color:#ca9ee6">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ca9ee6">let</span> s <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">List</span>.hd <span style="color:#99d1db;font-weight:bold">(</span> parts <span style="color:#99d1db;font-weight:bold">|&gt;</span> <span style="color:#ef9f76">List</span>.filter <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#ca9ee6">fun</span> part <span style="color:#99d1db;font-weight:bold">-&gt;</span> <span style="color:#ef9f76">String</span>.starts_with <span style="color:#a6d189">&#34;rate=&#34;</span> part<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ca9ee6">let</span> rate <span style="color:#99d1db;font-weight:bold">=</span> <span style="color:#ef9f76">String</span>.sub s 5 <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#ef9f76">String</span>.length s <span style="color:#99d1db;font-weight:bold">-</span> 5<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#99d1db;font-weight:bold">(</span><span style="color:#a6d189">&#34;USD-EUR&#34;</span><span style="color:#99d1db;font-weight:bold">,</span> rate<span style="color:#99d1db;font-weight:bold">)</span> <span style="color:#99d1db;font-weight:bold">::</span> get_exchange_rate_helper rest
+</span></span><span style="display:flex;"><span>      <span style="color:#ca9ee6">else</span>
+</span></span><span style="display:flex;"><span>        get_exchange_rate_helper rest
+</span></span><span style="display:flex;"><span>  <span style="color:#ca9ee6">in</span>
+</span></span><span style="display:flex;"><span>  get_exchange_rate_helper arg1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="code-level-insights">Code-level insights</h3>
+<p>The trained model uses pattern-matching more, avoiding nested conditionals and unnecessary or premature <code>failwith &quot;...&quot;</code>. It uses fewer imperative constructs (<code>for</code> loops, <code>ref</code> and bang dereferences, and <code>:=</code> assignments), and often prefers tail-recursive helpers over the quadratic non-tail-recursive patterns that the base model uses.</p>
+<p><img src="96ae03da-8653-4300-84d5-ad94849b98e1.png" alt="Screenshot 2026-05-02 at 5.37.53 PM.png"></p>
+<p>In an interesting example, the base model catches failures inside a mapper function and re-raises them with <code>failwith</code>, which breaks the entire processing flow on any failure. In contrast, the trained model uses the accumulator pattern, ignores the failed input, and continues processing.</p>
+<p><img src="Screenshot_2026-05-04_at_3.51.17_PM.png" alt="Screenshot 2026-05-04 at 3.51.17 PM.png"></p>
+<p>It’s not all sunshine and rainbows, though. The trained model regressed in a few areas. Specifically, it overused recursive helpers for list-shaped problems, while the base often reached for concise <code>List</code> functions. For example, while the base model uses <code>List.nth/hd</code> for indexing and <code>List.fold/map/filter</code> for processing, the trained model prefers manual list traversal using recursion, decomposition, and pattern-matching.</p>
+<p><img src="Screenshot_2026-05-04_at_3.17.18_PM.png" alt="Screenshot 2026-05-04 at 3.17.18 PM.png"></p>
+<p><img src="Screenshot_2026-05-04_at_3.20.55_PM.png" alt="Screenshot 2026-05-04 at 3.20.55 PM.png"></p>
+<p>While correctness was the only training objective, it’s interesting to see how the model arrived at a consistent <em>style</em>: explicit recursion, pattern matching, fewer mutations, and fewer stdlib shortcuts (sometimes to its detriment).</p>
+<h1 id="learnings">Learnings</h1>
+<p>This entire experiment felt less like training a model and more like hardening the reward functions from being gamed by the model. In hindsight, there are a few things I wish I knew from the start:</p>
+<p><strong>Reward shaping is a double-edged sword</strong></p>
+<p>The model tends to choose the <em>cheapest</em> path to seek a reward. Expect a lot of reward-hacking behavior.</p>
+<ul>
+<li>The model found multiple cheap shortcuts before it learned useful OCaml behavior. One run collapsed into <code>(* BEGIN *)</code> / <code>(* END *)</code> marker spam. Another fell back to natural-language responses and junk text. Another discovered markdown code-block spam because a reward bug gave malformed fenced output a consistent partial score.</li>
+<li>Instruction-tuned models can bring hidden conversational failure modes into RL training. When the model was unsure about OCaml, it often reached for responses like “I apologize&hellip;” or “To solve this&hellip;” instead of code. Since those outputs could receive the same <code>0.0</code> reward as a serious-but-failed code attempt, the reward function initially gave the model little reason to stop doing it. The takeaway is that a <code>0.0</code> reward could mean gibberish output or an almost correct solution. Look at the generated completions along with the metrics to capture patterns to penalize.</li>
+<li>When working with a small base model that had a weak knowledge of OCaml, using binary rewards resulted in a tiny pass ratio that provided little signal to learn from. The model was unable to distinguish between gibberish response vs a near-miss. Using graduated rewards emphasized this distinction and gave the model a usable signal to follow.</li>
+<li>The graduated rewards, while helpful, also created local optima. The model often settled for consistent mediocre rewards rather than risking correct solutions.</li>
+<li>Managing reward diversity and training stability is a balancing act: too little diversity led to minimal learning but increasing variance increased the risk of unstable updates. Combining a penalty multiplier with gradient clipping provided the most robust solution.</li>
+<li>The model got better at producing valid code that passed tests, but regressed on using idiomatic stdlib functions.</li>
+</ul>
+<p>Diagnosing the reward pipeline — inspecting the actual completions, analyzing failures, and making judgements — took most of my time and effort.</p>
+<p><strong>Optimize for fast feedback loops</strong></p>
+<p>Make the training process more <em>observable</em> to create effective feedback loops to detect failure modes and shape training.</p>
+<ul>
+<li>The most valuable metric wasn’t loss, it was whether different samples for the same prompt got different rewards at all.</li>
+<li>The training can regress model behavior in unexpected ways. For example, the model learned a &ldquo;helper-function&rdquo; idiom during RLVR and now over-applies it — sometimes breaking a problem the base solved in three lines.</li>
+<li>Training checkpoints are important for experimentation. In case of a model collapse, it allows going back in time (epoch) and resuming with different settings. Starting from scratch for every experiment/tweak is both exhausting and expensive (as I learned the hard way).</li>
+</ul>
+<p><strong>Use AI to accelerate iteration</strong></p>
+<p>Using AI can be a productivity multiplier. It helped me think at a higher level to design the training and inform my judgement. In practice, that meant using it as a research assistant across the loop:</p>
+<ul>
+<li>Generating synthetic datasets for training and evaluation</li>
+<li>Setting up the training loop after providing a few design decisions</li>
+<li>Suggesting initial hyperparameters based on model and environment constraints</li>
+<li>Debugging PyTorch &lt;&gt; CUDA version mismatches</li>
+<li>Building and Iterating on training and evaluation dashboards</li>
+<li>Understanding training progress and learning trends from training logs</li>
+<li>Doing a thorough analysis of failure modes and preparing RCAs with action items</li>
+</ul>
+<p>AI accelerated the experimentation, but reward shaping still required manual inspection and judgement.</p>
+<p><strong>Training longer != learning more</strong></p>
+<ul>
+<li>With ~10,000 training problems and GRPO&rsquo;s group‑relative advantage, the model converged within 1.5 epochs with very little learning after. In fact, more epochs can reinforce existing shortcuts if the reward signal has stopped producing meaningful variation.</li>
+<li>Evaluate intermediate checkpoints because the best model may appear before the final step</li>
+<li>The goal is not to train until the run finishes, but to notice when the model has <em>stopped improving</em></li>
+</ul>
+<h1 id="closing-thoughts">Closing Thoughts</h1>
+<p>Revisiting the hypothesis from earlier:</p>
+<blockquote>
+<p><em>“Can training a small local model on OCaml code generation using RLVR and GRPO give me a much better model that can help me explore the language and write better OCaml code?”</em></p>
+</blockquote>
+<p>I think, yes. The model did improve significantly in writing more valid/compilable code, and somewhat more correct code, but with caveats. The biggest takeaway for me is that <em>RLVR is less about simply training a model and more about designing the right incentives and feedback loops to enable learning.</em></p>
+<p>All of this took a while, but it was a fun and frustrating experiment to explore the practicalities of improving the capabilities of a small local model. The experience taught me a lot more than I had anticipated.</p>
+<p>The trained model is available as <a href="https://huggingface.co/nilenso/Qwen2.5-OCamler-1.5B-Instruct">nilenso/Qwen2.5-OCamler-1.5B-Instruct</a> on Hugging Face, and the training code and evaluation runner/viewer are available on GitHub at <a href="https://github.com/nilenso/grpo-trainer">nilenso/grpo-trainer</a>.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://kirang.in/post/epicurus-and-alternate-education/"
+      ><span>Epicurus and Alternate Education</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <div class="giscus mt-24"></div>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="kirang89/kirang.in"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNjU2NzY2MTY="
+    data-category="General"
+    data-category-id="DIC_kwDOCeAGSM4Cfo4J"
+    data-mapping="title"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2026
+    <a class="link" href="http://kirang.in/">Kiran Gangadharan</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
